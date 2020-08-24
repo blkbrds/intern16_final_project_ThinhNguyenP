@@ -52,13 +52,93 @@
 		74A4195A24F3B7B400D1C1D6 /* TheRestaurants */ = {
 			isa = PBXGroup;
 			children = (
-				74A4195B24F3B7B400D1C1D6 /* AppDelegate.swift */,
-				74A4195D24F3B7B400D1C1D6 /* SceneDelegate.swift */,
-				74A4196424F3B7BC00D1C1D6 /* Assets.xcassets */,
-				74A4196624F3B7BC00D1C1D6 /* LaunchScreen.storyboard */,
-				74A4196924F3B7BC00D1C1D6 /* Info.plist */,
+				74A4197224F3C0DC00D1C1D6 /* Resources */,
+				74A4197124F3C0CF00D1C1D6 /* View */,
+				74A4197024F3C0C300D1C1D6 /* Library */,
+				74A4196F24F3C0AF00D1C1D6 /* Support */,
 			);
 			path = TheRestaurants;
+			sourceTree = "<group>";
+		};
+		74A4196F24F3C0AF00D1C1D6 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				74A4196924F3B7BC00D1C1D6 /* Info.plist */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
+		74A4197024F3C0C300D1C1D6 /* Library */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Library;
+			sourceTree = "<group>";
+		};
+		74A4197124F3C0CF00D1C1D6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				74A4195B24F3B7B400D1C1D6 /* AppDelegate.swift */,
+				74A4195D24F3B7B400D1C1D6 /* SceneDelegate.swift */,
+				74A4197424F3C13100D1C1D6 /* Detail */,
+				74A4197824F3C15500D1C1D6 /* Favorite */,
+				74A4197324F3C12900D1C1D6 /* Home */,
+				74A4197524F3C13800D1C1D6 /* Introduce */,
+				74A4197624F3C14200D1C1D6 /* Map */,
+				74A4197724F3C14D00D1C1D6 /* Search */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		74A4197224F3C0DC00D1C1D6 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				74A4196624F3B7BC00D1C1D6 /* LaunchScreen.storyboard */,
+				74A4196424F3B7BC00D1C1D6 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		74A4197324F3C12900D1C1D6 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		74A4197424F3C13100D1C1D6 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		74A4197524F3C13800D1C1D6 /* Introduce */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Introduce;
+			sourceTree = "<group>";
+		};
+		74A4197624F3C14200D1C1D6 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
+		74A4197724F3C14D00D1C1D6 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		74A4197824F3C15500D1C1D6 /* Favorite */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Favorite;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
