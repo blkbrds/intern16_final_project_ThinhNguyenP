@@ -11,6 +11,18 @@
 		74A4195E24F3B7B400D1C1D6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A4195D24F3B7B400D1C1D6 /* SceneDelegate.swift */; };
 		74A4196524F3B7BC00D1C1D6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 74A4196424F3B7BC00D1C1D6 /* Assets.xcassets */; };
 		74A4196824F3B7BC00D1C1D6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74A4196624F3B7BC00D1C1D6 /* LaunchScreen.storyboard */; };
+		74A4197B24F3C1A600D1C1D6 /* IntroduceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A4197924F3C1A600D1C1D6 /* IntroduceViewController.swift */; };
+		74A4197C24F3C1A600D1C1D6 /* IntroduceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74A4197A24F3C1A600D1C1D6 /* IntroduceViewController.xib */; };
+		74A4197F24F3C1C300D1C1D6 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A4197D24F3C1C300D1C1D6 /* HomeViewController.swift */; };
+		74A4198024F3C1C300D1C1D6 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74A4197E24F3C1C300D1C1D6 /* HomeViewController.xib */; };
+		74A4198324F3C1DF00D1C1D6 /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A4198124F3C1DF00D1C1D6 /* FavoriteViewController.swift */; };
+		74A4198424F3C1DF00D1C1D6 /* FavoriteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74A4198224F3C1DF00D1C1D6 /* FavoriteViewController.xib */; };
+		74A4198724F3C1F500D1C1D6 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A4198524F3C1F500D1C1D6 /* DetailViewController.swift */; };
+		74A4198824F3C1F500D1C1D6 /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74A4198624F3C1F500D1C1D6 /* DetailViewController.xib */; };
+		74A4198B24F3C20300D1C1D6 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A4198924F3C20300D1C1D6 /* MapViewController.swift */; };
+		74A4198C24F3C20300D1C1D6 /* MapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74A4198A24F3C20300D1C1D6 /* MapViewController.xib */; };
+		74A4198F24F3C21B00D1C1D6 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A4198D24F3C21B00D1C1D6 /* SearchViewController.swift */; };
+		74A4199024F3C21B00D1C1D6 /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74A4198E24F3C21B00D1C1D6 /* SearchViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +32,18 @@
 		74A4196424F3B7BC00D1C1D6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		74A4196724F3B7BC00D1C1D6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		74A4196924F3B7BC00D1C1D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		74A4197924F3C1A600D1C1D6 /* IntroduceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroduceViewController.swift; sourceTree = "<group>"; };
+		74A4197A24F3C1A600D1C1D6 /* IntroduceViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IntroduceViewController.xib; sourceTree = "<group>"; };
+		74A4197D24F3C1C300D1C1D6 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		74A4197E24F3C1C300D1C1D6 /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
+		74A4198124F3C1DF00D1C1D6 /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
+		74A4198224F3C1DF00D1C1D6 /* FavoriteViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoriteViewController.xib; sourceTree = "<group>"; };
+		74A4198524F3C1F500D1C1D6 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		74A4198624F3C1F500D1C1D6 /* DetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
+		74A4198924F3C20300D1C1D6 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		74A4198A24F3C20300D1C1D6 /* MapViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MapViewController.xib; sourceTree = "<group>"; };
+		74A4198D24F3C21B00D1C1D6 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		74A4198E24F3C21B00D1C1D6 /* SearchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +126,8 @@
 		74A4197324F3C12900D1C1D6 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				74A4197D24F3C1C300D1C1D6 /* HomeViewController.swift */,
+				74A4197E24F3C1C300D1C1D6 /* HomeViewController.xib */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -109,6 +135,8 @@
 		74A4197424F3C13100D1C1D6 /* Detail */ = {
 			isa = PBXGroup;
 			children = (
+				74A4198524F3C1F500D1C1D6 /* DetailViewController.swift */,
+				74A4198624F3C1F500D1C1D6 /* DetailViewController.xib */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -116,6 +144,8 @@
 		74A4197524F3C13800D1C1D6 /* Introduce */ = {
 			isa = PBXGroup;
 			children = (
+				74A4197924F3C1A600D1C1D6 /* IntroduceViewController.swift */,
+				74A4197A24F3C1A600D1C1D6 /* IntroduceViewController.xib */,
 			);
 			path = Introduce;
 			sourceTree = "<group>";
@@ -123,6 +153,8 @@
 		74A4197624F3C14200D1C1D6 /* Map */ = {
 			isa = PBXGroup;
 			children = (
+				74A4198924F3C20300D1C1D6 /* MapViewController.swift */,
+				74A4198A24F3C20300D1C1D6 /* MapViewController.xib */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -130,6 +162,8 @@
 		74A4197724F3C14D00D1C1D6 /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				74A4198D24F3C21B00D1C1D6 /* SearchViewController.swift */,
+				74A4198E24F3C21B00D1C1D6 /* SearchViewController.xib */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -137,6 +171,8 @@
 		74A4197824F3C15500D1C1D6 /* Favorite */ = {
 			isa = PBXGroup;
 			children = (
+				74A4198124F3C1DF00D1C1D6 /* FavoriteViewController.swift */,
+				74A4198224F3C1DF00D1C1D6 /* FavoriteViewController.xib */,
 			);
 			path = Favorite;
 			sourceTree = "<group>";
@@ -199,8 +235,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				74A4197C24F3C1A600D1C1D6 /* IntroduceViewController.xib in Resources */,
+				74A4198824F3C1F500D1C1D6 /* DetailViewController.xib in Resources */,
 				74A4196824F3B7BC00D1C1D6 /* LaunchScreen.storyboard in Resources */,
 				74A4196524F3B7BC00D1C1D6 /* Assets.xcassets in Resources */,
+				74A4198C24F3C20300D1C1D6 /* MapViewController.xib in Resources */,
+				74A4198424F3C1DF00D1C1D6 /* FavoriteViewController.xib in Resources */,
+				74A4199024F3C21B00D1C1D6 /* SearchViewController.xib in Resources */,
+				74A4198024F3C1C300D1C1D6 /* HomeViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -211,8 +253,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				74A4197B24F3C1A600D1C1D6 /* IntroduceViewController.swift in Sources */,
 				74A4195C24F3B7B400D1C1D6 /* AppDelegate.swift in Sources */,
+				74A4198F24F3C21B00D1C1D6 /* SearchViewController.swift in Sources */,
 				74A4195E24F3B7B400D1C1D6 /* SceneDelegate.swift in Sources */,
+				74A4198724F3C1F500D1C1D6 /* DetailViewController.swift in Sources */,
+				74A4197F24F3C1C300D1C1D6 /* HomeViewController.swift in Sources */,
+				74A4198324F3C1DF00D1C1D6 /* FavoriteViewController.swift in Sources */,
+				74A4198B24F3C20300D1C1D6 /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
