@@ -295,6 +295,7 @@
 				74A4195524F3B7B400D1C1D6 /* Frameworks */,
 				74A4195624F3B7B400D1C1D6 /* Resources */,
 				6D13F4AC48040C4558EE6866 /* [CP] Embed Pods Frameworks */,
+				74A419B224F3D7EB00D1C1D6 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -395,6 +396,23 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TheRestaurants/Pods-TheRestaurants-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		74A419B224F3D7EB00D1C1D6 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 

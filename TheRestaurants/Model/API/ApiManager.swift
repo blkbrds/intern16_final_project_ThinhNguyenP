@@ -16,8 +16,9 @@ typealias Completion<Value> = (Result<Value>) -> Void
 let api = ApiManager()
 
 final class ApiManager {
+
     let session = Session()
-    
+
     var defaultHTTPHeaders: [String: String] {
         var headers: [String: String] = [:]
         headers["user-key"] = App.Key.userKey
