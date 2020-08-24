@@ -35,6 +35,9 @@
 		74A419A724F3CD7A00D1C1D6 /* URLExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A419A624F3CD7A00D1C1D6 /* URLExt.swift */; };
 		74A419A924F3CE2500D1C1D6 /* StringExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A419A824F3CE2500D1C1D6 /* StringExt.swift */; };
 		74A419AB24F3CF1700D1C1D6 /* DataExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A419AA24F3CF1700D1C1D6 /* DataExt.swift */; };
+		74A419AD24F3CFDB00D1C1D6 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A419AC24F3CFDB00D1C1D6 /* String.swift */; };
+		74A419AF24F3CFF300D1C1D6 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A419AE24F3CFF300D1C1D6 /* App.swift */; };
+		74A419B124F3D02900D1C1D6 /* Key.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A419B024F3D02900D1C1D6 /* Key.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,6 +71,9 @@
 		74A419A624F3CD7A00D1C1D6 /* URLExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLExt.swift; sourceTree = "<group>"; };
 		74A419A824F3CE2500D1C1D6 /* StringExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExt.swift; sourceTree = "<group>"; };
 		74A419AA24F3CF1700D1C1D6 /* DataExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataExt.swift; sourceTree = "<group>"; };
+		74A419AC24F3CFDB00D1C1D6 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		74A419AE24F3CFF300D1C1D6 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
+		74A419B024F3D02900D1C1D6 /* Key.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Key.swift; sourceTree = "<group>"; };
 		904414929699BD83F02E1C1E /* Pods_TheRestaurants.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TheRestaurants.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAE73ED7E64C5EBE34936D9A /* Pods-TheRestaurants.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheRestaurants.release.xcconfig"; path = "Target Support Files/Pods-TheRestaurants/Pods-TheRestaurants.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -237,13 +243,13 @@
 		74A4199324F3C28B00D1C1D6 /* API */ = {
 			isa = PBXGroup;
 			children = (
-				74A419A124F3CCD200D1C1D6 /* HTTPStatus.swift */,
 				74A4199424F3C64E00D1C1D6 /* Api.swift */,
 				74A4199624F3C6B100D1C1D6 /* ApiManager.swift */,
 				74A4199824F3C78A00D1C1D6 /* Error.swift */,
+				74A419A124F3CCD200D1C1D6 /* HTTPStatus.swift */,
 				74A4199A24F3C80700D1C1D6 /* RequestSerializer.swift */,
-				74A4199C24F3CA2E00D1C1D6 /* Session.swift */,
 				74A4199F24F3CB2300D1C1D6 /* ResponseSerializer.swift */,
+				74A4199C24F3CA2E00D1C1D6 /* Session.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -251,6 +257,9 @@
 		74A4199E24F3CA5500D1C1D6 /* Defines */ = {
 			isa = PBXGroup;
 			children = (
+				74A419AC24F3CFDB00D1C1D6 /* String.swift */,
+				74A419AE24F3CFF300D1C1D6 /* App.swift */,
+				74A419B024F3D02900D1C1D6 /* Key.swift */,
 			);
 			path = Defines;
 			sourceTree = "<group>";
@@ -396,6 +405,7 @@
 			files = (
 				74A419A224F3CCD200D1C1D6 /* HTTPStatus.swift in Sources */,
 				74A4199524F3C64E00D1C1D6 /* Api.swift in Sources */,
+				74A419AD24F3CFDB00D1C1D6 /* String.swift in Sources */,
 				74A4197B24F3C1A600D1C1D6 /* IntroduceViewController.swift in Sources */,
 				74A4199724F3C6B100D1C1D6 /* ApiManager.swift in Sources */,
 				74A419A924F3CE2500D1C1D6 /* StringExt.swift in Sources */,
@@ -405,6 +415,8 @@
 				74A419A524F3CD4F00D1C1D6 /* NSErrorExt.swift in Sources */,
 				74A419AB24F3CF1700D1C1D6 /* DataExt.swift in Sources */,
 				74A419A024F3CB2300D1C1D6 /* ResponseSerializer.swift in Sources */,
+				74A419AF24F3CFF300D1C1D6 /* App.swift in Sources */,
+				74A419B124F3D02900D1C1D6 /* Key.swift in Sources */,
 				74A4195E24F3B7B400D1C1D6 /* SceneDelegate.swift in Sources */,
 				74A4199D24F3CA2E00D1C1D6 /* Session.swift in Sources */,
 				74A4198724F3C1F500D1C1D6 /* DetailViewController.swift in Sources */,

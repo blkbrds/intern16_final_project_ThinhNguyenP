@@ -20,7 +20,7 @@ final class ApiManager {
     
     var defaultHTTPHeaders: [String: String] {
         var headers: [String: String] = [:]
-        headers["user-key"] =  "1a925bd3d2d1dedf236fe96cdb73fbe5"
+        headers["user-key"] = App.Key.userKey
         return headers
     }
 }
