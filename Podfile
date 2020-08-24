@@ -6,7 +6,7 @@ target 'TheRestaurants' do
   use_frameworks!
 
   # Pods for TheRestaurants
-  pod 'Alamofire'
+  pod 'Alamofire', '4.8.2'
   pod 'ObjectMapper'
   pod 'SwiftLint'
 	

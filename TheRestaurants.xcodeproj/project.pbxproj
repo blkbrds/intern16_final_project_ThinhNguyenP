@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -24,6 +24,17 @@
 		74A4198C24F3C20300D1C1D6 /* MapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74A4198A24F3C20300D1C1D6 /* MapViewController.xib */; };
 		74A4198F24F3C21B00D1C1D6 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A4198D24F3C21B00D1C1D6 /* SearchViewController.swift */; };
 		74A4199024F3C21B00D1C1D6 /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74A4198E24F3C21B00D1C1D6 /* SearchViewController.xib */; };
+		74A4199524F3C64E00D1C1D6 /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A4199424F3C64E00D1C1D6 /* Api.swift */; };
+		74A4199724F3C6B100D1C1D6 /* ApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A4199624F3C6B100D1C1D6 /* ApiManager.swift */; };
+		74A4199924F3C78A00D1C1D6 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A4199824F3C78A00D1C1D6 /* Error.swift */; };
+		74A4199B24F3C80700D1C1D6 /* RequestSerializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A4199A24F3C80700D1C1D6 /* RequestSerializer.swift */; };
+		74A4199D24F3CA2E00D1C1D6 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A4199C24F3CA2E00D1C1D6 /* Session.swift */; };
+		74A419A024F3CB2300D1C1D6 /* ResponseSerializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A4199F24F3CB2300D1C1D6 /* ResponseSerializer.swift */; };
+		74A419A224F3CCD200D1C1D6 /* HTTPStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A419A124F3CCD200D1C1D6 /* HTTPStatus.swift */; };
+		74A419A524F3CD4F00D1C1D6 /* NSErrorExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A419A424F3CD4F00D1C1D6 /* NSErrorExt.swift */; };
+		74A419A724F3CD7A00D1C1D6 /* URLExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A419A624F3CD7A00D1C1D6 /* URLExt.swift */; };
+		74A419A924F3CE2500D1C1D6 /* StringExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A419A824F3CE2500D1C1D6 /* StringExt.swift */; };
+		74A419AB24F3CF1700D1C1D6 /* DataExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A419AA24F3CF1700D1C1D6 /* DataExt.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +57,17 @@
 		74A4198A24F3C20300D1C1D6 /* MapViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MapViewController.xib; sourceTree = "<group>"; };
 		74A4198D24F3C21B00D1C1D6 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		74A4198E24F3C21B00D1C1D6 /* SearchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
+		74A4199424F3C64E00D1C1D6 /* Api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
+		74A4199624F3C6B100D1C1D6 /* ApiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiManager.swift; sourceTree = "<group>"; };
+		74A4199824F3C78A00D1C1D6 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
+		74A4199A24F3C80700D1C1D6 /* RequestSerializer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestSerializer.swift; sourceTree = "<group>"; };
+		74A4199C24F3CA2E00D1C1D6 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
+		74A4199F24F3CB2300D1C1D6 /* ResponseSerializer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseSerializer.swift; sourceTree = "<group>"; };
+		74A419A124F3CCD200D1C1D6 /* HTTPStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPStatus.swift; sourceTree = "<group>"; };
+		74A419A424F3CD4F00D1C1D6 /* NSErrorExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSErrorExt.swift; sourceTree = "<group>"; };
+		74A419A624F3CD7A00D1C1D6 /* URLExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLExt.swift; sourceTree = "<group>"; };
+		74A419A824F3CE2500D1C1D6 /* StringExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExt.swift; sourceTree = "<group>"; };
+		74A419AA24F3CF1700D1C1D6 /* DataExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataExt.swift; sourceTree = "<group>"; };
 		904414929699BD83F02E1C1E /* Pods_TheRestaurants.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TheRestaurants.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAE73ED7E64C5EBE34936D9A /* Pods-TheRestaurants.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheRestaurants.release.xcconfig"; path = "Target Support Files/Pods-TheRestaurants/Pods-TheRestaurants.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -68,7 +90,6 @@
 				17D5525B66B4BE20FAD3B95A /* Pods-TheRestaurants.debug.xcconfig */,
 				FAE73ED7E64C5EBE34936D9A /* Pods-TheRestaurants.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -93,6 +114,7 @@
 		74A4195A24F3B7B400D1C1D6 /* TheRestaurants */ = {
 			isa = PBXGroup;
 			children = (
+				74A4199E24F3CA5500D1C1D6 /* Defines */,
 				74A4199124F3C25C00D1C1D6 /* Model */,
 				74A4197024F3C0C300D1C1D6 /* Library */,
 				74A4197224F3C0DC00D1C1D6 /* Resources */,
@@ -113,6 +135,7 @@
 		74A4197024F3C0C300D1C1D6 /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				74A419A324F3CD2D00D1C1D6 /* Extensions */,
 			);
 			path = Library;
 			sourceTree = "<group>";
@@ -214,8 +237,33 @@
 		74A4199324F3C28B00D1C1D6 /* API */ = {
 			isa = PBXGroup;
 			children = (
+				74A419A124F3CCD200D1C1D6 /* HTTPStatus.swift */,
+				74A4199424F3C64E00D1C1D6 /* Api.swift */,
+				74A4199624F3C6B100D1C1D6 /* ApiManager.swift */,
+				74A4199824F3C78A00D1C1D6 /* Error.swift */,
+				74A4199A24F3C80700D1C1D6 /* RequestSerializer.swift */,
+				74A4199C24F3CA2E00D1C1D6 /* Session.swift */,
+				74A4199F24F3CB2300D1C1D6 /* ResponseSerializer.swift */,
 			);
 			path = API;
+			sourceTree = "<group>";
+		};
+		74A4199E24F3CA5500D1C1D6 /* Defines */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Defines;
+			sourceTree = "<group>";
+		};
+		74A419A324F3CD2D00D1C1D6 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				74A419A424F3CD4F00D1C1D6 /* NSErrorExt.swift */,
+				74A419A624F3CD7A00D1C1D6 /* URLExt.swift */,
+				74A419A824F3CE2500D1C1D6 /* StringExt.swift */,
+				74A419AA24F3CF1700D1C1D6 /* DataExt.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		8A3B1051CDE5BD324E48D56F /* Frameworks */ = {
@@ -346,13 +394,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				74A419A224F3CCD200D1C1D6 /* HTTPStatus.swift in Sources */,
+				74A4199524F3C64E00D1C1D6 /* Api.swift in Sources */,
 				74A4197B24F3C1A600D1C1D6 /* IntroduceViewController.swift in Sources */,
+				74A4199724F3C6B100D1C1D6 /* ApiManager.swift in Sources */,
+				74A419A924F3CE2500D1C1D6 /* StringExt.swift in Sources */,
+				74A4199924F3C78A00D1C1D6 /* Error.swift in Sources */,
 				74A4195C24F3B7B400D1C1D6 /* AppDelegate.swift in Sources */,
 				74A4198F24F3C21B00D1C1D6 /* SearchViewController.swift in Sources */,
+				74A419A524F3CD4F00D1C1D6 /* NSErrorExt.swift in Sources */,
+				74A419AB24F3CF1700D1C1D6 /* DataExt.swift in Sources */,
+				74A419A024F3CB2300D1C1D6 /* ResponseSerializer.swift in Sources */,
 				74A4195E24F3B7B400D1C1D6 /* SceneDelegate.swift in Sources */,
+				74A4199D24F3CA2E00D1C1D6 /* Session.swift in Sources */,
 				74A4198724F3C1F500D1C1D6 /* DetailViewController.swift in Sources */,
 				74A4197F24F3C1C300D1C1D6 /* HomeViewController.swift in Sources */,
 				74A4198324F3C1DF00D1C1D6 /* FavoriteViewController.swift in Sources */,
+				74A419A724F3CD7A00D1C1D6 /* URLExt.swift in Sources */,
+				74A4199B24F3C80700D1C1D6 /* RequestSerializer.swift in Sources */,
 				74A4198B24F3C20300D1C1D6 /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -491,7 +550,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = TheRestaurants/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/TheRestaurants/Support/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -509,7 +568,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = TheRestaurants/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/TheRestaurants/Support/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
