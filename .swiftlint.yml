@@ -1,0 +1,137 @@
+reporter: xcode
+opt_in_rules:
+  - force_unwrapping
+  - vertical_whitespace
+  - closure_end_indentation
+  - closure_spacing
+  - explicit_init
+  - first_where
+  - number_separator
+  - object_literal
+  - operator_usage_whitespace
+  - overridden_super_call
+  - prohibited_super_call
+  - redundant_nil_coalescing
+disabled_rules:
+  - todo
+  - unused_optional_binding
+excluded:
+  - Pods
+  - vendor
+  - TheRestaurants/Model/API/Error.swift
+  - TheRestaurants/Model/API/ResponseSerializer.swift
+  - TheRestaurants/Model/API/RequestSerializer.swift
+  - TheRestaurants/Model/API/HTTPStatus.swift
+cyclomatic_complexity:
+  warning: 18
+line_length: 132
+file_length: 1050
+force_unwrapping: error
+function_parameter_count:
+  - 6
+  - 8
+function_body_length:
+  - 90
+  - 100
+type_body_length:
+  - 450
+  - 500
+type_name:
+  min_length:
+    warning: 2
+  max_length:
+    warning: 40
+    error: 60
+identifier_name:
+  min_length:
+    warning: 1
+  max_length:
+    warning: 40
+    error: 60
+identifier_name:
+  min_length:
+    warning: 1
+  max_length:
+    warning: 45
+    error: 60
+nesting:
+  type_level:
+    warning: 3
+    error: 6
+custom_rules:
+  empty_count_zero:
+    name: "Empty Count Violation"
+    regex: (\.count\s*(==|!=|<|<=|>|>=)\s*0)
+    message: "Prefer checking `isEmpty` over comparing `count` to zero. "
+    severity: warning
+  delegate:
+    name: "delegate"
+    regex: "(  var delegate)"
+    message: "Please use `weak` for `delegate`. "
+    severity: error
+  comments_space:
+    name: "Space After Comment"
+    regex: (^ *//\w+)
+    message: "There should be a space after //"
+    severity: warning
+    match_kinds: comment
+  multiple_empty_lines:
+    name: "Multiple Empty Lines"
+    regex: "((?: *\n){3,})"
+    message: "There are too many line breaks"
+    severity: warning
+  empty_line:
+    name: "Empty Line"
+    regex: (\}\n +( |class|static|dynamic|@objc|@IBAction|override|private|public|internal){0,}func)
+    message: "Must have an empty line between functions. "
+    severity: warning
+  switch_enum:
+    name: "Switch Enum"
+    regex: (case \w+\.+rawValue:)
+    message: "Don't use enum.rawValue in switch-case. Please convert value to enum first. "
+    severity: error
+  compile_lookup:
+    name: "Compile Lookup"
+    regex: ((var|let) \w+ = \[)
+    message: "You need to give types to the array and dictionary. "
+    severity: error
+  weak_self_usage:
+    name: "Weak Self Usage"
+    regex: (self\?\.)
+    message: "Explicitly extending lifetime is preferred to optional binding. Ex: `guard let this = self else { return }`. "
+    severity: error
+  weak_self_binding:
+    name: "Weak Self Binding"
+    regex: (let (?!this)\w+ = self[, ])
+    message: "Please use `let this = self` instead. "
+    severity: error
+  unowned:
+    name: "Unowned"
+    regex: "(unowned)"
+    message: "Please use `weak` instead. "
+    severity: error
+  vc_suffix:
+    name: "VC Suffix"
+    regex: "(VC )"
+    message: "Please simplify with `vc`. "
+    severity: error
+  empty_string:
+    name: "Empty String"
+    regex: ((!\w+.isNotEmpty)
+    message: "Please use `isEmpty` instead. "
+    severity: error
+  type_first_empty_line:
+    name: "Class Declaration"
+    regex: (class[^\n]+\{\n\s{4}\S)
+    message: "Please insert empty after type declaration. "
+    severity: warning
+  bracket:
+    name: "Bracket"
+    regex: (\}\n{2,}\}|\{\n{2,}\{)
+    message: "No empty line between two open or close brackets. "
+    severity: warning
+  query_string:
+    name: "Query String"
+    regex: ( [=!><]+ \\\(.*\))
+    message: "Donot use the string interpolation syntax for query string. "
+    severity: warning
