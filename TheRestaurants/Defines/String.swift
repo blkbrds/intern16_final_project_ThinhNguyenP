@@ -8,4 +8,6 @@
 
 import Foundation
 
-extension App.String { }
+extension App.String {
+    let test = ""
+}
