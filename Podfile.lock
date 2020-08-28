@@ -1,24 +1,38 @@
 PODS:
   - Alamofire (4.8.2)
   - ObjectMapper (4.2.0)
+  - Realm (5.3.3):
+    - Realm/Headers (= 5.3.3)
+  - Realm/Headers (5.3.3)
+  - RealmSwift (5.3.3):
+    - Realm (= 5.3.3)
+  - SVProgressHUD (2.2.5)
   - SwiftLint (0.39.2)
 
 DEPENDENCIES:
   - Alamofire (= 4.8.2)
   - ObjectMapper
+  - RealmSwift
+  - SVProgressHUD
   - SwiftLint
 
 SPEC REPOS:
   trunk:
     - Alamofire
     - ObjectMapper
+    - Realm
+    - RealmSwift
+    - SVProgressHUD
     - SwiftLint
 
 SPEC CHECKSUMS:
   Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
   ObjectMapper: 1eb41f610210777375fa806bf161dc39fb832b81
+  Realm: 2d57ea355bf8ca2a0964d6bfb38d28d7ff2addf6
+  RealmSwift: 0a709536ecea30eea1d3c514f6ade2ed078dee3c
+  SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   SwiftLint: 22ccbbe3b8008684be5955693bab135e0ed6a447
 
-PODFILE CHECKSUM: b82d5719f1017bbfc4cf251ff97ea6bd3d41dc3f
+PODFILE CHECKSUM: f7685707cca228d5261ab4999df3400c724c15c1
 
 COCOAPODS: 1.9.3
