@@ -10,9 +10,23 @@ import UIKit
 
 class IntroduceViewController: UIViewController {
 
+    var popUpWindow = PopUpViewController()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    @IBAction func chooseCityButtonTouchUpInside(_ sender: Any) {
+      //  popUpWindow
+//        popUpWindow.view.frame = CGRect(x: 0, y: 220, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
+        popUpWindow.modalPresentationStyle = .fullScreen
+        popUpWindow.modalTransitionStyle = .coverVertical
+        self.present(popUpWindow, animated: true)
+        
+        
 
-        // Do any additional setup after loading the view.
+        
+      //  SceneDelegate.shared.changeRoot(root: .tabbar)
+    
     }
 }

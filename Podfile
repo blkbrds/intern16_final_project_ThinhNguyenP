@@ -9,5 +9,7 @@ target 'TheRestaurants' do
   pod 'Alamofire', '4.8.2'
   pod 'ObjectMapper'
   pod 'SwiftLint'
+  pod 'RealmSwift'
+  pod 'SVProgressHUD'
 	
 end
