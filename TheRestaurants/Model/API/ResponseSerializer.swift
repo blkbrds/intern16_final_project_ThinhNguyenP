@@ -63,7 +63,7 @@ extension Request {
             return .success([:])
         }
         
-        guard let data = data, let json = data.toJSON() else {
+        guard let data = data, let json = data.toJSONAny() else {
             return Result.failure(Api.Error.json)
         }
         

@@ -13,10 +13,30 @@ final class Api {
 
     struct Path {
         static let baseURL = "https://developers.zomato.com/api/v2.1"
+       // static let pathURL = "https://developers.zomato.com/api/v2.1/"
+//        static let apiListCities = "\(baseURL)cities?q=keysearch"
+    }
+
+    struct Search {
+//        let key: String
     }
 }
 
-extension Api.Path { }
+extension Api.Path {
+    
+    struct Search: ApiPath {
+        static var path: String { return baseURL / "cities?q="}
+        var urlString: String {
+            return Search.path
+        }
+    }
+    
+//    struct Search {
+//        static let path: String = baseURL / "cities?q="
+//        let key: String
+//        var url: String { Search.path + key }
+//    }
+}
 
 protocol URLStringConvertible {
     var urlString: String { get }
