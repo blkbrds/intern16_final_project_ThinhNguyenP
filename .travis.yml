@@ -1,0 +1,21 @@
+language: objective-c
+osx_image: xcode11
+xcode_workspace: TheRestaurants.xcworkspace
+xcode_scheme: TheRestaurants
+cache:
+  - bundler
+  - cocoapods
+before_install:
+  - gem install bundler
+  - gem install linterbot
+install:
+  - set -o pipefail
+  - sudo systemsetup -settimezone Asia/Ho_Chi_Minh
+  - bundle install --path=vendor/bundle --jobs 4 --retry 3
+before_script:
+  - chmod a+x ./scripts/add-key.sh
+  - sh ./scripts/add-key.sh
+script:
+  - bundle exec pod install --repo-update
+  - ./scripts/linter
+  - ./scripts/run
