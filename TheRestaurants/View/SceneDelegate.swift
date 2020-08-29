@@ -11,11 +11,6 @@ import SwiftUI
 import SVProgressHUD
 typealias HUD = SVProgressHUD
 
-enum RootViewController {
-    case introdude
-    case tabbar
-}
-
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     static var shared: SceneDelegate {
@@ -25,7 +20,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         return scene
     }
 
-    func changeRoot(root: RootViewController) {
+    func changeRoot() {
         window?.rootViewController = setupTabbar()
         window?.makeKeyAndVisible()
     }
@@ -34,8 +29,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowSence = (scene as? UIWindowScene) else { return }
         let window = UIWindow(windowScene: windowSence)
-        let navi = UINavigationController(rootViewController: IntroduceViewController())
-        window.rootViewController = navi
+        let viewController = IntroduceViewController()
+        window.rootViewController = viewController
         self.window = window
         window.makeKeyAndVisible()
     }
