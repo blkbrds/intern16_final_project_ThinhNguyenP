@@ -9,8 +9,6 @@
 import UIKit
 import SwiftUI
 import SVProgressHUD
-
-
 typealias HUD = SVProgressHUD
 
 enum RootViewController {
@@ -19,19 +17,20 @@ enum RootViewController {
 }
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
+
     static var shared: SceneDelegate {
         guard let scene = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate else {
             fatalError("Can not case scene delegate")
         }
         return scene
     }
-    
+
     func changeRoot(root: RootViewController) {
         window?.rootViewController = setupTabbar()
         window?.makeKeyAndVisible()
     }
     var window: UIWindow?
-    
+
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowSence = (scene as? UIWindowScene) else { return }
         let window = UIWindow(windowScene: windowSence)
@@ -40,6 +39,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         self.window = window
         window.makeKeyAndVisible()
     }
+
     func setupTabbar() -> UITabBarController {
         let appearance = UITabBarAppearance()
         appearance.backgroundColor = .white
@@ -58,7 +58,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let tabbarController = UITabBarController()
         tabbarController.tabBar.tintColor = #colorLiteral(red: 0, green: 0.3764705882, blue: 0.3921568627, alpha: 1)
         tabbarController.tabBar.standardAppearance = appearance
-        
         tabbarController.viewControllers = [homeNavi, mapNavi, favoriteNavi, searchNavi]
         return tabbarController
     }
