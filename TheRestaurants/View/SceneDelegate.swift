@@ -27,12 +27,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
     
     func changeRoot(root: RootViewController) {
-        switch root {
-        case .introdude:
-            window?.rootViewController = IntroduceViewController()
-        case .tabbar:
-            window?.rootViewController = setupTabbar()
-        }
+        window?.rootViewController = setupTabbar()
         window?.makeKeyAndVisible()
     }
     var window: UIWindow?
@@ -46,6 +41,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window.makeKeyAndVisible()
     }
     func setupTabbar() -> UITabBarController {
+        let appearance = UITabBarAppearance()
+        appearance.backgroundColor = .white
         let home = HomeViewController()
         let homeNavi = UINavigationController(rootViewController: home)
         homeNavi.tabBarItem = UITabBarItem(title: "", image: UIImage(named: "ic_tabbar_home"), tag: 0)
@@ -59,6 +56,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let searchNavi = UINavigationController(rootViewController: search)
         searchNavi.tabBarItem = UITabBarItem(title: "", image: UIImage(named: "ic_tabbar_search"), tag: 3)
         let tabbarController = UITabBarController()
+        tabbarController.tabBar.tintColor = #colorLiteral(red: 0, green: 0.3764705882, blue: 0.3921568627, alpha: 1)
+        tabbarController.tabBar.standardAppearance = appearance
+        
         tabbarController.viewControllers = [homeNavi, mapNavi, favoriteNavi, searchNavi]
         return tabbarController
     }
