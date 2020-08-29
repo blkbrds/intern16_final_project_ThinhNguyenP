@@ -12,6 +12,7 @@ class HomeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+       // SceneDelegate.shared.changeRoot(root: .tabbar)
         // Do any additional setup after loading the view.
     }
 }

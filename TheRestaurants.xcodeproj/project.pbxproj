@@ -38,16 +38,7 @@
 		74A419AD24F3CFDB00D1C1D6 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A419AC24F3CFDB00D1C1D6 /* String.swift */; };
 		74A419AF24F3CFF300D1C1D6 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A419AE24F3CFF300D1C1D6 /* App.swift */; };
 		74A419B124F3D02900D1C1D6 /* Key.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A419B024F3D02900D1C1D6 /* Key.swift */; };
-		8437C44424F526380006F6D1 /* PopUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8437C44224F526380006F6D1 /* PopUpViewController.xib */; };
-		8437C44824F60D890006F6D1 /* PopUpTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8437C44624F60D890006F6D1 /* PopUpTableViewCell.swift */; };
-		8437C44924F60D890006F6D1 /* PopUpTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8437C44724F60D890006F6D1 /* PopUpTableViewCell.xib */; };
-		8437C44B24F611DB0006F6D1 /* PopUpTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8437C44A24F611DB0006F6D1 /* PopUpTableViewModel.swift */; };
 		8437C44D24F613AC0006F6D1 /* PopUpLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8437C44C24F613AC0006F6D1 /* PopUpLocation.swift */; };
-		8437C44F24F651BA0006F6D1 /* PopUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8437C44E24F651BA0006F6D1 /* PopUpViewModel.swift */; };
-		8437C45124F669560006F6D1 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8437C45024F669560006F6D1 /* ImageCache.swift */; };
-		8437C45324F761100006F6D1 /* Api.Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8437C45224F761100006F6D1 /* Api.Search.swift */; };
-		8437C45524F796010006F6D1 /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8437C45424F796010006F6D1 /* City.swift */; };
-		8437C45724FA18C50006F6D1 /* PopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8437C45624FA18C50006F6D1 /* PopUpViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -84,16 +75,7 @@
 		74A419AC24F3CFDB00D1C1D6 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		74A419AE24F3CFF300D1C1D6 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		74A419B024F3D02900D1C1D6 /* Key.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Key.swift; sourceTree = "<group>"; };
-		8437C44224F526380006F6D1 /* PopUpViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PopUpViewController.xib; sourceTree = "<group>"; };
-		8437C44624F60D890006F6D1 /* PopUpTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpTableViewCell.swift; sourceTree = "<group>"; };
-		8437C44724F60D890006F6D1 /* PopUpTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PopUpTableViewCell.xib; sourceTree = "<group>"; };
-		8437C44A24F611DB0006F6D1 /* PopUpTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpTableViewModel.swift; sourceTree = "<group>"; };
 		8437C44C24F613AC0006F6D1 /* PopUpLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PopUpLocation.swift; path = TheRestaurants/View/PopUp/Cell/PopUpLocation.swift; sourceTree = SOURCE_ROOT; };
-		8437C44E24F651BA0006F6D1 /* PopUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpViewModel.swift; sourceTree = "<group>"; };
-		8437C45024F669560006F6D1 /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
-		8437C45224F761100006F6D1 /* Api.Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Api.Search.swift; sourceTree = "<group>"; };
-		8437C45424F796010006F6D1 /* City.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = City.swift; path = TheRestaurants/Model/API/City.swift; sourceTree = SOURCE_ROOT; };
-		8437C45624FA18C50006F6D1 /* PopUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PopUpViewController.swift; path = ../../../../../Desktop/View/PopUp/PopUpViewController.swift; sourceTree = "<group>"; };
 		904414929699BD83F02E1C1E /* Pods_TheRestaurants.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TheRestaurants.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAE73ED7E64C5EBE34936D9A /* Pods-TheRestaurants.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheRestaurants.release.xcconfig"; path = "Target Support Files/Pods-TheRestaurants/Pods-TheRestaurants.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -169,7 +151,6 @@
 		74A4197124F3C0CF00D1C1D6 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				8437C43924F5031B0006F6D1 /* PopUp */,
 				74A4195B24F3B7B400D1C1D6 /* AppDelegate.swift */,
 				74A4195D24F3B7B400D1C1D6 /* SceneDelegate.swift */,
 				74A4197424F3C13100D1C1D6 /* Detail */,
@@ -258,7 +239,6 @@
 			isa = PBXGroup;
 			children = (
 				8437C44C24F613AC0006F6D1 /* PopUpLocation.swift */,
-				8437C45424F796010006F6D1 /* City.swift */,
 			);
 			path = Scheme;
 			sourceTree = "<group>";
@@ -273,8 +253,6 @@
 				74A4199A24F3C80700D1C1D6 /* RequestSerializer.swift */,
 				74A4199F24F3CB2300D1C1D6 /* ResponseSerializer.swift */,
 				74A4199C24F3CA2E00D1C1D6 /* Session.swift */,
-				8437C45024F669560006F6D1 /* ImageCache.swift */,
-				8437C45224F761100006F6D1 /* Api.Search.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -298,27 +276,6 @@
 				74A419AA24F3CF1700D1C1D6 /* DataExt.swift */,
 			);
 			path = Extensions;
-			sourceTree = "<group>";
-		};
-		8437C43924F5031B0006F6D1 /* PopUp */ = {
-			isa = PBXGroup;
-			children = (
-				8437C44524F60CBC0006F6D1 /* Cell */,
-				8437C45624FA18C50006F6D1 /* PopUpViewController.swift */,
-				8437C44224F526380006F6D1 /* PopUpViewController.xib */,
-				8437C44E24F651BA0006F6D1 /* PopUpViewModel.swift */,
-			);
-			path = PopUp;
-			sourceTree = "<group>";
-		};
-		8437C44524F60CBC0006F6D1 /* Cell */ = {
-			isa = PBXGroup;
-			children = (
-				8437C44624F60D890006F6D1 /* PopUpTableViewCell.swift */,
-				8437C44724F60D890006F6D1 /* PopUpTableViewCell.xib */,
-				8437C44A24F611DB0006F6D1 /* PopUpTableViewModel.swift */,
-			);
-			path = Cell;
 			sourceTree = "<group>";
 		};
 		8A3B1051CDE5BD324E48D56F /* Frameworks */ = {
@@ -391,10 +348,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				74A4197C24F3C1A600D1C1D6 /* IntroduceViewController.xib in Resources */,
-				8437C44424F526380006F6D1 /* PopUpViewController.xib in Resources */,
 				74A4198824F3C1F500D1C1D6 /* DetailViewController.xib in Resources */,
 				74A4196824F3B7BC00D1C1D6 /* LaunchScreen.storyboard in Resources */,
-				8437C44924F60D890006F6D1 /* PopUpTableViewCell.xib in Resources */,
 				74A4196524F3B7BC00D1C1D6 /* Assets.xcassets in Resources */,
 				74A4198C24F3C20300D1C1D6 /* MapViewController.xib in Resources */,
 				74A4198424F3C1DF00D1C1D6 /* FavoriteViewController.xib in Resources */,
@@ -471,11 +426,9 @@
 			files = (
 				74A419A224F3CCD200D1C1D6 /* HTTPStatus.swift in Sources */,
 				74A4199524F3C64E00D1C1D6 /* Api.swift in Sources */,
-				8437C44824F60D890006F6D1 /* PopUpTableViewCell.swift in Sources */,
 				74A419AD24F3CFDB00D1C1D6 /* String.swift in Sources */,
 				74A4197B24F3C1A600D1C1D6 /* IntroduceViewController.swift in Sources */,
 				74A4199724F3C6B100D1C1D6 /* ApiManager.swift in Sources */,
-				8437C44F24F651BA0006F6D1 /* PopUpViewModel.swift in Sources */,
 				74A419A924F3CE2500D1C1D6 /* StringExt.swift in Sources */,
 				74A4199924F3C78A00D1C1D6 /* Error.swift in Sources */,
 				74A4195C24F3B7B400D1C1D6 /* AppDelegate.swift in Sources */,
@@ -485,19 +438,14 @@
 				74A419AB24F3CF1700D1C1D6 /* DataExt.swift in Sources */,
 				74A419A024F3CB2300D1C1D6 /* ResponseSerializer.swift in Sources */,
 				74A419AF24F3CFF300D1C1D6 /* App.swift in Sources */,
-				8437C44B24F611DB0006F6D1 /* PopUpTableViewModel.swift in Sources */,
 				74A419B124F3D02900D1C1D6 /* Key.swift in Sources */,
-				8437C45724FA18C50006F6D1 /* PopUpViewController.swift in Sources */,
 				74A4195E24F3B7B400D1C1D6 /* SceneDelegate.swift in Sources */,
 				74A4199D24F3CA2E00D1C1D6 /* Session.swift in Sources */,
 				74A4198724F3C1F500D1C1D6 /* DetailViewController.swift in Sources */,
 				74A4197F24F3C1C300D1C1D6 /* HomeViewController.swift in Sources */,
-				8437C45324F761100006F6D1 /* Api.Search.swift in Sources */,
-				8437C45524F796010006F6D1 /* City.swift in Sources */,
 				74A4198324F3C1DF00D1C1D6 /* FavoriteViewController.swift in Sources */,
 				74A419A724F3CD7A00D1C1D6 /* URLExt.swift in Sources */,
 				74A4199B24F3C80700D1C1D6 /* RequestSerializer.swift in Sources */,
-				8437C45124F669560006F6D1 /* ImageCache.swift in Sources */,
 				74A4198B24F3C20300D1C1D6 /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
