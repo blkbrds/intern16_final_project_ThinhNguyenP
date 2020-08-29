@@ -17,20 +17,20 @@ enum RootViewController {
 }
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
-
+    
     static var shared: SceneDelegate {
         guard let scene = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate else {
             fatalError("Can not case scene delegate")
         }
         return scene
     }
-
+    
     func changeRoot(root: RootViewController) {
         window?.rootViewController = setupTabbar()
         window?.makeKeyAndVisible()
     }
     var window: UIWindow?
-
+    
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowSence = (scene as? UIWindowScene) else { return }
         let window = UIWindow(windowScene: windowSence)
@@ -39,10 +39,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         self.window = window
         window.makeKeyAndVisible()
     }
-
+    
     func setupTabbar() -> UITabBarController {
         let appearance = UITabBarAppearance()
-        appearance.backgroundColor = .white
+        appearance.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         let home = HomeViewController()
         let homeNavi = UINavigationController(rootViewController: home)
         homeNavi.tabBarItem = UITabBarItem(title: "", image: UIImage(named: "ic_tabbar_home"), tag: 0)
