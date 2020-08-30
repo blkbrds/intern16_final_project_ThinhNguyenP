@@ -41,7 +41,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let window = UIWindow(windowScene: windowSence)
         self.window = window
         changeRoot(root: .introduce)
-        window.makeKeyAndVisible()
     }
 
     func setupTabbar() -> UITabBarController {
