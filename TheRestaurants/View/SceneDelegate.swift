@@ -40,7 +40,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowSence = (scene as? UIWindowScene) else { return }
         let window = UIWindow(windowScene: windowSence)
         self.window = window
-        _ = changeRoot(root: .introduce)
+        changeRoot(root: .introduce)
         window.makeKeyAndVisible()
     }
 
