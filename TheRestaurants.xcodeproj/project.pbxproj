@@ -38,12 +38,10 @@
 		74A419AD24F3CFDB00D1C1D6 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A419AC24F3CFDB00D1C1D6 /* String.swift */; };
 		74A419AF24F3CFF300D1C1D6 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A419AE24F3CFF300D1C1D6 /* App.swift */; };
 		74A419B124F3D02900D1C1D6 /* Key.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A419B024F3D02900D1C1D6 /* Key.swift */; };
-		8437C44D24F613AC0006F6D1 /* PopUpLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8437C44C24F613AC0006F6D1 /* PopUpLocation.swift */; };
 		846A2BA324FA5917004160B3 /* PopUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846A2B9D24FA5917004160B3 /* PopUpViewModel.swift */; };
 		846A2BA424FA5917004160B3 /* PopUpTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846A2B9F24FA5917004160B3 /* PopUpTableViewCell.swift */; };
 		846A2BA524FA5918004160B3 /* PopUpTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846A2BA024FA5917004160B3 /* PopUpTableViewModel.swift */; };
 		846A2BA624FA5918004160B3 /* PopUpTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 846A2BA124FA5917004160B3 /* PopUpTableViewCell.xib */; };
-		846A2BA724FA5918004160B3 /* PopUpLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846A2BA224FA5917004160B3 /* PopUpLocation.swift */; };
 		846A2BAA24FA5A62004160B3 /* PopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846A2BA824FA5A62004160B3 /* PopUpViewController.swift */; };
 		846A2BAB24FA5A62004160B3 /* PopUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 846A2BA924FA5A62004160B3 /* PopUpViewController.xib */; };
 		846A2BB324FA645D004160B3 /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846A2BB224FA645D004160B3 /* City.swift */; };
@@ -85,12 +83,10 @@
 		74A419AC24F3CFDB00D1C1D6 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		74A419AE24F3CFF300D1C1D6 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		74A419B024F3D02900D1C1D6 /* Key.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Key.swift; sourceTree = "<group>"; };
-		8437C44C24F613AC0006F6D1 /* PopUpLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PopUpLocation.swift; path = TheRestaurants/View/PopUp/Cell/PopUpLocation.swift; sourceTree = SOURCE_ROOT; };
 		846A2B9D24FA5917004160B3 /* PopUpViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUpViewModel.swift; sourceTree = "<group>"; };
 		846A2B9F24FA5917004160B3 /* PopUpTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUpTableViewCell.swift; sourceTree = "<group>"; };
 		846A2BA024FA5917004160B3 /* PopUpTableViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUpTableViewModel.swift; sourceTree = "<group>"; };
 		846A2BA124FA5917004160B3 /* PopUpTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PopUpTableViewCell.xib; sourceTree = "<group>"; };
-		846A2BA224FA5917004160B3 /* PopUpLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUpLocation.swift; sourceTree = "<group>"; };
 		846A2BA824FA5A62004160B3 /* PopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpViewController.swift; sourceTree = "<group>"; };
 		846A2BA924FA5A62004160B3 /* PopUpViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PopUpViewController.xib; sourceTree = "<group>"; };
 		846A2BB224FA645D004160B3 /* City.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = City.swift; path = TheRestaurants/Model/API/City.swift; sourceTree = SOURCE_ROOT; };
@@ -259,7 +255,6 @@
 		74A4199224F3C26400D1C1D6 /* Scheme */ = {
 			isa = PBXGroup;
 			children = (
-				8437C44C24F613AC0006F6D1 /* PopUpLocation.swift */,
 				846A2BB224FA645D004160B3 /* City.swift */,
 			);
 			path = Scheme;
@@ -319,7 +314,6 @@
 				846A2B9F24FA5917004160B3 /* PopUpTableViewCell.swift */,
 				846A2BA024FA5917004160B3 /* PopUpTableViewModel.swift */,
 				846A2BA124FA5917004160B3 /* PopUpTableViewCell.xib */,
-				846A2BA224FA5917004160B3 /* PopUpLocation.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -482,7 +476,6 @@
 				74A4199924F3C78A00D1C1D6 /* Error.swift in Sources */,
 				74A4195C24F3B7B400D1C1D6 /* AppDelegate.swift in Sources */,
 				74A4198F24F3C21B00D1C1D6 /* SearchViewController.swift in Sources */,
-				8437C44D24F613AC0006F6D1 /* PopUpLocation.swift in Sources */,
 				846A2BA524FA5918004160B3 /* PopUpTableViewModel.swift in Sources */,
 				74A419A524F3CD4F00D1C1D6 /* NSErrorExt.swift in Sources */,
 				74A419AB24F3CF1700D1C1D6 /* DataExt.swift in Sources */,
@@ -491,7 +484,6 @@
 				846A2BA424FA5917004160B3 /* PopUpTableViewCell.swift in Sources */,
 				74A419AF24F3CFF300D1C1D6 /* App.swift in Sources */,
 				74A419B124F3D02900D1C1D6 /* Key.swift in Sources */,
-				846A2BA724FA5918004160B3 /* PopUpLocation.swift in Sources */,
 				846A2BA324FA5917004160B3 /* PopUpViewModel.swift in Sources */,
 				74A4195E24F3B7B400D1C1D6 /* SceneDelegate.swift in Sources */,
 				74A4199D24F3CA2E00D1C1D6 /* Session.swift in Sources */,
