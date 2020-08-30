@@ -14,14 +14,14 @@ final class Api {
     struct Path {
         static let baseURL = "https://developers.zomato.com/api/v2.1"
     }
-    
+
     struct Search {
         }
 }
 
 extension Api.Path {
     struct Search: ApiPath {
-        static var path: String { return baseURL }
+        static var path: String { return baseURL}
         var urlString: String {
             return Search.path
         }

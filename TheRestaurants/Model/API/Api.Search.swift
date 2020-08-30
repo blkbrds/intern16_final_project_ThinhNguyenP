@@ -11,18 +11,18 @@ import Alamofire
 import ObjectMapper
 
 extension Api.Search {
-    
+
     struct SearchParam {
         var value: String = ""
         var key: String = "q"
-        
+
         func toJSON() -> [String: Any ] {
             return [
                 "q": value
             ]
         }
     }
-    
+
     static func search(param: SearchParam, completion: @escaping Completion<[City]>) -> Request? {
         let path = Api.Path.Search().urlString
         print(path)

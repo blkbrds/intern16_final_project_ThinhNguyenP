@@ -9,56 +9,58 @@
 import UIKit
 import SwiftUI
 import SVProgressHUD
-
-
 typealias HUD = SVProgressHUD
 
 enum RootViewController {
-    case introdude
+    case introduce
     case tabbar
 }
-
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
+
     static var shared: SceneDelegate {
         guard let scene = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate else {
             fatalError("Can not case scene delegate")
         }
         return scene
     }
-    
+
     func changeRoot(root: RootViewController) {
-        window?.rootViewController = setupTabbar()
+        switch root {
+        case .introduce:
+            window?.rootViewController = IntroduceViewController()
+        case .tabbar:
+            window?.rootViewController = setupTabbar()
+        }
         window?.makeKeyAndVisible()
     }
     var window: UIWindow?
-    
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowSence = (scene as? UIWindowScene) else { return }
         let window = UIWindow(windowScene: windowSence)
-        let navi = UINavigationController(rootViewController: IntroduceViewController())
-        window.rootViewController = navi
+        let viewController = IntroduceViewController()
+        window.rootViewController = viewController
         self.window = window
         window.makeKeyAndVisible()
     }
+
     func setupTabbar() -> UITabBarController {
         let appearance = UITabBarAppearance()
-        appearance.backgroundColor = .white
+        appearance.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         let home = HomeViewController()
         let homeNavi = UINavigationController(rootViewController: home)
-        homeNavi.tabBarItem = UITabBarItem(title: "", image: UIImage(named: "ic_tabbar_home"), tag: 0)
+        homeNavi.tabBarItem = UITabBarItem(title: "", image: #imageLiteral(resourceName: "ic_tabbar_home"), tag: 0)
         let map = MapViewController()
         let mapNavi = UINavigationController(rootViewController: map)
-        mapNavi.tabBarItem = UITabBarItem(title: "", image: UIImage(named: "ic_tabbar_map"), tag: 1)
+        mapNavi.tabBarItem = UITabBarItem(title: "", image: #imageLiteral(resourceName: "ic_tabbar_map"), tag: 1)
         let favorite = FavoriteViewController()
         let favoriteNavi = UINavigationController(rootViewController: favorite)
-        favoriteNavi.tabBarItem = UITabBarItem(title: "", image: UIImage(named: "ic_tabbar_favorite"), tag: 2)
+        favoriteNavi.tabBarItem = UITabBarItem(title: "", image: #imageLiteral(resourceName: "ic_tabbar_favorite"), tag: 2)
         let search = SearchViewController()
         let searchNavi = UINavigationController(rootViewController: search)
-        searchNavi.tabBarItem = UITabBarItem(title: "", image: UIImage(named: "ic_tabbar_search"), tag: 3)
+        searchNavi.tabBarItem = UITabBarItem(title: "", image: #imageLiteral(resourceName: "ic_tabbar_search"), tag: 3)
         let tabbarController = UITabBarController()
         tabbarController.tabBar.tintColor = #colorLiteral(red: 0, green: 0.3764705882, blue: 0.3921568627, alpha: 1)
         tabbarController.tabBar.standardAppearance = appearance
-        
         tabbarController.viewControllers = [homeNavi, mapNavi, favoriteNavi, searchNavi]
         return tabbarController
     }

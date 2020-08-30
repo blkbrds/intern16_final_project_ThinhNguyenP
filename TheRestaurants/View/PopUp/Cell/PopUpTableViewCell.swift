@@ -9,17 +9,17 @@
 import UIKit
 
 class PopUpTableViewCell: UITableViewCell {
-    
+
     @IBOutlet weak var flagImageView: UIImageView!
     @IBOutlet weak var cityNameLabel: UILabel!
     @IBOutlet weak var countryNameLabel: UILabel!
-    
+
     var viewModel: PopUpTableViewModel? {
         didSet {
             updateUI()
         }
     }
-    
+
     func updateUI () {
         guard let viewModel = viewModel else {return }
         flagImageView.layer.cornerRadius = 10

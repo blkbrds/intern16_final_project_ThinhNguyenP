@@ -11,11 +11,11 @@ import UIKit
 class IntroduceViewController: UIViewController {
 
     var popUpWindow = PopUpViewController()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-    
+
     @IBAction func chooseCityButtonTouchUpInside(_ sender: Any) {
         popUpWindow.view.frame = CGRect(x: 0, y: 220, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
         popUpWindow.modalPresentationStyle = .fullScreen
