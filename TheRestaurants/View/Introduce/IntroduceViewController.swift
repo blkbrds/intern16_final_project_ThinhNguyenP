@@ -14,7 +14,6 @@ class IntroduceViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-<<<<<<< HEAD
     }
 
     @IBAction func chooseCityButtonTouchUpInside(_ sender: Any) {
@@ -23,8 +22,5 @@ class IntroduceViewController: UIViewController {
         popUpWindow.modalTransitionStyle = .coverVertical
         self.present(popUpWindow, animated: true)
 
-=======
-        SceneDelegate.shared.changeRoot(root: .tabbar)
->>>>>>> feature/implement_ui_navigation
     }
 }

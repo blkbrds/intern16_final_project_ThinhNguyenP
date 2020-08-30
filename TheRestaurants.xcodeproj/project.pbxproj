@@ -38,7 +38,6 @@
 		74A419AD24F3CFDB00D1C1D6 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A419AC24F3CFDB00D1C1D6 /* String.swift */; };
 		74A419AF24F3CFF300D1C1D6 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A419AE24F3CFF300D1C1D6 /* App.swift */; };
 		74A419B124F3D02900D1C1D6 /* Key.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A419B024F3D02900D1C1D6 /* Key.swift */; };
-<<<<<<< HEAD
 		8437C44D24F613AC0006F6D1 /* PopUpLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8437C44C24F613AC0006F6D1 /* PopUpLocation.swift */; };
 		846A2BA324FA5917004160B3 /* PopUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846A2B9D24FA5917004160B3 /* PopUpViewModel.swift */; };
 		846A2BA424FA5917004160B3 /* PopUpTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846A2B9F24FA5917004160B3 /* PopUpTableViewCell.swift */; };
@@ -50,8 +49,6 @@
 		846A2BB324FA645D004160B3 /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846A2BB224FA645D004160B3 /* City.swift */; };
 		846A2BB524FA64E5004160B3 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846A2BB424FA64E5004160B3 /* ImageCache.swift */; };
 		846A2BB724FA65A0004160B3 /* Api.Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846A2BB624FA65A0004160B3 /* Api.Search.swift */; };
-=======
->>>>>>> feature/implement_ui_navigation
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -88,7 +85,6 @@
 		74A419AC24F3CFDB00D1C1D6 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		74A419AE24F3CFF300D1C1D6 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		74A419B024F3D02900D1C1D6 /* Key.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Key.swift; sourceTree = "<group>"; };
-<<<<<<< HEAD
 		8437C44C24F613AC0006F6D1 /* PopUpLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PopUpLocation.swift; path = TheRestaurants/View/PopUp/Cell/PopUpLocation.swift; sourceTree = SOURCE_ROOT; };
 		846A2B9D24FA5917004160B3 /* PopUpViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUpViewModel.swift; sourceTree = "<group>"; };
 		846A2B9F24FA5917004160B3 /* PopUpTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUpTableViewCell.swift; sourceTree = "<group>"; };
@@ -100,8 +96,6 @@
 		846A2BB224FA645D004160B3 /* City.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = City.swift; path = TheRestaurants/Model/API/City.swift; sourceTree = SOURCE_ROOT; };
 		846A2BB424FA64E5004160B3 /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 		846A2BB624FA65A0004160B3 /* Api.Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Api.Search.swift; sourceTree = "<group>"; };
-=======
->>>>>>> feature/implement_ui_navigation
 		904414929699BD83F02E1C1E /* Pods_TheRestaurants.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TheRestaurants.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAE73ED7E64C5EBE34936D9A /* Pods-TheRestaurants.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheRestaurants.release.xcconfig"; path = "Target Support Files/Pods-TheRestaurants/Pods-TheRestaurants.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -265,11 +259,8 @@
 		74A4199224F3C26400D1C1D6 /* Scheme */ = {
 			isa = PBXGroup;
 			children = (
-<<<<<<< HEAD
 				8437C44C24F613AC0006F6D1 /* PopUpLocation.swift */,
 				846A2BB224FA645D004160B3 /* City.swift */,
-=======
->>>>>>> feature/implement_ui_navigation
 			);
 			path = Scheme;
 			sourceTree = "<group>";
@@ -491,11 +482,8 @@
 				74A4199924F3C78A00D1C1D6 /* Error.swift in Sources */,
 				74A4195C24F3B7B400D1C1D6 /* AppDelegate.swift in Sources */,
 				74A4198F24F3C21B00D1C1D6 /* SearchViewController.swift in Sources */,
-<<<<<<< HEAD
 				8437C44D24F613AC0006F6D1 /* PopUpLocation.swift in Sources */,
 				846A2BA524FA5918004160B3 /* PopUpTableViewModel.swift in Sources */,
-=======
->>>>>>> feature/implement_ui_navigation
 				74A419A524F3CD4F00D1C1D6 /* NSErrorExt.swift in Sources */,
 				74A419AB24F3CF1700D1C1D6 /* DataExt.swift in Sources */,
 				846A2BB724FA65A0004160B3 /* Api.Search.swift in Sources */,
