@@ -21,13 +21,13 @@ class PopUpTableViewCell: UITableViewCell {
     }
 
     func updateUI () {
-        guard let viewModel = viewModel else {return }
+        guard let viewModel = viewModel else { return }
         flagImageView.layer.cornerRadius = 10
         flagImageView.clipsToBounds = true
         cityNameLabel.text = viewModel.city.cityName
         countryNameLabel.text = viewModel.city.countryName
         viewModel.loadImage { [weak self] (image) in
-            guard let `self` = self else { return}
+            guard let `self` = self else { return }
             self.flagImageView.image = image
         }
     }
