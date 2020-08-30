@@ -43,7 +43,6 @@
 		8437C44824F60D890006F6D1 /* PopUpTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8437C44624F60D890006F6D1 /* PopUpTableViewCell.swift */; };
 		8437C44924F60D890006F6D1 /* PopUpTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8437C44724F60D890006F6D1 /* PopUpTableViewCell.xib */; };
 		8437C44B24F611DB0006F6D1 /* PopUpTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8437C44A24F611DB0006F6D1 /* PopUpTableViewModel.swift */; };
-		8437C44D24F613AC0006F6D1 /* PopUpLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8437C44C24F613AC0006F6D1 /* PopUpLocation.swift */; };
 		8437C44F24F651BA0006F6D1 /* PopUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8437C44E24F651BA0006F6D1 /* PopUpViewModel.swift */; };
 		8437C45124F669560006F6D1 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8437C45024F669560006F6D1 /* ImageCache.swift */; };
 		8437C45324F761100006F6D1 /* Api.Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8437C45224F761100006F6D1 /* Api.Search.swift */; };
@@ -89,7 +88,6 @@
 		8437C44624F60D890006F6D1 /* PopUpTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpTableViewCell.swift; sourceTree = "<group>"; };
 		8437C44724F60D890006F6D1 /* PopUpTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PopUpTableViewCell.xib; sourceTree = "<group>"; };
 		8437C44A24F611DB0006F6D1 /* PopUpTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpTableViewModel.swift; sourceTree = "<group>"; };
-		8437C44C24F613AC0006F6D1 /* PopUpLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PopUpLocation.swift; path = TheRestaurants/View/PopUp/Cell/PopUpLocation.swift; sourceTree = SOURCE_ROOT; };
 		8437C44E24F651BA0006F6D1 /* PopUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpViewModel.swift; sourceTree = "<group>"; };
 		8437C45024F669560006F6D1 /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 		8437C45224F761100006F6D1 /* Api.Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Api.Search.swift; sourceTree = "<group>"; };
@@ -257,7 +255,6 @@
 		74A4199224F3C26400D1C1D6 /* Scheme */ = {
 			isa = PBXGroup;
 			children = (
-				8437C44C24F613AC0006F6D1 /* PopUpLocation.swift */,
 				8437C45424F796010006F6D1 /* City.swift */,
 			);
 			path = Scheme;
@@ -481,7 +478,6 @@
 				74A4195C24F3B7B400D1C1D6 /* AppDelegate.swift in Sources */,
 				8437C44324F526380006F6D1 /* PopUpViewController.swift in Sources */,
 				74A4198F24F3C21B00D1C1D6 /* SearchViewController.swift in Sources */,
-				8437C44D24F613AC0006F6D1 /* PopUpLocation.swift in Sources */,
 				74A419A524F3CD4F00D1C1D6 /* NSErrorExt.swift in Sources */,
 				74A419AB24F3CF1700D1C1D6 /* DataExt.swift in Sources */,
 				74A419A024F3CB2300D1C1D6 /* ResponseSerializer.swift in Sources */,

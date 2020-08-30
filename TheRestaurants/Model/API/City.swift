@@ -11,7 +11,7 @@ import RealmSwift
 import ObjectMapper
 
 @objcMembers class City: Object, Mappable {
-    
+
     var countryName: String = ""
     var cityName: String = ""
     var flagUrl: String = ""

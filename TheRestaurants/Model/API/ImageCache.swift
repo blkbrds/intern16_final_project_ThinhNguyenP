@@ -25,7 +25,7 @@ class ImageCache {
         let config = URLSessionConfiguration.default
         config.waitsForConnectivity = true
         let session = URLSession(configuration: config)
-        let task = session.dataTask(with: url) { (data, response, error) in
+        let task = session.dataTask(with: url) { (data, _, _) in
             DispatchQueue.main.async {
                 if let data = data, let image = UIImage(data: data) {
                     cache[urlString] = image

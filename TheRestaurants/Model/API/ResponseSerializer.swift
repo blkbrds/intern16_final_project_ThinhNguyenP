@@ -41,7 +41,7 @@ extension Request {
             }
             
             var err: NSError!
-            if let json = data?.toJSON() as? JSObject,
+            if let json = data?.toJSON() ,
                 let reason = json["reason"] as? String {
                 err = NSError(code: statusCode, message: reason)
             } else if let status = HTTPStatus(code: statusCode) {
