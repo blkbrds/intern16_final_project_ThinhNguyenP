@@ -11,6 +11,10 @@ import SwiftUI
 import SVProgressHUD
 typealias HUD = SVProgressHUD
 
+enum RootViewController {
+    case introduce
+    case tabbar
+}
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     static var shared: SceneDelegate {
@@ -20,8 +24,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         return scene
     }
 
-    func changeRoot() {
-        window?.rootViewController = setupTabbar()
+    func changeRoot(root: RootViewController) {
+        switch root {
+        case .introduce:
+            window?.rootViewController = IntroduceViewController()
+        case .tabbar:
+            window?.rootViewController = setupTabbar()
+        }
         window?.makeKeyAndVisible()
     }
     var window: UIWindow?
