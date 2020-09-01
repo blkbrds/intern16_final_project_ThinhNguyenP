@@ -14,9 +14,18 @@ final class Api {
     struct Path {
         static let baseURL = "https://developers.zomato.com/api/v2.1"
     }
+    struct ListCollection {
+    }
 }
 
-extension Api.Path { }
+extension Api.Path {
+    struct ListCollection: ApiPath {
+        static var path: String { return baseURL / "collections?city_id=12" }
+        var urlString: String {
+            return ListCollection.path
+        }
+    }
+}
 
 protocol URLStringConvertible {
     var urlString: String { get }
