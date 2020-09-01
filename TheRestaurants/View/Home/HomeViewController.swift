@@ -12,7 +12,7 @@ class HomeViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
 
-    var viewModel =  HomeViewModel()
+    var viewModel = HomeViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,7 +47,7 @@ extension HomeViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.numberOfSection()
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == 0 {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "collectionViewCell", for: indexPath) as? ListCollectionsCell else { return UITableViewCell() }

@@ -14,7 +14,7 @@ extension Api.ListCollection {
     struct ListCollectionParam {
         var value: Int = 12
         var key: String = "city_id"
-        
+
         func toJSON() -> [String: Any] {
             return [
                 "city_id": value 
