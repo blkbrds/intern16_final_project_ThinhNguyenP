@@ -21,6 +21,5 @@ class IntroduceViewController: UIViewController {
         popUpWindow.modalPresentationStyle = .fullScreen
         popUpWindow.modalTransitionStyle = .coverVertical
         self.present(popUpWindow, animated: true)
-
     }
 }

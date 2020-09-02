@@ -33,19 +33,18 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         }
         window?.makeKeyAndVisible()
     }
+
     var window: UIWindow?
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowSence = (scene as? UIWindowScene) else { return }
         let window = UIWindow(windowScene: windowSence)
-        let viewController = IntroduceViewController()
-        window.rootViewController = viewController
         self.window = window
-        window.makeKeyAndVisible()
+        changeRoot(root: .introduce)
     }
 
     func setupTabbar() -> UITabBarController {
         let appearance = UITabBarAppearance()
-        appearance.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        appearance.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         let home = HomeViewController()
         let homeNavi = UINavigationController(rootViewController: home)
         homeNavi.tabBarItem = UITabBarItem(title: "", image: #imageLiteral(resourceName: "ic_tabbar_home"), tag: 0)
