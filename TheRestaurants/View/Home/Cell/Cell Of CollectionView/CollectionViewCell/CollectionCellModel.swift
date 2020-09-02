@@ -11,17 +11,17 @@ import UIKit
 
 class CollectionCellModel {
 
-    var numberOfRestaurant: Int = 12
-    var imageUrl: String = ""
-    var title: String = ""
+    var numberOfRestaurant: Int?
+    var imageUrl: String?
+    var title: String?
 
-    init(listCollection: CollecitonRestaurant) {
+    init(listCollection: CollectionRestaurant) {
         self.numberOfRestaurant = listCollection.countPlaces
         self.title = listCollection.title
         self.imageUrl = listCollection.imageCollection
     }
 
     func loadImage(completion: @escaping (UIImage?) -> Void) {
-        ImageCache.loadImage(urlString: imageUrl, completion: completion)
+        ImageCache.loadImage(urlString: imageUrl ?? "", completion: completion)
     }
 }

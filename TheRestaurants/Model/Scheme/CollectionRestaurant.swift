@@ -9,11 +9,11 @@
 import Foundation
 import ObjectMapper
 
-@objcMembers class CollecitonRestaurant: Mappable {
+class CollectionRestaurant: Mappable {
 
-    var countPlaces: Int = 12
-    var title: String = ""
-    var imageCollection: String = ""
+    var countPlaces: Int?
+    var title: String?
+    var imageCollection: String?
     required convenience init?(map: Map) {
         self.init()
     }
@@ -22,5 +22,6 @@ import ObjectMapper
         title <- map["title"]
         countPlaces <- map ["res_count"]
         imageCollection <- map ["image_url"]
+
     }
 }

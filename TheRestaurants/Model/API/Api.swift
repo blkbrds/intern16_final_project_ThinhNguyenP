@@ -16,6 +16,8 @@ final class Api {
     }
     struct ListCollection {
     }
+    struct ListCell {
+    }
 }
 
 extension Api.Path {
@@ -23,6 +25,12 @@ extension Api.Path {
         static var path: String { return baseURL / "collections?city_id=12" }
         var urlString: String {
             return ListCollection.path
+        }
+    }
+    struct ListCell: ApiPath {
+        static var path: String { return baseURL / "search?entity_type=city&entity_id=12&start=10" }
+        var urlString: String {
+        return ListCell.path
         }
     }
 }

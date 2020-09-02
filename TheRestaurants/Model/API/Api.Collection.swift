@@ -14,7 +14,6 @@ extension Api.ListCollection {
     struct ListCollectionParam {
         var value: Int = 12
         var key: String = "city_id"
-
         func toJSON() -> [String: Any] {
             return [
                 "city_id": value 
@@ -22,18 +21,22 @@ extension Api.ListCollection {
         }
     }
 
-    static func loadCollection(completion: @escaping Completion<[CollecitonRestaurant]>) -> Request? {
+    static func loadCollection(completion: @escaping Completion<[CollectionRestaurant]>) -> Request? {
         let path = Api.Path.ListCollection().urlString
         return api.request(method: .get, urlString: path) { (result) in
             DispatchQueue.main.async {
                 switch result {
                 case.success(let value):
-                    guard let value = value as? JSObject, let json = value["collections"] as? JSArray else {
+                    guard let value = value as? JSObject, let collections = value["collections"] as? JSArray else {
                         completion(.failure(Api.Error.json))
                         return
                     }
-                    let collections = Mapper<CollecitonRestaurant>().mapArray(JSONArray: json)
-                    completion(.success(collections))
+                    var results: [CollectionRestaurant] = []
+                    for collection in collections {
+                        guard let key = collection["collection"] as? JSObject, let key2 = Mapper<CollectionRestaurant>().map(JSONObject: key) else { return }
+                        results.append(key2)
+                        completion(.success(results))
+                    }
                 case .failure(let error):
                     completion(.failure(error))
                 }

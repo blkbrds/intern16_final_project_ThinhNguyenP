@@ -48,9 +48,11 @@
 		845966AD24FCB1BC00A61A79 /* ListCollectionsCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845966AC24FCB1BC00A61A79 /* ListCollectionsCellModel.swift */; };
 		845966AF24FCB4DE00A61A79 /* HomeCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845966AE24FCB4DE00A61A79 /* HomeCellModel.swift */; };
 		845966B124FCD42000A61A79 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845966B024FCD42000A61A79 /* HomeViewModel.swift */; };
-		845966B324FD03C200A61A79 /* Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845966B224FD03C200A61A79 /* Collection.swift */; };
+		845966B324FD03C200A61A79 /* CollectionRestaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845966B224FD03C200A61A79 /* CollectionRestaurant.swift */; };
 		845966B524FD08BD00A61A79 /* Api.Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845966B424FD08BD00A61A79 /* Api.Collection.swift */; };
 		845966B724FD4D7A00A61A79 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845966B624FD4D7A00A61A79 /* ImageCache.swift */; };
+		845966B924FDFD0A00A61A79 /* Api.Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845966B824FDFD0A00A61A79 /* Api.Cell.swift */; };
+		845966BB24FE251600A61A79 /* CellRestaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845966BA24FE251600A61A79 /* CellRestaurant.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -97,9 +99,11 @@
 		845966AC24FCB1BC00A61A79 /* ListCollectionsCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCollectionsCellModel.swift; sourceTree = "<group>"; };
 		845966AE24FCB4DE00A61A79 /* HomeCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCellModel.swift; sourceTree = "<group>"; };
 		845966B024FCD42000A61A79 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
-		845966B224FD03C200A61A79 /* Collection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Collection.swift; sourceTree = "<group>"; };
+		845966B224FD03C200A61A79 /* CollectionRestaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionRestaurant.swift; sourceTree = "<group>"; };
 		845966B424FD08BD00A61A79 /* Api.Collection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Api.Collection.swift; sourceTree = "<group>"; };
 		845966B624FD4D7A00A61A79 /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
+		845966B824FDFD0A00A61A79 /* Api.Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Api.Cell.swift; sourceTree = "<group>"; };
+		845966BA24FE251600A61A79 /* CellRestaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellRestaurant.swift; sourceTree = "<group>"; };
 		904414929699BD83F02E1C1E /* Pods_TheRestaurants.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TheRestaurants.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAE73ED7E64C5EBE34936D9A /* Pods-TheRestaurants.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheRestaurants.release.xcconfig"; path = "Target Support Files/Pods-TheRestaurants/Pods-TheRestaurants.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -264,7 +268,8 @@
 		74A4199224F3C26400D1C1D6 /* Scheme */ = {
 			isa = PBXGroup;
 			children = (
-				845966B224FD03C200A61A79 /* Collection.swift */,
+				845966B224FD03C200A61A79 /* CollectionRestaurant.swift */,
+				845966BA24FE251600A61A79 /* CellRestaurant.swift */,
 			);
 			path = Scheme;
 			sourceTree = "<group>";
@@ -281,6 +286,7 @@
 				74A4199C24F3CA2E00D1C1D6 /* Session.swift */,
 				845966B424FD08BD00A61A79 /* Api.Collection.swift */,
 				845966B624FD4D7A00A61A79 /* ImageCache.swift */,
+				845966B824FDFD0A00A61A79 /* Api.Cell.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -500,6 +506,7 @@
 				845966B724FD4D7A00A61A79 /* ImageCache.swift in Sources */,
 				74A4199524F3C64E00D1C1D6 /* Api.swift in Sources */,
 				74A419AD24F3CFDB00D1C1D6 /* String.swift in Sources */,
+				845966BB24FE251600A61A79 /* CellRestaurant.swift in Sources */,
 				845966AF24FCB4DE00A61A79 /* HomeCellModel.swift in Sources */,
 				74A4197B24F3C1A600D1C1D6 /* IntroduceViewController.swift in Sources */,
 				74A4199724F3C6B100D1C1D6 /* ApiManager.swift in Sources */,
@@ -518,7 +525,8 @@
 				74A419B124F3D02900D1C1D6 /* Key.swift in Sources */,
 				74A4195E24F3B7B400D1C1D6 /* SceneDelegate.swift in Sources */,
 				74A4199D24F3CA2E00D1C1D6 /* Session.swift in Sources */,
-				845966B324FD03C200A61A79 /* Collection.swift in Sources */,
+				845966B324FD03C200A61A79 /* CollectionRestaurant.swift in Sources */,
+				845966B924FDFD0A00A61A79 /* Api.Cell.swift in Sources */,
 				74A4198724F3C1F500D1C1D6 /* DetailViewController.swift in Sources */,
 				8459669224FC053900A61A79 /* HomeCell.swift in Sources */,
 				74A4197F24F3C1C300D1C1D6 /* HomeViewController.swift in Sources */,

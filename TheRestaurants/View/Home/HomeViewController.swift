@@ -13,11 +13,13 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
 
     var viewModel = HomeViewModel()
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
         configTableView()
-        loadCollection(value: 12)
+        loadCollection(value: 10)
+        loadCell()
     }
 
     func configTableView() {
@@ -28,7 +30,7 @@ class HomeViewController: UIViewController {
         tableView.dataSource = self
         tableView.rowHeight = 200
     }
-
+    
     func loadCollection(value: Int) {
         viewModel.loadCollection(value: value) { [weak self](result) in
             guard let this = self else { return }
@@ -42,10 +44,26 @@ class HomeViewController: UIViewController {
             }
         }
     }
+    func loadCell() {
+        viewModel.loadCell { [weak self] (result) in
+            guard let this = self else { return }
+            switch result {
+            case.success:
+                this.tableView.reloadData()
+            case.failure:
+                let alert = UIAlertController(title: "Warning", message: "Error", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: nil))
+                this.present(alert, animated: true)
+            }
+        }
+    }
 }
 extension HomeViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return viewModel.numberOfSection()
+    }
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return viewModel.numberOfRowsInSection(section: section)
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -56,6 +74,7 @@ extension HomeViewController: UITableViewDataSource {
             return cell
         } else {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "tableViewCell", for: indexPath) as? HomeCell else { return UITableViewCell() }
+            cell.viewModel = viewModel.viewModelForCell2(indexPath: indexPath)
             return cell
         }
     }

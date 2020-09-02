@@ -14,8 +14,8 @@ class ListCollectionsCellModel {
         case success
         case failure(Error)
     }
-    var collections: [CollecitonRestaurant]
-    init (collections: [CollecitonRestaurant] = [] ) {
+    var collections: [CollectionRestaurant]
+    init (collections: [CollectionRestaurant] = [] ) {
         self.collections = collections
     }
 
