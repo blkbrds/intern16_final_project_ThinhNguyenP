@@ -167,7 +167,6 @@
 		74A4197124F3C0CF00D1C1D6 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				846A2B9C24FA5917004160B3 /* PopUp */,
 				74A4195B24F3B7B400D1C1D6 /* AppDelegate.swift */,
 				74A4195D24F3B7B400D1C1D6 /* SceneDelegate.swift */,
 				74A4197424F3C13100D1C1D6 /* Detail */,
@@ -210,6 +209,7 @@
 		74A4197524F3C13800D1C1D6 /* Introduce */ = {
 			isa = PBXGroup;
 			children = (
+				846A2B9C24FA5917004160B3 /* PopUp */,
 				74A4197924F3C1A600D1C1D6 /* IntroduceViewController.swift */,
 				74A4197A24F3C1A600D1C1D6 /* IntroduceViewController.xib */,
 			);

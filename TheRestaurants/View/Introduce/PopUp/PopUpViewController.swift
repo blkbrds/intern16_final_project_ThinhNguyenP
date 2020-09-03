@@ -17,10 +17,27 @@ class PopUpViewController: UIViewController {
     @IBOutlet weak var searchBar: UISearchBar!
     var viewModel = PopUpViewModel()
 
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        setup()
+    }
+
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        setup()
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         configTableView()
         searchBar.delegate = self
+    }
+
+    private func setup() {
+        providesPresentationContextTransitionStyle = true
+        definesPresentationContext = true
+        modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
+        modalTransitionStyle = UIModalTransitionStyle.crossDissolve
     }
 
     func configTableView() {
