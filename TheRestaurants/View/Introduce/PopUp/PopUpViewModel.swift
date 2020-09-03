@@ -10,11 +10,6 @@ import Foundation
 
 class PopUpViewModel {
 
-    enum LoadCitiesComplete {
-        case success
-        case failure(Error)
-    }
-
     var dataCities: [City] = []
     var citiesSearch: [City] = []
 
@@ -22,9 +17,9 @@ class PopUpViewModel {
         return dataCities.count
     }
 
-    func viewModelForCell(at indexPath: IndexPath) -> PopUpTableViewModel {
+    func viewModelForCell(at indexPath: IndexPath) -> SearchCityCellModel {
         let item = dataCities[indexPath.row]
-        let viewModel = PopUpTableViewModel(city: item)
+        let viewModel = SearchCityCellModel(city: item)
         return viewModel
     }
 }

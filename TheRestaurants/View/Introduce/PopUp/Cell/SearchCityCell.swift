@@ -8,19 +8,19 @@
 
 import UIKit
 
-class PopUpTableViewCell: UITableViewCell {
+class SearchCityCell: UITableViewCell {
 
-    @IBOutlet weak var flagImageView: UIImageView!
-    @IBOutlet weak var cityNameLabel: UILabel!
-    @IBOutlet weak var countryNameLabel: UILabel!
+    @IBOutlet private weak var flagImageView: UIImageView!
+    @IBOutlet private weak var cityNameLabel: UILabel!
+    @IBOutlet private weak var countryNameLabel: UILabel!
 
-    var viewModel: PopUpTableViewModel? {
+    var viewModel: SearchCityCellModel? {
         didSet {
             updateUI()
         }
     }
 
-    func updateUI () {
+    private func updateUI () {
         guard let viewModel = viewModel else { return }
         flagImageView.layer.cornerRadius = 10
         flagImageView.clipsToBounds = true

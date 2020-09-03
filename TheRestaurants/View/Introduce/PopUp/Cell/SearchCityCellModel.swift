@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class PopUpTableViewModel {
+class SearchCityCellModel {
 
     var city: City
 

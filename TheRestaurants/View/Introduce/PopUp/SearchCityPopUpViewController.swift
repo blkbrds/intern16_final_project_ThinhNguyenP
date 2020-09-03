@@ -10,11 +10,11 @@ import UIKit
 import Contacts
 import SVProgressHUD
 
-class PopUpViewController: UIViewController {
+class SearchCityPopUpViewController: UIViewController {
 
-    @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var searchTitleLabel: UILabel!
-    @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet private weak var tableView: UITableView!
+    @IBOutlet private weak var searchTitleLabel: UILabel!
+    @IBOutlet private weak var searchBar: UISearchBar!
     var viewModel = PopUpViewModel()
 
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
@@ -41,7 +41,7 @@ class PopUpViewController: UIViewController {
     }
 
     func configTableView() {
-        let nib = UINib(nibName: "PopUpTableViewCell", bundle: .main)
+        let nib = UINib(nibName: "SearchCityCell", bundle: .main)
         tableView.register(nib, forCellReuseIdentifier: "cell")
         tableView.rowHeight = 50
         tableView.delegate = self
@@ -52,32 +52,26 @@ class PopUpViewController: UIViewController {
         tableView.reloadData()
     }
 
-
     @IBAction func cancelButtonTouchUpInside(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
+        dismiss(animated: true, completion: nil)
     }
 }
-extension PopUpViewController: UITableViewDataSource, UITableViewDelegate {
+extension SearchCityPopUpViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.numberOfRowInsection()
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-            as? PopUpTableViewCell else { return UITableViewCell() }
+            as? SearchCityCell else { return UITableViewCell() }
         cell.viewModel = viewModel.viewModelForCell(at: indexPath)
         return cell
     }
-
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-
-        SceneDelegate.shared.changeRoot(root: .tabbar)
-    }
 }
 
-extension PopUpViewController: UISearchBarDelegate {
+extension SearchCityPopUpViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        guard let value = searchBar.text else { return }
+        guard searchBar.text != nil else { return }
         searchBar.resignFirstResponder()
     }
 }

@@ -39,11 +39,11 @@
 		74A419AF24F3CFF300D1C1D6 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A419AE24F3CFF300D1C1D6 /* App.swift */; };
 		74A419B124F3D02900D1C1D6 /* Key.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A419B024F3D02900D1C1D6 /* Key.swift */; };
 		846A2BA324FA5917004160B3 /* PopUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846A2B9D24FA5917004160B3 /* PopUpViewModel.swift */; };
-		846A2BA424FA5917004160B3 /* PopUpTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846A2B9F24FA5917004160B3 /* PopUpTableViewCell.swift */; };
-		846A2BA524FA5918004160B3 /* PopUpTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846A2BA024FA5917004160B3 /* PopUpTableViewModel.swift */; };
-		846A2BA624FA5918004160B3 /* PopUpTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 846A2BA124FA5917004160B3 /* PopUpTableViewCell.xib */; };
-		846A2BAA24FA5A62004160B3 /* PopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846A2BA824FA5A62004160B3 /* PopUpViewController.swift */; };
-		846A2BAB24FA5A62004160B3 /* PopUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 846A2BA924FA5A62004160B3 /* PopUpViewController.xib */; };
+		846A2BA424FA5917004160B3 /* SearchCityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846A2B9F24FA5917004160B3 /* SearchCityCell.swift */; };
+		846A2BA524FA5918004160B3 /* SearchCityCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846A2BA024FA5917004160B3 /* SearchCityCellModel.swift */; };
+		846A2BA624FA5918004160B3 /* SearchCityCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 846A2BA124FA5917004160B3 /* SearchCityCell.xib */; };
+		846A2BAA24FA5A62004160B3 /* SearchCityPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846A2BA824FA5A62004160B3 /* SearchCityPopUpViewController.swift */; };
+		846A2BAB24FA5A62004160B3 /* SearchCityPopUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 846A2BA924FA5A62004160B3 /* SearchCityPopUpViewController.xib */; };
 		846A2BB324FA645D004160B3 /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846A2BB224FA645D004160B3 /* City.swift */; };
 		846A2BB524FA64E5004160B3 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846A2BB424FA64E5004160B3 /* ImageCache.swift */; };
 /* End PBXBuildFile section */
@@ -83,11 +83,11 @@
 		74A419AE24F3CFF300D1C1D6 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		74A419B024F3D02900D1C1D6 /* Key.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Key.swift; sourceTree = "<group>"; };
 		846A2B9D24FA5917004160B3 /* PopUpViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUpViewModel.swift; sourceTree = "<group>"; };
-		846A2B9F24FA5917004160B3 /* PopUpTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUpTableViewCell.swift; sourceTree = "<group>"; };
-		846A2BA024FA5917004160B3 /* PopUpTableViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUpTableViewModel.swift; sourceTree = "<group>"; };
-		846A2BA124FA5917004160B3 /* PopUpTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PopUpTableViewCell.xib; sourceTree = "<group>"; };
-		846A2BA824FA5A62004160B3 /* PopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpViewController.swift; sourceTree = "<group>"; };
-		846A2BA924FA5A62004160B3 /* PopUpViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PopUpViewController.xib; sourceTree = "<group>"; };
+		846A2B9F24FA5917004160B3 /* SearchCityCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchCityCell.swift; sourceTree = "<group>"; };
+		846A2BA024FA5917004160B3 /* SearchCityCellModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchCityCellModel.swift; sourceTree = "<group>"; };
+		846A2BA124FA5917004160B3 /* SearchCityCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchCityCell.xib; sourceTree = "<group>"; };
+		846A2BA824FA5A62004160B3 /* SearchCityPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCityPopUpViewController.swift; sourceTree = "<group>"; };
+		846A2BA924FA5A62004160B3 /* SearchCityPopUpViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchCityPopUpViewController.xib; sourceTree = "<group>"; };
 		846A2BB224FA645D004160B3 /* City.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = City.swift; path = TheRestaurants/Model/API/City.swift; sourceTree = SOURCE_ROOT; };
 		846A2BB424FA64E5004160B3 /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 		904414929699BD83F02E1C1E /* Pods_TheRestaurants.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TheRestaurants.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -298,9 +298,9 @@
 			isa = PBXGroup;
 			children = (
 				846A2B9E24FA5917004160B3 /* Cell */,
+				846A2BA824FA5A62004160B3 /* SearchCityPopUpViewController.swift */,
+				846A2BA924FA5A62004160B3 /* SearchCityPopUpViewController.xib */,
 				846A2B9D24FA5917004160B3 /* PopUpViewModel.swift */,
-				846A2BA824FA5A62004160B3 /* PopUpViewController.swift */,
-				846A2BA924FA5A62004160B3 /* PopUpViewController.xib */,
 			);
 			path = PopUp;
 			sourceTree = "<group>";
@@ -308,9 +308,9 @@
 		846A2B9E24FA5917004160B3 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				846A2B9F24FA5917004160B3 /* PopUpTableViewCell.swift */,
-				846A2BA024FA5917004160B3 /* PopUpTableViewModel.swift */,
-				846A2BA124FA5917004160B3 /* PopUpTableViewCell.xib */,
+				846A2B9F24FA5917004160B3 /* SearchCityCell.swift */,
+				846A2BA024FA5917004160B3 /* SearchCityCellModel.swift */,
+				846A2BA124FA5917004160B3 /* SearchCityCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -385,8 +385,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				74A4197C24F3C1A600D1C1D6 /* IntroduceViewController.xib in Resources */,
-				846A2BAB24FA5A62004160B3 /* PopUpViewController.xib in Resources */,
-				846A2BA624FA5918004160B3 /* PopUpTableViewCell.xib in Resources */,
+				846A2BAB24FA5A62004160B3 /* SearchCityPopUpViewController.xib in Resources */,
+				846A2BA624FA5918004160B3 /* SearchCityCell.xib in Resources */,
 				74A4198824F3C1F500D1C1D6 /* DetailViewController.xib in Resources */,
 				74A4196824F3B7BC00D1C1D6 /* LaunchScreen.storyboard in Resources */,
 				74A4196524F3B7BC00D1C1D6 /* Assets.xcassets in Resources */,
@@ -473,11 +473,11 @@
 				74A4199924F3C78A00D1C1D6 /* Error.swift in Sources */,
 				74A4195C24F3B7B400D1C1D6 /* AppDelegate.swift in Sources */,
 				74A4198F24F3C21B00D1C1D6 /* SearchViewController.swift in Sources */,
-				846A2BA524FA5918004160B3 /* PopUpTableViewModel.swift in Sources */,
+				846A2BA524FA5918004160B3 /* SearchCityCellModel.swift in Sources */,
 				74A419A524F3CD4F00D1C1D6 /* NSErrorExt.swift in Sources */,
 				74A419AB24F3CF1700D1C1D6 /* DataExt.swift in Sources */,
 				74A419A024F3CB2300D1C1D6 /* ResponseSerializer.swift in Sources */,
-				846A2BA424FA5917004160B3 /* PopUpTableViewCell.swift in Sources */,
+				846A2BA424FA5917004160B3 /* SearchCityCell.swift in Sources */,
 				74A419AF24F3CFF300D1C1D6 /* App.swift in Sources */,
 				74A419B124F3D02900D1C1D6 /* Key.swift in Sources */,
 				846A2BA324FA5917004160B3 /* PopUpViewModel.swift in Sources */,
@@ -485,7 +485,7 @@
 				74A4199D24F3CA2E00D1C1D6 /* Session.swift in Sources */,
 				74A4198724F3C1F500D1C1D6 /* DetailViewController.swift in Sources */,
 				74A4197F24F3C1C300D1C1D6 /* HomeViewController.swift in Sources */,
-				846A2BAA24FA5A62004160B3 /* PopUpViewController.swift in Sources */,
+				846A2BAA24FA5A62004160B3 /* SearchCityPopUpViewController.swift in Sources */,
 				846A2BB324FA645D004160B3 /* City.swift in Sources */,
 				74A4198324F3C1DF00D1C1D6 /* FavoriteViewController.swift in Sources */,
 				74A419A724F3CD7A00D1C1D6 /* URLExt.swift in Sources */,
