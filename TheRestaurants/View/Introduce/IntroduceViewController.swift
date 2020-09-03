@@ -10,16 +10,8 @@ import UIKit
 
 class IntroduceViewController: UIViewController {
 
-    var popUpWindow = PopUpViewController()
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-
     @IBAction func chooseCityButtonTouchUpInside(_ sender: Any) {
-
-        popUpWindow.modalPresentationStyle = .fullScreen
-        popUpWindow.modalTransitionStyle = .coverVertical
-        self.present(popUpWindow, animated: true)
+        let vc = SearchCityPopUpViewController()
+        present(vc, animated: true)
     }
 }
