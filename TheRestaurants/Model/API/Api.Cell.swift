@@ -24,8 +24,8 @@ extension Api.ListCell {
                     }
                     var results: [CellRestaurant] = []
                     for item in restaurants {
-                        guard let restaurant = item["restautant"] as? JSObject, let location = restaurant["location"] as? JSObject,
-                        let restaurant2 = Mapper<CellRestaurant>().map(JSONObject: location) else { return }
+                        guard let restaurant = item["restaurant"] as? JSObject,
+                        let restaurant2 = Mapper<CellRestaurant>().map(JSONObject: restaurant) else { return }
                         results.append(restaurant2)
                     }
                     completion(.success(results))

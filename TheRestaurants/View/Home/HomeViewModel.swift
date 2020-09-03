@@ -8,10 +8,6 @@
 
 import Foundation
 
-enum Cell {
-    case collectionView
-    case tableView
-}
 enum CollectionComplete {
     case success
     case failure(Error)
@@ -45,7 +41,7 @@ class HomeViewModel {
             }
         }
     }
-    
+
     func loadCell(completion: @escaping (CellCompletion) -> Void) {
         Api.ListCell.loadCell { [weak self](result) in
             guard let this = self else { return }
@@ -76,10 +72,10 @@ class HomeViewModel {
     }
 
     func numberOfRowsInSection(section: Int) -> Int {
-           guard section < cells.count else { return 0 }
+           guard section < cells.count else { return 1 }
            switch cells[section] {
            case .collectionView:
-            return dataCollection.count
+            return 1
            case .tableView:
             return dataCell.count
            }

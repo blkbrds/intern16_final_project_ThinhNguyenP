@@ -15,8 +15,9 @@ class HomeCellModel {
     var cuisines: String?
     var imageURL: String?
     var rating: String?
-    var onlineDelivery: String?
-    
+    var onlineDelivery: Int?
+    var isFavorite: Bool
+
     init(cellsRestaurant: CellRestaurant ) {
         self.address = cellsRestaurant.address
         self.name = cellsRestaurant.name
@@ -24,7 +25,9 @@ class HomeCellModel {
         self.imageURL = cellsRestaurant.imageURL
         self.rating = cellsRestaurant.rating
         self.onlineDelivery = cellsRestaurant.onlineDelivery
+        self.isFavorite = cellsRestaurant.favorite
     }
+
     func loadImage(completion: @escaping (UIImage?) -> Void) {
         ImageCache.loadImage(urlString: imageURL ?? "", completion: completion)
     }

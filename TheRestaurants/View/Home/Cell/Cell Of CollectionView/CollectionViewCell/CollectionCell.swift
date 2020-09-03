@@ -26,9 +26,11 @@ class CollectionCell: UICollectionViewCell {
     private func updateView() {
         guard let viewModel = viewModel else { return }
         nameCollectionLabel.text = viewModel.title
-        countPlacesTitle.text = "\(viewModel.numberOfRestaurant) places "
+        countPlacesTitle.text = "\(viewModel.numberOfRestaurant ?? 0) places"
         viewModel.loadImage { [weak self ](image) in
             guard let this = self else { return }
+            this.imageCollectionView.layer.cornerRadius = 10
+            this.imageCollectionView.clipsToBounds = true
             this.imageCollectionView.image = image
         }
     }

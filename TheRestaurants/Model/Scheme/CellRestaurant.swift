@@ -16,18 +16,22 @@ class CellRestaurant: Mappable {
     var cuisines: String?
     var imageURL: String?
     var rating: String?
-    var onlineDelivery: String?
-
+    var onlineDelivery: Int?
+    var favorite: Bool = false
     required convenience init?(map: Map) {
         self.init()
     }
 
-     func mapping(map: Map) {
-        address <- map["address"]
+    func mapping(map: Map) {
+        var location: JSObject = [:]
+        var userRating: JSObject = [:]
+        location <- map["location"]
+        userRating <- map["user_rating"]
+        address = location["address"] as? String
         name <- map["name"]
         cuisines <- map["cuisines"]
-        imageURL <- map["url"]
-        rating <- map["aggregate_rating"]
+        imageURL <- map["featured_image"]
+        rating = userRating["aggregate_rating"] as? String
         onlineDelivery <- map["has_online_delivery"]
     }
 }
