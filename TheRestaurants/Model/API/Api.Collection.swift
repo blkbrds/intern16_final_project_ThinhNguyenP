@@ -21,23 +21,4 @@ extension Api.ListCollection {
             ]
         }
     }
-
-    static func loadCollection(completion: @escaping Completion<[CollecitonRestaurant]>) -> Request? {
-        let path = Api.Path.ListCollection().urlString
-        return api.request(method: .get, urlString: path) { (result) in
-            DispatchQueue.main.async {
-                switch result {
-                case.success(let value):
-                    guard let value = value as? JSObject, let json = value["collections"] as? JSArray else {
-                        completion(.failure(Api.Error.json))
-                        return
-                    }
-                    let collections = Mapper<CollecitonRestaurant>().mapArray(JSONArray: json)
-                    completion(.success(collections))
-                case .failure(let error):
-                    completion(.failure(error))
-                }
-            }
-        }
-    }
 }

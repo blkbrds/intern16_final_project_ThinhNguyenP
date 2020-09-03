@@ -27,20 +27,6 @@ class HomeViewModel {
     var cells: [Cell] = [.collectionView, .tableView]
     var dataCollection: [CollecitonRestaurant] = []
 
-    func loadCollection(value: Int, completion: @escaping (CollectionComplete) -> Void) {
-        let param = Api.ListCollection.ListCollectionParam(value: value, key: "city_id")
-        Api.ListCollection.loadCollection() { [weak self] (result) in
-            guard let this = self else { return }
-            switch result {
-            case .success(let collections ):
-                this.dataCollection = collections
-                completion(.success)
-            case .failure(let error):
-                completion(.failure(error))
-            }
-        }
-    }
-
     func numberOfSection() -> Int {
         return cells.count
     }

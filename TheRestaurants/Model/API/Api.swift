@@ -19,13 +19,9 @@ final class Api {
 }
 
 extension Api.Path {
-    struct ListCollection: ApiPath {
-        static var path: String { return baseURL / "collections?city_id=12" }
-        var urlString: String {
-            return ListCollection.path
-        }
-    }
 }
+
+extension Api.Path { }
 
 protocol URLStringConvertible {
     var urlString: String { get }

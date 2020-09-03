@@ -17,7 +17,6 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configTableView()
-        loadCollection(value: 12)
     }
 
     func configTableView() {
@@ -27,20 +26,6 @@ class HomeViewController: UIViewController {
         tableView.register(tableNib, forCellReuseIdentifier: "tableViewCell")
         tableView.dataSource = self
         tableView.rowHeight = 200
-    }
-
-    func loadCollection(value: Int) {
-        viewModel.loadCollection(value: value) { [weak self](result) in
-            guard let this = self else { return }
-            switch result {
-            case.success:
-                this.tableView.reloadData()
-            case.failure:
-                let alert = UIAlertController(title: "Warning", message: "Error", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: nil))
-                this.present(alert, animated: true)
-            }
-        }
     }
 }
 extension HomeViewController: UITableViewDataSource {
