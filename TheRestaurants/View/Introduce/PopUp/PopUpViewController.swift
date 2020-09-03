@@ -52,19 +52,6 @@ class PopUpViewController: UIViewController {
         tableView.reloadData()
     }
 
-    func search(value: String) {
-        viewModel.searchCities(value: value) { [weak self] (result) in
-            guard let this = self else { return }
-            switch result {
-            case .success:
-                this.tableView.reloadData()
-            case .failure:
-                let alert = UIAlertController(title: "Warning", message: "Error", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: nil))
-                this.present(alert, animated: true)
-            }
-        }
-    }
 
     @IBAction func cancelButtonTouchUpInside(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
@@ -91,7 +78,6 @@ extension PopUpViewController: UITableViewDataSource, UITableViewDelegate {
 extension PopUpViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let value = searchBar.text else { return }
-        search(value: value)
         searchBar.resignFirstResponder()
     }
 }

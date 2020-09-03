@@ -18,20 +18,6 @@ class PopUpViewModel {
     var dataCities: [City] = []
     var citiesSearch: [City] = []
 
-    func searchCities(value: String, completion: @escaping (LoadCitiesComplete) -> Void) {
-        let param = Api.Search.SearchParam(value: value, key: "q")
-        Api.Search.search(param: param) { [weak self] (result) in
-            guard let this = self else { return }
-            switch result {
-            case .success(let cities):
-                this.dataCities = cities
-                completion(.success)
-            case .failure(let error):
-                completion(.failure(error))
-            }
-        }
-    }
-
     func numberOfRowInsection() -> Int {
         return dataCities.count
     }

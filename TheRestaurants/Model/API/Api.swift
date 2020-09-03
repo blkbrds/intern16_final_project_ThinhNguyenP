@@ -15,18 +15,9 @@ final class Api {
         static let baseURL = "https://developers.zomato.com/api/v2.1"
     }
 
-    struct Search {
-        }
 }
 
-extension Api.Path {
-    struct Search: ApiPath {
-        static var path: String { return baseURL }
-        var urlString: String {
-            return Search.path
-        }
-    }
-}
+extension Api.Path { }
 
 protocol URLStringConvertible {
     var urlString: String { get }

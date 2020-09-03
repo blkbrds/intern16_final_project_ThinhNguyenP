@@ -46,7 +46,6 @@
 		846A2BAB24FA5A62004160B3 /* PopUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 846A2BA924FA5A62004160B3 /* PopUpViewController.xib */; };
 		846A2BB324FA645D004160B3 /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846A2BB224FA645D004160B3 /* City.swift */; };
 		846A2BB524FA64E5004160B3 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846A2BB424FA64E5004160B3 /* ImageCache.swift */; };
-		846A2BB724FA65A0004160B3 /* Api.Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846A2BB624FA65A0004160B3 /* Api.Search.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -91,7 +90,6 @@
 		846A2BA924FA5A62004160B3 /* PopUpViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PopUpViewController.xib; sourceTree = "<group>"; };
 		846A2BB224FA645D004160B3 /* City.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = City.swift; path = TheRestaurants/Model/API/City.swift; sourceTree = SOURCE_ROOT; };
 		846A2BB424FA64E5004160B3 /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
-		846A2BB624FA65A0004160B3 /* Api.Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Api.Search.swift; sourceTree = "<group>"; };
 		904414929699BD83F02E1C1E /* Pods_TheRestaurants.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TheRestaurants.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAE73ED7E64C5EBE34936D9A /* Pods-TheRestaurants.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheRestaurants.release.xcconfig"; path = "Target Support Files/Pods-TheRestaurants/Pods-TheRestaurants.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -271,7 +269,6 @@
 				74A4199F24F3CB2300D1C1D6 /* ResponseSerializer.swift */,
 				74A4199C24F3CA2E00D1C1D6 /* Session.swift */,
 				846A2BB424FA64E5004160B3 /* ImageCache.swift */,
-				846A2BB624FA65A0004160B3 /* Api.Search.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -479,7 +476,6 @@
 				846A2BA524FA5918004160B3 /* PopUpTableViewModel.swift in Sources */,
 				74A419A524F3CD4F00D1C1D6 /* NSErrorExt.swift in Sources */,
 				74A419AB24F3CF1700D1C1D6 /* DataExt.swift in Sources */,
-				846A2BB724FA65A0004160B3 /* Api.Search.swift in Sources */,
 				74A419A024F3CB2300D1C1D6 /* ResponseSerializer.swift in Sources */,
 				846A2BA424FA5917004160B3 /* PopUpTableViewCell.swift in Sources */,
 				74A419AF24F3CFF300D1C1D6 /* App.swift in Sources */,
