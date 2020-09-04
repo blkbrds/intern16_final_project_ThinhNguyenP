@@ -34,16 +34,16 @@ class SearchCityPopUpViewController: UIViewController {
     }
 
     func search(value: String) {
+        Indicator.start()
         viewModel.searchCities(value: value) { [weak self] (result) in
+            Indicator.stop()
             guard let this = self else { return }
             switch result {
             case .success:
                 this.tableView.reloadData()
                 this.searchBar.resignFirstResponder()
-            case .failure:
-                let alert = UIAlertController(title: "Warning", message: "Error", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: nil))
-                this.present(alert, animated: true)
+            case .failure(let error):
+                this.alert(error: error)
             }
         }
     }
