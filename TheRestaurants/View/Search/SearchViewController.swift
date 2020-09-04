@@ -12,8 +12,9 @@ class SearchViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         let searchBar = UISearchBar(frame: CGRect(x: 0, y: 0, width: view.bounds.width - 20, height: 0))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: searchBar)
 
     }
 }
