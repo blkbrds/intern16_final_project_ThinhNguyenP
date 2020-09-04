@@ -21,9 +21,9 @@ final class Api {
 extension Api.Path {
     struct Search: ApiPath {
         static var path: String { return baseURL }
-        var keys = "cities"
+
         var urlString: String {
-            return Search.path / keys
+            return Search.path / "cities"
         }
     }
 }
