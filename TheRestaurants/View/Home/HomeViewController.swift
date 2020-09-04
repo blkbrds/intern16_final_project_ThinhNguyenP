@@ -25,10 +25,10 @@ class HomeViewController: UIViewController {
         let tableNib = UINib(nibName: "HomeCell", bundle: .main)
         tableView.register(tableNib, forCellReuseIdentifier: "tableViewCell")
         tableView.dataSource = self
-        tableView.rowHeight = 200
+        tableView.delegate = self
     }
 }
-extension HomeViewController: UITableViewDataSource {
+extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.numberOfSection()
     }
@@ -42,6 +42,14 @@ extension HomeViewController: UITableViewDataSource {
         } else {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "tableViewCell", for: indexPath) as? HomeCell else { return UITableViewCell() }
             return cell
+        }
+    }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        switch viewModel.cells[indexPath.section] {
+        case .collectionView:
+            return 186
+        case .tableView:
+            return 320
         }
     }
 }

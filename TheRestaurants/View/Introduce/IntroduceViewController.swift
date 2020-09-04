@@ -10,7 +10,8 @@ import UIKit
 
 class IntroduceViewController: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    @IBAction func chooseCityButtonTouchUpInside(_ sender: Any) {
+        let vc = SearchCityPopUpViewController()
+        present(vc, animated: true)
     }
 }
