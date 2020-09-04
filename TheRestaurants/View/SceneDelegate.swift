@@ -8,8 +8,6 @@
 
 import UIKit
 import SwiftUI
-import SVProgressHUD
-typealias HUD = SVProgressHUD
 
 enum RootViewController {
     case introduce

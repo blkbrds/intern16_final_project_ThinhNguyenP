@@ -14,7 +14,7 @@ class SearchCityPopUpViewController: UIViewController {
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private weak var searchTitleLabel: UILabel!
     @IBOutlet private weak var searchBar: UISearchBar!
-    var viewModel = PopUpViewModel()
+    var viewModel = SearchCityPopUpViewModel()
 
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -57,7 +57,7 @@ class SearchCityPopUpViewController: UIViewController {
     func configTableView() {
         let nib = UINib(nibName: "SearchCityCell", bundle: .main)
         tableView.register(nib, forCellReuseIdentifier: "cell")
-        tableView.rowHeight = 50
+        tableView.rowHeight = 60
         tableView.delegate = self
         tableView.dataSource = self
     }
