@@ -33,6 +33,21 @@ class SearchCityPopUpViewController: UIViewController {
         searchBar.delegate = self
     }
 
+    func search(value: String) {
+        viewModel.searchCities(value: value) { [weak self] (result) in
+            guard let this = self else { return }
+            switch result {
+            case .success:
+                this.tableView.reloadData()
+                this.searchBar.resignFirstResponder()
+            case .failure:
+                let alert = UIAlertController(title: "Warning", message: "Error", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: nil))
+                this.present(alert, animated: true)
+            }
+        }
+    }
+
     private func setup() {
         providesPresentationContextTransitionStyle = true
         definesPresentationContext = true
@@ -71,7 +86,7 @@ extension SearchCityPopUpViewController: UITableViewDataSource, UITableViewDeleg
 
 extension SearchCityPopUpViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        guard searchBar.text != nil else { return }
-        searchBar.resignFirstResponder()
+        guard let value = searchBar.text else { return }
+        search(value: value)
     }
 }
