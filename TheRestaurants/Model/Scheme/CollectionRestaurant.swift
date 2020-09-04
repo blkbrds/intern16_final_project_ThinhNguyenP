@@ -8,12 +8,12 @@
 
 import Foundation
 import ObjectMapper
+ 
+class CollecitonRestaurant: Mappable {
 
-@objcMembers class CollecitonRestaurant: Mappable {
-
-    var countPlaces: Int = 12
-    var title: String = ""
-    var imageCollection: String = ""
+    var countPlaces: Int?
+    var title: String?
+    var imageCollection: String?
     required convenience init?(map: Map) {
         self.init()
     }

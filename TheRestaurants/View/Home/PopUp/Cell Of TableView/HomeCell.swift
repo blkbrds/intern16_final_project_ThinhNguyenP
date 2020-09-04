@@ -19,7 +19,27 @@ class HomeCell: UITableViewCell {
         super.awakeFromNib()
     }
 
+    var viewModel: HomeCellModel? {
+        didSet {
+            updateView()
+        }
+    }
+
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
+    }
+
+    private func updateView() {
+        guard let viewModel = viewModel else { return }
+        nameRestaurantLabel.text = viewModel.name
+        addressRestaurantLabel.text = viewModel.address
+        ratingRestautantLabel.text = viewModel.rating
+        numberOfDeliveryLabel.text = "\(String(describing: viewModel.onlineDelivery))"
+//        viewModel.loadImage { [weak self](image) in
+//            guard let this = self else { return }
+//            this.imageRestaurant.layer.cornerRadius = 10
+//            this.ratingImage.layer.cornerRadius = 5
+//            this.imageRestaurant.image = image
+//        }
     }
 }
