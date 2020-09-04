@@ -22,7 +22,7 @@ final class Api {
 
 extension Api.Path {
     struct ListCollection: ApiPath {
-        static var path: String { return baseURL / "collections?city_id=12" }
+        static var path: String { return baseURL / "collections?city_id=10" }
         var urlString: String {
             return ListCollection.path
         }

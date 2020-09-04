@@ -29,6 +29,6 @@ class HomeCellModel {
     }
 
     func loadImage(completion: @escaping (UIImage?) -> Void) {
-        ImageCache.loadImage(urlString: imageURL ?? "", completion: completion)
+        ImageCache.loadImage(urlString: imageURL ?? "ic-home-no-image", completion: completion)
     }
 }

@@ -9,9 +9,9 @@
 import UIKit
 
 class HomeViewController: UIViewController {
-    
+
     @IBOutlet weak var tableView: UITableView!
-    
+
     var viewModel = HomeViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,7 +19,7 @@ class HomeViewController: UIViewController {
         loadCollection(value: 10)
         loadCell()
     }
-    
+
     func configTableView() {
         let nib = UINib(nibName: "ListCollectionsCell", bundle: .main)
         tableView.register(nib, forCellReuseIdentifier: "collectionViewCell")

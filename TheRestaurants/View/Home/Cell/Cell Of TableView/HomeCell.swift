@@ -38,7 +38,7 @@ class HomeCell: UITableViewCell {
         addressRestaurantLabel.text = viewModel.address
         cuisines.text = viewModel.cuisines
         ratingRestautantLabel.text = viewModel.rating
-        numberOfDeliveryLabel.text = "\(String(describing: viewModel.onlineDelivery))"
+        numberOfDeliveryLabel.text = "\(viewModel.onlineDelivery ?? 0)"
         favoriteButton.isSelected = viewModel.isFavorite
         viewModel.loadImage { [weak self](image) in
             guard let this = self else { return }
