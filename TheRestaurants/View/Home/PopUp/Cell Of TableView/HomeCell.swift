@@ -10,23 +10,16 @@ import UIKit
 
 class HomeCell: UITableViewCell {
 
-    @IBOutlet weak var imageRestaurant: UIImageView!
-    @IBOutlet weak var nameRestaurantLabel: UILabel!
-    @IBOutlet weak var ratingRestautantLabel: UILabel!
-    @IBOutlet weak var addressRestaurantLabel: UILabel!
-    @IBOutlet weak var numberOfDeliveryLabel: UILabel!
-    override func awakeFromNib() {
-        super.awakeFromNib()
-    }
+    @IBOutlet private weak var imageRestaurant: UIImageView!
+    @IBOutlet private weak var nameRestaurantLabel: UILabel!
+    @IBOutlet private weak var ratingRestautantLabel: UILabel!
+    @IBOutlet private weak var addressRestaurantLabel: UILabel!
+    @IBOutlet private weak var numberOfDeliveryLabel: UILabel!
 
     var viewModel: HomeCellModel? {
         didSet {
             updateView()
         }
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
     }
 
     private func updateView() {
@@ -35,11 +28,5 @@ class HomeCell: UITableViewCell {
         addressRestaurantLabel.text = viewModel.address
         ratingRestautantLabel.text = viewModel.rating
         numberOfDeliveryLabel.text = "\(String(describing: viewModel.onlineDelivery))"
-//        viewModel.loadImage { [weak self](image) in
-//            guard let this = self else { return }
-//            this.imageRestaurant.layer.cornerRadius = 10
-//            this.ratingImage.layer.cornerRadius = 5
-//            this.imageRestaurant.image = image
-//        }
     }
 }

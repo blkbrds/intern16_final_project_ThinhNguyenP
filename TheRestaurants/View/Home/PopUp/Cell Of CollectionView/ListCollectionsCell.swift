@@ -14,21 +14,11 @@ class ListCollectionsCell: UITableViewCell {
 
     var viewModel = ListCollectionsCellModel()
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        configCollectionView()
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-    }
-
-    func configCollectionView() {
+    private func configCollectionView() {
         let collectionView = UINib(nibName: "CollectionCell", bundle: .main)
         trendingCollectionViewCell.register(collectionView, forCellWithReuseIdentifier: "collectionView")
         trendingCollectionViewCell.dataSource = self
         trendingCollectionViewCell.delegate = self
-
     }
 }
 extension ListCollectionsCell: UICollectionViewDataSource {
@@ -46,6 +36,6 @@ extension ListCollectionsCell: UICollectionViewDataSource {
 }
 extension ListCollectionsCell: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: (UIScreen.main.bounds.width / 3), height: 200)
+        return CGSize(width: 100, height: 150)
     }
 }

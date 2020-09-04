@@ -9,7 +9,7 @@
 import Foundation
 import ObjectMapper
 
-class CellRestaurant: Mappable {
+class Restaurant: Mappable {
 
     var address: String?
     var name: String?

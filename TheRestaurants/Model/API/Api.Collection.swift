@@ -12,8 +12,7 @@ import ObjectMapper
 
 extension Api.ListCollection {
     struct ListCollectionParam {
-        var value: Int = 12
-        var key: String = "city_id"
+        var value: Int?
 
         func toJSON() -> [String: Any] {
             return [

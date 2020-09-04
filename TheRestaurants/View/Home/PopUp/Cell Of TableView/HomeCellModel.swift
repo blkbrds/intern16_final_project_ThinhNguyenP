@@ -18,7 +18,7 @@ class HomeCellModel {
     var onlineDelivery: Int?
     var isFavorite: Bool
 
-    init(cellsRestaurant: CellRestaurant ) {
+    init(cellsRestaurant: Restaurant ) {
         self.address = cellsRestaurant.address
         self.name = cellsRestaurant.name
         self.cuisines = cellsRestaurant.cuisines
