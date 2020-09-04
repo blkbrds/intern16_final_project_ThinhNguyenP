@@ -232,10 +232,11 @@
 		74A4197324F3C12900D1C1D6 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				84A9332C2501F6F800BEE475 /* Cell Of TableView */,
+				84A9331E2501F6E700BEE475 /* Cell Of CollectionView */,
 				8414C13425022FA60066701F /* HomeViewController.swift */,
 				8414C13325022FA60066701F /* HomeViewController.xib */,
 				8414C13225022FA60066701F /* HomeViewModel.swift */,
-				8459669924FCA51A00A61A79 /* PopUp */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -343,15 +344,6 @@
 				744821102501CF7A005ACDFF /* SceneDelegateExt.swift */,
 			);
 			path = Extensions;
-			sourceTree = "<group>";
-		};
-		8459669924FCA51A00A61A79 /* PopUp */ = {
-			isa = PBXGroup;
-			children = (
-				84A9332C2501F6F800BEE475 /* Cell Of TableView */,
-				84A9331E2501F6E700BEE475 /* Cell Of CollectionView */,
-			);
-			path = PopUp;
 			sourceTree = "<group>";
 		};
 		846A2B9C24FA5917004160B3 /* PopUp */ = {
