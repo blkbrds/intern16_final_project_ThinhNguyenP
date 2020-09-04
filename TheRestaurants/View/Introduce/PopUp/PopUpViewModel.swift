@@ -10,18 +10,13 @@ import Foundation
 
 class PopUpViewModel {
 
-    enum LoadCitiesComplete {
-        case success
-        case failure(Error)
-    }
-
     var dataCities: [City] = []
 
     func numberOfRowInsection() -> Int {
         return dataCities.count
     }
 
-    func searchCities(value: String, completion: @escaping (LoadCitiesComplete) -> Void) {
+    func searchCities(value: String, completion: @escaping APICompletion) {
         let param = Api.Search.SearchParam(value: value)
         Api.Search.search(param: param) { [weak self] (result) in
             guard let this = self else { return }
