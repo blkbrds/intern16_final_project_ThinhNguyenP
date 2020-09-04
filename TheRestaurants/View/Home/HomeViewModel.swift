@@ -8,15 +8,6 @@
 
 import Foundation
 
-enum Cell {
-    case collectionView
-    case tableView
-}
-enum CollectionComplete {
-    case success
-    case failure(Error)
-}
-
 class HomeViewModel {
 
     enum Cell {
@@ -25,7 +16,8 @@ class HomeViewModel {
     }
 
     var cells: [Cell] = [.collectionView, .tableView]
-    var dataCollection: [CollecitonRestaurant] = []
+    var dataCollection: [Collection] = []
+    var dataCell: [Restaurant] = []
 
     func numberOfSection() -> Int {
         return cells.count
@@ -35,5 +27,21 @@ class HomeViewModel {
         let item = dataCollection
         let viewModel = ListCollectionsCellModel(collections: item)
         return viewModel
+    }
+
+    func viewModelForCell2(indexPath: IndexPath) -> HomeCellModel {
+        let item = dataCell[indexPath.row]
+        let viewModel = HomeCellModel(cellsRestaurant: item)
+        return viewModel
+    }
+
+    func numberOfRowsInSection(section: Int) -> Int {
+        guard section < cells.count else { return 1 }
+        switch cells[section] {
+        case .collectionView:
+         return 1
+        case .tableView:
+         return dataCell.count
+        }
     }
 }
