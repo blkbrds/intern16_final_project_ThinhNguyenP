@@ -9,6 +9,7 @@
 import Foundation
 
 extension App.String {
-     static let alertFailedAPI = "Failed"
-     static let alertFailedToConnectAPI = "Connect Failed"
+    static let alertFailedAPI = "Failed"
+    static let alertFailedToConnectAPI = "Connect Failed"
+    static let ok = "OK"
 }

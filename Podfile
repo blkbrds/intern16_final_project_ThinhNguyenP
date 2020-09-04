@@ -10,6 +10,5 @@ target 'TheRestaurants' do
   pod 'ObjectMapper'
   pod 'SwiftLint'
   pod 'RealmSwift'
-  pod 'SVProgressHUD'
 	
 end

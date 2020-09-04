@@ -8,7 +8,6 @@
 
 import UIKit
 import Contacts
-import SVProgressHUD
 
 class SearchCityPopUpViewController: UIViewController {
 
