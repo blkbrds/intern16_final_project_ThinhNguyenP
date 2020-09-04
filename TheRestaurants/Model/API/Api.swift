@@ -12,11 +12,21 @@ import Alamofire
 final class Api {
 
     struct Path {
-        static let baseURL = "https://developers.zomato.com/api/v2.1"
+        static var  baseURL = "https://developers.zomato.com/api/v2.1"
     }
+
+    struct Search { }
 }
 
-extension Api.Path { }
+extension Api.Path {
+    struct Search: ApiPath {
+        static var path: String { return baseURL }
+
+        var urlString: String {
+            return Search.path / "cities"
+        }
+    }
+}
 
 protocol URLStringConvertible {
     var urlString: String { get }

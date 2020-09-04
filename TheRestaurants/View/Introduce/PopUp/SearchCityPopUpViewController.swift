@@ -8,14 +8,13 @@
 
 import UIKit
 import Contacts
-import SVProgressHUD
 
 class SearchCityPopUpViewController: UIViewController {
 
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private weak var searchTitleLabel: UILabel!
     @IBOutlet private weak var searchBar: UISearchBar!
-    var viewModel = PopUpViewModel()
+    var viewModel = SearchCityPopUpViewModel()
 
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -33,6 +32,21 @@ class SearchCityPopUpViewController: UIViewController {
         searchBar.delegate = self
     }
 
+    func search(value: String) {
+        Indicator.start()
+        viewModel.searchCities(value: value) { [weak self] (result) in
+            Indicator.stop()
+            guard let this = self else { return }
+            switch result {
+            case .success:
+                this.tableView.reloadData()
+                this.searchBar.resignFirstResponder()
+            case .failure(let error):
+                this.alert(error: error)
+            }
+        }
+    }
+
     private func setup() {
         providesPresentationContextTransitionStyle = true
         definesPresentationContext = true
@@ -43,7 +57,7 @@ class SearchCityPopUpViewController: UIViewController {
     func configTableView() {
         let nib = UINib(nibName: "SearchCityCell", bundle: .main)
         tableView.register(nib, forCellReuseIdentifier: "cell")
-        tableView.rowHeight = 50
+        tableView.rowHeight = 60
         tableView.delegate = self
         tableView.dataSource = self
     }
@@ -71,7 +85,7 @@ extension SearchCityPopUpViewController: UITableViewDataSource, UITableViewDeleg
 
 extension SearchCityPopUpViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        guard searchBar.text != nil else { return }
-        searchBar.resignFirstResponder()
+        guard let value = searchBar.text else { return }
+        search(value: value)
     }
 }

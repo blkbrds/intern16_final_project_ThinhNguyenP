@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="65" id="KGk-i7-Jjw" customClass="SearchCityCell" customModule="TheRestaurants" customModuleProvider="target">
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="65" id="KGk-i7-Jjw" customClass="SearchCityCell" customModule="TheRestaurants" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="337" height="60"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
@@ -17,17 +17,17 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yzp-o9-7w1">
-                        <rect key="frame" x="0.0" y="15" width="337" height="45"/>
+                        <rect key="frame" x="0.0" y="15" width="337" height="36.5"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="sja-9e-Wwm">
-                                <rect key="frame" x="0.0" y="12.5" width="20" height="20"/>
+                                <rect key="frame" x="0.0" y="8.5" width="20" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="q8k-9n-gzu"/>
                                     <constraint firstAttribute="width" constant="20" id="wdz-Db-ucw"/>
                                 </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RSY-Ix-Z8i">
-                                <rect key="frame" x="27" y="4" width="310" height="37"/>
+                                <rect key="frame" x="27" y="0.0" width="310" height="37"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="703-Ij-ycG">
                                         <rect key="frame" x="0.0" y="0.0" width="39" height="18"/>
@@ -73,10 +73,10 @@
                     <constraint firstItem="Yzp-o9-7w1" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="0eD-R4-JR0"/>
                     <constraint firstItem="ZC0-uL-ILC" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="1tR-qQ-c4T"/>
                     <constraint firstItem="Yzp-o9-7w1" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="LqS-4o-j5i"/>
-                    <constraint firstAttribute="bottom" secondItem="Yzp-o9-7w1" secondAttribute="bottom" id="Pj9-fo-b66"/>
                     <constraint firstAttribute="bottom" secondItem="ZC0-uL-ILC" secondAttribute="bottom" id="UqL-vR-ZsI"/>
                     <constraint firstAttribute="trailing" secondItem="Yzp-o9-7w1" secondAttribute="trailing" id="daF-V0-tTU"/>
                     <constraint firstAttribute="trailing" secondItem="ZC0-uL-ILC" secondAttribute="trailing" id="mds-l5-2A5"/>
+                    <constraint firstItem="ZC0-uL-ILC" firstAttribute="top" secondItem="Yzp-o9-7w1" secondAttribute="bottom" constant="8" id="rM0-3a-lcu"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
