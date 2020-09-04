@@ -15,6 +15,7 @@ final class Api {
         static var  baseURL = "https://developers.zomato.com/api/v2.1"
     }
 
+    struct ListCollection { }
     struct Search { }
 }
 

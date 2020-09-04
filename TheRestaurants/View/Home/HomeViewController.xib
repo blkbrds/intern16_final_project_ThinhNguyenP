@@ -9,6 +9,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController" customModule="TheRestaurants" customModuleProvider="target">
             <connections>
+                <outlet property="tableView" destination="t5o-7R-nLQ" id="fdb-Oi-e9x"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -17,21 +18,17 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ars-bv-dF0">
-                    <rect key="frame" x="0.0" y="269" width="375" height="378"/>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="t5o-7R-nLQ">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                 </tableView>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="El3-0O-vLa">
-                    <rect key="frame" x="26" y="86" width="240" height="128"/>
-                    <viewLayoutGuide key="contentLayoutGuide" id="4ao-UE-bqR"/>
-                    <viewLayoutGuide key="frameLayoutGuide" id="7w5-Av-oqZ"/>
-                </scrollView>
             </subviews>
             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
             <constraints>
-                <constraint firstItem="El3-0O-vLa" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="Oor-DL-v1L"/>
-                <constraint firstItem="Ars-bv-dF0" firstAttribute="top" secondItem="El3-0O-vLa" secondAttribute="bottom" constant="10" id="b1C-em-04E"/>
-                <constraint firstItem="El3-0O-vLa" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="50" id="zvq-ua-ZpH"/>
+                <constraint firstItem="t5o-7R-nLQ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="6Ff-Iw-wYU"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="t5o-7R-nLQ" secondAttribute="bottom" id="kTc-n7-ASP"/>
+                <constraint firstItem="t5o-7R-nLQ" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="ptc-78-ebu"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="t5o-7R-nLQ" secondAttribute="trailing" id="xKb-ze-wkL"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="138.40000000000001" y="130.88455772113943"/>

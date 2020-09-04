@@ -33,6 +33,7 @@ class SearchCityPopUpViewController: UIViewController {
     }
 
     func search(value: String) {
+
         Indicator.start()
         viewModel.searchCities(value: value) { [weak self] (result) in
             Indicator.stop()
