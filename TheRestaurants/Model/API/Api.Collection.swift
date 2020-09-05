@@ -22,7 +22,6 @@ extension Api.ListCollection {
 
     static func loadCollection(completion: @escaping Completion<[Collection]>) -> Request? {
         let path = Api.Path.ListCollection().urlString
-        print(path)
         return api.request(method: .get, urlString: path) { (result) in
             DispatchQueue.main.async {
                 switch result {

@@ -23,7 +23,6 @@ extension Api.Search {
 
     static func search(param: SearchParam, completion: @escaping Completion<[City]>) {
         let path = Api.Path.Search().urlString
-        print(path)
         api.request(method: .get, urlString: path, parameters: param.toJSON()) { (result ) in
             DispatchQueue.main.async {
                 switch result {

@@ -18,7 +18,6 @@ class HomeViewController: UIViewController {
         configTableView()
         loadCollection(value: 10)
         loadCell()
-//        loadRegularPickerData()
     }
 
     private func configTableView() {
@@ -57,20 +56,6 @@ class HomeViewController: UIViewController {
             }
         }
     }
-
-//    private func loadRegularPickerData() {
-//        let dispatchGroup = DispatchGroup()
-//        dispatchGroup.enter()
-//        self.loadCollection(value: 10)
-//        dispatchGroup.leave()
-//        dispatchGroup.enter()
-//        self.loadCell()
-//        dispatchGroup.leave()
-//        dispatchGroup.notify(queue: .main) { [weak self] in
-//            guard let this = self else { return }
-//            this.tableView.reloadData()
-//        }
-//    }
 }
 extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     func numberOfSections(in tableView: UITableView) -> Int {
