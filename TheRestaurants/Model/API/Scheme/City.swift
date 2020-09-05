@@ -10,12 +10,12 @@ import Foundation
 import RealmSwift
 import ObjectMapper
 
-@objcMembers class City: Object, Mappable {
+class City: Object, Mappable {
 
     var countryName: String = ""
     var cityName: String = ""
     var flagUrl: String = ""
-
+    var id: Int?
     required convenience init?(map: Map) {
         self.init()
     }
@@ -24,5 +24,6 @@ import ObjectMapper
         countryName <- map["country_name"]
         cityName <- map["name"]
         flagUrl <- map ["country_flag_url"]
+        id <- map ["id"]
     }
 }

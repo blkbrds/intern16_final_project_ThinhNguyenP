@@ -15,7 +15,7 @@ class SearchCityPopUpViewController: UIViewController {
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private weak var searchTitleLabel: UILabel!
     @IBOutlet private weak var searchBar: UISearchBar!
-    var viewModel = PopUpViewModel()
+    var viewModel = SearchCityPopUpViewModel()
 
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -51,7 +51,7 @@ class SearchCityPopUpViewController: UIViewController {
     private func updateUI() {
         tableView.reloadData()
     }
-    
+
     func search(value: String) {
         viewModel.searchCities(value: value) { [weak self] (result) in
             guard let this = self else { return }
@@ -80,6 +80,16 @@ extension SearchCityPopUpViewController: UITableViewDataSource, UITableViewDeleg
             as? SearchCityCell else { return UITableViewCell() }
         cell.viewModel = viewModel.viewModelForCell(at: indexPath)
         return cell
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+       guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+       as? SearchCityCell else { return }
+        let cellViewModel = viewModel.didSelectRowAt(value: indexPath.row)
+        cell.viewModel = cellViewModel
+        let cityId = cellViewModel.city.id
+        UserDefaults.standard.set(cityId, forKey: "curren_city_id")
+        SceneDelegate.shared.changeRoot(root: .tabbar)
     }
 }
 

@@ -8,7 +8,7 @@
 
 import Foundation
 
-class PopUpViewModel {
+class SearchCityPopUpViewModel{
 
     enum LoadCitiesComplete {
         case success
@@ -20,7 +20,7 @@ class PopUpViewModel {
     func numberOfRowInsection() -> Int {
         return dataCities.count
     }
-    
+
     func searchCities(value: String, completion: @escaping (LoadCitiesComplete) -> Void) {
         let param = Api.Search.SearchParam(value: value, key: "q")
         Api.Search.search(param: param) { [weak self] (result) in
@@ -37,6 +37,12 @@ class PopUpViewModel {
 
     func viewModelForCell(at indexPath: IndexPath) -> SearchCityCellModel {
         let item = dataCities[indexPath.row]
+        let viewModel = SearchCityCellModel(city: item)
+        return viewModel
+    }
+    
+    func didSelectRowAt(value: Int) -> SearchCityCellModel {
+        let item = dataCities[value]
         let viewModel = SearchCityCellModel(city: item)
         return viewModel
     }

@@ -254,7 +254,6 @@
 		74A4199324F3C28B00D1C1D6 /* API */ = {
 			isa = PBXGroup;
 			children = (
-				840964F4250104F8000FF39B /* Scheme */,
 				840964F225010264000FF39B /* Api.Search.swift */,
 				74A4199424F3C64E00D1C1D6 /* Api.swift */,
 				74A4199624F3C6B100D1C1D6 /* ApiManager.swift */,
@@ -264,6 +263,7 @@
 				74A4199F24F3CB2300D1C1D6 /* ResponseSerializer.swift */,
 				74A4199C24F3CA2E00D1C1D6 /* Session.swift */,
 				846A2BB424FA64E5004160B3 /* ImageCache.swift */,
+				840964F4250104F8000FF39B /* Scheme */,
 			);
 			path = API;
 			sourceTree = "<group>";
