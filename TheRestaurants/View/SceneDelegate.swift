@@ -58,6 +58,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let search = SearchViewController()
         let searchNavi = UINavigationController(rootViewController: search)
         searchNavi.tabBarItem = UITabBarItem(title: "", image: #imageLiteral(resourceName: "ic_tabbar_search"), tag: 3)
+        UINavigationBar.appearance().barTintColor = #colorLiteral(red: 0, green: 0.5137254902, blue: 0.5607843137, alpha: 1)
+        UINavigationBar.appearance().titleTextAttributes =  [NSAttributedString.Key.foregroundColor: UIColor.white]
         let tabbarController = UITabBarController()
         tabbarController.tabBar.tintColor = #colorLiteral(red: 0, green: 0.3764705882, blue: 0.3921568627, alpha: 1)
         tabbarController.tabBar.standardAppearance = appearance
