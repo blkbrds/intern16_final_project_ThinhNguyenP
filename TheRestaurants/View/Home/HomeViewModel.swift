@@ -9,7 +9,7 @@
 import Foundation
 
 class HomeViewModel {
-    
+
     enum Cell {
         case collectionView
         case tableView
@@ -17,9 +17,8 @@ class HomeViewModel {
     var dataCollection: [Collection] = []
     var dataCell: [CellRestaurant] = []
     var cells: [Cell] = [.collectionView, .tableView]
-    
+
     func loadCollection(value: Int, completion: @escaping (APICompletion)) {
-        let param = Api.ListCollection.ListCollectionParam(value: value)
         Api.ListCollection.loadCollection() { [weak self] (result) in
             guard let this = self else { return }
             switch result {
@@ -54,13 +53,13 @@ class HomeViewModel {
         let viewModel = ListCollectionsCellModel(collections: item)
         return viewModel
     }
-    
+
     func viewModelForCell2(indexPath: IndexPath) -> HomeCellModel {
         let item = dataCell[indexPath.row]
         let viewModel = HomeCellModel(cellsRestaurant: item)
         return viewModel
     }
-    
+
     func numberOfRowsInSection(section: Int) -> Int {
         guard section < cells.count else { return 1 }
         switch cells[section] {
@@ -71,4 +70,3 @@ class HomeViewModel {
         }
     }
 }
-

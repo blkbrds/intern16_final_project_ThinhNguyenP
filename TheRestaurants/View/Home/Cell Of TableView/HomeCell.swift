@@ -28,7 +28,6 @@ class HomeCell: UITableViewCell {
         addressRestaurantLabel.text = viewModel.address
         ratingRestautantLabel.text = viewModel.rating
         cuisineLabel.text = viewModel.cuisines
-        
         numberOfDeliveryLabel.text = "\(viewModel.onlineDelivery ?? 0) online delivery now"
         viewModel.loadImage { [weak self](image) in
             guard let this = self else { return }

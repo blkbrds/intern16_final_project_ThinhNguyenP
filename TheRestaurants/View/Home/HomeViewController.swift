@@ -18,7 +18,7 @@ class HomeViewController: UIViewController {
         configTableView()
         loadCollection(value: 10)
         loadCell()
-       // loadRegularPickerData()
+//        loadRegularPickerData()
     }
 
     private func configTableView() {
@@ -71,16 +71,12 @@ class HomeViewController: UIViewController {
 //            this.tableView.reloadData()
 //        }
 //    }
-    
-//    @IBAction func chooseCityButtonTouchUpInside(_ sender: Any) {
-//        SceneDelegate.shared.changeRoot(root: .introduce)
-//    }
 }
 extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     func numberOfSections(in tableView: UITableView) -> Int {
         return viewModel.numberOfSection()
     }
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.numberOfRowsInSection(section: section)
     }

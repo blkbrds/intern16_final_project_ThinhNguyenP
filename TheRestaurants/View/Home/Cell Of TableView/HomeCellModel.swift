@@ -28,7 +28,7 @@ class HomeCellModel {
         self.onlineDelivery = cellsRestaurant.onlineDelivery
         self.isFavorite = cellsRestaurant.favorite
     }
-    
+
    func loadImage(completion: @escaping (UIImage?) -> Void) {
     ImageCache.loadImage(urlString: imageURL ?? "ic-home-no-image-1", completion: completion)
     }
