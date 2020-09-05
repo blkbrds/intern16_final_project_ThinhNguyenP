@@ -10,17 +10,18 @@ import UIKit
 
 class HomeViewController: UIViewController {
 
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet private weak var tableView: UITableView!
 
     var viewModel = HomeViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
         configTableView()
         loadCollection(value: 10)
-        loadCell()
+       // loadCell()
+       // loadRegularPickerData()
     }
 
-    func configTableView() {
+    private func configTableView() {
         let nib = UINib(nibName: "ListCollectionsCell", bundle: .main)
         tableView.register(nib, forCellReuseIdentifier: "collectionViewCell")
         let tableNib = UINib(nibName: "HomeCell", bundle: .main)
@@ -56,13 +57,26 @@ class HomeViewController: UIViewController {
             }
         }
     }
-}
 
-extension HomeViewController: UITableViewDataSource, UITableViewDelegate  {
+    private func loadRegularPickerData() {
+        let dispatchGroup = DispatchGroup()
+        dispatchGroup.enter()
+        self.loadCollection(value: 10)
+        dispatchGroup.leave()
+        dispatchGroup.enter()
+        self.loadCell()
+        dispatchGroup.leave()
+        dispatchGroup.notify(queue: .main) { [weak self] in
+            guard let this = self else { return }
+            this.tableView.reloadData()
+        }
+    }
+}
+extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     func numberOfSections(in tableView: UITableView) -> Int {
         return viewModel.numberOfSection()
     }
-
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.numberOfRowsInSection(section: section)
     }

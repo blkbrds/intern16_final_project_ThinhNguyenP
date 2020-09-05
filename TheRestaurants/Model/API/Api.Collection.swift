@@ -12,8 +12,7 @@ import ObjectMapper
 
 extension Api.ListCollection {
     struct ListCollectionParam {
-        var value: Int = 12
-        var key: String = "city_id"
+        var value: Int?
         func toJSON() -> [String: Any] {
             return [
                 "city_id": value 
@@ -21,8 +20,9 @@ extension Api.ListCollection {
         }
     }
 
-    static func loadCollection(completion: @escaping Completion<[CollectionRestaurant]>) -> Request? {
+    static func loadCollection(completion: @escaping Completion<[Collection]>) -> Request? {
         let path = Api.Path.ListCollection().urlString
+        print(path)
         return api.request(method: .get, urlString: path) { (result) in
             DispatchQueue.main.async {
                 switch result {
@@ -31,9 +31,9 @@ extension Api.ListCollection {
                         completion(.failure(Api.Error.json))
                         return
                     }
-                    var results: [CollectionRestaurant] = []
+                    var results: [Collection] = []
                     for collection in collections {
-                        guard let key = collection["collection"] as? JSObject, let key2 = Mapper<CollectionRestaurant>().map(JSONObject: key) else { return }
+                        guard let key = collection["collection"] as? JSObject, let key2 = Mapper<Collection>().map(JSONObject: key) else { return }
                         results.append(key2)
                         completion(.success(results))
                     }

@@ -1,8 +1,8 @@
 //
-//  HomeCollectionViewCell.swift
+//  CollectionCell.swift
 //  TheRestaurants
 //
-//  Created by ADMIN on 8/31/2563 BE.
+//  Created by ADMIN on 9/4/2563 BE.
 //  Copyright © 2563 BE Thinh Nguyen P[6]. All rights reserved.
 //
 
@@ -10,9 +10,9 @@ import UIKit
 
 class CollectionCell: UICollectionViewCell {
 
-    @IBOutlet weak var imageCollectionView: UIImageView!
-    @IBOutlet weak var nameCollectionLabel: UILabel!
-    @IBOutlet weak var countPlacesTitle: UILabel!
+    @IBOutlet private weak var imageCollectionView: UIImageView!
+    @IBOutlet private weak var nameCollectionLabel: UILabel!
+    @IBOutlet private weak var countPlacesTitle: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()

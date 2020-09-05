@@ -8,28 +8,18 @@
 
 import Foundation
 
-enum CollectionComplete {
-    case success
-    case failure(Error)
-}
-enum CellCompletion {
-    case success
-    case failure(Error)
-}
-
 class HomeViewModel {
-
+    
     enum Cell {
         case collectionView
         case tableView
     }
-
-    var cells: [Cell] = [.collectionView, .tableView]
-    var dataCollection: [CollectionRestaurant] = []
+    var dataCollection: [Collection] = []
     var dataCell: [CellRestaurant] = []
-
-    func loadCollection(value: Int, completion: @escaping (CollectionComplete) -> Void) {
-        let param = Api.ListCollection.ListCollectionParam(value: value, key: "city_id")
+    var cells: [Cell] = [.collectionView, .tableView]
+    
+    func loadCollection(value: Int, completion: @escaping (APICompletion)) {
+        let param = Api.ListCollection.ListCollectionParam(value: value)
         Api.ListCollection.loadCollection() { [weak self] (result) in
             guard let this = self else { return }
             switch result {
@@ -42,7 +32,7 @@ class HomeViewModel {
         }
     }
 
-    func loadCell(completion: @escaping (CellCompletion) -> Void) {
+    func loadCell(completion: @escaping (APICompletion)) {
         Api.ListCell.loadCell { [weak self](result) in
             guard let this = self else { return }
             switch result {
@@ -64,20 +54,21 @@ class HomeViewModel {
         let viewModel = ListCollectionsCellModel(collections: item)
         return viewModel
     }
-
+    
     func viewModelForCell2(indexPath: IndexPath) -> HomeCellModel {
         let item = dataCell[indexPath.row]
         let viewModel = HomeCellModel(cellsRestaurant: item)
         return viewModel
     }
-
+    
     func numberOfRowsInSection(section: Int) -> Int {
-           guard section < cells.count else { return 1 }
-           switch cells[section] {
-           case .collectionView:
+        guard section < cells.count else { return 1 }
+        switch cells[section] {
+        case .collectionView:
             return 1
-           case .tableView:
+        case .tableView:
             return dataCell.count
-           }
-       }
+        }
+    }
 }
+

@@ -16,10 +16,10 @@
                 <rect key="frame" x="0.0" y="0.0" width="334" height="345"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic-home-no-image" translatesAutoresizingMaskIntoConstraints="NO" id="tqp-ND-WSz">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic-home-no-image-1" translatesAutoresizingMaskIntoConstraints="NO" id="tqp-ND-WSz">
                         <rect key="frame" x="15" y="25" width="304" height="165"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="165" id="6Sb-ys-1x5"/>
+                            <constraint firstAttribute="height" constant="165" id="K1u-Xw-Qtg"/>
                         </constraints>
                     </imageView>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gUs-3g-ZCd">
@@ -159,19 +159,16 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="addressRestaurantLabel" destination="axa-w2-D0g" id="C82-ZE-hrx"/>
-                <outlet property="cuisines" destination="Itp-hZ-dmn" id="jJ1-0n-zqt"/>
-                <outlet property="favoriteButton" destination="gUs-3g-ZCd" id="xUU-Jc-J7A"/>
                 <outlet property="imageRestaurant" destination="tqp-ND-WSz" id="b0e-wE-x8F"/>
                 <outlet property="nameRestaurantLabel" destination="Hqu-Dk-OV8" id="hKI-T9-CGQ"/>
                 <outlet property="numberOfDeliveryLabel" destination="TZw-L4-qTi" id="pkW-7x-7a7"/>
-                <outlet property="ratingImage" destination="0Fe-wP-prx" id="8nr-dp-5jP"/>
                 <outlet property="ratingRestautantLabel" destination="3C8-io-a4W" id="ln1-8J-evB"/>
             </connections>
-            <point key="canvasLocation" x="-304.34782608695656" y="222.65625"/>
+            <point key="canvasLocation" x="-330" y="211"/>
         </tableViewCell>
     </objects>
     <resources>
-        <image name="ic-home-no-image" width="335" height="165"/>
+        <image name="ic-home-no-image-1" width="335" height="165"/>
         <image name="ic_home_delivery" width="14" height="18"/>
         <image name="ic_home_favorite_white" width="46" height="46"/>
         <image name="ic_home_favoritebutton" width="46" height="46"/>

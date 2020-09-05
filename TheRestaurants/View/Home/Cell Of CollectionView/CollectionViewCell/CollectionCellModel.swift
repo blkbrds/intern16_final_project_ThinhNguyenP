@@ -15,10 +15,10 @@ class CollectionCellModel {
     var imageUrl: String?
     var title: String?
 
-    init(listCollection: CollectionRestaurant) {
+    init(listCollection: Collection) {
         self.numberOfRestaurant = listCollection.countPlaces
         self.title = listCollection.title
-        self.imageUrl = listCollection.imageCollection
+        self.imageUrl = listCollection.imageUrl
     }
 
     func loadImage(completion: @escaping (UIImage?) -> Void) {

@@ -17,9 +17,12 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="70O-u7-xyo">
-                        <rect key="frame" x="20" y="34.5" width="293" height="157.5"/>
+                        <rect key="frame" x="20" y="42" width="293" height="150"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="6Ne-pL-G6D">
+                        <constraints>
+                            <constraint firstAttribute="height" constant="150" id="nzJ-Rc-5IO"/>
+                        </constraints>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="6Ne-pL-G6D">
                             <size key="itemSize" width="50" height="50"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -27,7 +30,7 @@
                         </collectionViewFlowLayout>
                     </collectionView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Collections" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2f6-iI-qkz">
-                        <rect key="frame" x="0.0" y="0.0" width="89.5" height="20.5"/>
+                        <rect key="frame" x="0.0" y="0.0" width="89.5" height="28"/>
                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -44,7 +47,7 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="trendingCollectionViewCell" destination="70O-u7-xyo" id="x0V-Pu-9on"/>
+                <outlet property="trendingCollectionViewCell" destination="70O-u7-xyo" id="LW0-NL-Pol"/>
             </connections>
             <point key="canvasLocation" x="61.594202898550726" y="211.60714285714286"/>
         </tableViewCell>

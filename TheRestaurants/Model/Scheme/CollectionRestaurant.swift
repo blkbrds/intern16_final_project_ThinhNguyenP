@@ -9,11 +9,11 @@
 import Foundation
 import ObjectMapper
 
-class CollectionRestaurant: Mappable {
+class Collection: Mappable {
 
     var countPlaces: Int?
     var title: String?
-    var imageCollection: String?
+    var imageUrl: String?
     required convenience init?(map: Map) {
         self.init()
     }
@@ -21,7 +21,6 @@ class CollectionRestaurant: Mappable {
     func mapping(map: Map) {
         title <- map["title"]
         countPlaces <- map ["res_count"]
-        imageCollection <- map ["image_url"]
-
+        imageUrl <- map ["image_url"]
     }
 }

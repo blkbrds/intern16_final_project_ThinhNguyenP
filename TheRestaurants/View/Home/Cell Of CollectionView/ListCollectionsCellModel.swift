@@ -10,12 +10,8 @@ import Foundation
 
 class ListCollectionsCellModel {
 
-    enum LoadCollectionComplete {
-        case success
-        case failure(Error)
-    }
-    var collections: [CollectionRestaurant]
-    init (collections: [CollectionRestaurant] = [] ) {
+    var collections: [Collection]
+    init (collections: [Collection] = [] ) {
         self.collections = collections
     }
 

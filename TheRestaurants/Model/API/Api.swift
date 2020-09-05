@@ -12,25 +12,31 @@ import Alamofire
 final class Api {
 
     struct Path {
-        static let baseURL = "https://developers.zomato.com/api/v2.1"
+        static var  baseURL = "https://developers.zomato.com/api/v2.1"
     }
-    struct ListCollection {
-    }
-    struct ListCell {
-    }
+    struct ListCollection { }
+    struct Search { }
+    struct ListCell { }
 }
 
 extension Api.Path {
-    struct ListCollection: ApiPath {
-        static var path: String { return baseURL / "collections?city_id=10" }
+    struct Search: ApiPath {
+        static var path: String { return baseURL }
+
         var urlString: String {
-            return ListCollection.path
+            return Search.path / "cities"
         }
     }
     struct ListCell: ApiPath {
         static var path: String { return baseURL / "search?entity_type=city&entity_id=12&start=20" }
         var urlString: String {
         return ListCell.path
+        }
+    }
+    struct ListCollection: ApiPath {
+        static var path: String { return baseURL / "collections?city_id=10" }
+        var urlString: String {
+            return ListCollection.path
         }
     }
 }

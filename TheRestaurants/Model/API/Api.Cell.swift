@@ -14,6 +14,7 @@ extension Api.ListCell {
 
     static func loadCell(completion: @escaping Completion<[CellRestaurant]>) -> Request? {
         let path = Api.Path.ListCell().urlString
+        print(path)
         return api.request(method: .get, urlString: path) { (result) in
             DispatchQueue.main.async {
                 switch result {
