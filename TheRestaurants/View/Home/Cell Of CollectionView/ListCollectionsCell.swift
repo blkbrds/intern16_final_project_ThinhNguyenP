@@ -14,6 +14,11 @@ class ListCollectionsCell: UITableViewCell {
 
     var viewModel = ListCollectionsCellModel()
 
+    override func awakeFromNib() {
+           super.awakeFromNib()
+           configCollectionView()
+       }
+    
     private func configCollectionView() {
         let collectionView = UINib(nibName: "CollectionCell", bundle: .main)
         trendingCollectionViewCell.register(collectionView, forCellWithReuseIdentifier: "collectionView")

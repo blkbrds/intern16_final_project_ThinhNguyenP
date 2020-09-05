@@ -17,7 +17,7 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         configTableView()
         loadCollection(value: 10)
-       // loadCell()
+        loadCell()
        // loadRegularPickerData()
     }
 
@@ -58,19 +58,23 @@ class HomeViewController: UIViewController {
         }
     }
 
-    private func loadRegularPickerData() {
-        let dispatchGroup = DispatchGroup()
-        dispatchGroup.enter()
-        self.loadCollection(value: 10)
-        dispatchGroup.leave()
-        dispatchGroup.enter()
-        self.loadCell()
-        dispatchGroup.leave()
-        dispatchGroup.notify(queue: .main) { [weak self] in
-            guard let this = self else { return }
-            this.tableView.reloadData()
-        }
-    }
+//    private func loadRegularPickerData() {
+//        let dispatchGroup = DispatchGroup()
+//        dispatchGroup.enter()
+//        self.loadCollection(value: 10)
+//        dispatchGroup.leave()
+//        dispatchGroup.enter()
+//        self.loadCell()
+//        dispatchGroup.leave()
+//        dispatchGroup.notify(queue: .main) { [weak self] in
+//            guard let this = self else { return }
+//            this.tableView.reloadData()
+//        }
+//    }
+    
+//    @IBAction func chooseCityButtonTouchUpInside(_ sender: Any) {
+//        SceneDelegate.shared.changeRoot(root: .introduce)
+//    }
 }
 extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     func numberOfSections(in tableView: UITableView) -> Int {

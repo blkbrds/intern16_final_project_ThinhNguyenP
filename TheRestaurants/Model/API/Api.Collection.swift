@@ -35,8 +35,8 @@ extension Api.ListCollection {
                     for collection in collections {
                         guard let key = collection["collection"] as? JSObject, let key2 = Mapper<Collection>().map(JSONObject: key) else { return }
                         results.append(key2)
-                        completion(.success(results))
                     }
+                    completion(.success(results))
                 case .failure(let error):
                     completion(.failure(error))
                 }

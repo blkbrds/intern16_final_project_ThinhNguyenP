@@ -15,7 +15,7 @@ class HomeCell: UITableViewCell {
     @IBOutlet private weak var ratingRestautantLabel: UILabel!
     @IBOutlet private weak var addressRestaurantLabel: UILabel!
     @IBOutlet private weak var numberOfDeliveryLabel: UILabel!
-
+    @IBOutlet weak var cuisineLabel: UILabel!
     var viewModel: HomeCellModel? {
         didSet {
             updateView()
@@ -27,7 +27,9 @@ class HomeCell: UITableViewCell {
         nameRestaurantLabel.text = viewModel.name
         addressRestaurantLabel.text = viewModel.address
         ratingRestautantLabel.text = viewModel.rating
-        numberOfDeliveryLabel.text = "\(viewModel.onlineDelivery ?? 0)"
+        cuisineLabel.text = viewModel.cuisines
+        
+        numberOfDeliveryLabel.text = "\(viewModel.onlineDelivery ?? 0) online delivery now"
         viewModel.loadImage { [weak self](image) in
             guard let this = self else { return }
             this.imageRestaurant.layer.cornerRadius = 10
