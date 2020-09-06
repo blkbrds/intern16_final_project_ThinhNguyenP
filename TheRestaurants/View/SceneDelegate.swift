@@ -42,6 +42,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func setupTabbar() -> UITabBarController {
         let appearance = UITabBarAppearance()
+        UINavigationBar.appearance().barTintColor = #colorLiteral(red: 0, green: 0.5137254902, blue: 0.5607843137, alpha: 1)
+        UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         appearance.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         let home = HomeViewController()
         let homeNavi = UINavigationController(rootViewController: home)
