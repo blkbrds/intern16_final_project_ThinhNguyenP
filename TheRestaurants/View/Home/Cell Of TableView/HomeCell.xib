@@ -152,6 +152,7 @@
             <connections>
                 <outlet property="addressRestaurantLabel" destination="axa-w2-D0g" id="C82-ZE-hrx"/>
                 <outlet property="cuisineLabel" destination="Itp-hZ-dmn" id="YrB-bJ-6IQ"/>
+                <outlet property="favoriteButtonTouchUpInside" destination="gUs-3g-ZCd" id="Bny-5n-aGT"/>
                 <outlet property="imageRestaurant" destination="tqp-ND-WSz" id="b0e-wE-x8F"/>
                 <outlet property="nameRestaurantLabel" destination="Hqu-Dk-OV8" id="hKI-T9-CGQ"/>
                 <outlet property="numberOfDeliveryLabel" destination="TZw-L4-qTi" id="pkW-7x-7a7"/>

@@ -16,6 +16,7 @@ class HomeCell: UITableViewCell {
     @IBOutlet private weak var addressRestaurantLabel: UILabel!
     @IBOutlet private weak var numberOfDeliveryLabel: UILabel!
     @IBOutlet weak var cuisineLabel: UILabel!
+    @IBOutlet weak var favoriteButtonTouchUpInside: UIButton!
     var viewModel: HomeCellModel? {
         didSet {
             updateView()
