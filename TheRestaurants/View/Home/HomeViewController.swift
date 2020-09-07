@@ -11,7 +11,7 @@ import UIKit
 class HomeViewController: UIViewController {
     
     @IBOutlet private weak var tableView: UITableView!
-    
+
     var viewModel = HomeViewModel()
     var isLoadingMore: Bool = false
     override func viewDidLoad() {
@@ -21,7 +21,7 @@ class HomeViewController: UIViewController {
         loadCell()
         tableView.delegate = self
     }
-    
+
     private func configTableView() {
         let nib = UINib(nibName: "ListCollectionsCell", bundle: .main)
         tableView.register(nib, forCellReuseIdentifier: "collectionViewCell")
@@ -30,7 +30,7 @@ class HomeViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
     }
-    
+
     func loadCollection(value: Int) {
         viewModel.loadCollection(value: value) { [weak self](result) in
             guard let this = self else { return }
@@ -44,9 +44,23 @@ class HomeViewController: UIViewController {
             }
         }
     }
-    
+
     func loadCell() {
         viewModel.loadCell { [weak self] (result) in
+            guard let this = self else { return }
+            switch result {
+            case.success:
+                this.tableView.reloadData()
+            case.failure:
+                let alert = UIAlertController(title: "Warning", message: "Error", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: nil))
+                this.present(alert, animated: true)
+            }
+        }
+    }
+
+    func loadMoreCell() {
+        viewModel.loadMoreCell { [weak self] (result) in
             guard let this = self else { return }
             switch result {
             case.success:
@@ -91,16 +105,18 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
         }
     }
 }
-//extension HomeViewController: UIScrollViewDelegate {
-//    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-//        var start: Int = 10
-//        var count: Int =  20
-//        let contentOffset = scrollView.contentOffset.y
-//        let maximumOffset = scrollView.contentSize.height - scrollView.frame.size.height
-//        if viewModel.dataCell.count < viewModel.loadCell(completion: { [weak self ](result) in
-//            <#code#>
-//        })
-//        
-//    }
-//}
-
+extension HomeViewController: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let contentOffset = scrollView.contentOffset.y
+        let maximumOffset = scrollView.contentSize.height - scrollView.frame.size.height
+        if !isLoadingMore && (maximumOffset - contentOffset <= 100) {
+            if viewModel.canLoadMore() {
+                loadMoreCell()
+            }
+            self.isLoadingMore = true
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                self.isLoadingMore = false
+            }
+        }
+    }
+}

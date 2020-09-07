@@ -11,9 +11,9 @@ import Alamofire
 import ObjectMapper
 
 extension Api.ListCell {
-
-    static func loadCell(completion: @escaping Completion<[CellRestaurant]>) -> Request? {
-        let path = Api.Path.ListCell().urlString
+    static var totalResults: Int = 0
+    static func loadCell(start: Int = 0, completion: @escaping Completion<[CellRestaurant]>) -> Request? {
+        let path = Api.Path.ListCell().urlStringWith(start: start)
         return api.request(method: .get, urlString: path) { (result) in
             DispatchQueue.main.async {
                 switch result {
@@ -21,6 +21,9 @@ extension Api.ListCell {
                     guard let value = value as? JSObject, let restaurants = value["restaurants"] as? JSArray else {
                         completion(.failure(Api.Error.json))
                         return
+                    }
+                    if let resultsFound = value["results_found"] as? Int {
+                        totalResults = resultsFound
                     }
                     var results: [CellRestaurant] = []
                     for item in restaurants {

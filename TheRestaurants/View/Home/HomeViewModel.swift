@@ -17,6 +17,8 @@ class HomeViewModel {
     var dataCollection: [Collection] = []
     var dataCell: [CellRestaurant] = []
     var cells: [Cell] = [.collectionView, .tableView]
+    private var start: Int = 0
+    private let count = 20
 
     func loadCollection(value: Int, completion: @escaping (APICompletion)) {
         Api.ListCollection.loadCollection() { [weak self] (result) in
@@ -32,6 +34,7 @@ class HomeViewModel {
     }
 
     func loadCell(completion: @escaping (APICompletion)) {
+        start = 0
         Api.ListCell.loadCell { [weak self](result) in
             guard let this = self else { return }
             switch result {
@@ -42,6 +45,24 @@ class HomeViewModel {
                 completion(.failure(error))
             }
         }
+    }
+    
+    func loadMoreCell(completion: @escaping (APICompletion)) {
+        start += count
+        Api.ListCell.loadCell(start: start) { [weak self](result) in
+            guard let this = self else { return }
+            switch result {
+            case .success(let cells):
+                this.dataCell.append(contentsOf: cells)
+                completion(.success)
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+    }
+    
+    func canLoadMore() -> Bool {
+        return Api.ListCell.totalResults > dataCell.count
     }
 
     func numberOfSection() -> Int {
