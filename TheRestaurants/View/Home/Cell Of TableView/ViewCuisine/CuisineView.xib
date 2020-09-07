@@ -13,28 +13,40 @@
             <rect key="frame" x="0.0" y="0.0" width="198" height="49"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zYL-Wx-dPp">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JuV-4q-2Ye">
                     <rect key="frame" x="0.0" y="0.0" width="198" height="49"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zYL-Wx-dPp">
+                            <rect key="frame" x="10" y="10" width="178" height="29"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="tintColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="zYL-Wx-dPp" secondAttribute="trailing" constant="10" id="UtF-hw-0ug"/>
+                        <constraint firstItem="zYL-Wx-dPp" firstAttribute="top" secondItem="JuV-4q-2Ye" secondAttribute="top" constant="10" id="UuU-w4-kBe"/>
+                        <constraint firstItem="zYL-Wx-dPp" firstAttribute="leading" secondItem="JuV-4q-2Ye" secondAttribute="leading" constant="10" id="eOc-9a-QIy"/>
+                        <constraint firstAttribute="bottom" secondItem="zYL-Wx-dPp" secondAttribute="bottom" constant="10" id="fAO-gf-8du"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="zYL-Wx-dPp" secondAttribute="trailing" id="AUB-TG-Lzm"/>
-                <constraint firstItem="zYL-Wx-dPp" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="B6b-7w-uBc"/>
-                <constraint firstItem="zYL-Wx-dPp" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Job-qM-MhX"/>
-                <constraint firstItem="zYL-Wx-dPp" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="RVQ-iy-N3B"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="zYL-Wx-dPp" secondAttribute="trailing" id="adf-gW-F2B"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="zYL-Wx-dPp" secondAttribute="bottom" id="dwf-gm-uK3"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="zYL-Wx-dPp" secondAttribute="bottom" id="kNl-Qx-I3q"/>
-                <constraint firstItem="zYL-Wx-dPp" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="mSh-WK-ic3"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="JuV-4q-2Ye" secondAttribute="trailing" id="0Nn-Zp-Lax"/>
+                <constraint firstItem="JuV-4q-2Ye" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="LWl-6R-u8v"/>
+                <constraint firstItem="JuV-4q-2Ye" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="Ml9-Se-GsF"/>
+                <constraint firstItem="JuV-4q-2Ye" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="NGa-W0-uME"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
                 <outlet property="cuisineLabel" destination="zYL-Wx-dPp" id="ig6-cx-YbY"/>
+                <outlet property="imageCuisine" destination="JuV-4q-2Ye" id="pxB-zT-jh2"/>
+                <outlet property="viewLabel" destination="JuV-4q-2Ye" id="7c8-PP-d55"/>
             </connections>
             <point key="canvasLocation" x="15.942028985507248" y="65.290178571428569"/>
         </view>

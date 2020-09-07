@@ -10,8 +10,15 @@ import UIKit
 
 class CuisineView: UIView {
 
+    @IBOutlet weak var imageCuisine: UIView!
     @IBOutlet weak var cuisineLabel: UILabel!
     
-    
-    
+    override func  awakeFromNib() {
+        super.awakeFromNib()
+        setupView()
+    }
+    func setupView() {
+        imageCuisine.layer.cornerRadius = 10
+        imageCuisine.layer.borderWidth = 5
+    }
 }
