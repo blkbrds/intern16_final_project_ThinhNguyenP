@@ -41,6 +41,11 @@
 		74A419AD24F3CFDB00D1C1D6 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A419AC24F3CFDB00D1C1D6 /* String.swift */; };
 		74A419AF24F3CFF300D1C1D6 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A419AE24F3CFF300D1C1D6 /* App.swift */; };
 		74A419B124F3D02900D1C1D6 /* Key.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A419B024F3D02900D1C1D6 /* Key.swift */; };
+		842DF8332505DB8F00061000 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842DF8322505DB8F00061000 /* SearchViewModel.swift */; };
+		842DF83A2505E0DF00061000 /* HistorySearchCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842DF8392505E0DF00061000 /* HistorySearchCellModel.swift */; };
+		842DF83D2505E17A00061000 /* HistorySearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842DF83B2505E17A00061000 /* HistorySearchCell.swift */; };
+		842DF83E2505E17A00061000 /* HistorySearchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 842DF83C2505E17A00061000 /* HistorySearchCell.xib */; };
+		842DF8402506187000061000 /* SearchHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842DF83F2506187000061000 /* SearchHistory.swift */; };
 		845966C92500D9FB00A61A79 /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845966C72500D9FB00A61A79 /* SearchResultCell.swift */; };
 		845966CA2500D9FB00A61A79 /* SearchResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 845966C82500D9FB00A61A79 /* SearchResultCell.xib */; };
 		845966CC2500DA3800A61A79 /* SearchResultCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845966CB2500DA3800A61A79 /* SearchResultCellModel.swift */; };
@@ -92,6 +97,11 @@
 		74A419AC24F3CFDB00D1C1D6 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		74A419AE24F3CFF300D1C1D6 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		74A419B024F3D02900D1C1D6 /* Key.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Key.swift; sourceTree = "<group>"; };
+		842DF8322505DB8F00061000 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
+		842DF8392505E0DF00061000 /* HistorySearchCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistorySearchCellModel.swift; sourceTree = "<group>"; };
+		842DF83B2505E17A00061000 /* HistorySearchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistorySearchCell.swift; sourceTree = "<group>"; };
+		842DF83C2505E17A00061000 /* HistorySearchCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HistorySearchCell.xib; sourceTree = "<group>"; };
+		842DF83F2506187000061000 /* SearchHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SearchHistory.swift; path = TheRestaurants/View/Search/HistorySearch/SearchHistory.swift; sourceTree = SOURCE_ROOT; };
 		845966C72500D9FB00A61A79 /* SearchResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultCell.swift; sourceTree = "<group>"; };
 		845966C82500D9FB00A61A79 /* SearchResultCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchResultCell.xib; sourceTree = "<group>"; };
 		845966CB2500DA3800A61A79 /* SearchResultCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultCellModel.swift; sourceTree = "<group>"; };
@@ -249,9 +259,11 @@
 		74A4197724F3C14D00D1C1D6 /* Search */ = {
 			isa = PBXGroup;
 			children = (
-				845966C62500D9A900A61A79 /* Cell */,
+				842DF8342505E08700061000 /* HistorySearch */,
+				845966C62500D9A900A61A79 /* ResultSearch */,
 				74A4198D24F3C21B00D1C1D6 /* SearchViewController.swift */,
 				74A4198E24F3C21B00D1C1D6 /* SearchViewController.xib */,
+				842DF8322505DB8F00061000 /* SearchViewModel.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -278,6 +290,7 @@
 			isa = PBXGroup;
 			children = (
 				846A2BB224FA645D004160B3 /* City.swift */,
+				842DF83F2506187000061000 /* SearchHistory.swift */,
 			);
 			path = Scheme;
 			sourceTree = "<group>";
@@ -321,14 +334,24 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		845966C62500D9A900A61A79 /* Cell */ = {
+		842DF8342505E08700061000 /* HistorySearch */ = {
+			isa = PBXGroup;
+			children = (
+				842DF8392505E0DF00061000 /* HistorySearchCellModel.swift */,
+				842DF83B2505E17A00061000 /* HistorySearchCell.swift */,
+				842DF83C2505E17A00061000 /* HistorySearchCell.xib */,
+			);
+			path = HistorySearch;
+			sourceTree = "<group>";
+		};
+		845966C62500D9A900A61A79 /* ResultSearch */ = {
 			isa = PBXGroup;
 			children = (
 				845966C72500D9FB00A61A79 /* SearchResultCell.swift */,
 				845966C82500D9FB00A61A79 /* SearchResultCell.xib */,
 				845966CB2500DA3800A61A79 /* SearchResultCellModel.swift */,
 			);
-			path = Cell;
+			path = ResultSearch;
 			sourceTree = "<group>";
 		};
 		846A2B9C24FA5917004160B3 /* PopUp */ = {
@@ -423,6 +446,7 @@
 			files = (
 				74A4197C24F3C1A600D1C1D6 /* IntroduceViewController.xib in Resources */,
 				846A2BAB24FA5A62004160B3 /* SearchCityPopUpViewController.xib in Resources */,
+				842DF83E2505E17A00061000 /* HistorySearchCell.xib in Resources */,
 				846A2BA624FA5918004160B3 /* SearchCityCell.xib in Resources */,
 				74A4198824F3C1F500D1C1D6 /* DetailViewController.xib in Resources */,
 				74A4196824F3B7BC00D1C1D6 /* LaunchScreen.storyboard in Resources */,
@@ -502,6 +526,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				846A2BB524FA64E5004160B3 /* ImageCache.swift in Sources */,
+				842DF8332505DB8F00061000 /* SearchViewModel.swift in Sources */,
 				74A419A224F3CCD200D1C1D6 /* HTTPStatus.swift in Sources */,
 				74A4199524F3C64E00D1C1D6 /* Api.swift in Sources */,
 				74A419AD24F3CFDB00D1C1D6 /* String.swift in Sources */,
@@ -520,8 +545,10 @@
 				74A419AF24F3CFF300D1C1D6 /* App.swift in Sources */,
 				74A419B124F3D02900D1C1D6 /* Key.swift in Sources */,
 				846A2BA324FA5917004160B3 /* SearchCityPopUpViewModel.swift in Sources */,
+				842DF8402506187000061000 /* SearchHistory.swift in Sources */,
 				74A4195E24F3B7B400D1C1D6 /* SceneDelegate.swift in Sources */,
 				74A4199D24F3CA2E00D1C1D6 /* Session.swift in Sources */,
+				842DF83A2505E0DF00061000 /* HistorySearchCellModel.swift in Sources */,
 				7448210C2501CD64005ACDFF /* UIViewControllerExt.swift in Sources */,
 				74A4198724F3C1F500D1C1D6 /* DetailViewController.swift in Sources */,
 				74A4197F24F3C1C300D1C1D6 /* HomeViewController.swift in Sources */,
@@ -530,6 +557,7 @@
 				84A932CC2501330900BEE475 /* Api.Search.swift in Sources */,
 				846A2BB324FA645D004160B3 /* City.swift in Sources */,
 				74A4198324F3C1DF00D1C1D6 /* FavoriteViewController.swift in Sources */,
+				842DF83D2505E17A00061000 /* HistorySearchCell.swift in Sources */,
 				845966CC2500DA3800A61A79 /* SearchResultCellModel.swift in Sources */,
 				744821112501CF7A005ACDFF /* SceneDelegateExt.swift in Sources */,
 				74A419A724F3CD7A00D1C1D6 /* URLExt.swift in Sources */,
