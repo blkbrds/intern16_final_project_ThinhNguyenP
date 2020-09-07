@@ -18,6 +18,8 @@ class CellRestaurant: Mappable {
     var rating: String?
     var onlineDelivery: Int?
     var favorite: Bool = false
+    var resultShow: Int?
+    var resultStart: Int??
     required convenience init?(map: Map) {
         self.init()
     }
@@ -33,5 +35,7 @@ class CellRestaurant: Mappable {
         imageURL <- map["featured_image"]
         rating = userRating["aggregate_rating"] as? String
         onlineDelivery <- map["has_online_delivery"]
+        resultShow <- map ["results_shown"]
+        resultStart <- map ["resultStart"]
     }
 }

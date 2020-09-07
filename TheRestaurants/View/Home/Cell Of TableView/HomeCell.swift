@@ -9,7 +9,8 @@
 import UIKit
 
 class HomeCell: UITableViewCell {
-
+    
+    @IBOutlet weak var cuisineView: UIView!
     @IBOutlet private weak var imageRestaurant: UIImageView!
     @IBOutlet private weak var nameRestaurantLabel: UILabel!
     @IBOutlet private weak var ratingRestautantLabel: UILabel!
@@ -22,7 +23,7 @@ class HomeCell: UITableViewCell {
             updateView()
         }
     }
-
+    
     private func updateView() {
         guard let viewModel = viewModel else { return }
         nameRestaurantLabel.text = viewModel.name
@@ -35,5 +36,9 @@ class HomeCell: UITableViewCell {
             this.imageRestaurant.layer.cornerRadius = 10
             this.imageRestaurant.image = image
         }
+    }
+    func loadNib() {
+        let nib = UINib(nibName: "Cuisine", bundle: .main)
+        
     }
 }

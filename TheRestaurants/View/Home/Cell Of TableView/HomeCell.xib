@@ -122,6 +122,10 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UzM-GB-Wmk">
+                        <rect key="frame" x="151" y="227" width="133" height="29"/>
+                        <color key="backgroundColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
                 </subviews>
                 <constraints>
                     <constraint firstItem="eID-tC-3P8" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="3iV-rY-W5x"/>
@@ -129,6 +133,7 @@
                     <constraint firstItem="law-QQ-FuJ" firstAttribute="leading" secondItem="eID-tC-3P8" secondAttribute="trailing" constant="20" id="8uJ-89-OBh"/>
                     <constraint firstItem="eID-tC-3P8" firstAttribute="top" secondItem="Hqu-Dk-OV8" secondAttribute="bottom" constant="7" id="A9F-7M-Yo4"/>
                     <constraint firstItem="gUs-3g-ZCd" firstAttribute="top" secondItem="tqp-ND-WSz" secondAttribute="top" constant="13" id="BEI-CQ-5p4"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="UzM-GB-Wmk" secondAttribute="bottom" constant="78" id="Bq3-Ow-Wrs"/>
                     <constraint firstAttribute="trailingMargin" secondItem="axa-w2-D0g" secondAttribute="trailing" constant="30" id="BuO-S8-0TH"/>
                     <constraint firstItem="law-QQ-FuJ" firstAttribute="top" secondItem="Hqu-Dk-OV8" secondAttribute="bottom" constant="7" id="CQx-KE-1XN"/>
                     <constraint firstItem="Hqu-Dk-OV8" firstAttribute="top" secondItem="tqp-ND-WSz" secondAttribute="bottom" constant="10" id="GtE-8N-d41"/>
@@ -137,6 +142,7 @@
                     <constraint firstItem="rms-ke-p4b" firstAttribute="leading" secondItem="tke-fp-Sd7" secondAttribute="leading" id="ISd-eW-jIO"/>
                     <constraint firstItem="gUs-3g-ZCd" firstAttribute="trailing" secondItem="tqp-ND-WSz" secondAttribute="trailing" constant="-15" id="JyG-Hp-ktq"/>
                     <constraint firstItem="axa-w2-D0g" firstAttribute="top" secondItem="eID-tC-3P8" secondAttribute="bottom" constant="10" id="KIR-aG-329"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="UzM-GB-Wmk" secondAttribute="trailing" constant="30" id="Uoh-B1-neb"/>
                     <constraint firstItem="axa-w2-D0g" firstAttribute="leading" secondItem="tke-fp-Sd7" secondAttribute="trailing" constant="8" id="VfV-i5-dVy"/>
                     <constraint firstItem="tke-fp-Sd7" firstAttribute="top" secondItem="eID-tC-3P8" secondAttribute="bottom" constant="10" id="VuL-Wi-HIB"/>
                     <constraint firstItem="0Fe-wP-prx" firstAttribute="top" secondItem="tqp-ND-WSz" secondAttribute="bottom" constant="15" id="b1j-vi-xeJ"/>
@@ -144,14 +150,17 @@
                     <constraint firstItem="TZw-L4-qTi" firstAttribute="leading" secondItem="rms-ke-p4b" secondAttribute="trailing" constant="8" id="ds3-f1-tf8"/>
                     <constraint firstItem="tqp-ND-WSz" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="j4f-ig-5yy"/>
                     <constraint firstItem="tke-fp-Sd7" firstAttribute="leading" secondItem="dI4-cM-pVe" secondAttribute="leading" id="ngA-GP-TDK"/>
+                    <constraint firstItem="UzM-GB-Wmk" firstAttribute="leading" secondItem="law-QQ-FuJ" secondAttribute="trailing" constant="15" id="pgO-k4-WbG"/>
                     <constraint firstItem="Hqu-Dk-OV8" firstAttribute="leading" secondItem="tqp-ND-WSz" secondAttribute="leading" id="q8x-8a-JGJ"/>
                     <constraint firstAttribute="trailing" secondItem="tqp-ND-WSz" secondAttribute="trailing" constant="15" id="qOJ-3h-2zM"/>
+                    <constraint firstItem="UzM-GB-Wmk" firstAttribute="top" secondItem="0Fe-wP-prx" secondAttribute="bottom" constant="7" id="wEX-iZ-sA7"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="addressRestaurantLabel" destination="axa-w2-D0g" id="C82-ZE-hrx"/>
                 <outlet property="cuisineLabel" destination="Itp-hZ-dmn" id="YrB-bJ-6IQ"/>
+                <outlet property="cuisineView" destination="UzM-GB-Wmk" id="L3P-Hb-Zap"/>
                 <outlet property="favoriteButtonTouchUpInside" destination="gUs-3g-ZCd" id="Bny-5n-aGT"/>
                 <outlet property="imageRestaurant" destination="tqp-ND-WSz" id="b0e-wE-x8F"/>
                 <outlet property="nameRestaurantLabel" destination="Hqu-Dk-OV8" id="hKI-T9-CGQ"/>

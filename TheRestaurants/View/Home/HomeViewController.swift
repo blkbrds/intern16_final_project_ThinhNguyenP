@@ -9,17 +9,19 @@
 import UIKit
 
 class HomeViewController: UIViewController {
-
+    
     @IBOutlet private weak var tableView: UITableView!
-
+    
     var viewModel = HomeViewModel()
+    var isLoadingMore: Bool = false
     override func viewDidLoad() {
         super.viewDidLoad()
         configTableView()
         loadCollection(value: 10)
         loadCell()
+        tableView.delegate = self
     }
-
+    
     private func configTableView() {
         let nib = UINib(nibName: "ListCollectionsCell", bundle: .main)
         tableView.register(nib, forCellReuseIdentifier: "collectionViewCell")
@@ -28,7 +30,7 @@ class HomeViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
     }
-
+    
     func loadCollection(value: Int) {
         viewModel.loadCollection(value: value) { [weak self](result) in
             guard let this = self else { return }
@@ -42,7 +44,7 @@ class HomeViewController: UIViewController {
             }
         }
     }
-
+    
     func loadCell() {
         viewModel.loadCell { [weak self] (result) in
             guard let this = self else { return }
@@ -89,3 +91,16 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
         }
     }
 }
+//extension HomeViewController: UIScrollViewDelegate {
+//    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+//        var start: Int = 10
+//        var count: Int =  20
+//        let contentOffset = scrollView.contentOffset.y
+//        let maximumOffset = scrollView.contentSize.height - scrollView.frame.size.height
+//        if viewModel.dataCell.count < viewModel.loadCell(completion: { [weak self ](result) in
+//            <#code#>
+//        })
+//        
+//    }
+//}
+

@@ -55,6 +55,8 @@
 		842DF810250282FB00061000 /* ListCollectionsCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842DF80A250282FA00061000 /* ListCollectionsCellModel.swift */; };
 		842DF8172502884D00061000 /* CollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842DF8152502884D00061000 /* CollectionCell.swift */; };
 		842DF81A25032C8000061000 /* CollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 842DF81925032C8000061000 /* CollectionCell.xib */; };
+		842DF82F2504DD1300061000 /* CuisineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842DF82E2504DD1300061000 /* CuisineView.swift */; };
+		842DF8312504DD2600061000 /* CuisineView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 842DF8302504DD2600061000 /* CuisineView.xib */; };
 		845966B324FD03C200A61A79 /* CollectionRestaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845966B224FD03C200A61A79 /* CollectionRestaurant.swift */; };
 		845966B524FD08BD00A61A79 /* Api.Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845966B424FD08BD00A61A79 /* Api.Collection.swift */; };
 		845966B924FDFD0A00A61A79 /* Api.Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845966B824FDFD0A00A61A79 /* Api.Cell.swift */; };
@@ -120,6 +122,8 @@
 		842DF80A250282FA00061000 /* ListCollectionsCellModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListCollectionsCellModel.swift; sourceTree = "<group>"; };
 		842DF8152502884D00061000 /* CollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionCell.swift; sourceTree = "<group>"; };
 		842DF81925032C8000061000 /* CollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollectionCell.xib; sourceTree = "<group>"; };
+		842DF82E2504DD1300061000 /* CuisineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CuisineView.swift; sourceTree = "<group>"; };
+		842DF8302504DD2600061000 /* CuisineView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CuisineView.xib; sourceTree = "<group>"; };
 		845966B224FD03C200A61A79 /* CollectionRestaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionRestaurant.swift; sourceTree = "<group>"; };
 		845966B424FD08BD00A61A79 /* Api.Collection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Api.Collection.swift; sourceTree = "<group>"; };
 		845966B624FD4D7A00A61A79 /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
@@ -386,6 +390,15 @@
 			path = CollectionViewCell;
 			sourceTree = "<group>";
 		};
+		842DF8222504D0D200061000 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+				842DF82E2504DD1300061000 /* CuisineView.swift */,
+				842DF8302504DD2600061000 /* CuisineView.xib */,
+			);
+			path = "New Group";
+			sourceTree = "<group>";
+		};
 		846A2B9C24FA5917004160B3 /* PopUp */ = {
 			isa = PBXGroup;
 			children = (
@@ -421,6 +434,7 @@
 		84A9332C2501F6F800BEE475 /* Cell Of TableView */ = {
 			isa = PBXGroup;
 			children = (
+				842DF8222504D0D200061000 /* New Group */,
 				842DF7FC25027DAC00061000 /* HomeCell.swift */,
 				842DF7FD25027DAC00061000 /* HomeCell.xib */,
 				842DF80225027ED100061000 /* HomeCellModel.swift */,
@@ -505,6 +519,7 @@
 				842DF81A25032C8000061000 /* CollectionCell.xib in Resources */,
 				846A2BA624FA5918004160B3 /* SearchCityCell.xib in Resources */,
 				74A4198824F3C1F500D1C1D6 /* DetailViewController.xib in Resources */,
+				842DF8312504DD2600061000 /* CuisineView.xib in Resources */,
 				74A4196824F3B7BC00D1C1D6 /* LaunchScreen.storyboard in Resources */,
 				74A4196524F3B7BC00D1C1D6 /* Assets.xcassets in Resources */,
 				74A4198C24F3C20300D1C1D6 /* MapViewController.xib in Resources */,
@@ -613,6 +628,7 @@
 				845966B924FDFD0A00A61A79 /* Api.Cell.swift in Sources */,
 				840D72CD25021EED0007E901 /* DetailHomeViewController.swift in Sources */,
 				7448210C2501CD64005ACDFF /* UIViewControllerExt.swift in Sources */,
+				842DF82F2504DD1300061000 /* CuisineView.swift in Sources */,
 				74A4198724F3C1F500D1C1D6 /* DetailViewController.swift in Sources */,
 				842DF7FF25027DAC00061000 /* HomeCell.swift in Sources */,
 				846A2BAA24FA5A62004160B3 /* SearchCityPopUpViewController.swift in Sources */,

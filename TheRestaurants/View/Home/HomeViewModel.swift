@@ -9,7 +9,7 @@
 import Foundation
 
 class HomeViewModel {
-
+    
     enum Cell {
         case collectionView
         case tableView

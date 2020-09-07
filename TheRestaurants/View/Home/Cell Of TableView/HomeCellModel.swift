@@ -18,6 +18,7 @@ class HomeCellModel {
     var rating: String?
     var onlineDelivery: Int?
     var isFavorite: Bool
+    var resultShow: Int?
 
     init(cellsRestaurant: CellRestaurant ) {
         self.address = cellsRestaurant.address
