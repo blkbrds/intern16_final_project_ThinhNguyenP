@@ -37,8 +37,4 @@ class HomeCell: UITableViewCell {
             this.imageRestaurant.image = image
         }
     }
-    func loadNib() {
-        let nib = UINib(nibName: "Cuisine", bundle: .main)
-        
-    }
 }
