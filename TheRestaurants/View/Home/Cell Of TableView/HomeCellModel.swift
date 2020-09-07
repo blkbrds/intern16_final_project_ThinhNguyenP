@@ -7,9 +7,9 @@
 //
 
 import Foundation
+import UIKit
 
 class HomeCellModel {
-
     var address: String?
     var name: String?
     var cuisines: String?
@@ -27,8 +27,8 @@ class HomeCellModel {
         self.onlineDelivery = cellsRestaurant.onlineDelivery
         self.isFavorite = cellsRestaurant.favorite
     }
-    
-//   func loadImage(completion: @escaping (UIImage) -> Void) {
-//        ImageCache.loadImage(urlString: imageURL, completion: completion)
-//    }
+
+   func loadImage(completion: @escaping (UIImage?) -> Void) {
+    ImageCache.loadImage(urlString: imageURL ?? "", completion: completion)
+    }
 }
