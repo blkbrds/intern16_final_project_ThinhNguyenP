@@ -86,7 +86,6 @@ extension SearchCityPopUpViewController: UITableViewDataSource, UITableViewDeleg
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? SearchCityCell else { return }
         let cellViewModel = viewModel.didSelectRowAt(value: indexPath.row)
         cell.viewModel = cellViewModel
-        cellViewModel.city.id = Session.cityId
     }
 }
 

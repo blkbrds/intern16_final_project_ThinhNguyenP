@@ -38,6 +38,7 @@ class SearchCityPopUpViewModel {
 
     func didSelectRowAt(value: Int) -> SearchCityCellModel {
         let item = dataCities[value]
+        Session.cityId = item.id
         let viewModel = SearchCityCellModel(city: item)
         return viewModel
     }
