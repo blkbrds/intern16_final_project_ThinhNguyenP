@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SearchViewController: UIViewController {
+class SearchViewController: BaseViewController {
 
     @IBOutlet private weak var listHistoriedSerch: UITableView!
     @IBOutlet private weak var listResultSearch: UITableView!
@@ -31,6 +31,9 @@ class SearchViewController: UIViewController {
 
     func setupSearchBar() {
         let searchBar = UISearchBar(frame: CGRect(x: 0, y: 0, width: view.bounds.width - 40, height: 0))
+        searchBar.clipsToBounds = true
+        searchBar.layer.cornerRadius = 15
+        searchBar.layer.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         searchBar.placeholder = "Tìm kiếm địa điểm "
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: searchBar)
     }
