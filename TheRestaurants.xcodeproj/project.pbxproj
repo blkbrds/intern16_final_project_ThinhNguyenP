@@ -41,8 +41,6 @@
 		74A419B124F3D02900D1C1D6 /* Key.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A419B024F3D02900D1C1D6 /* Key.swift */; };
 		840D72C52502048D0007E901 /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840D72C42502048D0007E901 /* Restaurant.swift */; };
 		840D72C9250206030007E901 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840D72C8250206030007E901 /* ImageCache.swift */; };
-		840D72CD25021EED0007E901 /* DetailHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840D72CB25021EED0007E901 /* DetailHomeViewController.swift */; };
-		840D72CE25021EED0007E901 /* DetailHomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 840D72CC25021EED0007E901 /* DetailHomeViewController.xib */; };
 		842DF7E525027BAF00061000 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 842DF7E225027BAF00061000 /* HomeViewController.xib */; };
 		842DF7E625027BAF00061000 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842DF7E325027BAF00061000 /* HomeViewModel.swift */; };
 		842DF7E725027BAF00061000 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842DF7E425027BAF00061000 /* HomeViewController.swift */; };
@@ -58,9 +56,6 @@
 		842DF84325061EAD00061000 /* CuisineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842DF84225061EAD00061000 /* CuisineView.swift */; };
 		842DF84525061EC500061000 /* CuisineView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 842DF84425061EC500061000 /* CuisineView.xib */; };
 		842DF8472506200000061000 /* CuisineViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842DF8462506200000061000 /* CuisineViewModel.swift */; };
-		8414C13525022FA60066701F /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8414C13225022FA60066701F /* HomeViewModel.swift */; };
-		8414C13625022FA60066701F /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8414C13325022FA60066701F /* HomeViewController.xib */; };
-		8414C13725022FA60066701F /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8414C13425022FA60066701F /* HomeViewController.swift */; };
 		842DF84B250680DF00061000 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842DF849250680DF00061000 /* BaseViewController.swift */; };
 		842DF84C250680DF00061000 /* BaseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 842DF84A250680DF00061000 /* BaseViewController.xib */; };
 		845966B324FD03C200A61A79 /* CollectionRestaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845966B224FD03C200A61A79 /* CollectionRestaurant.swift */; };
@@ -113,8 +108,6 @@
 		74A419B024F3D02900D1C1D6 /* Key.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Key.swift; sourceTree = "<group>"; };
 		840D72C42502048D0007E901 /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
 		840D72C8250206030007E901 /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
-		840D72CB25021EED0007E901 /* DetailHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailHomeViewController.swift; sourceTree = "<group>"; };
-		840D72CC25021EED0007E901 /* DetailHomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailHomeViewController.xib; sourceTree = "<group>"; };
 		842DF7E225027BAF00061000 /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
 		842DF7E325027BAF00061000 /* HomeViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		842DF7E425027BAF00061000 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -130,9 +123,6 @@
 		842DF84225061EAD00061000 /* CuisineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CuisineView.swift; sourceTree = "<group>"; };
 		842DF84425061EC500061000 /* CuisineView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CuisineView.xib; sourceTree = "<group>"; };
 		842DF8462506200000061000 /* CuisineViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CuisineViewModel.swift; sourceTree = "<group>"; };
-		8414C13225022FA60066701F /* HomeViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
-		8414C13325022FA60066701F /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
-		8414C13425022FA60066701F /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		842DF849250680DF00061000 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		842DF84A250680DF00061000 /* BaseViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BaseViewController.xib; sourceTree = "<group>"; };
 		845966B224FD03C200A61A79 /* CollectionRestaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionRestaurant.swift; sourceTree = "<group>"; };
@@ -260,7 +250,6 @@
 				842DF7E425027BAF00061000 /* HomeViewController.swift */,
 				842DF7E225027BAF00061000 /* HomeViewController.xib */,
 				842DF7E325027BAF00061000 /* HomeViewModel.swift */,
-				840D72CA25021E7E0007E901 /* DetailHome */,
 				84A9332C2501F6F800BEE475 /* Cell Of TableView */,
 				84A9331E2501F6E700BEE475 /* Cell Of CollectionView */,
 			);
@@ -374,15 +363,6 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		840D72CA25021E7E0007E901 /* DetailHome */ = {
-			isa = PBXGroup;
-			children = (
-				840D72CB25021EED0007E901 /* DetailHomeViewController.swift */,
-				840D72CC25021EED0007E901 /* DetailHomeViewController.xib */,
-			);
-			path = DetailHome;
-			sourceTree = "<group>";
-		};
 		842DF7E125027AE700061000 /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
@@ -400,16 +380,16 @@
 			path = CollectionViewCell;
 			sourceTree = "<group>";
 		};
-		842DF84125061E7600061000 /* ViewCuisine */ = {
+		842DF84125061E7600061000 /* CuisineView */ = {
 			isa = PBXGroup;
 			children = (
 				842DF84225061EAD00061000 /* CuisineView.swift */,
 				842DF84425061EC500061000 /* CuisineView.xib */,
 				842DF8462506200000061000 /* CuisineViewModel.swift */,
 			);
-			path = ViewCuisine;
-            sourceTree = "<group>";
-        };
+			path = CuisineView;
+			sourceTree = "<group>";
+		};
 		842DF848250680A300061000 /* BaseView */ = {
 			isa = PBXGroup;
 			children = (
@@ -454,7 +434,7 @@
 		84A9332C2501F6F800BEE475 /* Cell Of TableView */ = {
 			isa = PBXGroup;
 			children = (
-				842DF84125061E7600061000 /* ViewCuisine */,
+				842DF84125061E7600061000 /* CuisineView */,
 				842DF7FC25027DAC00061000 /* HomeCell.swift */,
 				842DF7FD25027DAC00061000 /* HomeCell.xib */,
 				842DF80225027ED100061000 /* HomeCellModel.swift */,
@@ -531,16 +511,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				840D72CE25021EED0007E901 /* DetailHomeViewController.xib in Resources */,
 				842DF7E525027BAF00061000 /* HomeViewController.xib in Resources */,
 				842DF80025027DAC00061000 /* HomeCell.xib in Resources */,
 				74A4197C24F3C1A600D1C1D6 /* IntroduceViewController.xib in Resources */,
 				846A2BAB24FA5A62004160B3 /* SearchCityPopUpViewController.xib in Resources */,
 				842DF81A25032C8000061000 /* CollectionCell.xib in Resources */,
 				846A2BA624FA5918004160B3 /* SearchCityCell.xib in Resources */,
-				84A933272501F6E700BEE475 /* CollectionCell.xib in Resources */,
 				842DF84C250680DF00061000 /* BaseViewController.xib in Resources */,
-				84A933322501F6F800BEE475 /* HomeCell.xib in Resources */,
 				74A4198824F3C1F500D1C1D6 /* DetailViewController.xib in Resources */,
 				842DF84525061EC500061000 /* CuisineView.xib in Resources */,
 				74A4196824F3B7BC00D1C1D6 /* LaunchScreen.storyboard in Resources */,
@@ -649,7 +626,6 @@
 				842DF7E725027BAF00061000 /* HomeViewController.swift in Sources */,
 				842DF8172502884D00061000 /* CollectionCell.swift in Sources */,
 				845966B924FDFD0A00A61A79 /* Api.Cell.swift in Sources */,
-				840D72CD25021EED0007E901 /* DetailHomeViewController.swift in Sources */,
 				7448210C2501CD64005ACDFF /* UIViewControllerExt.swift in Sources */,
 				842DF84325061EAD00061000 /* CuisineView.swift in Sources */,
 				74A4198724F3C1F500D1C1D6 /* DetailViewController.swift in Sources */,
