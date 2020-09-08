@@ -10,7 +10,6 @@ import Foundation
 
 class HistorySearchCellModel {
     var searchKey: String
-    
     init(searchHistory: SearchHistory) {
         searchKey = searchHistory.searchKey
     }

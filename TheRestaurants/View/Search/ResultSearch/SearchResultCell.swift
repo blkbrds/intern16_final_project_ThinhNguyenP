@@ -15,7 +15,7 @@ class SearchResultCell: UITableViewCell {
     @IBOutlet weak var ratingLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var distanceLabel: UILabel!
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
     }
@@ -25,5 +25,5 @@ class SearchResultCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    
+
 }
