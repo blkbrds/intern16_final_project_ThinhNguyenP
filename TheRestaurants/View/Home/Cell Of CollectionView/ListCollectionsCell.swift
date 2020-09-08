@@ -32,7 +32,8 @@ extension ListCollectionsCell: UICollectionViewDataSource {
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionView", for: indexPath) as? CollectionCell else {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionView", for: indexPath)
+            as? CollectionCell else {
             return UICollectionViewCell()
         }
         cell.viewModel = viewModel.viewModelCellForRowAt(indexPath: indexPath)
@@ -40,7 +41,9 @@ extension ListCollectionsCell: UICollectionViewDataSource {
     }
 }
 extension ListCollectionsCell: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 100, height: 150)
     }
 }

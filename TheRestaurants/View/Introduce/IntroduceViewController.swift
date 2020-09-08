@@ -8,7 +8,7 @@
 
 import UIKit
 
-class IntroduceViewController: UIViewController {
+class IntroduceViewController: BaseViewController {
 
     @IBAction func chooseCityButtonTouchUpInside(_ sender: Any) {
         let vc = SearchCityPopUpViewController()

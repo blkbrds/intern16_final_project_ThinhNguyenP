@@ -15,7 +15,7 @@ extension Api.ListCollection {
         var value: Int?
         func toJSON() -> [String: Any] {
             return [
-                "city_id": value 
+                "city_id": value as Any
             ]
         }
     }

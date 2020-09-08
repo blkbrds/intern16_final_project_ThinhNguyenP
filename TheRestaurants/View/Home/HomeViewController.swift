@@ -8,12 +8,13 @@
 
 import UIKit
 
-class HomeViewController: UIViewController {
+class HomeViewController: BaseViewController {
 
     @IBOutlet private weak var tableView: UITableView!
 
     var viewModel = HomeViewModel()
     var isLoadingMore: Bool = false
+
     override func viewDidLoad() {
         super.viewDidLoad()
         configTableView()
@@ -85,12 +86,14 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch viewModel.cells[indexPath.section] {
         case .collectionView:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "collectionViewCell", for: indexPath) as? ListCollectionsCell else { return UITableViewCell() }
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "collectionViewCell", for: indexPath)
+                as? ListCollectionsCell else { return UITableViewCell() }
             cell.viewModel = viewModel.viewModelForCell(indexPath: indexPath)
             cell.trendingCollectionViewCell.reloadData()
             return cell
         case .tableView:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "tableViewCell", for: indexPath) as? HomeCell else { return UITableViewCell() }
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "tableViewCell", for: indexPath)
+                as? HomeCell else { return UITableViewCell() }
             cell.viewModel = viewModel.viewModelForCell2(indexPath: indexPath)
             return cell
         }

@@ -21,7 +21,7 @@ class HomeViewModel {
     private let count = 20
 
     func loadCollection(value: Int, completion: @escaping (APICompletion)) {
-        Api.ListCollection.loadCollection() { [weak self] (result) in
+        Api.ListCollection.loadCollection { [weak self] (result) in
             guard let this = self else { return }
             switch result {
             case .success(let collections ):

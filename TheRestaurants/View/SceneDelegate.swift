@@ -37,7 +37,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowSence = (scene as? UIWindowScene) else { return }
         let window = UIWindow(windowScene: windowSence)
         self.window = window
-        changeRoot(root: .tabbar)
+        if Session.cityId == nil {
+            changeRoot(root: .introduce)
+        } else {
+            changeRoot(root: .tabbar)
+        }
     }
 
     func setupTabbar() -> UITabBarController {
