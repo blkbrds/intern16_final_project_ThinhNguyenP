@@ -13,6 +13,7 @@ class City: Mappable {
     var countryName: String = ""
     var cityName: String = ""
     var flagUrl: String = ""
+    var id: Int?
 
     required convenience init?(map: Map) {
         self.init()
@@ -22,5 +23,6 @@ class City: Mappable {
         countryName <- map["country_name"]
         cityName <- map["name"]
         flagUrl <- map ["country_flag_url"]
+        id <- map["id"]
     }
 }

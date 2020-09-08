@@ -33,7 +33,6 @@ class SearchCityPopUpViewController: UIViewController {
     }
 
     func search(value: String) {
-
         Indicator.start()
         viewModel.searchCities(value: value) { [weak self] (result) in
             Indicator.stop()
@@ -81,6 +80,12 @@ extension SearchCityPopUpViewController: UITableViewDataSource, UITableViewDeleg
             as? SearchCityCell else { return UITableViewCell() }
         cell.viewModel = viewModel.viewModelForCell(at: indexPath)
         return cell
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? SearchCityCell else { return }
+        let cellViewModel = viewModel.didSelectRowAt(value: indexPath.row)
+        cell.viewModel = cellViewModel
     }
 }
 

@@ -8,12 +8,11 @@
 
 import UIKit
 
-class HomeViewController: UIViewController {
+class HomeViewController: BaseViewController {
 
     @IBOutlet private weak var tableView: UITableView!
 
     var viewModel = HomeViewModel()
-
     override func viewDidLoad() {
         super.viewDidLoad()
         configTableView()
