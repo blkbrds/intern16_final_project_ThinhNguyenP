@@ -13,11 +13,9 @@ class HomeViewController: BaseViewController {
     @IBOutlet private weak var tableView: UITableView!
 
     var viewModel = HomeViewModel()
-    static var cityId = UserDefaults()
     override func viewDidLoad() {
         super.viewDidLoad()
         configTableView()
-        HomeViewController.cityId.object(forKey: "city id")
     }
 
     private func configTableView() {
