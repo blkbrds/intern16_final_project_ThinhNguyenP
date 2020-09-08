@@ -9,7 +9,7 @@
 import UIKit
 
 class HomeCell: UITableViewCell {
-    
+
     @IBOutlet weak var cuisineView: UIView!
     @IBOutlet private weak var imageRestaurant: UIImageView!
     @IBOutlet private weak var nameRestaurantLabel: UILabel!
@@ -23,7 +23,7 @@ class HomeCell: UITableViewCell {
             updateView()
         }
     }
-    
+
     private func updateView() {
         guard let viewModel = viewModel else { return }
         nameRestaurantLabel.text = viewModel.name

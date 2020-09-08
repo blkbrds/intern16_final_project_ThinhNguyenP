@@ -9,7 +9,7 @@
 import Foundation
 
 class CuisineViewModel {
-    
+
     var cuisineData: String = ""
-    
+
 }

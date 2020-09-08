@@ -20,7 +20,7 @@ class HomeCellModel {
     var isFavorite: Bool
     var resultShow: Int?
 
-    init(cellsRestaurant: CellRestaurant ) {
+    init(cellsRestaurant: Restaurant ) {
         self.address = cellsRestaurant.address
         self.name = cellsRestaurant.name
         self.cuisines = cellsRestaurant.cuisines

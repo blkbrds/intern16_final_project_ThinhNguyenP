@@ -12,7 +12,7 @@ import ObjectMapper
 
 extension Api.ListCell {
     static var totalResults: Int = 0
-    static func loadCell(start: Int = 0, completion: @escaping Completion<[CellRestaurant]>) -> Request? {
+    static func loadCell(start: Int = 0, completion: @escaping Completion<[Restaurant]>) -> Request? {
         let path = Api.Path.ListCell().urlStringWith(start: start)
         return api.request(method: .get, urlString: path) { (result) in
             DispatchQueue.main.async {
@@ -25,10 +25,10 @@ extension Api.ListCell {
                     if let resultsFound = value["results_found"] as? Int {
                         totalResults = resultsFound
                     }
-                    var results: [CellRestaurant] = []
+                    var results: [Restaurant] = []
                     for item in restaurants {
                         guard let restaurant = item["restaurant"] as? JSObject,
-                        let restaurant2 = Mapper<CellRestaurant>().map(JSONObject: restaurant) else { return }
+                        let restaurant2 = Mapper<Restaurant>().map(JSONObject: restaurant) else { return }
                         results.append(restaurant2)
                     }
                     completion(.success(results))

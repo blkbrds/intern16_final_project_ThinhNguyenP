@@ -9,13 +9,13 @@
 import Foundation
 
 class HomeViewModel {
-    
+
     enum Cell {
         case collectionView
         case tableView
     }
     var dataCollection: [Collection] = []
-    var dataCell: [CellRestaurant] = []
+    var dataCell: [Restaurant] = []
     var cells: [Cell] = [.collectionView, .tableView]
     private var start: Int = 0
     private let count = 20
@@ -46,7 +46,7 @@ class HomeViewModel {
             }
         }
     }
-    
+
     func loadMoreCell(completion: @escaping (APICompletion)) {
         start += count
         Api.ListCell.loadCell(start: start) { [weak self](result) in
@@ -60,7 +60,7 @@ class HomeViewModel {
             }
         }
     }
-    
+
     func canLoadMore() -> Bool {
         return Api.ListCell.totalResults > dataCell.count
     }

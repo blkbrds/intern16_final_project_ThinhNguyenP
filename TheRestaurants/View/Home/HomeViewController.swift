@@ -9,7 +9,7 @@
 import UIKit
 
 class HomeViewController: UIViewController {
-    
+
     @IBOutlet private weak var tableView: UITableView!
 
     var viewModel = HomeViewModel()
