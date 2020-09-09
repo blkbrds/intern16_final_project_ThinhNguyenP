@@ -326,6 +326,7 @@
 				845966B224FD03C200A61A79 /* CollectionRestaurant.swift */,
 				846A2BB224FA645D004160B3 /* City.swift */,
 				840D72C42502048D0007E901 /* Restaurant.swift */,
+				844E57D225075F1A0012BA18 /* SearchHistory.swift */,
 			);
 			path = Scheme;
 			sourceTree = "<group>";
@@ -392,7 +393,6 @@
 		844E57D125075F1A0012BA18 /* HistorySearch */ = {
 			isa = PBXGroup;
 			children = (
-				844E57D225075F1A0012BA18 /* SearchHistory.swift */,
 				844E57D325075F1A0012BA18 /* HistorySearchCell.swift */,
 				844E57D425075F1A0012BA18 /* HistorySearchCell.xib */,
 				844E57D525075F1A0012BA18 /* HistorySearchCellModel.swift */,

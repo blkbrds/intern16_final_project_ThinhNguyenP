@@ -14,7 +14,7 @@ class SearchViewController: BaseViewController {
     @IBOutlet private weak var listResultSearch: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupSearchBar()
+        setUpSearchBar()
         configTableView()
     }
 
@@ -29,13 +29,19 @@ class SearchViewController: BaseViewController {
         listResultSearch.dataSource = self
     }
 
-    func setupSearchBar() {
-        let searchBar = UISearchBar(frame: CGRect(x: 0, y: 0, width: view.bounds.width - 40, height: 0))
-        searchBar.clipsToBounds = true
-        searchBar.layer.cornerRadius = 15
-        searchBar.layer.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-        searchBar.placeholder = "Tìm kiếm địa điểm "
-        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: searchBar)
+    func setUpSearchBar() {
+        let searchBar = UISearchBar(frame: CGRect(x: 0, y: 0, width: view.bounds.width - 35, height: 0))
+        if let textfield = searchBar.value(forKey: "searchField") as? UITextField {
+            textfield.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+            textfield.placeholder = "Tìm kiếm địa điểm "
+            textfield.attributedPlaceholder = NSAttributedString(string: textfield.placeholder ?? "", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+
+            if let leftView = textfield.leftView as? UIImageView {
+                leftView.image = leftView.image?.withRenderingMode(.alwaysTemplate)
+                leftView.tintColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0.5125578704)
+            }
+        }
+         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: searchBar)
     }
 }
 extension SearchViewController: UITableViewDataSource {
