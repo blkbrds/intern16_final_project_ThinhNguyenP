@@ -29,7 +29,7 @@ class CollectionCell: UICollectionViewCell {
         countPlacesTitle.text = "\(viewModel.numberOfRestaurant ?? 0) places"
         viewModel.loadImage { [weak self ](image) in
             guard let this = self else { return }
-            this.imageCollectionView.layer.cornerRadius = 10
+            this.imageCollectionView.layer.cornerRadius = 5
             this.imageCollectionView.clipsToBounds = true
             this.imageCollectionView.image = image
         }

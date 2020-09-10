@@ -24,6 +24,7 @@ class HomeViewController: BaseViewController {
     }
 
     private func configTableView() {
+        tableView.contentInset = UIEdgeInsets(top: 15, left: 0, bottom: 0, right: 0)
         let nib = UINib(nibName: "ListCollectionsCell", bundle: .main)
         tableView.register(nib, forCellReuseIdentifier: "collectionViewCell")
         let tableNib = UINib(nibName: "HomeCell", bundle: .main)
@@ -104,7 +105,7 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
         case .collectionView:
             return 186
         case .tableView:
-            return 320
+            return UITableView.automaticDimension
         }
     }
 }

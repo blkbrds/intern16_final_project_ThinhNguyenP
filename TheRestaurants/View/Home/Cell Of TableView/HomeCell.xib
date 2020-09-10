@@ -68,8 +68,8 @@
                             <constraint firstAttribute="height" constant="15" id="zH6-PG-pIo"/>
                         </constraints>
                     </view>
-                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="ldf-n0-xYn">
-                        <rect key="frame" x="15" y="224" width="290" height="17.5"/>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="top" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="ldf-n0-xYn">
+                        <rect key="frame" x="15" y="224" width="305" height="17.5"/>
                     </stackView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="axa-w2-D0g">
                         <rect key="frame" x="41" y="251.5" width="279" height="18"/>
@@ -126,7 +126,7 @@
                     <constraint firstItem="aPb-O2-pHY" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="ZQh-gx-gms"/>
                     <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="0Fe-wP-prx" secondAttribute="trailing" id="c5b-8M-0kr"/>
                     <constraint firstItem="TZw-L4-qTi" firstAttribute="leading" secondItem="rms-ke-p4b" secondAttribute="trailing" constant="8" id="ds3-f1-tf8"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="ldf-n0-xYn" secondAttribute="trailing" constant="15" id="eHs-hx-FSh"/>
+                    <constraint firstAttribute="trailing" secondItem="ldf-n0-xYn" secondAttribute="trailing" constant="15" id="eHs-hx-FSh"/>
                     <constraint firstItem="tqp-ND-WSz" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="j4f-ig-5yy"/>
                     <constraint firstItem="0Fe-wP-prx" firstAttribute="leading" secondItem="Hqu-Dk-OV8" secondAttribute="trailing" constant="5" id="nnW-37-OpV"/>
                     <constraint firstItem="Hqu-Dk-OV8" firstAttribute="leading" secondItem="tqp-ND-WSz" secondAttribute="leading" id="q8x-8a-JGJ"/>

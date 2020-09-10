@@ -27,4 +27,8 @@ extension String {
         let size = (self as NSString).size(withAttributes: [.font: font])
         return size.width
     }
+
+    var trimmed: String {
+        return trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+    }
 }

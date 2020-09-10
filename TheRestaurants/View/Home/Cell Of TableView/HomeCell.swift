@@ -29,41 +29,57 @@ class HomeCell: UITableViewCell {
         addressRestaurantLabel.text = viewModel.address
         ratingRestautantLabel.text = viewModel.rating
         numberOfDeliveryLabel.text = "\(viewModel.onlineDelivery ?? 0) online delivery now"
-//        viewModel.loadImage { [weak self](image) in
-//            guard let this = self else { return }
-//            this.imageRestaurant.layer.cornerRadius = 10
-//            this.imageRestaurant.image = image
-//        }
         configCuisineStackView()
+        viewModel.loadImage { [weak self](image) in
+            guard let this = self else { return }
+            this.imageRestaurant.layer.cornerRadius = 10
+            this.imageRestaurant.image = image
+        }
     }
 
     private func configCuisineStackView() {
-        guard let cuisineArr = viewModel?.cuisineArr, !cuisineArr.isEmpty else { return }
-        a(arr: cuisineArr, startIndex: 0, widthLimit: cuisineStackView.frame.width)
+        guard let cuisineArr = viewModel?.cuisineArr, !cuisineArr.isEmpty else {
+            cuisineStackView.isHidden = true
+            return
+        }
+        cuisineStackView.isHidden = false
+        cuisineStackView.removeAllArrangedSubviews()
+        var startIndex = 0
+        while startIndex < cuisineArr.count && startIndex != -1 {
+            startIndex = configStackViewPerRow(arr: cuisineArr, startIndex: startIndex, widthLimit: cuisineStackView.frame.width)
+        }
     }
 
-    private func a(arr: [String], startIndex: Int, widthLimit: CGFloat) {
-        guard startIndex < arr.count else { return }
+    private func configStackViewPerRow(arr: [String], startIndex: Int, widthLimit: CGFloat) -> Int {
         let stackView = UIStackView()
         stackView.spacing = 8
+        stackView.distribution = .fillProportionally
+        stackView.alignment = .leading
         var widthPerRow: CGFloat = 0.0
-        for j in startIndex...arr.count {
+        var nextCuisineViewWidth: CGFloat = 0.0
+        for j in startIndex...arr.count - 1 {
             if widthPerRow > widthLimit {
-                cuisineStackView.addSubview(stackView)
-                a(arr: arr, startIndex: j + 1, widthLimit: widthLimit)
+                cuisineStackView.addArrangedSubview(stackView)
+                return j
             } else {
-                let isTitle = arr[j].elementsEqual("Cuisine")
+                widthPerRow -= nextCuisineViewWidth
+                let item = arr[j].trimmed
+                let isTitle = item.elementsEqual("Cuisine")
                 let font: UIFont = isTitle ? .systemFont(ofSize: 13, weight: .medium) : .systemFont(ofSize: 12)
-                let cuisineViewWidth = arr[j].contentWidth(font: font)
-                let cuisineView = CuisineView(frame: CGRect(x: 0, y: 0, width: cuisineViewWidth, height: 18))
-                cuisineView.viewModel = CuisineViewModel(cuisine: arr[j], isTitle: isTitle)
-                stackView.addSubview(cuisineView)
+                let cuisineViewWidth = item.contentWidth(font: font) + 6 * 2
+                let cuisineView: CuisineView = CuisineView.loadNib()
+                cuisineView.frame = CGRect(x: 0, y: 0, width: cuisineViewWidth, height: 18)
+                cuisineView.viewModel = CuisineViewModel(cuisine: item, isTitle: isTitle)
+                stackView.addArrangedSubview(cuisineView)
 
                 widthPerRow += cuisineViewWidth + 8
                 if j < arr.count - 1 {
-                    widthPerRow += arr[j + 1].contentWidth(font: .systemFont(ofSize: 12))
+                    nextCuisineViewWidth = arr[j + 1].trimmed.contentWidth(font: .systemFont(ofSize: 12)) + 6 * 2
+                    widthPerRow += nextCuisineViewWidth + 8
                 }
             }
         }
+        cuisineStackView.addArrangedSubview(stackView)
+        return -1
     }
 }

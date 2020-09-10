@@ -25,7 +25,7 @@ class CuisineView: UIView {
     }
 
     func setupView() {
-        cuisineView.layer.cornerRadius = 10
+        cuisineView.layer.cornerRadius = 3
         cuisineView.layer.borderWidth = 1
         cuisineView.layer.borderColor = #colorLiteral(red: 0.007843137255, green: 0.5333333333, blue: 0.8196078431, alpha: 1)
     }

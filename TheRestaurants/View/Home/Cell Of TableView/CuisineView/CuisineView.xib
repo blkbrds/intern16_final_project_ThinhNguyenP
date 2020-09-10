@@ -18,7 +18,6 @@
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zYL-Wx-dPp">
                             <rect key="frame" x="6" y="2" width="186" height="45"/>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <color key="tintColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                             <nil key="textColor"/>
@@ -45,7 +44,6 @@
             <connections>
                 <outlet property="cuisineLabel" destination="zYL-Wx-dPp" id="ig6-cx-YbY"/>
                 <outlet property="cuisineView" destination="JuV-4q-2Ye" id="pxB-zT-jh2"/>
-                <outlet property="viewLabel" destination="JuV-4q-2Ye" id="7c8-PP-d55"/>
             </connections>
             <point key="canvasLocation" x="15.942028985507248" y="65.290178571428569"/>
         </view>
