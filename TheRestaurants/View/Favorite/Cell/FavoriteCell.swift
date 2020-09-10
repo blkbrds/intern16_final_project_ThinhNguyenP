@@ -23,17 +23,6 @@ class FavoriteCell: UITableViewCell {
         }
     }
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-
     func setupView() {
         guard let viewModel = viewModel else { return }
         ratingLabel.text = viewModel.restaurant.rating
@@ -41,6 +30,6 @@ class FavoriteCell: UITableViewCell {
         locationLabel.text = viewModel.restaurant.address
         nameRestaurant.text = viewModel.restaurant.name
     }
-    
+
     @IBAction func deleteFavoriteButtonTouchUpInside(_ sender: Any) { }
 }

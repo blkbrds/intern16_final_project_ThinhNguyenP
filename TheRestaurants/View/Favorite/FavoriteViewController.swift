@@ -38,12 +38,12 @@ class FavoriteViewController: BaseViewController {
 }
 extension FavoriteViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return viewModel.numberOfRowInSection()
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? FavoriteCell else { return UITableViewCell()}
-//        cell.viewModel = viewModel.cellForItemAt(indexPath: indexPath)
+        cell.viewModel = viewModel.cellForItemAt(indexPath: indexPath)
         return cell
     }
 }
