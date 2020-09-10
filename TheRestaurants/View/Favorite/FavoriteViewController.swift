@@ -24,6 +24,7 @@ class FavoriteViewController: BaseViewController {
         let nib = UINib(nibName: "FavoriteCell", bundle: .main)
         tableView.register(nib, forCellReuseIdentifier: "cell")
         tableView.dataSource = self
+        tableView.rowHeight = 121
     }
 
     private func setUpNavigation() {
@@ -37,12 +38,12 @@ class FavoriteViewController: BaseViewController {
 }
 extension FavoriteViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.numberOfRowInSection()
+        return 3
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? FavoriteCell else { return UITableViewCell()}
-        cell.viewModel = viewModel.cellForItemAt(indexPath: indexPath)
+//        cell.viewModel = viewModel.cellForItemAt(indexPath: indexPath)
         return cell
     }
 }
