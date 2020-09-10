@@ -46,6 +46,11 @@
 		8414C13725022FA60066701F /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8414C13425022FA60066701F /* HomeViewController.swift */; };
 		842DF84B250680DF00061000 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842DF849250680DF00061000 /* BaseViewController.swift */; };
 		842DF84C250680DF00061000 /* BaseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 842DF84A250680DF00061000 /* BaseViewController.xib */; };
+		844E57D925075F1A0012BA18 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844E57D025075F190012BA18 /* SearchViewModel.swift */; };
+		844E57DA25075F1A0012BA18 /* SearchHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844E57D225075F1A0012BA18 /* SearchHistory.swift */; };
+		844E57DB25075F1A0012BA18 /* HistorySearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844E57D325075F1A0012BA18 /* HistorySearchCell.swift */; };
+		844E57DC25075F1A0012BA18 /* HistorySearchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 844E57D425075F1A0012BA18 /* HistorySearchCell.xib */; };
+		844E57DD25075F1A0012BA18 /* HistorySearchCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844E57D525075F1A0012BA18 /* HistorySearchCellModel.swift */; };
 		845966B324FD03C200A61A79 /* CollectionRestaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845966B224FD03C200A61A79 /* CollectionRestaurant.swift */; };
 		845966B524FD08BD00A61A79 /* Api.Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845966B424FD08BD00A61A79 /* Api.Collection.swift */; };
 		846A2BA324FA5917004160B3 /* SearchCityPopUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846A2B9D24FA5917004160B3 /* SearchCityPopUpViewModel.swift */; };
@@ -109,6 +114,11 @@
 		8414C13425022FA60066701F /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		842DF849250680DF00061000 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		842DF84A250680DF00061000 /* BaseViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BaseViewController.xib; sourceTree = "<group>"; };
+		844E57D025075F190012BA18 /* SearchViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
+		844E57D225075F1A0012BA18 /* SearchHistory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchHistory.swift; sourceTree = "<group>"; };
+		844E57D325075F1A0012BA18 /* HistorySearchCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistorySearchCell.swift; sourceTree = "<group>"; };
+		844E57D425075F1A0012BA18 /* HistorySearchCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HistorySearchCell.xib; sourceTree = "<group>"; };
+		844E57D525075F1A0012BA18 /* HistorySearchCellModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistorySearchCellModel.swift; sourceTree = "<group>"; };
 		845966B224FD03C200A61A79 /* CollectionRestaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionRestaurant.swift; sourceTree = "<group>"; };
 		845966B424FD08BD00A61A79 /* Api.Collection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Api.Collection.swift; sourceTree = "<group>"; };
 		846A2B9D24FA5917004160B3 /* SearchCityPopUpViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchCityPopUpViewModel.swift; sourceTree = "<group>"; };
@@ -277,6 +287,8 @@
 		74A4197724F3C14D00D1C1D6 /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				844E57D125075F1A0012BA18 /* HistorySearch */,
+				844E57D025075F190012BA18 /* SearchViewModel.swift */,
 				74A4198D24F3C21B00D1C1D6 /* SearchViewController.swift */,
 				74A4198E24F3C21B00D1C1D6 /* SearchViewController.xib */,
 			);
@@ -307,6 +319,7 @@
 				845966B224FD03C200A61A79 /* CollectionRestaurant.swift */,
 				846A2BB224FA645D004160B3 /* City.swift */,
 				840D72C42502048D0007E901 /* Restaurant.swift */,
+				844E57D225075F1A0012BA18 /* SearchHistory.swift */,
 			);
 			path = Scheme;
 			sourceTree = "<group>";
@@ -358,6 +371,16 @@
 				842DF84A250680DF00061000 /* BaseViewController.xib */,
 			);
 			path = BaseView;
+			sourceTree = "<group>";
+		};
+		844E57D125075F1A0012BA18 /* HistorySearch */ = {
+			isa = PBXGroup;
+			children = (
+				844E57D325075F1A0012BA18 /* HistorySearchCell.swift */,
+				844E57D425075F1A0012BA18 /* HistorySearchCell.xib */,
+				844E57D525075F1A0012BA18 /* HistorySearchCellModel.swift */,
+			);
+			path = HistorySearch;
 			sourceTree = "<group>";
 		};
 		846A2B9C24FA5917004160B3 /* PopUp */ = {
@@ -494,6 +517,7 @@
 				84A9332A2501F6E700BEE475 /* ListCollectionsCell.xib in Resources */,
 				74A4198C24F3C20300D1C1D6 /* MapViewController.xib in Resources */,
 				74A4198424F3C1DF00D1C1D6 /* FavoriteViewController.xib in Resources */,
+				844E57DC25075F1A0012BA18 /* HistorySearchCell.xib in Resources */,
 				74A4199024F3C21B00D1C1D6 /* SearchViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -577,7 +601,9 @@
 				74A4195C24F3B7B400D1C1D6 /* AppDelegate.swift in Sources */,
 				74A4198F24F3C21B00D1C1D6 /* SearchViewController.swift in Sources */,
 				846A2BA524FA5918004160B3 /* SearchCityCellModel.swift in Sources */,
+				844E57DA25075F1A0012BA18 /* SearchHistory.swift in Sources */,
 				840D72C9250206030007E901 /* ImageCache.swift in Sources */,
+				844E57D925075F1A0012BA18 /* SearchViewModel.swift in Sources */,
 				74A419A524F3CD4F00D1C1D6 /* NSErrorExt.swift in Sources */,
 				842DF84B250680DF00061000 /* BaseViewController.swift in Sources */,
 				74A419AB24F3CF1700D1C1D6 /* DataExt.swift in Sources */,
@@ -603,6 +629,8 @@
 				84A932CC2501330900BEE475 /* Api.Search.swift in Sources */,
 				846A2BB324FA645D004160B3 /* City.swift in Sources */,
 				74A4198324F3C1DF00D1C1D6 /* FavoriteViewController.swift in Sources */,
+				844E57DD25075F1A0012BA18 /* HistorySearchCellModel.swift in Sources */,
+				844E57DB25075F1A0012BA18 /* HistorySearchCell.swift in Sources */,
 				744821112501CF7A005ACDFF /* SceneDelegateExt.swift in Sources */,
 				74A419A724F3CD7A00D1C1D6 /* URLExt.swift in Sources */,
 				74A4199B24F3C80700D1C1D6 /* RequestSerializer.swift in Sources */,
