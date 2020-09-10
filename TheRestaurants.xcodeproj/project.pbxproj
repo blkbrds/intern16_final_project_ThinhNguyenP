@@ -46,9 +46,6 @@
 		8414C13725022FA60066701F /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8414C13425022FA60066701F /* HomeViewController.swift */; };
 		842DF84B250680DF00061000 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842DF849250680DF00061000 /* BaseViewController.swift */; };
 		842DF84C250680DF00061000 /* BaseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 842DF84A250680DF00061000 /* BaseViewController.xib */; };
-		844E57D625075F1A0012BA18 /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844E57CD25075F190012BA18 /* SearchResultCell.swift */; };
-		844E57D725075F1A0012BA18 /* SearchResultCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844E57CE25075F190012BA18 /* SearchResultCellModel.swift */; };
-		844E57D825075F1A0012BA18 /* SearchResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 844E57CF25075F190012BA18 /* SearchResultCell.xib */; };
 		844E57D925075F1A0012BA18 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844E57D025075F190012BA18 /* SearchViewModel.swift */; };
 		844E57DA25075F1A0012BA18 /* SearchHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844E57D225075F1A0012BA18 /* SearchHistory.swift */; };
 		844E57DB25075F1A0012BA18 /* HistorySearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844E57D325075F1A0012BA18 /* HistorySearchCell.swift */; };
@@ -117,9 +114,6 @@
 		8414C13425022FA60066701F /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		842DF849250680DF00061000 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		842DF84A250680DF00061000 /* BaseViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BaseViewController.xib; sourceTree = "<group>"; };
-		844E57CD25075F190012BA18 /* SearchResultCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultCell.swift; sourceTree = "<group>"; };
-		844E57CE25075F190012BA18 /* SearchResultCellModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultCellModel.swift; sourceTree = "<group>"; };
-		844E57CF25075F190012BA18 /* SearchResultCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchResultCell.xib; sourceTree = "<group>"; };
 		844E57D025075F190012BA18 /* SearchViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		844E57D225075F1A0012BA18 /* SearchHistory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchHistory.swift; sourceTree = "<group>"; };
 		844E57D325075F1A0012BA18 /* HistorySearchCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistorySearchCell.swift; sourceTree = "<group>"; };
@@ -294,7 +288,6 @@
 			isa = PBXGroup;
 			children = (
 				844E57D125075F1A0012BA18 /* HistorySearch */,
-				844E57CC25075F190012BA18 /* ResultSearch */,
 				844E57D025075F190012BA18 /* SearchViewModel.swift */,
 				74A4198D24F3C21B00D1C1D6 /* SearchViewController.swift */,
 				74A4198E24F3C21B00D1C1D6 /* SearchViewController.xib */,
@@ -378,16 +371,6 @@
 				842DF84A250680DF00061000 /* BaseViewController.xib */,
 			);
 			path = BaseView;
-			sourceTree = "<group>";
-		};
-		844E57CC25075F190012BA18 /* ResultSearch */ = {
-			isa = PBXGroup;
-			children = (
-				844E57CD25075F190012BA18 /* SearchResultCell.swift */,
-				844E57CE25075F190012BA18 /* SearchResultCellModel.swift */,
-				844E57CF25075F190012BA18 /* SearchResultCell.xib */,
-			);
-			path = ResultSearch;
 			sourceTree = "<group>";
 		};
 		844E57D125075F1A0012BA18 /* HistorySearch */ = {
@@ -522,7 +505,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				74A4197C24F3C1A600D1C1D6 /* IntroduceViewController.xib in Resources */,
-				844E57D825075F1A0012BA18 /* SearchResultCell.xib in Resources */,
 				846A2BAB24FA5A62004160B3 /* SearchCityPopUpViewController.xib in Resources */,
 				8414C13625022FA60066701F /* HomeViewController.xib in Resources */,
 				846A2BA624FA5918004160B3 /* SearchCityCell.xib in Resources */,
@@ -643,7 +625,6 @@
 				84A933302501F6F800BEE475 /* HomeCell.swift in Sources */,
 				84A933292501F6E700BEE475 /* ListCollectionsCell.swift in Sources */,
 				846A2BAA24FA5A62004160B3 /* SearchCityPopUpViewController.swift in Sources */,
-				844E57D725075F1A0012BA18 /* SearchResultCellModel.swift in Sources */,
 				7448210F2501CF26005ACDFF /* IndicatorView.swift in Sources */,
 				84A932CC2501330900BEE475 /* Api.Search.swift in Sources */,
 				846A2BB324FA645D004160B3 /* City.swift in Sources */,
@@ -653,7 +634,6 @@
 				744821112501CF7A005ACDFF /* SceneDelegateExt.swift in Sources */,
 				74A419A724F3CD7A00D1C1D6 /* URLExt.swift in Sources */,
 				74A4199B24F3C80700D1C1D6 /* RequestSerializer.swift in Sources */,
-				844E57D625075F1A0012BA18 /* SearchResultCell.swift in Sources */,
 				74A4198B24F3C20300D1C1D6 /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
