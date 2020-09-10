@@ -20,7 +20,12 @@ class HomeCellModel {
     var isFavorite: Bool
     var resultShow: Int?
 
-    init(cellsRestaurant: Restaurant ) {
+    var cuisineArr: [String] {
+        guard let cuisineStr = cuisines else { return [] }
+        return ["Cuisine"] + cuisineStr.split(separator: ",").map { String($0) }
+    }
+
+    init(cellsRestaurant: Restaurant) {
         self.address = cellsRestaurant.address
         self.name = cellsRestaurant.name
         self.cuisines = cellsRestaurant.cuisines

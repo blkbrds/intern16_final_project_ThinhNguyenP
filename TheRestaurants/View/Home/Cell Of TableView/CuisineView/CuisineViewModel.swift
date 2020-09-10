@@ -10,6 +10,11 @@ import Foundation
 
 class CuisineViewModel {
 
-    var cuisineData: String = ""
+    var cuisine: String
+    var isTitle: Bool
 
+    init(cuisine: String, isTitle: Bool = false) {
+        self.cuisine = cuisine
+        self.isTitle = isTitle
+    }
 }

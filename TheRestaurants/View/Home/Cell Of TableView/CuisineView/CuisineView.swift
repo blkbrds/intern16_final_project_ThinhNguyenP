@@ -10,8 +10,14 @@ import UIKit
 
 class CuisineView: UIView {
 
-    @IBOutlet weak var imageCuisine: UIView!
+    @IBOutlet weak var cuisineView: UIView!
     @IBOutlet weak var cuisineLabel: UILabel!
+
+    var viewModel: CuisineViewModel? {
+        didSet {
+            updateUI()
+        }
+    }
 
     override func  awakeFromNib() {
         super.awakeFromNib()
@@ -19,7 +25,22 @@ class CuisineView: UIView {
     }
 
     func setupView() {
-        imageCuisine.layer.cornerRadius = 10
-        imageCuisine.layer.borderWidth = 5
+        cuisineView.layer.cornerRadius = 10
+        cuisineView.layer.borderWidth = 1
+        cuisineView.layer.borderColor = #colorLiteral(red: 0.007843137255, green: 0.5333333333, blue: 0.8196078431, alpha: 1)
+    }
+
+    private func updateUI() {
+        guard let viewModel = viewModel else { return }
+        if viewModel.isTitle {
+            cuisineLabel.font = .systemFont(ofSize: 13, weight: .medium)
+            cuisineLabel.textColor = .white
+            cuisineView.backgroundColor = #colorLiteral(red: 0.007843137255, green: 0.5333333333, blue: 0.8196078431, alpha: 1)
+        } else {
+            cuisineLabel.font = .systemFont(ofSize: 12)
+            cuisineLabel.textColor = .black
+            cuisineView.backgroundColor = .clear
+        }
+        cuisineLabel.text = viewModel.cuisine
     }
 }
