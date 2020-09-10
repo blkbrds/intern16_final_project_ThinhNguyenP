@@ -41,7 +41,7 @@
                             <constraint firstAttribute="height" constant="18" id="Zb1-0E-3Mc"/>
                         </constraints>
                     </imageView>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_search_location" translatesAutoresizingMaskIntoConstraints="NO" id="MSi-8P-e8F">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_home_delivery" translatesAutoresizingMaskIntoConstraints="NO" id="MSi-8P-e8F">
                         <rect key="frame" x="20" y="258" width="18" height="18"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="18" id="1fP-Wp-kwv"/>
@@ -151,9 +151,9 @@
     </objects>
     <resources>
         <image name="ic_favorite_search_click" width="46" height="46"/>
+        <image name="ic_home_delivery" width="14" height="18"/>
         <image name="ic_home_map" width="14" height="18"/>
         <image name="ic_search_favorite" width="46" height="46"/>
-        <image name="ic_search_location" width="15" height="15"/>
         <image name="star.fill" catalog="system" width="64" height="58"/>
     </resources>
 </document>
