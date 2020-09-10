@@ -24,7 +24,7 @@
                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                 </tableView>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="UAt-VI-tYg">
-                    <rect key="frame" x="0.0" y="30" width="375" height="637"/>
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                 </tableView>
             </subviews>
@@ -32,7 +32,7 @@
             <constraints>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="ts7-5j-qPP" secondAttribute="trailing" id="NiS-WH-S6N"/>
                 <constraint firstItem="ts7-5j-qPP" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="50" id="Njw-K3-6V3"/>
-                <constraint firstItem="UAt-VI-tYg" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="30" id="Vol-yN-2zA"/>
+                <constraint firstItem="UAt-VI-tYg" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="Vol-yN-2zA"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="UAt-VI-tYg" secondAttribute="trailing" id="at9-Qs-vTE"/>
                 <constraint firstItem="UAt-VI-tYg" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="eXT-Qj-BAI"/>
                 <constraint firstItem="ts7-5j-qPP" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="jxX-Vy-QEh"/>

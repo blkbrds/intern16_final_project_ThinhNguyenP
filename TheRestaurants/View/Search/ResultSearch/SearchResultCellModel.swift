@@ -7,10 +7,15 @@
 //
 
 import Foundation
+import UIKit
 
 class SearchResultCellModel {
-    var city: City
-    init(city: City) {
-        self.city = city
+    var restaurant: Restaurant
+    init(restaurantData: Restaurant) {
+        self.restaurant = restaurantData
+    }
+    
+    func loadImage(compeltion: @escaping (UIImage?) -> Void) {
+        ImageCache.loadImage(urlString: restaurant.imageURL ?? "", completion: compeltion)
     }
 }

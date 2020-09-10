@@ -8,7 +8,6 @@
 
 import Foundation
 import RealmSwift
-
 final class SearchHistory: Object {
     @objc dynamic var searchKey: String = ""
 }

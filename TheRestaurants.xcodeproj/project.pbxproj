@@ -384,8 +384,8 @@
 			isa = PBXGroup;
 			children = (
 				844E57CD25075F190012BA18 /* SearchResultCell.swift */,
-				844E57CE25075F190012BA18 /* SearchResultCellModel.swift */,
 				844E57CF25075F190012BA18 /* SearchResultCell.xib */,
+				844E57CE25075F190012BA18 /* SearchResultCellModel.swift */,
 			);
 			path = ResultSearch;
 			sourceTree = "<group>";

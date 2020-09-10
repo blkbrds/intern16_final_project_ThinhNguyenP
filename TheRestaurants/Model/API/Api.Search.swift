@@ -39,4 +39,28 @@ extension Api.Search {
             }
         }
     }
+
+    static func searchResult(param: SearchParam, completion: @escaping Completion<[Restaurant]>) {
+        let path = Api.Path.Search().urlString2
+        api.request(method: .get, urlString: path, parameters: param.toJSON()) { (result) in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let value):
+                    guard let value = value as? JSObject, let restaurants = value["restaurants"] as? JSArray else {
+                        completion(.failure(Api.Error.json))
+                        return
+                    }
+                    var results: [Restaurant] = []
+                    for item in restaurants {
+                        guard let restaurant = item["restaurant"] as? JSObject,
+                        let restaurant2 = Mapper<Restaurant>().map(JSONObject: restaurant) else { return }
+                        results.append(restaurant2)
+                    }
+                    completion(.success(results))
+                case .failure(let error ):
+                    completion(.failure(error))
+                }
+            }
+        }
+    }
 }
