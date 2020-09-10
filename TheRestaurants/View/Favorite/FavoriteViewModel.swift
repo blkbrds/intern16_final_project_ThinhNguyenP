@@ -16,7 +16,7 @@ class FavoriteViewModel {
 
     func cellForItemAt(indexPath: IndexPath) -> FavoriteCellModel {
         let item = restautants[indexPath.row]
-        let viewModel = FavoriteCellModel(restaurantData: item)
+        let viewModel = FavoriteCellModel(restaurant: item)
         return viewModel
     }
 }

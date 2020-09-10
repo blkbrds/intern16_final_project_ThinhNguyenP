@@ -16,11 +16,11 @@ class FavoriteViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        configCell()
+        configTableView()
         setUpNavigation()
     }
 
-    private func configCell() {
+    private func configTableView() {
         let nib = UINib(nibName: "FavoriteCell", bundle: .main)
         tableView.register(nib, forCellReuseIdentifier: "cell")
         tableView.dataSource = self

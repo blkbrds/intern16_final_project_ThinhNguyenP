@@ -10,7 +10,7 @@ import Foundation
 
 class FavoriteCellModel {
     let restaurant: Restaurant
-    init(restaurantData: Restaurant) {
-        self.restaurant = restaurantData
+    init(restaurant: Restaurant) {
+        self.restaurant = restaurant
     }
 }
