@@ -83,9 +83,7 @@ extension SearchCityPopUpViewController: UITableViewDataSource, UITableViewDeleg
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? SearchCityCell else { return }
-        let cellViewModel = viewModel.didSelectRowAt(value: indexPath.row)
-        cell.viewModel = cellViewModel
+        SceneDelegate.shared.changeRoot(root: .tabbar)
     }
 }
 
