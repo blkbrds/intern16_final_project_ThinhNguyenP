@@ -54,13 +54,13 @@ class HomeCell: UITableViewCell {
         stackView.alignment = .leading
         var widthPerRow: CGFloat = 0.0
         var nextCuisineViewWidth: CGFloat = 0.0
-        for j in startIndex...arr.count - 1 {
+        for index in startIndex...arr.count - 1 {
             if widthPerRow > widthLimit {
                 cuisineStackView.addArrangedSubview(stackView)
-                return j
+                return index
             } else {
                 widthPerRow -= nextCuisineViewWidth
-                let item = arr[j].trimmed
+                let item = arr[index].trimmed
                 let isTitle = item.elementsEqual("Cuisine")
                 let font: UIFont = isTitle ? CuisineView.Config.cuisineLabelTitleFont : CuisineView.Config.cuisineLabelFont
                 let cuisineViewWidth = item.contentWidth(font: font) + CuisineView.Config.cuisineLabelMargin * 2
@@ -70,8 +70,8 @@ class HomeCell: UITableViewCell {
                 stackView.addArrangedSubview(cuisineView)
 
                 widthPerRow += cuisineViewWidth + Config.stackViewInRowSpacing
-                if j < arr.count - 1 {
-                    let nextItem = arr[j + 1].trimmed
+                if index < arr.count - 1 {
+                    let nextItem = arr[index + 1].trimmed
                     nextCuisineViewWidth = nextItem.contentWidth(font: CuisineView.Config.cuisineLabelFont)
                         + CuisineView.Config.cuisineLabelMargin * 2
                     widthPerRow += nextCuisineViewWidth + Config.stackViewInRowSpacing
