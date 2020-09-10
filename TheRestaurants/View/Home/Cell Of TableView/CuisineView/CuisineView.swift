@@ -33,14 +33,22 @@ class CuisineView: UIView {
     private func updateUI() {
         guard let viewModel = viewModel else { return }
         if viewModel.isTitle {
-            cuisineLabel.font = .systemFont(ofSize: 13, weight: .medium)
+            cuisineLabel.font = Config.cuisineLabelTitleFont
             cuisineLabel.textColor = .white
             cuisineView.backgroundColor = #colorLiteral(red: 0.007843137255, green: 0.5333333333, blue: 0.8196078431, alpha: 1)
         } else {
-            cuisineLabel.font = .systemFont(ofSize: 12)
+            cuisineLabel.font = Config.cuisineLabelFont
             cuisineLabel.textColor = .black
             cuisineView.backgroundColor = .clear
         }
         cuisineLabel.text = viewModel.cuisine
+    }
+}
+
+extension CuisineView {
+    struct Config {
+        static let cuisineLabelTitleFont: UIFont = .systemFont(ofSize: 13, weight: .medium)
+        static let cuisineLabelFont: UIFont = .systemFont(ofSize: 12)
+        static let cuisineLabelMargin: CGFloat = 6
     }
 }

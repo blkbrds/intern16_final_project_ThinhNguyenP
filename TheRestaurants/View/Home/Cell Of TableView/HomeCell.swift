@@ -49,7 +49,7 @@ class HomeCell: UITableViewCell {
 
     private func configStackViewPerRow(arr: [String], startIndex: Int, widthLimit: CGFloat) -> Int {
         let stackView = UIStackView()
-        stackView.spacing = 8
+        stackView.spacing = Config.stackViewInRowSpacing
         stackView.distribution = .fillProportionally
         stackView.alignment = .leading
         var widthPerRow: CGFloat = 0.0
@@ -62,21 +62,29 @@ class HomeCell: UITableViewCell {
                 widthPerRow -= nextCuisineViewWidth
                 let item = arr[j].trimmed
                 let isTitle = item.elementsEqual("Cuisine")
-                let font: UIFont = isTitle ? .systemFont(ofSize: 13, weight: .medium) : .systemFont(ofSize: 12)
-                let cuisineViewWidth = item.contentWidth(font: font) + 6 * 2
+                let font: UIFont = isTitle ? CuisineView.Config.cuisineLabelTitleFont : CuisineView.Config.cuisineLabelFont
+                let cuisineViewWidth = item.contentWidth(font: font) + CuisineView.Config.cuisineLabelMargin * 2
                 let cuisineView: CuisineView = CuisineView.loadNib()
                 cuisineView.frame = CGRect(x: 0, y: 0, width: cuisineViewWidth, height: 18)
                 cuisineView.viewModel = CuisineViewModel(cuisine: item, isTitle: isTitle)
                 stackView.addArrangedSubview(cuisineView)
 
-                widthPerRow += cuisineViewWidth + 8
+                widthPerRow += cuisineViewWidth + Config.stackViewInRowSpacing
                 if j < arr.count - 1 {
-                    nextCuisineViewWidth = arr[j + 1].trimmed.contentWidth(font: .systemFont(ofSize: 12)) + 6 * 2
-                    widthPerRow += nextCuisineViewWidth + 8
+                    let nextItem = arr[j + 1].trimmed
+                    nextCuisineViewWidth = nextItem.contentWidth(font: CuisineView.Config.cuisineLabelFont)
+                        + CuisineView.Config.cuisineLabelMargin * 2
+                    widthPerRow += nextCuisineViewWidth + Config.stackViewInRowSpacing
                 }
             }
         }
         cuisineStackView.addArrangedSubview(stackView)
         return -1
+    }
+}
+
+extension HomeCell {
+    struct Config {
+        static let stackViewInRowSpacing: CGFloat = 8
     }
 }
