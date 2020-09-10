@@ -29,7 +29,8 @@ class HomeCellModel {
         self.address = cellsRestaurant.address
         self.name = cellsRestaurant.name
         self.cuisines = cellsRestaurant.cuisines
-        self.imageURL = cellsRestaurant.imageURL
+        let imageURL = cellsRestaurant.imageURL ?? ""
+        self.imageURL = imageURL.replacingOccurrences(of: "?output-format=webp", with: "")
         self.rating = cellsRestaurant.rating
         self.onlineDelivery = cellsRestaurant.onlineDelivery
         self.isFavorite = cellsRestaurant.favorite

@@ -13,6 +13,7 @@
 		744821112501CF7A005ACDFF /* SceneDelegateExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 744821102501CF7A005ACDFF /* SceneDelegateExt.swift */; };
 		746B6AD9250A190400D9A093 /* UIViewExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746B6AD8250A190400D9A093 /* UIViewExt.swift */; };
 		746B6ADB250A32A000D9A093 /* UIStackViewExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746B6ADA250A32A000D9A093 /* UIStackViewExt.swift */; };
+		746B6ADD250A35DD00D9A093 /* UIImageViewExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746B6ADC250A35DD00D9A093 /* UIImageViewExt.swift */; };
 		74A4195C24F3B7B400D1C1D6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A4195B24F3B7B400D1C1D6 /* AppDelegate.swift */; };
 		74A4195E24F3B7B400D1C1D6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A4195D24F3B7B400D1C1D6 /* SceneDelegate.swift */; };
 		74A4196524F3B7BC00D1C1D6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 74A4196424F3B7BC00D1C1D6 /* Assets.xcassets */; };
@@ -80,6 +81,7 @@
 		744821102501CF7A005ACDFF /* SceneDelegateExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegateExt.swift; sourceTree = "<group>"; };
 		746B6AD8250A190400D9A093 /* UIViewExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExt.swift; sourceTree = "<group>"; };
 		746B6ADA250A32A000D9A093 /* UIStackViewExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStackViewExt.swift; sourceTree = "<group>"; };
+		746B6ADC250A35DD00D9A093 /* UIImageViewExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewExt.swift; sourceTree = "<group>"; };
 		74A4195824F3B7B400D1C1D6 /* TheRestaurants.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TheRestaurants.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		74A4195B24F3B7B400D1C1D6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		74A4195D24F3B7B400D1C1D6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -365,6 +367,7 @@
 				7448210B2501CD64005ACDFF /* UIViewControllerExt.swift */,
 				746B6AD8250A190400D9A093 /* UIViewExt.swift */,
 				74A419A624F3CD7A00D1C1D6 /* URLExt.swift */,
+				746B6ADC250A35DD00D9A093 /* UIImageViewExt.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -636,6 +639,7 @@
 				7448210C2501CD64005ACDFF /* UIViewControllerExt.swift in Sources */,
 				842DF84325061EAD00061000 /* CuisineView.swift in Sources */,
 				74A4198724F3C1F500D1C1D6 /* DetailViewController.swift in Sources */,
+				746B6ADD250A35DD00D9A093 /* UIImageViewExt.swift in Sources */,
 				842DF7FF25027DAC00061000 /* HomeCell.swift in Sources */,
 				746B6AD9250A190400D9A093 /* UIViewExt.swift in Sources */,
 				846A2BAA24FA5A62004160B3 /* SearchCityPopUpViewController.swift in Sources */,

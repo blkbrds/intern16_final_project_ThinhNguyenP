@@ -25,16 +25,13 @@ class HomeCell: UITableViewCell {
 
     private func updateView() {
         guard let viewModel = viewModel else { return }
+        imageRestaurant.layer.cornerRadius = 10
+        imageRestaurant.setImage(url: viewModel.imageURL, placeholderImage: #imageLiteral(resourceName: "ic-home-no-image"))
         nameRestaurantLabel.text = viewModel.name
         addressRestaurantLabel.text = viewModel.address
         ratingRestautantLabel.text = viewModel.rating
         numberOfDeliveryLabel.text = "\(viewModel.onlineDelivery ?? 0) online delivery now"
         configCuisineStackView()
-        viewModel.loadImage { [weak self](image) in
-            guard let this = self else { return }
-            this.imageRestaurant.layer.cornerRadius = 10
-            this.imageRestaurant.image = image
-        }
     }
 
     private func configCuisineStackView() {
