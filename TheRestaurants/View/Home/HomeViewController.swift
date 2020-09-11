@@ -13,12 +13,10 @@ class HomeViewController: BaseViewController {
     @IBOutlet private weak var tableView: UITableView!
 
     var viewModel = HomeViewModel()
-    var isLoadingMore: Bool = false
-
     override func viewDidLoad() {
         super.viewDidLoad()
         configTableView()
-        loadCollection(value: 10)
+        loadCollection()
         loadCell()
         tableView.delegate = self
     }
@@ -32,45 +30,31 @@ class HomeViewController: BaseViewController {
         tableView.dataSource = self
         tableView.delegate = self
     }
-
-    func loadCollection(value: Int) {
-        viewModel.loadCollection(value: value) { [weak self](result) in
+    
+    func loadCollection() {
+        Indicator.start()
+        viewModel.loadCollection { [weak self](result) in
+            Indicator.stop()
             guard let this = self else { return }
             switch result {
-            case.success:
+            case .success:
                 this.tableView.reloadData()
-            case.failure:
-                let alert = UIAlertController(title: "Warning", message: "Error", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: nil))
-                this.present(alert, animated: true)
+            case .failure(let error):
+                this.alert(error: error)
             }
         }
     }
 
     func loadCell() {
+        Indicator.start()
         viewModel.loadCell { [weak self] (result) in
+            Indicator.stop()
             guard let this = self else { return }
             switch result {
             case.success:
                 this.tableView.reloadData()
-            case.failure:
-                let alert = UIAlertController(title: "Warning", message: "Error", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: nil))
-                this.present(alert, animated: true)
-            }
-        }
-    }
-
-    func loadMoreCell() {
-        viewModel.loadMoreCell { [weak self] (result) in
-            guard let this = self else { return }
-            switch result {
-            case.success:
-                this.tableView.reloadData()
-            case.failure:
-                let alert = UIAlertController(title: "Warning", message: "Error", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: nil))
-                this.present(alert, animated: true)
+            case.failure(let error):
+                this.alert(error: error)
             }
         }
     }
@@ -99,7 +83,7 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
             return cell
         }
     }
-
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch viewModel.cells[indexPath.section] {
         case .collectionView:
@@ -113,14 +97,8 @@ extension HomeViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let contentOffset = scrollView.contentOffset.y
         let maximumOffset = scrollView.contentSize.height - scrollView.frame.size.height
-        if !isLoadingMore && (maximumOffset - contentOffset <= 100) {
-            if viewModel.canLoadMore() {
-                loadMoreCell()
-            }
-            self.isLoadingMore = true
-            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-                self.isLoadingMore = false
-            }
+        if !viewModel.isLoadingMore && (maximumOffset - contentOffset <= 100) {
+            loadCell()
         }
     }
 }

@@ -18,7 +18,6 @@ class HomeCellModel {
     var rating: String?
     var onlineDelivery: Int?
     var isFavorite: Bool
-    var resultShow: Int?
 
     var cuisineArr: [String] {
         guard let cuisineStr = cuisines else { return [] }
@@ -34,9 +33,5 @@ class HomeCellModel {
         self.rating = cellsRestaurant.rating
         self.onlineDelivery = cellsRestaurant.onlineDelivery
         self.isFavorite = cellsRestaurant.favorite
-    }
-
-   func loadImage(completion: @escaping (UIImage?) -> Void) {
-        ImageCache.loadImage(urlString: imageURL ?? "ic-home-no-image-1", completion: completion)
     }
 }

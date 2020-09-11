@@ -10,8 +10,8 @@ import UIKit
 
 class CuisineView: UIView {
 
-    @IBOutlet weak var cuisineView: UIView!
-    @IBOutlet weak var cuisineLabel: UILabel!
+    @IBOutlet private weak var cuisineView: UIView!
+    @IBOutlet private weak var cuisineLabel: UILabel!
 
     var viewModel: CuisineViewModel? {
         didSet {

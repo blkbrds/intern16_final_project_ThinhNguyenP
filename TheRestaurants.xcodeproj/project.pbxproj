@@ -43,7 +43,6 @@
 		74A419AF24F3CFF300D1C1D6 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A419AE24F3CFF300D1C1D6 /* App.swift */; };
 		74A419B124F3D02900D1C1D6 /* Key.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A419B024F3D02900D1C1D6 /* Key.swift */; };
 		840D72C52502048D0007E901 /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840D72C42502048D0007E901 /* Restaurant.swift */; };
-		840D72C9250206030007E901 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840D72C8250206030007E901 /* ImageCache.swift */; };
 		842DF7E525027BAF00061000 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 842DF7E225027BAF00061000 /* HomeViewController.xib */; };
 		842DF7E625027BAF00061000 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842DF7E325027BAF00061000 /* HomeViewModel.swift */; };
 		842DF7E725027BAF00061000 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842DF7E425027BAF00061000 /* HomeViewController.swift */; };
@@ -113,7 +112,6 @@
 		74A419AE24F3CFF300D1C1D6 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		74A419B024F3D02900D1C1D6 /* Key.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Key.swift; sourceTree = "<group>"; };
 		840D72C42502048D0007E901 /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
-		840D72C8250206030007E901 /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 		842DF7E225027BAF00061000 /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
 		842DF7E325027BAF00061000 /* HomeViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		842DF7E425027BAF00061000 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -133,7 +131,6 @@
 		842DF84A250680DF00061000 /* BaseViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BaseViewController.xib; sourceTree = "<group>"; };
 		845966B224FD03C200A61A79 /* CollectionRestaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionRestaurant.swift; sourceTree = "<group>"; };
 		845966B424FD08BD00A61A79 /* Api.Collection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Api.Collection.swift; sourceTree = "<group>"; };
-		845966B624FD4D7A00A61A79 /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 		845966B824FDFD0A00A61A79 /* Api.Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Api.Cell.swift; sourceTree = "<group>"; };
 		846A2B9D24FA5917004160B3 /* SearchCityPopUpViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchCityPopUpViewModel.swift; sourceTree = "<group>"; };
 		846A2B9F24FA5917004160B3 /* SearchCityCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchCityCell.swift; sourceTree = "<group>"; };
@@ -338,9 +335,7 @@
 				74A4199F24F3CB2300D1C1D6 /* ResponseSerializer.swift */,
 				74A4199C24F3CA2E00D1C1D6 /* Session.swift */,
 				845966B424FD08BD00A61A79 /* Api.Collection.swift */,
-				845966B624FD4D7A00A61A79 /* ImageCache.swift */,
 				845966B824FDFD0A00A61A79 /* Api.Cell.swift */,
-				840D72C8250206030007E901 /* ImageCache.swift */,
 				84A932CB2501330900BEE475 /* Api.Search.swift */,
 			);
 			path = API;
@@ -618,7 +613,6 @@
 				74A4195C24F3B7B400D1C1D6 /* AppDelegate.swift in Sources */,
 				74A4198F24F3C21B00D1C1D6 /* SearchViewController.swift in Sources */,
 				846A2BA524FA5918004160B3 /* SearchCityCellModel.swift in Sources */,
-				840D72C9250206030007E901 /* ImageCache.swift in Sources */,
 				74A419A524F3CD4F00D1C1D6 /* NSErrorExt.swift in Sources */,
 				842DF84B250680DF00061000 /* BaseViewController.swift in Sources */,
 				74A419AB24F3CF1700D1C1D6 /* DataExt.swift in Sources */,

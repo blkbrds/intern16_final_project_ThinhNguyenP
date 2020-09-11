@@ -20,8 +20,4 @@ class CollectionCellModel {
         self.title = listCollection.title
         self.imageUrl = listCollection.imageUrl
     }
-
-    func loadImage(completion: @escaping (UIImage?) -> Void) {
-        ImageCache.loadImage(urlString: imageUrl ?? "", completion: completion)
-    }
 }

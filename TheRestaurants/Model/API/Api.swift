@@ -26,21 +26,13 @@ extension Api.Path {
         var urlString: String {
             return Search.path / "cities"
         }
-    }
-    struct ListCell: ApiPath {
-        static var path: String { return baseURL / "search?entity_type=city&entity_id=12&start=0&count=20" }
-        var urlString: String {
-        return ListCell.path
+
+        var urlStringListCell: String {
+            return Search.path / "search"
         }
 
-        func urlStringWith(start: Int) -> String {
-            return ListCell.path.replacingOccurrences(of: "start=0", with: "start=\(start)")
-        }
-    }
-    struct ListCollection: ApiPath {
-        static var path: String { return baseURL / "collections?city_id=10" }
-        var urlString: String {
-            return ListCollection.path
+        var urlStringListCollection: String {
+            return Search.path / "collections"
         }
     }
 }
