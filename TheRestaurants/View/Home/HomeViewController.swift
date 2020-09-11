@@ -30,7 +30,7 @@ class HomeViewController: BaseViewController {
         tableView.dataSource = self
         tableView.delegate = self
     }
-    
+
     func loadCollection() {
         Indicator.start()
         viewModel.loadCollection { [weak self](result) in

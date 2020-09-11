@@ -15,13 +15,12 @@ extension Api.ListCell {
     static var totalResults: Int = 0
     struct SearchParam {
         var city: String = ""
-        var value: String = ""
         var start: Int = 0
         func toJSON() -> [String: Any] {
             return [
                 "entity_type": city,
                 "entity_id": Session.cityId as Any,
-                "start": start
+                "results_start": start
             ]
         }
     }
@@ -52,30 +51,4 @@ extension Api.ListCell {
             }
         }
     }
-//    static func get(star: Int = 0, completion: @escaping Completion<[Restaurant]>) {
-//        let path = Api.Path.ListCell().urlStringWith(start: star)
-//        api.request(method: .get, urlString: path) { (result) in
-//            DispatchQueue.main.async {
-//                switch result {
-//                case.success(let value):
-//                    guard let value = value as? JSObject, let restaurants = value["restaurants"] as? JSArray else {
-//                        completion(.failure(Api.Error.json))
-//                        return
-//                    }
-//                    if let resultsFound = value["results_found"] as? Int {
-//                        totalResults = resultsFound
-//                    }
-//                    var results: [Restaurant] = []
-//                    for item in restaurants {
-//                        guard let restaurant = item["restaurant"] as? JSObject,
-//                        let restaurant2 = Mapper<Restaurant>().map(JSONObject: restaurant) else { return }
-//                        results.append(restaurant2)
-//                    }
-//                    completion(.success(results))
-//                case.failure(let error):
-//                    completion(.failure(error))
-//                }
-//            }
-//        }
-//    }
 }
