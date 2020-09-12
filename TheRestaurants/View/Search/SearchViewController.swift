@@ -56,7 +56,7 @@ extension SearchViewController: UITableViewDataSource {
             cell.viewModel = viewModel.viewModelForCell(at: indexPath)
             return cell
         case .resultSearch:
-            guard let cell =  tableView.dequeueReusableCell(withIdentifier: "searchcell", for: indexPath) as? HomeCell else { return UITableViewCell() }
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "searchcell", for: indexPath) as? HomeCell else { return UITableViewCell() }
             return cell
         }
     }

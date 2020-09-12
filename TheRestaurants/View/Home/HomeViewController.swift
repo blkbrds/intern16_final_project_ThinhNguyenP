@@ -18,7 +18,6 @@ class HomeViewController: BaseViewController {
         configTableView()
         loadCollection()
         loadCell()
-        tableView.delegate = self
     }
 
     override func customNavigation() {
@@ -49,9 +48,9 @@ class HomeViewController: BaseViewController {
         }
     }
 
-    func loadCell() {
+    func loadCell(isLoadMore: Bool = false) {
         Indicator.start()
-        viewModel.loadCell { [weak self] (result) in
+        viewModel.loadCell(isLoadMore: isLoadMore) { [weak self] (result) in
             Indicator.stop()
             guard let this = self else { return }
             switch result {
@@ -102,7 +101,7 @@ extension HomeViewController: UIScrollViewDelegate {
         let contentOffset = scrollView.contentOffset.y
         let maximumOffset = scrollView.contentSize.height - scrollView.frame.size.height
         if !viewModel.isLoadingMore && (maximumOffset - contentOffset <= 100) {
-            loadCell()
+            loadCell(isLoadMore: true)
         }
     }
 }

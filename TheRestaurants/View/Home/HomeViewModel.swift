@@ -35,22 +35,26 @@ class HomeViewModel {
         }
     }
 
-    func loadCell(completion: @escaping (APICompletion)) {
-        start += count
+    func loadCell(isLoadMore: Bool = false, completion: @escaping (APICompletion)) {
+        if isLoadMore {
+            start += count
+        } else {
+            start = 0
+        }
         let param = Api.ListCell.SearchParam(city: "city", start: start)
         Api.ListCell.getRestaurants(param: param) { [weak self ](result) in
             guard let this = self else { return }
             switch result {
             case .success(let cells):
-
-                this.dataCell += cells
+                if isLoadMore {
+                    this.dataCell.append(contentsOf: cells)
+                } else {
+                    this.dataCell = cells
+                }
                 completion(.success)
             case .failure(let error):
                 completion(.failure(error))
             }
-        }
-        if Api.ListCell.totalResults > dataCell.count {
-            isLoadingMore = true 
         }
     }
 

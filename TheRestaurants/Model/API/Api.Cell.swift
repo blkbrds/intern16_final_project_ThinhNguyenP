@@ -20,7 +20,7 @@ extension Api.ListCell {
             return [
                 "entity_type": city,
                 "entity_id": Session.cityId as Any,
-                "results_start": start
+                "start": start
             ]
         }
     }
