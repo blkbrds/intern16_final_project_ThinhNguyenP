@@ -20,10 +20,11 @@ class HomeViewController: BaseViewController {
         loadCell()
         tableView.delegate = self
     }
-    
+
     override func customNavigation() {
         navigationItem.title = "Home"
     }
+
     private func configTableView() {
         tableView.contentInset = UIEdgeInsets(top: 15, left: 0, bottom: 0, right: 0)
         let nib = UINib(nibName: "ListCollectionsCell", bundle: .main)
