@@ -36,7 +36,7 @@ class HomeViewModel {
     }
 
     func loadCell(completion: @escaping (APICompletion)) {
-//        start += count
+        start += count
         let param = Api.ListCell.SearchParam(city: "city", start: start)
         Api.ListCell.getRestaurants(param: param) { [weak self ](result) in
             guard let this = self else { return }
@@ -52,7 +52,6 @@ class HomeViewModel {
         if Api.ListCell.totalResults > dataCell.count {
             isLoadingMore = true 
         }
-         start += count
     }
 
     func numberOfSection() -> Int {
