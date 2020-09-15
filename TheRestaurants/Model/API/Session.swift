@@ -8,6 +8,7 @@
 import UIKit
 
 final class Session {
+
     static var cityId: Int? {
         get {
             if let cityId = UserDefaults.standard.object(forKey: "city id") as? Int {

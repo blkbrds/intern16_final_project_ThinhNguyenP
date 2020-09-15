@@ -16,8 +16,4 @@ class SearchCityCellModel {
     init(city: City) {
         self.city = city
     }
-
-    func loadImage(completion: @escaping (UIImage?) -> Void) {
-        ImageCache.loadImage(urlString: city.flagUrl, completion: completion)
-    }
 }

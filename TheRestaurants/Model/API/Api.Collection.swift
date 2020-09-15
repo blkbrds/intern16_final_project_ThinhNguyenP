@@ -12,12 +12,33 @@ import ObjectMapper
 
 extension Api.ListCollection {
     struct ListCollectionParam {
-        var value: Int?
-
         func toJSON() -> [String: Any] {
             return [
-                "city_id": value 
+                "city_id": Session.cityId as Any
             ]
+        }
+    }
+
+    static func getCollections(param: ListCollectionParam, completion: @escaping Completion <[Collection]>) {
+        let path = Api.Path.Search().urlStringListCollection
+        api.request(method: .get, urlString: path, parameters: param.toJSON()) { (result) in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let value):
+                    guard let value = value as? JSObject, let collections = value["collections"] as? JSArray else {
+                        completion(.failure(Api.Error.json))
+                        return
+                    }
+                    var results: [Collection] = []
+                    for collection in collections {
+                        guard let json = collection["collection"] as? JSObject, let result = Mapper<Collection>().map(JSONObject: json) else { return }
+                        results.append(result)
+                    }
+                    completion(.success(results))
+                case .failure(let error):
+                    completion(.failure(error))
+                }
+            }
         }
     }
 }
