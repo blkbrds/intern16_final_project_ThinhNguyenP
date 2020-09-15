@@ -98,6 +98,7 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
 }
 extension HomeViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        guard viewModel.canLoadMore else { return }
         let contentOffset = scrollView.contentOffset.y
         let maximumOffset = scrollView.contentSize.height - scrollView.frame.size.height
         if !viewModel.isLoadingMore && (maximumOffset - contentOffset <= 100) {

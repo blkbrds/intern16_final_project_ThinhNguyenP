@@ -15,11 +15,14 @@ class HomeViewModel {
         case tableView
     }
     var isLoadingMore: Bool = false
-    var dataCollection: [Collection] = []
-    var dataCell: [Restaurant] = []
+    var collections: [Collection] = []
+    var restaurants: [Restaurant] = []
     var cells: [Cell] = [.collectionView, .tableView]
+    var totalResults: Int = 0
     private var start: Int = 0
-    private let count = 20
+    var canLoadMore: Bool {
+        return start <= totalResults
+    }
 
     func loadCollection(completion: @escaping (APICompletion)) {
         let param = Api.ListCollection.ListCollectionParam()
@@ -27,7 +30,7 @@ class HomeViewModel {
             guard let this = self else { return }
             switch result {
             case .success(let cells):
-                this.dataCollection = cells
+                this.collections = cells
                 completion(.success)
             case .failure(let error):
                 completion(.failure(error))
@@ -37,7 +40,7 @@ class HomeViewModel {
 
     func loadCell(isLoadMore: Bool = false, completion: @escaping (APICompletion)) {
         if isLoadMore {
-            start += count
+            start += 20
         } else {
             start = 0
         }
@@ -45,11 +48,12 @@ class HomeViewModel {
         Api.ListCell.getRestaurants(param: param) { [weak self ](result) in
             guard let this = self else { return }
             switch result {
-            case .success(let cells):
+            case .success(let result):
+                this.totalResults = result.totalResults
                 if isLoadMore {
-                    this.dataCell.append(contentsOf: cells)
+                    this.restaurants.append(contentsOf: result.restaurants)
                 } else {
-                    this.dataCell = cells
+                    this.restaurants = result.restaurants
                 }
                 completion(.success)
             case .failure(let error):
@@ -63,13 +67,13 @@ class HomeViewModel {
     }
 
     func viewModelForCell(indexPath: IndexPath) -> ListCollectionsCellModel {
-        let item = dataCollection
+        let item = collections
         let viewModel = ListCollectionsCellModel(collections: item)
         return viewModel
     }
 
     func viewModelForCell2(indexPath: IndexPath) -> HomeCellModel {
-        let item = dataCell[indexPath.row]
+        let item = restaurants[indexPath.row]
         let viewModel = HomeCellModel(cellsRestaurant: item)
         return viewModel
     }
@@ -80,7 +84,7 @@ class HomeViewModel {
         case .collectionView:
             return 1
         case .tableView:
-            return dataCell.count
+            return restaurants.count
         }
     }
 }

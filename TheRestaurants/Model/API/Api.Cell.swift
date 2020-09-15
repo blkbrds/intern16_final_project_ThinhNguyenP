@@ -12,7 +12,10 @@ import ObjectMapper
 
 extension Api.ListCell {
 
-    static var totalResults: Int = 0
+    struct APIResult {
+        var totalResults: Int
+        var restaurants: [Restaurant]
+    }
     struct SearchParam {
         var city: String = ""
         var start: Int = 0
@@ -25,7 +28,7 @@ extension Api.ListCell {
         }
     }
 
-    static func getRestaurants(param: SearchParam, completion: @escaping Completion<[Restaurant]>) {
+    static func getRestaurants(param: SearchParam, completion: @escaping Completion<APIResult>) {
         let path = Api.Path.Search().urlStringListCell
         api.request(method: .get, urlString: path, parameters: param.toJSON()) { (result) in
             DispatchQueue.main.async {
@@ -35,16 +38,18 @@ extension Api.ListCell {
                         completion(.failure(Api.Error.json))
                         return
                     }
+                    var totalResults: Int = 0
                     if let resultsFound = value["results_found"] as? Int {
                         totalResults = resultsFound
                     }
                     var results: [Restaurant] = []
                     for item in restaurants {
-                        guard let restaurant = item["restaurant"] as? JSObject,
-                        let restaurant2 = Mapper<Restaurant>().map(JSONObject: restaurant) else { return }
-                        results.append(restaurant2)
+                        guard let json = item["restaurant"] as? JSObject,
+                        let restaurant = Mapper<Restaurant>().map(JSONObject: json) else { return }
+                        results.append(restaurant)
                     }
-                    completion(.success(results))
+                    let result = APIResult(totalResults: totalResults, restaurants: results)
+                    completion(.success(result))
                 case.failure(let error):
                     completion(.failure(error))
                 }
