@@ -36,12 +36,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowSence = (scene as? UIWindowScene) else { return }
         let window = UIWindow(windowScene: windowSence)
-//        changeRoot(root: .tabbar)
-        let vc = DetailViewController()
-        window.rootViewController = vc
         self.window = window
-        self.window?.makeKeyAndVisible()
-
+        if Session.cityId == nil {
+            changeRoot(root: .introduce)
+        } else {
+            changeRoot(root: .tabbar)
+        }
     }
 
     func setupTabbar() -> UITabBarController {

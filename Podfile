@@ -10,5 +10,6 @@ target 'TheRestaurants' do
   pod 'ObjectMapper'
   pod 'SwiftLint'
   pod 'RealmSwift'
+  pod 'Kingfisher'
 	
 end
