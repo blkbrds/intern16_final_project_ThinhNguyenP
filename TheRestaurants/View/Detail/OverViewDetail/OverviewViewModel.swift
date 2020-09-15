@@ -8,6 +8,6 @@
 
 import Foundation
 
-class DetailOverViewModel {
+class OverviewViewModel {
     
 }

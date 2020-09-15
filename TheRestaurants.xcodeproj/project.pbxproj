@@ -9,8 +9,8 @@
 /* Begin PBXBuildFile section */
 		2498F2DDBF069E2095168507 /* Pods_TheRestaurants.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 904414929699BD83F02E1C1E /* Pods_TheRestaurants.framework */; };
 		72CE580F251068260045E14F /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72CE5802251068260045E14F /* DetailViewModel.swift */; };
-		72CE5810251068260045E14F /* DetailOverViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72CE5804251068260045E14F /* DetailOverViewModel.swift */; };
-		72CE5811251068260045E14F /* DetailOverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72CE5805251068260045E14F /* DetailOverViewController.swift */; };
+		72CE5810251068260045E14F /* OverviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72CE5804251068260045E14F /* OverviewViewModel.swift */; };
+		72CE5811251068260045E14F /* OverviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72CE5805251068260045E14F /* OverviewViewController.swift */; };
 		72CE5812251068260045E14F /* DetailOverViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72CE5806251068260045E14F /* DetailOverViewController.xib */; };
 		72CE5813251068260045E14F /* MenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72CE5808251068260045E14F /* MenuViewModel.swift */; };
 		72CE5814251068260045E14F /* MenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72CE5809251068260045E14F /* MenuViewController.xib */; };
@@ -95,8 +95,8 @@
 /* Begin PBXFileReference section */
 		17D5525B66B4BE20FAD3B95A /* Pods-TheRestaurants.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheRestaurants.debug.xcconfig"; path = "Target Support Files/Pods-TheRestaurants/Pods-TheRestaurants.debug.xcconfig"; sourceTree = "<group>"; };
 		72CE5802251068260045E14F /* DetailViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
-		72CE5804251068260045E14F /* DetailOverViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailOverViewModel.swift; sourceTree = "<group>"; };
-		72CE5805251068260045E14F /* DetailOverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailOverViewController.swift; sourceTree = "<group>"; };
+		72CE5804251068260045E14F /* OverviewViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverviewViewModel.swift; sourceTree = "<group>"; };
+		72CE5805251068260045E14F /* OverviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverviewViewController.swift; sourceTree = "<group>"; };
 		72CE5806251068260045E14F /* DetailOverViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailOverViewController.xib; sourceTree = "<group>"; };
 		72CE5808251068260045E14F /* MenuViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewModel.swift; sourceTree = "<group>"; };
 		72CE5809251068260045E14F /* MenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuViewController.xib; sourceTree = "<group>"; };
@@ -206,8 +206,8 @@
 		72CE5803251068260045E14F /* OverViewDetail */ = {
 			isa = PBXGroup;
 			children = (
-				72CE5804251068260045E14F /* DetailOverViewModel.swift */,
-				72CE5805251068260045E14F /* DetailOverViewController.swift */,
+				72CE5804251068260045E14F /* OverviewViewModel.swift */,
+				72CE5805251068260045E14F /* OverviewViewController.swift */,
 				72CE5806251068260045E14F /* DetailOverViewController.xib */,
 			);
 			path = OverViewDetail;
@@ -701,7 +701,7 @@
 				74A419AD24F3CFDB00D1C1D6 /* String.swift in Sources */,
 				84A933312501F6F800BEE475 /* HomeCellModel.swift in Sources */,
 				8414C13725022FA60066701F /* HomeViewController.swift in Sources */,
-				72CE5810251068260045E14F /* DetailOverViewModel.swift in Sources */,
+				72CE5810251068260045E14F /* OverviewViewModel.swift in Sources */,
 				74A4197B24F3C1A600D1C1D6 /* IntroduceViewController.swift in Sources */,
 				74A4199724F3C6B100D1C1D6 /* ApiManager.swift in Sources */,
 				74A419A924F3CE2500D1C1D6 /* StringExt.swift in Sources */,
@@ -748,7 +748,7 @@
 				84AD7C81250C56AA001EFEC3 /* UIImageViewExt.swift in Sources */,
 				74A4198324F3C1DF00D1C1D6 /* FavoriteViewController.swift in Sources */,
 				844E57DD25075F1A0012BA18 /* HistorySearchCellModel.swift in Sources */,
-				72CE5811251068260045E14F /* DetailOverViewController.swift in Sources */,
+				72CE5811251068260045E14F /* OverviewViewController.swift in Sources */,
 				844E57DB25075F1A0012BA18 /* HistorySearchCell.swift in Sources */,
 				744821112501CF7A005ACDFF /* SceneDelegateExt.swift in Sources */,
 				74A419A724F3CD7A00D1C1D6 /* URLExt.swift in Sources */,

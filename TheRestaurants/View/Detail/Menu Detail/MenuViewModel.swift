@@ -8,6 +8,4 @@
 
 import Foundation
 
-class MenuViewModel {
-    
-}
+class MenuViewModel { }

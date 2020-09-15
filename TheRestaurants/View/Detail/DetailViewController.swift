@@ -12,7 +12,7 @@ import MapKit
 class DetailViewController: UIViewController {
 
     @IBOutlet private weak var contentView: UIView!
-    @IBOutlet var tabButtons: [UIButton]!
+    @IBOutlet private var tabButtons: [UIButton]!
     private var pageController: UIPageViewController!
     private var viewControllers: [UIViewController] = []
 
@@ -21,15 +21,15 @@ class DetailViewController: UIViewController {
         setUpPageView()
     }
 
-    @IBAction func buttonTouchUpInside(_ sender: UIButton) {
+    @IBAction private func buttonTouchUpInside(_ sender: UIButton) {
         for button in tabButtons {
             button.isSelected = button.tag == sender.tag
         }
         pageController.setViewControllers([viewControllers[sender.tag]], direction: .reverse, animated: false, completion: nil)
     }
 
-    func setUpPageView() {
-        viewControllers = [DetailOverViewController(), MenuViewController(), ReviewsViewController()]
+    private func setUpPageView() {
+        viewControllers = [OverviewViewController(), MenuViewController(), ReviewsViewController()]
         pageController = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
         pageController.view.frame = CGRect(x: 0, y: 0, width: contentView.frame.width, height: contentView.frame.height)
         pageController.setViewControllers([viewControllers[0]], direction: .forward, animated: false, completion: nil)
