@@ -10,7 +10,27 @@ import UIKit
 
 class ReviewsViewController: UIViewController {
 
+    @IBOutlet weak var tableView: UITableView!
+
+    var viewModel = ReviewsViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
+        configTableView()
+    }
+
+    func configTableView() {
+        let cell = UINib(nibName: "ReviewCell", bundle: .main)
+        tableView.register(cell, forCellReuseIdentifier: "cellReview")
+        tableView.dataSource = self
+    }
+}
+extension ReviewsViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cellReview", for: indexPath) as? ReviewCell else { return UITableViewCell() }
+        return cell
     }
 }
