@@ -11,6 +11,7 @@ import Foundation
 class SearchCityPopUpViewModel {
 
     var dataCities: [City] = []
+    var dataRestaurant: [Restaurant] = []
 
     func numberOfRowInsection() -> Int {
         return dataCities.count
@@ -32,6 +33,13 @@ class SearchCityPopUpViewModel {
 
     func viewModelForCell(at indexPath: IndexPath) -> SearchCityCellModel {
         let item = dataCities[indexPath.row]
+        let viewModel = SearchCityCellModel(city: item)
+        return viewModel
+    }
+
+    func didSelectRowAt(value: Int) -> SearchCityCellModel {
+        let item = dataCities[value]
+        Session.cityId = item.id
         let viewModel = SearchCityCellModel(city: item)
         return viewModel
     }

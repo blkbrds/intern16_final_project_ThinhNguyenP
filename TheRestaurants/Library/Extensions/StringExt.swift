@@ -6,7 +6,7 @@
 //  Copyright © 2020 Thinh Nguyen P[6] All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 extension String {
 
@@ -21,5 +21,14 @@ extension String {
             return host
         }
         return ""
+    }
+
+    func contentWidth(font: UIFont) -> CGFloat {
+        let size = (self as NSString).size(withAttributes: [.font: font])
+        return size.width
+    }
+
+    var trimmed: String {
+        return trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
     }
 }

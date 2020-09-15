@@ -8,7 +8,7 @@
 
 import Foundation
 import ObjectMapper
- 
+
 class Collection: Mappable {
 
     var countPlaces: Int?
