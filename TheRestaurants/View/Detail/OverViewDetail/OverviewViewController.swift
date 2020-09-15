@@ -10,19 +10,9 @@ import UIKit
 
 class OverviewViewController: UIViewController {
 
-    @IBOutlet private weak var imageDetail: UIImageView!
-    @IBOutlet private weak var backButton: UIButton!
-    @IBOutlet private weak var favoriteButton: UIButton!
-    @IBOutlet private weak var nameRestaurantLabel: UILabel!
-    @IBOutlet private weak var cuisineLabel: UILabel!
-    @IBOutlet private weak var ratingLabel: UILabel!
-    @IBOutlet private weak var reviewLabel: UILabel!
-    @IBOutlet private weak var likedLabel: UILabel!
-    @IBOutlet private weak var addressLabel: UIScrollView!
-    @IBOutlet private weak var openingHourLabel: UILabel!
-    @IBOutlet private weak var phoneNumberLabel: UILabel!
-    @IBOutlet private weak var websiteUrlLabel: UILabel!
-
+    @IBOutlet weak var headerView: UIView!
+    @IBOutlet weak var mapDetailView: UIView!
+    @IBOutlet weak var informationView: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
     }

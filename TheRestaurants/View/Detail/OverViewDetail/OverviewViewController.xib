@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="OverviewViewController" customModule="TheRestaurants" customModuleProvider="target">
+            <connections>
+                <outlet property="headerView" destination="HxE-Al-4pm" id="SX3-YP-ao2"/>
+                <outlet property="informationView" destination="QhI-2L-vJg" id="mGg-es-a97"/>
+                <outlet property="mapDetailView" destination="I4N-VL-xcF" id="Q4x-AZ-vDb"/>
+                <outlet property="view" destination="846-eP-1Jm" id="zIa-nf-D0C"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="846-eP-1Jm">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7bO-q1-CxJ">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HxE-Al-4pm" customClass="HeaderDetailView" customModule="TheRestaurants" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="166"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="166" id="yVa-P9-xfF"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I4N-VL-xcF" customClass="MapDetailView" customModule="TheRestaurants" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="166" width="414" height="236"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="236" id="U7F-DO-lPO"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QhI-2L-vJg" customClass="InformationDetailView" customModule="TheRestaurants" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="402" width="414" height="138"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="138" id="fc9-Wk-DpA"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kmO-8q-4sH">
+                            <rect key="frame" x="0.0" y="540" width="414" height="300"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="300" id="Fdg-4Z-MCs"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="I4N-VL-xcF" firstAttribute="top" secondItem="HxE-Al-4pm" secondAttribute="bottom" id="6by-ax-H39"/>
+                        <constraint firstItem="HxE-Al-4pm" firstAttribute="leading" secondItem="7bO-q1-CxJ" secondAttribute="leading" id="BIY-ys-JYS"/>
+                        <constraint firstItem="QhI-2L-vJg" firstAttribute="top" secondItem="I4N-VL-xcF" secondAttribute="bottom" id="Djf-F5-kSu"/>
+                        <constraint firstItem="HxE-Al-4pm" firstAttribute="top" secondItem="7bO-q1-CxJ" secondAttribute="top" id="Gga-gh-leo"/>
+                        <constraint firstItem="I4N-VL-xcF" firstAttribute="leading" secondItem="7bO-q1-CxJ" secondAttribute="leading" id="OVV-fj-pXj"/>
+                        <constraint firstAttribute="trailing" secondItem="HxE-Al-4pm" secondAttribute="trailing" id="ROb-MR-A1f"/>
+                        <constraint firstAttribute="bottom" secondItem="kmO-8q-4sH" secondAttribute="bottom" id="Xnc-z9-xV9"/>
+                        <constraint firstAttribute="trailing" secondItem="kmO-8q-4sH" secondAttribute="trailing" id="Yer-e6-n1X"/>
+                        <constraint firstItem="kmO-8q-4sH" firstAttribute="leading" secondItem="7bO-q1-CxJ" secondAttribute="leading" id="coa-2O-8de"/>
+                        <constraint firstItem="QhI-2L-vJg" firstAttribute="leading" secondItem="7bO-q1-CxJ" secondAttribute="leading" id="f6x-u3-pQO"/>
+                        <constraint firstItem="kmO-8q-4sH" firstAttribute="top" secondItem="QhI-2L-vJg" secondAttribute="bottom" id="l97-xF-DWi"/>
+                        <constraint firstItem="HxE-Al-4pm" firstAttribute="width" secondItem="7bO-q1-CxJ" secondAttribute="width" id="nM2-5k-9IU"/>
+                        <constraint firstAttribute="trailing" secondItem="QhI-2L-vJg" secondAttribute="trailing" id="vg3-aB-DCb"/>
+                        <constraint firstAttribute="trailing" secondItem="I4N-VL-xcF" secondAttribute="trailing" id="ysO-RS-WeP"/>
+                    </constraints>
+                </scrollView>
+            </subviews>
+            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+            <constraints>
+                <constraint firstItem="7bO-q1-CxJ" firstAttribute="top" secondItem="846-eP-1Jm" secondAttribute="top" id="GMH-aN-84g"/>
+                <constraint firstAttribute="bottom" secondItem="7bO-q1-CxJ" secondAttribute="bottom" id="VMz-ga-Ad6"/>
+                <constraint firstItem="7bO-q1-CxJ" firstAttribute="leading" secondItem="846-eP-1Jm" secondAttribute="leading" id="cXM-hl-aTH"/>
+                <constraint firstAttribute="trailing" secondItem="7bO-q1-CxJ" secondAttribute="trailing" id="iIn-vn-Set"/>
+            </constraints>
+            <point key="canvasLocation" x="52.173913043478265" y="125.89285714285714"/>
+        </view>
+    </objects>
+</document>
