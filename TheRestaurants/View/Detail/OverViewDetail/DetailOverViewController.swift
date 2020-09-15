@@ -9,23 +9,11 @@
 import UIKit
 
 class DetailOverViewController: UIViewController {
-
-    @IBOutlet weak var imageDetail: UIImageView!
-    @IBOutlet weak var backButton: UIButton!
-    @IBOutlet weak var favoriteButton: UIButton!
-    @IBOutlet weak var nameRestaurantLabel: UILabel!
-    @IBOutlet weak var cuisineLabel: UILabel!
-    @IBOutlet weak var ratingLabel: UILabel!
-    @IBOutlet weak var reviewLabel: UILabel!
-    @IBOutlet weak var likedLabel: UILabel!
-    @IBOutlet weak var addressLabel: UIScrollView!
-    @IBOutlet weak var openingHourLabel: UILabel!
-    @IBOutlet weak var phoneNumberLabel: UILabel!
-    @IBOutlet weak var websiteUrlLabel: UILabel!
     
+    @IBOutlet weak var mapViewDetail: MapDetailView!
+    @IBOutlet weak var headerDetailView: HeaderDetailView!
+    @IBOutlet weak var informationView: InformationDetailView!
     override func viewDidLoad() {
         super.viewDidLoad()
-
     }
-
 }
