@@ -41,7 +41,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window.rootViewController = vc
         self.window = window
         self.window?.makeKeyAndVisible()
-        
+
     }
 
     func setupTabbar() -> UITabBarController {
