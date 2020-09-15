@@ -32,5 +32,4 @@ class HeaderDetailView: UIView {
         nib.instantiate(withOwner: self, options: nil)
         addSubview(containerView)
     }
-
 }

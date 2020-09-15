@@ -10,9 +10,10 @@ import UIKit
 
 class DetailOverViewController: UIViewController {
     
-    @IBOutlet weak var mapViewDetail: MapDetailView!
-    @IBOutlet weak var headerDetailView: HeaderDetailView!
-    @IBOutlet weak var informationView: InformationDetailView!
+    @IBOutlet private weak var mapViewDetail: MapDetailView!
+    @IBOutlet private weak var headerDetailView: HeaderDetailView!
+    @IBOutlet private weak var informationView: InformationDetailView!
+
     override func viewDidLoad() {
         super.viewDidLoad()
     }

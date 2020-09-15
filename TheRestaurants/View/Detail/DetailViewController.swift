@@ -11,7 +11,7 @@ import MapKit
 
 class DetailViewController: UIViewController {
 
-    @IBOutlet weak var contentView: UIView!
+    @IBOutlet private weak var contentView: UIView!
     @IBOutlet var tabButtons: [UIButton]!
     private var pageController: UIPageViewController!
     private var viewControllers: [UIViewController] = []

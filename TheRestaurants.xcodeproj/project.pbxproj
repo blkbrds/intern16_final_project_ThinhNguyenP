@@ -394,8 +394,8 @@
 		8434EF37250DBC250050C81E /* OverViewDetail */ = {
 			isa = PBXGroup;
 			children = (
-				8434EF51250FF04A0050C81E /* New Group */,
-				8434EF4C250FDDBB0050C81E /* SubView */,
+				8434EF51250FF04A0050C81E /* Information */,
+				8434EF4C250FDDBB0050C81E /* Map */,
 				72E2BDD8250F7A48008B513C /* Header */,
 				8434EF39250DBC970050C81E /* DetailOverViewController.swift */,
 				8434EF3A250DBC970050C81E /* DetailOverViewController.xib */,
@@ -424,22 +424,22 @@
 			path = "Review Detail";
 			sourceTree = "<group>";
 		};
-		8434EF4C250FDDBB0050C81E /* SubView */ = {
+		8434EF4C250FDDBB0050C81E /* Map */ = {
 			isa = PBXGroup;
 			children = (
 				8434EF4D250FDE3C0050C81E /* MapDetailView.swift */,
 				8434EF4F250FDE4B0050C81E /* MapDetailView.xib */,
 			);
-			path = SubView;
+			path = Map;
 			sourceTree = "<group>";
 		};
-		8434EF51250FF04A0050C81E /* New Group */ = {
+		8434EF51250FF04A0050C81E /* Information */ = {
 			isa = PBXGroup;
 			children = (
 				8434EF56250FFAFF0050C81E /* InformationDetailView.swift */,
 				8434EF54250FF1300050C81E /* InformationDetailView.xib */,
 			);
-			path = "New Group";
+			path = Information;
 			sourceTree = "<group>";
 		};
 		846A2B9C24FA5917004160B3 /* PopUp */ = {

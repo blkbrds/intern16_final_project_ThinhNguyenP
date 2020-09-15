@@ -10,19 +10,19 @@ import UIKit
 import MapKit
 
 class MapDetailView: UIView {
-    
+
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var ratingLabel: UILabel!
     @IBOutlet weak var reviewLabel: UILabel!
     @IBOutlet weak var voteLabel: UILabel!
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var mapView: MKMapView!
-    
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         xibSetup()
     }
-    
+
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         xibSetup()
@@ -33,6 +33,4 @@ class MapDetailView: UIView {
         nib.instantiate(withOwner: self, options: nil)
         addSubview(containerView)
     }
-    
 }
-
