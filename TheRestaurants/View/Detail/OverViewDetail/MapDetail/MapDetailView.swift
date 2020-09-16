@@ -11,12 +11,14 @@ import MapKit
 
 class MapDetailView: UIView {
 
-    @IBOutlet private weak var mapView: MKMapView!
     @IBOutlet private var containerView: UIView!
     @IBOutlet private weak var ratingLabel: UILabel!
     @IBOutlet private weak var reviewLabel: UILabel!
     @IBOutlet private weak var voteLabel: UILabel!
+    @IBOutlet private weak var mapView: MKMapView!
+    @IBOutlet private weak var addressContainerView: UIView!
     @IBOutlet private weak var addressLabel: UILabel!
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         xibSetup()
@@ -31,5 +33,10 @@ class MapDetailView: UIView {
         let nib = UINib(nibName: "MapDetailView", bundle: .main)
         nib.instantiate(withOwner: self, options: nil)
         addSubview(containerView)
+    }
+
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        addressContainerView.layer.cornerRadius = 5
     }
 }
