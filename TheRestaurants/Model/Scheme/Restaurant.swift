@@ -22,6 +22,9 @@ class Restaurant: Mappable {
         self.init()
     }
 
+    init() {
+    }
+
     func mapping(map: Map) {
         var location: JSObject = [:]
         var userRating: JSObject = [:]

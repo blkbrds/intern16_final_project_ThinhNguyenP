@@ -8,4 +8,10 @@
 
 import Foundation
 
-class DetailViewModel { }
+class DetailViewModel {
+    var restaurant: Restaurant
+
+    init(restaurant: Restaurant = Restaurant()) {
+        self.restaurant = restaurant
+    }
+}

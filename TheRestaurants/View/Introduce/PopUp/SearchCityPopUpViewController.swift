@@ -83,7 +83,7 @@ extension SearchCityPopUpViewController: UITableViewDataSource, UITableViewDeleg
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        viewModel.didSelectRowAt(value: indexPath.row)
+        viewModel.didSelectRowAt(index: indexPath.row)
         SceneDelegate.shared.changeRoot(root: .tabbar)
     }
 }

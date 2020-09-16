@@ -23,12 +23,12 @@ class HomeViewController: BaseViewController {
     override func customNavigation() {
         super.customNavigation()
         navigationItem.title = "Home"
-        let button = UIBarButtonItem(image: #imageLiteral(resourceName: "ic-return introduce -home"), style: .plain, target: self, action: #selector(returnIntroduceScreenButtonTouchUpInside))
+        let button = UIBarButtonItem(image: #imageLiteral(resourceName: "ic-return introduce -home"), style: .plain, target: self, action: #selector(changeLocationButtonTouchUpInside))
         button.tintColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         self.navigationItem.rightBarButtonItem = button
     }
 
-    @objc func returnIntroduceScreenButtonTouchUpInside() {
+    @objc func changeLocationButtonTouchUpInside() {
         Session.cityId = nil
         SceneDelegate.shared.changeRoot(root: .introduce)
     }
@@ -103,6 +103,13 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
         case .tableView:
             return UITableView.automaticDimension
         }
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = DetailViewController()
+            vc.hidesBottomBarWhenPushed = true
+            vc.viewModel.restaurant = viewModel.restaurants[indexPath.row]
+            navigationController?.pushViewController(vc, animated: true)
     }
 }
 extension HomeViewController: UIScrollViewDelegate {
