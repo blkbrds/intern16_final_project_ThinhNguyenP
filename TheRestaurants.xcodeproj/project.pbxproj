@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		2498F2DDBF069E2095168507 /* Pods_TheRestaurants.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 904414929699BD83F02E1C1E /* Pods_TheRestaurants.framework */; };
+		728EA01B25121E03009C9AE2 /* OtherInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 728EA01A25121E03009C9AE2 /* OtherInformationView.swift */; };
+		728EA01D25121E1C009C9AE2 /* OtherInformationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 728EA01C25121E1C009C9AE2 /* OtherInformationView.xib */; };
 		72CE580F251068260045E14F /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72CE5802251068260045E14F /* DetailViewModel.swift */; };
 		72CE5810251068260045E14F /* OverviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72CE5804251068260045E14F /* OverviewViewModel.swift */; };
 		72CE5811251068260045E14F /* OverviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72CE5805251068260045E14F /* OverviewViewController.swift */; };
@@ -100,6 +102,8 @@
 
 /* Begin PBXFileReference section */
 		17D5525B66B4BE20FAD3B95A /* Pods-TheRestaurants.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheRestaurants.debug.xcconfig"; path = "Target Support Files/Pods-TheRestaurants/Pods-TheRestaurants.debug.xcconfig"; sourceTree = "<group>"; };
+		728EA01A25121E03009C9AE2 /* OtherInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherInformationView.swift; sourceTree = "<group>"; };
+		728EA01C25121E1C009C9AE2 /* OtherInformationView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OtherInformationView.xib; sourceTree = "<group>"; };
 		72CE5802251068260045E14F /* DetailViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		72CE5804251068260045E14F /* OverviewViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverviewViewModel.swift; sourceTree = "<group>"; };
 		72CE5805251068260045E14F /* OverviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverviewViewController.swift; sourceTree = "<group>"; };
@@ -215,9 +219,19 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		728EA01925121CC0009C9AE2 /* OtherInfor */ = {
+			isa = PBXGroup;
+			children = (
+				728EA01A25121E03009C9AE2 /* OtherInformationView.swift */,
+				728EA01C25121E1C009C9AE2 /* OtherInformationView.xib */,
+			);
+			path = OtherInfor;
+			sourceTree = "<group>";
+		};
 		72CE5803251068260045E14F /* OverViewDetail */ = {
 			isa = PBXGroup;
 			children = (
+				728EA01925121CC0009C9AE2 /* OtherInfor */,
 				8434EF5A25111B0B0050C81E /* MapDetail */,
 				8434EF5925111AFB0050C81E /* Information */,
 				8434EF5825111AED0050C81E /* Header */,
@@ -650,6 +664,7 @@
 				84AD7C65250A6AAE001EFEC3 /* FavoriteCell.xib in Resources */,
 				846A2BAB24FA5A62004160B3 /* SearchCityPopUpViewController.xib in Resources */,
 				8414C13625022FA60066701F /* HomeViewController.xib in Resources */,
+				728EA01D25121E1C009C9AE2 /* OtherInformationView.xib in Resources */,
 				846A2BA624FA5918004160B3 /* SearchCityCell.xib in Resources */,
 				84A933272501F6E700BEE475 /* CollectionCell.xib in Resources */,
 				72CE5817251068260045E14F /* ReviewsViewController.xib in Resources */,
@@ -802,6 +817,7 @@
 				74A419A724F3CD7A00D1C1D6 /* URLExt.swift in Sources */,
 				74A4199B24F3C80700D1C1D6 /* RequestSerializer.swift in Sources */,
 				74A4198B24F3C20300D1C1D6 /* MapViewController.swift in Sources */,
+				728EA01B25121E03009C9AE2 /* OtherInformationView.swift in Sources */,
 				84AD7C7A250C5675001EFEC3 /* CuisineViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

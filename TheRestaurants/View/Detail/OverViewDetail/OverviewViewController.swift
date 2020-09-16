@@ -13,6 +13,7 @@ class OverviewViewController: UIViewController {
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var mapDetailView: UIView!
     @IBOutlet weak var informationView: UIView!
+    @IBOutlet weak var otherInformationView: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
     }
