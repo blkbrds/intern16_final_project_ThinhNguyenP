@@ -9,9 +9,9 @@
 import UIKit
 
 class HomeViewController: BaseViewController {
-
+    
     @IBOutlet private weak var tableView: UITableView!
-
+    
     var viewModel = HomeViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,11 +19,19 @@ class HomeViewController: BaseViewController {
         loadCollection()
         loadCell()
     }
-
+    
     override func customNavigation() {
         navigationItem.title = "Home"
+        let button = UIBarButtonItem(image: #imageLiteral(resourceName: "ic-return introduce -home"), style: .plain, target: self, action: #selector(returnIntroduceScreenButtonTouchUpInside))
+        button.tintColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        self.navigationItem.rightBarButtonItem = button
     }
-
+    
+    @objc func returnIntroduceScreenButtonTouchUpInside() {
+        Session.cityId = nil
+        SceneDelegate.shared.changeRoot(root: .introduce)
+    }
+    
     private func configTableView() {
         tableView.contentInset = UIEdgeInsets(top: 15, left: 0, bottom: 0, right: 0)
         let nib = UINib(nibName: "ListCollectionsCell", bundle: .main)
@@ -33,7 +41,7 @@ class HomeViewController: BaseViewController {
         tableView.dataSource = self
         tableView.delegate = self
     }
-
+    
     func loadCollection() {
         Indicator.start()
         viewModel.loadCollection { [weak self](result) in
@@ -47,7 +55,7 @@ class HomeViewController: BaseViewController {
             }
         }
     }
-
+    
     func loadCell(isLoadMore: Bool = false) {
         Indicator.start()
         viewModel.loadCell(isLoadMore: isLoadMore) { [weak self] (result) in
@@ -66,11 +74,11 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     func numberOfSections(in tableView: UITableView) -> Int {
         return viewModel.numberOfSection()
     }
-
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.numberOfRowsInSection(section: section)
     }
-
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch viewModel.cells[indexPath.section] {
         case .collectionView:
@@ -86,7 +94,7 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
             return cell
         }
     }
-
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch viewModel.cells[indexPath.section] {
         case .collectionView:
