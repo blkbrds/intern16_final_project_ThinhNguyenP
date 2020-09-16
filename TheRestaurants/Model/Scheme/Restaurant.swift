@@ -17,6 +17,7 @@ class Restaurant: Mappable {
     var imageURL: String?
     var rating: String?
     var onlineDelivery: Int?
+    var id: String?
     var favorite: Bool = false
     required convenience init?(map: Map) {
         self.init()
@@ -31,6 +32,7 @@ class Restaurant: Mappable {
         name <- map["name"]
         cuisines <- map["cuisines"]
         imageURL <- map["featured_image"]
+        id <- map["id"]
         rating = userRating["aggregate_rating"] as? String
         onlineDelivery <- map["has_online_delivery"]
     }

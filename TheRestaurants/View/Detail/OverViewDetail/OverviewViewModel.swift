@@ -10,4 +10,15 @@ import Foundation
 
 class OverviewViewModel {
     
+    var restaurant: Restaurant
+    
+    func loadData(completion: @escaping APICompletion) {
+        let param = Api.Restaurant.RestaurantParam()
+        Api.Restaurant.detaiRestaurant(param: param) { [weak self ](result) in
+            guard let this = self else { return }
+            switch result {
+            case .success(let )
+            }
+        }
+    }
 }

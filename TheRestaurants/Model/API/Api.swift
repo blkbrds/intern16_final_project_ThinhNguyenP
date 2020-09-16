@@ -17,6 +17,7 @@ final class Api {
     struct ListCollection { }
     struct Search { }
     struct ListCell { }
+    struct Restaurant { }
 }
 
 extension Api.Path {
@@ -33,6 +34,10 @@ extension Api.Path {
 
         var urlStringListCollection: String {
             return Search.path / "collections"
+        }
+
+        var urlStringRestaurant: String {
+            return Search.path / "restaurant"
         }
     }
 }
