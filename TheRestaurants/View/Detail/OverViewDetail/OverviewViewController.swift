@@ -10,10 +10,29 @@ import UIKit
 
 class OverviewViewController: UIViewController {
 
-    @IBOutlet weak var headerView: UIView!
-    @IBOutlet weak var mapDetailView: UIView!
-    @IBOutlet weak var informationView: UIView!
+    @IBOutlet private weak var headerView: HeaderDetailView!
+    @IBOutlet private weak var mapDetailView: MapDetailView!
+    @IBOutlet private weak var informationView: InformationDetailView!
+
+    var viewModel = OverviewViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
+        loadAPI()
+    }
+
+    private func loadAPI() {
+        Indicator.start()
+        viewModel.loadData { [weak self ](result) in
+            Indicator.stop()
+            guard let this = self else { return }
+            switch result {
+            case .success:
+                this.headerView.viewModel = HeaderDetailViewModel(restaurant: this.viewModel.restaurant)
+                this.mapDetailView.viewModel = MapDetailViewModel(restaurant: this.viewModel.restaurant)
+                this.informationView.viewModel = InformationDetailViewModel(restaurant: this.viewModel.restaurant)
+            case .failure(let error):
+                this.alert(error: error)
+            }
+        }
     }
 }

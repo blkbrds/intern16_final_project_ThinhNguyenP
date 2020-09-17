@@ -16,8 +16,14 @@ class Restaurant: Mappable {
     var cuisines: String?
     var imageURL: String?
     var rating: String?
+    var votes: Int?
     var onlineDelivery: Int?
     var id: String?
+    var timings: String?
+    var phoneNumber: String?
+    var url: String?
+    var highlights: String?
+    var review: Int?
     var favorite: Bool = false
     required convenience init?(map: Map) {
         self.init()
@@ -33,7 +39,13 @@ class Restaurant: Mappable {
         cuisines <- map["cuisines"]
         imageURL <- map["featured_image"]
         id <- map["id"]
+        timings <- map["timings"]
+        phoneNumber <- map["phone_numbers"]
+        url <- map["url"]
+        highlights <- map["highlights"]
+        review <- map["all_reviews_count"]
         rating = userRating["aggregate_rating"] as? String
+        votes = userRating["votes"] as? Int
         onlineDelivery <- map["has_online_delivery"]
     }
 }

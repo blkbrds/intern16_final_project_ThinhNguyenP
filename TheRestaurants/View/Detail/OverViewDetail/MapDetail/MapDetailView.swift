@@ -17,6 +17,12 @@ class MapDetailView: UIView {
     @IBOutlet private weak var reviewLabel: UILabel!
     @IBOutlet private weak var voteLabel: UILabel!
     @IBOutlet private weak var addressLabel: UILabel!
+
+    var viewModel: MapDetailViewModel? {
+        didSet {
+            updateView()
+        }
+    }
     override init(frame: CGRect) {
         super.init(frame: frame)
         xibSetup()
@@ -31,5 +37,13 @@ class MapDetailView: UIView {
         let nib = UINib(nibName: "MapDetailView", bundle: .main)
         nib.instantiate(withOwner: self, options: nil)
         addSubview(containerView)
+    }
+
+    private func updateView() {
+        guard let viewModel = viewModel else { return }
+        ratingLabel.text = viewModel.restaurant.rating
+        voteLabel.text = "\(viewModel.restaurant.votes ?? 0)"
+        reviewLabel.text = "\(viewModel.restaurant.review ?? 0 )"
+        addressLabel.text = viewModel.restaurant.address
     }
 }

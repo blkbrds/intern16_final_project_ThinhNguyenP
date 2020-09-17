@@ -8,3 +8,15 @@
 
 import Foundation
 
+class HeaderDetailViewModel {
+    var restaurant: Restaurant
+
+    init(restaurant: Restaurant) {
+        self.restaurant = restaurant
+    }
+
+    var cuisine: String {
+        guard let cuisine = restaurant.cuisines else { return ""}
+        return cuisine.replacingOccurrences(of: ",", with: " |")
+    }
+}

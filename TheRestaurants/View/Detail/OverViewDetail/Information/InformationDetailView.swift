@@ -9,7 +9,7 @@
 import UIKit
 
 class InformationDetailView: UIView {
-    
+
     @IBOutlet private var containerView: UIView!
     @IBOutlet private weak var openingTimeLabel: UILabel!
     @IBOutlet private weak var phoneNumberLabel: UILabel!
@@ -18,6 +18,12 @@ class InformationDetailView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         xibSetup()
+    }
+
+    var viewModel: InformationDetailViewModel? {
+        didSet {
+            updateView()
+        }
     }
 
     required init?(coder: NSCoder) {
@@ -29,5 +35,12 @@ class InformationDetailView: UIView {
         let nib = UINib(nibName: "InformationDetailView", bundle: .main)
         nib.instantiate(withOwner: self, options: nil)
         addSubview(containerView)
+    }
+
+    private func updateView() {
+        guard let viewModel = viewModel else { return }
+        openingTimeLabel.text = viewModel.openingTime
+        phoneNumberLabel.text = viewModel.restaurant.phoneNumber
+        websiteLabel.text = viewModel.restaurant.url
     }
 }
