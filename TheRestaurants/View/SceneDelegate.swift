@@ -40,7 +40,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let vc = DetailViewController()
         window.rootViewController = vc
         window.makeKeyAndVisible()
-        
+
 //        if Session.cityId == nil {
 //            changeRoot(root: .introduce)
 //        } else {

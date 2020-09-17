@@ -10,8 +10,6 @@ import UIKit
 
 class ReviewCell: UITableViewCell {
 
-    @IBOutlet weak var ratingLabel: UILabel!
-    @IBOutlet weak var reviewsLabel: UILabel!
     @IBOutlet weak var userImage: UIImageView!
     @IBOutlet weak var nameUserReview: UILabel!
     @IBOutlet weak var likeLabel: UILabel!
@@ -19,6 +17,12 @@ class ReviewCell: UITableViewCell {
     @IBOutlet weak var timeReviewLabel: UILabel!
     @IBOutlet weak var reviewTextLabel: UILabel!
 
+    var viewModel: ReviewCellModel? {
+        didSet {
+            setUpView()
+        }
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }
@@ -27,5 +31,14 @@ class ReviewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
 
-    func setUpView() { }
+    func setUpView() {
+        guard let viewModel = viewModel else { return }
+        userImage.setImage(url: viewModel.review.userImage)
+        userImage.layer.cornerRadius = 15
+        nameUserReview.text = viewModel.review.name
+        likeLabel.text = "\(viewModel.review.like ?? 0)"
+        commentLabel.text = "\(viewModel.review.commentCount ?? 0)"
+        timeReviewLabel.text = viewModel.review.reviewTime
+        reviewTextLabel.text = viewModel.review.reviewText
+    }
 }
