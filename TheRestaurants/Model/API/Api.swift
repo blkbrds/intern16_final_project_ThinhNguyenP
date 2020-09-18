@@ -14,10 +14,9 @@ final class Api {
     struct Path {
         static var  baseURL = "https://developers.zomato.com/api/v2.1"
     }
-
     struct ListCollection { }
     struct Search { }
-    struct SearchResult { }
+    struct ListCell { }
 }
 
 extension Api.Path {
@@ -28,9 +27,12 @@ extension Api.Path {
             return Search.path / "cities"
         }
 
-        static var path2: String { return baseURL }
-        var urlString2: String {
-            return Search.path / "search?entity_type=&entity_id&"
+        var urlStringListCell: String {
+            return Search.path / "search"
+        }
+
+        var urlStringListCollection: String {
+            return Search.path / "collections"
         }
     }
 }

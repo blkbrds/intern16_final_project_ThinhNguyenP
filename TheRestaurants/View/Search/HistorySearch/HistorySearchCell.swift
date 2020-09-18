@@ -21,5 +21,5 @@ class HistorySearchCell: UITableViewCell {
     private func updateView() {
            guard let viewModel = viewModel else { return }
            searchKeyLabel.text = viewModel.searchKey
-       }
+    }
 }

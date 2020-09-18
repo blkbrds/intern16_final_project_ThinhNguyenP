@@ -13,6 +13,7 @@ class HomeCell: UITableViewCell {
     @IBOutlet private weak var imageRestaurant: UIImageView!
     @IBOutlet private weak var nameRestaurantLabel: UILabel!
     @IBOutlet private weak var ratingRestautantLabel: UILabel!
+    @IBOutlet private weak var cuisineStackView: UIStackView!
     @IBOutlet private weak var addressRestaurantLabel: UILabel!
     @IBOutlet private weak var numberOfDeliveryLabel: UILabel!
 
@@ -24,9 +25,66 @@ class HomeCell: UITableViewCell {
 
     private func updateView() {
         guard let viewModel = viewModel else { return }
+        imageRestaurant.layer.cornerRadius = 10
+        imageRestaurant.setImage(url: viewModel.imageURL, placeholderImage: #imageLiteral(resourceName: "ic-home-no-image"))
         nameRestaurantLabel.text = viewModel.name
         addressRestaurantLabel.text = viewModel.address
         ratingRestautantLabel.text = viewModel.rating
-        numberOfDeliveryLabel.text = "\(String(describing: viewModel.onlineDelivery))"
+        numberOfDeliveryLabel.text = "\(viewModel.onlineDelivery ?? 0) online delivery now"
+        configCuisineStackView()
+    }
+
+    private func configCuisineStackView() {
+        guard let cuisineArr = viewModel?.cuisineArr, !cuisineArr.isEmpty else {
+            cuisineStackView.isHidden = true
+            return
+        }
+        cuisineStackView.isHidden = false
+        cuisineStackView.removeAllArrangedSubviews()
+        var startIndex = 0
+        while startIndex < cuisineArr.count && startIndex != -1 {
+            startIndex = configStackViewPerRow(arr: cuisineArr, startIndex: startIndex, widthLimit: cuisineStackView.frame.width)
+        }
+    }
+
+    private func configStackViewPerRow(arr: [String], startIndex: Int, widthLimit: CGFloat) -> Int {
+        let stackView = UIStackView()
+        stackView.spacing = Config.stackViewInRowSpacing
+        stackView.distribution = .fillProportionally
+        stackView.alignment = .leading
+        var widthPerRow: CGFloat = 0.0
+        var nextCuisineViewWidth: CGFloat = 0.0
+        for index in startIndex...arr.count - 1 {
+            if widthPerRow > widthLimit {
+                cuisineStackView.addArrangedSubview(stackView)
+                return index
+            } else {
+                widthPerRow -= nextCuisineViewWidth
+                let item = arr[index].trimmed
+                let isTitle = item.elementsEqual("Cuisine")
+                let font: UIFont = isTitle ? CuisineView.Config.cuisineLabelTitleFont : CuisineView.Config.cuisineLabelFont
+                let cuisineViewWidth = item.contentWidth(font: font) + CuisineView.Config.cuisineLabelMargin * 2
+                let cuisineView: CuisineView = CuisineView.loadNib()
+                cuisineView.frame = CGRect(x: 0, y: 0, width: cuisineViewWidth, height: 18)
+                cuisineView.viewModel = CuisineViewModel(cuisine: item, isTitle: isTitle)
+                stackView.addArrangedSubview(cuisineView)
+
+                widthPerRow += cuisineViewWidth + Config.stackViewInRowSpacing
+                if index < arr.count - 1 {
+                    let nextItem = arr[index + 1].trimmed
+                    nextCuisineViewWidth = nextItem.contentWidth(font: CuisineView.Config.cuisineLabelFont)
+                        + CuisineView.Config.cuisineLabelMargin * 2
+                    widthPerRow += nextCuisineViewWidth + Config.stackViewInRowSpacing
+                }
+            }
+        }
+        cuisineStackView.addArrangedSubview(stackView)
+        return -1
+    }
+}
+
+extension HomeCell {
+    struct Config {
+        static let stackViewInRowSpacing: CGFloat = 8
     }
 }
