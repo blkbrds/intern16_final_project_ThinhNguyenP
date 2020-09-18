@@ -11,7 +11,7 @@ import Foundation
 class DetailViewModel {
     var restaurant: Restaurant
 
-    init(restaurant: Restaurant = Restaurant()) {
+    init(restaurant: Restaurant) {
         self.restaurant = restaurant
     }
 }

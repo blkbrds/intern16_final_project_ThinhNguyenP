@@ -16,7 +16,7 @@ class DetailViewController: UIViewController {
     private var pageController: UIPageViewController!
     private var viewControllers: [UIViewController] = []
 
-    var viewModel: DetailViewModel = DetailViewModel()
+    var viewModel: DetailViewModel?
 
     override func viewDidLoad() {
         super.viewDidLoad()
