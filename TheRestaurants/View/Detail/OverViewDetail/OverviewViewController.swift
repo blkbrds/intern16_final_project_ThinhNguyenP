@@ -10,10 +10,10 @@ import UIKit
 
 class OverviewViewController: UIViewController {
 
-    @IBOutlet weak var headerView: UIView!
-    @IBOutlet weak var mapDetailView: UIView!
-    @IBOutlet weak var informationView: UIView!
-    @IBOutlet weak var otherInformationView: UIView!
+    @IBOutlet private weak var headerView: UIView!
+    @IBOutlet private weak var mapDetailView: UIView!
+    @IBOutlet private weak var informationView: UIView!
+    @IBOutlet private weak var otherInformationView: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
     }
