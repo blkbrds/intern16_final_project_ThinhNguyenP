@@ -11,6 +11,11 @@ import Alamofire
 import ObjectMapper
 
 extension Api.Review {
+    struct APIResult {
+        var totalRatings: Int
+        var totalReviews: Int
+        var reviews: [Review]
+    }
     struct ReviewParam {
         func toJSON() -> [String: Any] {
             return [
@@ -18,22 +23,30 @@ extension Api.Review {
             ]
         }
     }
-    static func getReviews(param: ReviewParam, completion: @escaping Completion<([Review], Int, Int)>) {
+
+    static func getReviews(param: ReviewParam, completion: @escaping Completion<APIResult>) {
         let path = Api.Path.Search().urlStringReview
         api.request(method: .get, urlString: path, parameters: param.toJSON()) { (result) in
             DispatchQueue.main.async {
                 switch result {
                 case .success(let value):
-                    guard let value = value as? JSObject, let reviewCount = value["reviews_count"] as? Int, let userReview = value["user_reviews"] as? JSArray else {
+                    guard let value = value as? JSObject, let userReview = value["user_reviews"] as? JSArray else {
                         completion(.failure(Api.Error.json))
                         return
                     }
+                    var totalRatings: Int = 0
+                    var totalReviews: Int = 0
+                    if let resultRatings = value["reviews_shown"] as? Int, let resultReviews = value["reviews_count"] as? Int {
+                        totalRatings = resultRatings
+                        totalReviews = resultReviews
+                    }
                     var results: [Review] = []
                     for review in userReview {
-                        guard let json = review["review"] as? JSObject, let result = Mapper<Review>().map(JSONObject: json) else { return }
-                        results.append(result)
+                        guard let json = review["review"] as? JSObject, let review = Mapper<Review>().map(JSONObject: json) else { return }
+                        results.append(review)
                     }
-                    completion(.success((results, reviewCount)))
+                     let result = APIResult(totalRatings: totalRatings, totalReviews: totalReviews, reviews: results)
+                    completion(.success(result))
                 case .failure(let error):
                     completion(.failure(error))
                 }

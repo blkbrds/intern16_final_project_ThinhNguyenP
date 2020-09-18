@@ -12,27 +12,27 @@ class ReviewsViewModel {
     var reviews: [Review] = []
     var reviewsCount: Int = 0
     var ratingCount: Int = 0
-    
+
   func loadReview(completion: @escaping (APICompletion)) {
     let param = Api.Review.ReviewParam()
          Api.Review.getReviews(param: param) { [weak self ](result) in
              guard let this = self else { return }
              switch result {
              case .success(let cells):
-                this.reviews = cells.0
-                this.reviewsCount = cells.1
-//                this.ratingCount = cells.
+                this.reviewsCount = cells.totalReviews
+                this.ratingCount = cells.totalRatings
+                this.reviews = cells.reviews
                  completion(.success)
              case .failure(let error):
                  completion(.failure(error))
              }
          }
      }
-    
+
     func numberOfRowsInSection() -> Int {
         return reviews.count
     }
-    
+
     func cellForRowAt(indexPath: IndexPath) -> ReviewCellModel {
         let index = reviews[indexPath.row]
         let viewModel = ReviewCellModel(review: index)
