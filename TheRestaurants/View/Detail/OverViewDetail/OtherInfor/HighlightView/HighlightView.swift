@@ -22,3 +22,12 @@ final class HighlightView: UIView {
         contentLabel.text = viewModel?.content
     }
 }
+
+extension HighlightView {
+    struct Config {
+        static let width: CGFloat = 150
+        static let imageWidth: CGFloat = 150
+        static let imageToLabelSpacing: CGFloat = 8
+        static let labelFont: UIFont = .systemFont(ofSize: 13)
+    }
+}

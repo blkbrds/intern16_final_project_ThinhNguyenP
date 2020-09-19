@@ -7,3 +7,15 @@
 //
 
 import Foundation
+
+final class OtherInformationViewModel {
+    var highlights: [String]
+
+    init(highlights: [String]) {
+        self.highlights = highlights
+    }
+
+    func viewModelForHightlightView(at index: Int) -> HighlightViewModel {
+        return HighlightViewModel(content: highlights[index])
+    }
+}
