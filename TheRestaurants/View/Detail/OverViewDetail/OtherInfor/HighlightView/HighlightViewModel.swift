@@ -8,7 +8,7 @@
 
 import Foundation
 
-final class HightlightViewModel {
+final class HighlightViewModel {
     var content: String
 
     init(content: String) {

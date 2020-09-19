@@ -8,7 +8,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="iN0-l3-epB" customClass="HightlightView" customModule="TheRestaurants" customModuleProvider="target">
+        <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="iN0-l3-epB" customClass="HighlightView" customModule="TheRestaurants" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="150" height="15"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
@@ -34,7 +34,6 @@
                 <constraint firstItem="LDL-vE-xfE" firstAttribute="leading" secondItem="6bK-Z0-lkh" secondAttribute="trailing" constant="5" id="Olq-gr-FSM"/>
                 <constraint firstItem="LDL-vE-xfE" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="jgr-YI-M7y"/>
                 <constraint firstItem="6bK-Z0-lkh" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="m55-cZ-zW9"/>
-                <constraint firstAttribute="bottom" secondItem="6bK-Z0-lkh" secondAttribute="bottom" id="x55-LZ-nVb"/>
             </constraints>
             <nil key="simulatedTopBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

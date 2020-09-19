@@ -24,8 +24,8 @@
 		7448210F2501CF26005ACDFF /* IndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7448210E2501CF26005ACDFF /* IndicatorView.swift */; };
 		744821112501CF7A005ACDFF /* SceneDelegateExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 744821102501CF7A005ACDFF /* SceneDelegateExt.swift */; };
 		747508F325149BF800322F8A /* OtherInfomationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747508F225149BF800322F8A /* OtherInfomationViewModel.swift */; };
-		747508F825149F0000322F8A /* HightlightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747508F725149F0000322F8A /* HightlightView.swift */; };
-		747508FA25149F0F00322F8A /* HighlightView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 747508F925149F0F00322F8A /* HighlightView.xib */; };
+		747508F825149F0000322F8A /* HighlightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747508F725149F0000322F8A /* HighlightView.swift */; };
+		747508FA25149F0F00322F8A /* HighlighView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 747508F925149F0F00322F8A /* HighlighView.xib */; };
 		747508FC2515CE4400322F8A /* HighlightViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747508FB2515CE4400322F8A /* HighlightViewModel.swift */; };
 		74A4195C24F3B7B400D1C1D6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A4195B24F3B7B400D1C1D6 /* AppDelegate.swift */; };
 		74A4195E24F3B7B400D1C1D6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A4195D24F3B7B400D1C1D6 /* SceneDelegate.swift */; };
@@ -122,8 +122,8 @@
 		7448210E2501CF26005ACDFF /* IndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndicatorView.swift; sourceTree = "<group>"; };
 		744821102501CF7A005ACDFF /* SceneDelegateExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegateExt.swift; sourceTree = "<group>"; };
 		747508F225149BF800322F8A /* OtherInfomationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherInfomationViewModel.swift; sourceTree = "<group>"; };
-		747508F725149F0000322F8A /* HightlightView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HightlightView.swift; sourceTree = "<group>"; };
-		747508F925149F0F00322F8A /* HighlightView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HighlightView.xib; sourceTree = "<group>"; };
+		747508F725149F0000322F8A /* HighlightView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighlightView.swift; sourceTree = "<group>"; };
+		747508F925149F0F00322F8A /* HighlighView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HighlighView.xib; sourceTree = "<group>"; };
 		747508FB2515CE4400322F8A /* HighlightViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighlightViewModel.swift; sourceTree = "<group>"; };
 		74A4195824F3B7B400D1C1D6 /* TheRestaurants.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TheRestaurants.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		74A4195B24F3B7B400D1C1D6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -283,8 +283,8 @@
 		747508F625149ED800322F8A /* HighlightView */ = {
 			isa = PBXGroup;
 			children = (
-				747508F725149F0000322F8A /* HightlightView.swift */,
-				747508F925149F0F00322F8A /* HighlightView.xib */,
+				747508F725149F0000322F8A /* HighlightView.swift */,
+				747508F925149F0F00322F8A /* HighlighView.xib */,
 				747508FB2515CE4400322F8A /* HighlightViewModel.swift */,
 			);
 			path = HighlightView;
@@ -686,7 +686,7 @@
 				8414C13625022FA60066701F /* HomeViewController.xib in Resources */,
 				728EA01D25121E1C009C9AE2 /* OtherInformationView.xib in Resources */,
 				846A2BA624FA5918004160B3 /* SearchCityCell.xib in Resources */,
-				747508FA25149F0F00322F8A /* HighlightView.xib in Resources */,
+				747508FA25149F0F00322F8A /* HighlighView.xib in Resources */,
 				84A933272501F6E700BEE475 /* CollectionCell.xib in Resources */,
 				72CE5817251068260045E14F /* ReviewsViewController.xib in Resources */,
 				842DF84C250680DF00061000 /* BaseViewController.xib in Resources */,
@@ -828,7 +828,7 @@
 				7448210F2501CF26005ACDFF /* IndicatorView.swift in Sources */,
 				84A932CC2501330900BEE475 /* Api.Search.swift in Sources */,
 				846A2BB324FA645D004160B3 /* City.swift in Sources */,
-				747508F825149F0000322F8A /* HightlightView.swift in Sources */,
+				747508F825149F0000322F8A /* HighlightView.swift in Sources */,
 				84AD7C81250C56AA001EFEC3 /* UIImageViewExt.swift in Sources */,
 				74A4198324F3C1DF00D1C1D6 /* FavoriteViewController.swift in Sources */,
 				844E57DD25075F1A0012BA18 /* HistorySearchCellModel.swift in Sources */,
