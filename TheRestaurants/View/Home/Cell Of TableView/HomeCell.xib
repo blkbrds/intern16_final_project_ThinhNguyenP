@@ -16,7 +16,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="335" height="313"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic-home-no-image-1" translatesAutoresizingMaskIntoConstraints="NO" id="tqp-ND-WSz">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic-home-no-image" translatesAutoresizingMaskIntoConstraints="NO" id="tqp-ND-WSz">
                         <rect key="frame" x="15" y="25" width="305" height="165"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="165" id="K1u-Xw-Qtg"/>
@@ -148,7 +148,7 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="ic-home-no-image-1" width="335" height="165"/>
+        <image name="ic-home-no-image" width="335" height="165"/>
         <image name="ic_home_delivery" width="14" height="18"/>
         <image name="ic_home_favorite_white" width="46" height="46"/>
         <image name="ic_home_favoritebutton" width="46" height="46"/>

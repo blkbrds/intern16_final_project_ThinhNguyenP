@@ -7,3 +7,11 @@
 //
 
 import Foundation
+
+final class HightlightViewModel {
+    var content: String
+
+    init(content: String) {
+        self.content = content
+    }
+}

@@ -8,14 +8,17 @@
 
 import UIKit
 
-class HightlightView: UIView {
+final class HightlightView: UIView {
 
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
+    @IBOutlet weak var contentLabel: UILabel!
+
+    var viewModel: HightlightViewModel? {
+        didSet {
+            updateUI()
+        }
     }
-    */
 
+    private func updateUI() {
+        contentLabel.text = viewModel?.content
+    }
 }
