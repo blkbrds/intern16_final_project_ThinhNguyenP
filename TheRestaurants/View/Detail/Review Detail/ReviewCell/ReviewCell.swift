@@ -10,22 +10,13 @@ import UIKit
 
 class ReviewCell: UITableViewCell {
 
-    @IBOutlet weak var ratingLabel: UILabel!
-    @IBOutlet weak var reviewsLabel: UILabel!
-    @IBOutlet weak var userImage: UIImageView!
-    @IBOutlet weak var nameUserReview: UILabel!
-    @IBOutlet weak var likeLabel: UILabel!
-    @IBOutlet weak var commentLabel: UILabel!
-    @IBOutlet weak var timeReviewLabel: UILabel!
-    @IBOutlet weak var reviewTextLabel: UILabel!
+    @IBOutlet private weak var ratingLabel: UILabel!
+    @IBOutlet private weak var reviewsLabel: UILabel!
+    @IBOutlet private weak var userImage: UIImageView!
+    @IBOutlet private weak var nameUserReview: UILabel!
+    @IBOutlet private weak var likeLabel: UILabel!
+    @IBOutlet private weak var commentLabel: UILabel!
+    @IBOutlet private weak var timeReviewLabel: UILabel!
+    @IBOutlet private weak var reviewTextLabel: UILabel!
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-    }
-
-    func setUpView() { }
 }

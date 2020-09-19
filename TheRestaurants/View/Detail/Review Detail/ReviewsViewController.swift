@@ -10,7 +10,7 @@ import UIKit
 
 class ReviewsViewController: UIViewController {
 
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet private weak var tableView: UITableView!
 
     var viewModel = ReviewsViewModel()
     override func viewDidLoad() {
@@ -18,7 +18,7 @@ class ReviewsViewController: UIViewController {
         configTableView()
     }
 
-    func configTableView() {
+    private func configTableView() {
         let cell = UINib(nibName: "ReviewCell", bundle: .main)
         tableView.register(cell, forCellReuseIdentifier: "cellReview")
         tableView.dataSource = self
