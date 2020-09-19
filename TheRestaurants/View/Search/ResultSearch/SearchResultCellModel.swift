@@ -15,7 +15,4 @@ class SearchResultCellModel {
         self.restaurant = restaurantData
     }
     
-    func loadImage(compeltion: @escaping (UIImage?) -> Void) {
-        ImageCache.loadImage(urlString: restaurant.imageURL ?? "", completion: compeltion)
-    }
 }

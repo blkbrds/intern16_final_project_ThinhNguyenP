@@ -21,12 +21,26 @@ class SearchViewController: BaseViewController {
     var viewModel = SearchViewModel()
 
     func configTableView() {
-        let searchResult = UINib(nibName: "SearchResultCell", bundle: .main)
+        let searchResult = UINib(nibName: "HomeCell", bundle: .main)
         listResultSearch.register(searchResult, forCellReuseIdentifier: "searchcell")
         let historySearch = UINib(nibName: "HistorySearchCell", bundle: .main)
         listHistoriedSerch.register(historySearch, forCellReuseIdentifier: "historycell")
         listHistoriedSerch.dataSource = self
         listResultSearch.dataSource = self
+    }
+
+    func loadCell(keywork: String) {
+        Indicator.start()
+        viewModel.getResult(keywork: keywork) { [weak self ](result) in
+            Indicator.stop()
+            guard let this = self else { return }
+            switch result {
+            case.success:
+                this.listResultSearch.reloadData()
+            case.failure(let error):
+                this.alert(error: error)
+            }
+        }
     }
 
     func setUpSearchBar() {
@@ -35,13 +49,14 @@ class SearchViewController: BaseViewController {
             textfield.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
             textfield.placeholder = "Tìm kiếm địa điểm "
             textfield.attributedPlaceholder = NSAttributedString(string: textfield.placeholder ?? "", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
-
+            
             if let leftView = textfield.leftView as? UIImageView {
                 leftView.image = leftView.image?.withRenderingMode(.alwaysTemplate)
                 leftView.tintColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0.5125578704)
             }
         }
-         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: searchBar)
+        searchBar.delegate = self 
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: searchBar)
     }
 }
 extension SearchViewController: UITableViewDataSource {
@@ -50,14 +65,22 @@ extension SearchViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        switch viewModel.search[indexPath.row] {
+        switch viewModel.search[indexPath.section] {
         case .historySearch:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "historycell", for: indexPath) as? HistorySearchCell else { return UITableViewCell ()}
-            cell.viewModel = viewModel.viewModelForCell(at: indexPath)
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "historycell", for: indexPath) as? HistorySearchCell else { return UITableViewCell()}
+            cell.viewModel = viewModel.viewModelForCellHistoried(at: indexPath)
             return cell
         case .resultSearch:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "searchcell", for: indexPath) as? HomeCell else { return UITableViewCell() }
+            cell.viewModel = viewModel.viewModelForCellResult(indexPath: indexPath)
             return cell
         }
+    }
+}
+
+extension SearchViewController: UISearchBarDelegate {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        guard let value = searchBar.text else { return }
+        loadCell(keywork: value)
     }
 }
