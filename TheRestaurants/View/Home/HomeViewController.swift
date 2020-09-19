@@ -110,6 +110,7 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
         viewController.viewModel = viewModel.didSelectRowAt(indexPath: indexPath)
         viewController.hidesBottomBarWhenPushed = true
         navigationController?.pushViewController(viewController, animated: true)
+        navigationController?.isNavigationBarHidden = true
     }
 }
 extension HomeViewController: UIScrollViewDelegate {
