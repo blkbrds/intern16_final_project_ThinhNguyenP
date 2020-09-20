@@ -18,16 +18,17 @@ class SearchViewModel {
     var results: [Restaurant] = []
     var search: [Search] = [.resultSearch, .historySearch]
     var history: [SearchHistory] = []
+    var realmResult: [SearchHistory] = []
      private var notificationToken: NotificationToken?
-    
+
     func numberOfRowInSectionResult() -> Int {
         return results.count
     }
-    
-    func numberOfRowInSectionHistoried() -> Int{
+
+    func numberOfRowInSectionHistoried() -> Int {
         return history.count
     }
-    
+
     func getResult(keywork: String, completion: @escaping APICompletion) {
         let param = Api.Search.SearchParam(value: keywork)
         Api.Search.searchResult(param: param) { [weak self ](result) in
@@ -41,19 +42,19 @@ class SearchViewModel {
             }
         }
     }
-    
+
     func viewModelForCellHistoried(at indexPath: IndexPath) -> HistorySearchCellModel {
         let item = history[indexPath.row]
         let viewModel = HistorySearchCellModel(searchHistory: item)
         return viewModel
     }
-    
+
     func viewModelForCellResult(indexPath: IndexPath) -> HomeCellModel {
         let item = results[indexPath.row]
         let viewModel = HomeCellModel(cellsRestaurant: item)
         return viewModel
     }
-    
+
     func numberOfRowsInSection(section: Int) -> Int {
         guard section < search.count else { return 1 }
         switch search[section] {
@@ -61,31 +62,6 @@ class SearchViewModel {
             return history.count
         case .resultSearch:
             return results.count
-        }
-    }
-    
-    func setupObserve() {
-        do {
-            let realm = try Realm()
-            notificationToken = realm.objects(SearchHistory.self).observe({ [weak self ](_) in
-                guard let this = self else { return }
-                this.fetchRealmData()
-                for i in 0..<this.results.count {
-                    this.results[i].
-                }
-            })
-            
-            
-        }
-    }
-    
-    func fetchRealmData() {
-        do {
-            let realm = try Realm()
-            let results = realm.objects(SearchHistory.self)
-            history = Array(results)
-        } catch {
-            print(error)
         }
     }
 }

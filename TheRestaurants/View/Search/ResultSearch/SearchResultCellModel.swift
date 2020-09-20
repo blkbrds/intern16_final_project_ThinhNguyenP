@@ -14,5 +14,4 @@ class SearchResultCellModel {
     init(restaurantData: Restaurant) {
         self.restaurant = restaurantData
     }
-    
 }

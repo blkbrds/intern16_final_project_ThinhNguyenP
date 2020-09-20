@@ -21,7 +21,7 @@ class SearchResultCell: UITableViewCell {
             setupView()
         }
     }
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
     }
