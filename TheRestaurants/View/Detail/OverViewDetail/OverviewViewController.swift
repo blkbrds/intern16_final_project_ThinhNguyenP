@@ -9,30 +9,55 @@
 import UIKit
 
 class OverviewViewController: UIViewController {
-
+    
     @IBOutlet private weak var headerView: HeaderDetailView!
     @IBOutlet private weak var mapDetailView: MapDetailView!
     @IBOutlet private weak var informationView: InformationDetailView!
-
-    var viewModel = OverviewViewModel()
+    @IBOutlet private weak var otherInformationView: OtherInformationView!
+    
+    var viewModel = OverviewViewModel() {
+        didSet {
+            print(viewModel.id)
+             loadAPI()
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadAPI()
+//       loadAPI()
     }
-
-    private func loadAPI() {
+    
+    
+    func loadAPI() {
         Indicator.start()
-        viewModel.loadData { [weak self ](result) in
+        viewModel.loadData { [weak self] result in
             Indicator.stop()
             guard let this = self else { return }
             switch result {
             case .success:
-                this.headerView.viewModel = HeaderDetailViewModel(restaurant: this.viewModel.restaurant)
-                this.mapDetailView.viewModel = MapDetailViewModel(restaurant: this.viewModel.restaurant)
-                this.informationView.viewModel = InformationDetailViewModel(restaurant: this.viewModel.restaurant)
+                print("sssss")
+//                this.headerView.viewModel = HeaderDetailViewModel(restaurant: this.viewModel.restaurant)
+//                this.mapDetailView.viewModel = MapDetailViewModel(restaurant: this.viewModel.restaurant)
+//                this.informationView.viewModel = InformationDetailViewModel(restaurant: this.viewModel.restaurant)
             case .failure(let error):
                 this.alert(error: error)
             }
         }
     }
+    //    private func loadAPI() {
+    //        Indicator.start()
+    //        viewModel.loadData(id: <#T##String#>, completion: <#T##APICompletion##APICompletion##(APIResult) -> Void#>)
+    //        viewModel.loadData(id: DetailViewModel.init(restaurant: )) { [weak self ](result) in
+    //            Indicator.stop()
+    //            guard let this = self else { return }
+    //            switch result {
+    //            case .success:
+    //                this.headerView.viewModel = HeaderDetailViewModel(restaurant: this.viewModel.restaurant)
+    //                this.mapDetailView.viewModel = MapDetailViewModel(restaurant: this.viewModel.restaurant)
+    //                this.informationView.viewModel = InformationDetailViewModel(restaurant: this.viewModel.restaurant)
+    //            case .failure(let error):
+    //                this.alert(error: error)
+    //            }
+    //        }
+    //    }
 }

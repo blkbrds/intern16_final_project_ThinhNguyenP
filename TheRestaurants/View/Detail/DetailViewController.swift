@@ -16,6 +16,16 @@ class DetailViewController: UIViewController {
     private var pageController: UIPageViewController!
     private var viewControllers: [UIViewController] = []
 
+    var viewModel: DetailViewModel?
+    var overView = OverviewViewController()
+    var menuView = MenuViewController()
+    var review = ReviewsViewController()
+    var overViewModel = OverviewViewModel() {
+        didSet {
+            updateView()
+        }
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpPageView()
@@ -29,6 +39,9 @@ class DetailViewController: UIViewController {
     }
 
     private func setUpPageView() {
+        if let id = viewModel?.restaurant.id {
+            overView.viewModel = OverviewViewModel(id: id)
+        }
         viewControllers = [OverviewViewController(), MenuViewController(), ReviewsViewController()]
         pageController = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
         pageController.view.frame = CGRect(x: 0, y: 0, width: contentView.frame.width, height: contentView.frame.height)
@@ -36,5 +49,16 @@ class DetailViewController: UIViewController {
         addChild(pageController)
         contentView.addSubview(self.pageController.view)
         pageController.didMove(toParent: self)
+        
+     
+        
+        //overView.loadAPI()
+//        overViewModel.restaurant.id = viewModel?.restaurant.id
+    }
+    
+    private func updateView() {
+        print("\(viewModel?.restaurant.id)")
+       // viewModel?.restaurant.id
+       // overView.viewModel = OverviewViewModel(id: )
     }
 }

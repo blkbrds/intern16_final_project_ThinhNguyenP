@@ -8,4 +8,27 @@
 
 import Foundation
 
-class DetailViewModel { }
+class DetailViewModel {
+    var restaurant: Restaurant
+
+    init(restaurant: Restaurant) {
+        self.restaurant = restaurant
+    }
+
+//    func loadData(completion: @escaping APICompletion) {
+////        let param = DetailViewModel(restaurant: restaurant).restaurant.id
+////        let param = restaurant.id
+//        let param = Api.Restaurant.RestaurantParam(id: self.restaurant.id)
+////        let param = Api.Restaurant.RestaurantParam(id: self.restaurant.id!)
+//        Api.Restaurant.detaiRestaurant(param: param) { [weak self ](result) in
+//            guard let this = self else { return }
+//            switch result {
+//            case .success(let restaurant):
+//                this.restaurant = restaurant
+//                completion(.success)
+//            case .failure(let error):
+//                completion(.failure(error))
+//            }
+//        }
+//    }
+}

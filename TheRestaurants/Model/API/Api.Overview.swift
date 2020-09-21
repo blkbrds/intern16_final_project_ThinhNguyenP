@@ -12,9 +12,10 @@ import ObjectMapper
 
 extension Api.Restaurant {
     struct RestaurantParam {
+        var id: String
         func toJSON() -> [String: Any] {
             return [
-                "res_id": 16774318 
+                "res_id": id 
             ]
         }
     }
