@@ -20,6 +20,9 @@
 		72CE5816251068260045E14F /* ReviewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72CE580C251068260045E14F /* ReviewsViewController.swift */; };
 		72CE5817251068260045E14F /* ReviewsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72CE580D251068260045E14F /* ReviewsViewController.xib */; };
 		72CE5818251068260045E14F /* ReviewsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72CE580E251068260045E14F /* ReviewsViewModel.swift */; };
+		72CE581C25109C830045E14F /* ReviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72CE581A25109C830045E14F /* ReviewCell.swift */; };
+		72CE581D25109C830045E14F /* ReviewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72CE581B25109C830045E14F /* ReviewCell.xib */; };
+		72CE581F2510A6890045E14F /* ReviewCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72CE581E2510A6890045E14F /* ReviewCellModel.swift */; };
 		7448210C2501CD64005ACDFF /* UIViewControllerExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7448210B2501CD64005ACDFF /* UIViewControllerExt.swift */; };
 		7448210F2501CF26005ACDFF /* IndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7448210E2501CF26005ACDFF /* IndicatorView.swift */; };
 		744821112501CF7A005ACDFF /* SceneDelegateExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 744821102501CF7A005ACDFF /* SceneDelegateExt.swift */; };
@@ -118,6 +121,9 @@
 		72CE580C251068260045E14F /* ReviewsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewsViewController.swift; sourceTree = "<group>"; };
 		72CE580D251068260045E14F /* ReviewsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReviewsViewController.xib; sourceTree = "<group>"; };
 		72CE580E251068260045E14F /* ReviewsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewsViewModel.swift; sourceTree = "<group>"; };
+		72CE581A25109C830045E14F /* ReviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewCell.swift; sourceTree = "<group>"; };
+		72CE581B25109C830045E14F /* ReviewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReviewCell.xib; sourceTree = "<group>"; };
+		72CE581E2510A6890045E14F /* ReviewCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewCellModel.swift; sourceTree = "<group>"; };
 		7448210B2501CD64005ACDFF /* UIViewControllerExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExt.swift; sourceTree = "<group>"; };
 		7448210E2501CF26005ACDFF /* IndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndicatorView.swift; sourceTree = "<group>"; };
 		744821102501CF7A005ACDFF /* SceneDelegateExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegateExt.swift; sourceTree = "<group>"; };
@@ -265,11 +271,22 @@
 		72CE580B251068260045E14F /* Review Detail */ = {
 			isa = PBXGroup;
 			children = (
+				72CE581925109C3E0045E14F /* ReviewCell */,
 				72CE580C251068260045E14F /* ReviewsViewController.swift */,
 				72CE580D251068260045E14F /* ReviewsViewController.xib */,
 				72CE580E251068260045E14F /* ReviewsViewModel.swift */,
 			);
 			path = "Review Detail";
+			sourceTree = "<group>";
+		};
+		72CE581925109C3E0045E14F /* ReviewCell */ = {
+			isa = PBXGroup;
+			children = (
+				72CE581E2510A6890045E14F /* ReviewCellModel.swift */,
+				72CE581A25109C830045E14F /* ReviewCell.swift */,
+				72CE581B25109C830045E14F /* ReviewCell.xib */,
+			);
+			path = ReviewCell;
 			sourceTree = "<group>";
 		};
 		7448210D2501CEF6005ACDFF /* Controls */ = {
@@ -682,6 +699,7 @@
 			files = (
 				74A4197C24F3C1A600D1C1D6 /* IntroduceViewController.xib in Resources */,
 				84AD7C65250A6AAE001EFEC3 /* FavoriteCell.xib in Resources */,
+				72CE581D25109C830045E14F /* ReviewCell.xib in Resources */,
 				846A2BAB24FA5A62004160B3 /* SearchCityPopUpViewController.xib in Resources */,
 				8414C13625022FA60066701F /* HomeViewController.xib in Resources */,
 				728EA01D25121E1C009C9AE2 /* OtherInformationView.xib in Resources */,
@@ -787,11 +805,13 @@
 				74A4199724F3C6B100D1C1D6 /* ApiManager.swift in Sources */,
 				74A419A924F3CE2500D1C1D6 /* StringExt.swift in Sources */,
 				74A4199924F3C78A00D1C1D6 /* Error.swift in Sources */,
+				72CE581C25109C830045E14F /* ReviewCell.swift in Sources */,
 				84AD7C80250C56AA001EFEC3 /* UIStackViewExt.swift in Sources */,
 				74A4195C24F3B7B400D1C1D6 /* AppDelegate.swift in Sources */,
 				74A4198F24F3C21B00D1C1D6 /* SearchViewController.swift in Sources */,
 				846A2BA524FA5918004160B3 /* SearchCityCellModel.swift in Sources */,
 				844E57DA25075F1A0012BA18 /* SearchHistory.swift in Sources */,
+				72CE581F2510A6890045E14F /* ReviewCellModel.swift in Sources */,
 				844E57D925075F1A0012BA18 /* SearchViewModel.swift in Sources */,
 				74A419A524F3CD4F00D1C1D6 /* NSErrorExt.swift in Sources */,
 				842DF84B250680DF00061000 /* BaseViewController.swift in Sources */,
