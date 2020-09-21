@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -16,7 +16,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="362" height="152"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic-home-no-image-1" translatesAutoresizingMaskIntoConstraints="NO" id="GH9-Uz-d7J">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic-home-no-image" translatesAutoresizingMaskIntoConstraints="NO" id="GH9-Uz-d7J">
                         <rect key="frame" x="20" y="15" width="148" height="90"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="148" id="BN4-MF-Gn3"/>
@@ -173,7 +173,7 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="ic-home-no-image-1" width="335" height="165"/>
+        <image name="ic-home-no-image" width="335" height="165"/>
         <image name="ic_favorite_delivery" width="7" height="9"/>
         <image name="ic_favorite_line" width="674" height="4"/>
         <image name="ic_favorite_name" width="10" height="10"/>

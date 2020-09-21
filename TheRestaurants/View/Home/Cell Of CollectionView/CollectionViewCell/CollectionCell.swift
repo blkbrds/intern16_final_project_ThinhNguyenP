@@ -27,6 +27,7 @@ class CollectionCell: UICollectionViewCell {
         guard let viewModel = viewModel else { return }
         nameCollectionLabel.text = viewModel.title
         imageCollectionView.setImage(url: viewModel.imageUrl, placeholderImage: #imageLiteral(resourceName: "ic-home-no-image"))
+        imageCollectionView.layer.cornerRadius = 10
         countPlacesTitle.text = "\(viewModel.numberOfRestaurant ?? 0) places"
     }
 }
