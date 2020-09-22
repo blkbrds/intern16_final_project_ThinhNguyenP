@@ -35,7 +35,7 @@ class ReviewCell: UITableViewCell {
         reviewTextLabel.text = viewModel.review.reviewText
         stars.forEach { (starImg) in
             if starImg.tag > viewModel.review.rating ?? 0 {
-                starImg.image = #imageLiteral(resourceName: "ic_reviewdetail_star")
+                starImg.image = #imageLiteral(resourceName: "ic_ratingstar_detail.png")
             }
         }
     }
