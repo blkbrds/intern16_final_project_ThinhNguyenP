@@ -17,7 +17,7 @@ class ReviewCell: UITableViewCell {
     @IBOutlet private weak var timeReviewLabel: UILabel!
     @IBOutlet private weak var reviewTextLabel: UILabel!
     @IBOutlet private var stars: [UIImageView]!
-    var viewModel: ReviewCellModel? {
+    var viewModel: ReviewCellViewModel? {
         didSet {
             setUpView()
         }

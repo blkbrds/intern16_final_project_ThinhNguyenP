@@ -17,7 +17,6 @@ final class Api {
     struct ListCollection { }
     struct Search { }
     struct ListCell { }
-    struct Review { }
 
 }
 

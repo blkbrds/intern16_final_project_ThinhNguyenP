@@ -8,7 +8,7 @@
 
 import Foundation
 
-class ReviewCellViewModel  {
+class ReviewViewModel {
     var reviews: [Review] = []
     var restaurant: Restaurant
     init(restaurant: Restaurant = Restaurant()) {
@@ -16,15 +16,15 @@ class ReviewCellViewModel  {
     }
 
   func loadReview(completion: @escaping (APICompletion)) {
-    let param = Api.Review.ReviewParam(id: restaurant.id ?? "")
-         Api.Review.getReviews(param: param) { [weak self ](result) in
+    let param = Api.Search.ReviewParam(id: restaurant.id ?? "")
+         Api.Search.getReviews(param: param) { [weak self ](result) in
              guard let this = self else { return }
              switch result {
              case .success(let result):
                 this.reviews = result.reviews
-                 completion(.success)
+                completion(.success)
              case .failure(let error):
-                 completion(.failure(error))
+                completion(.failure(error))
              }
          }
      }
@@ -33,9 +33,9 @@ class ReviewCellViewModel  {
         return reviews.count
     }
 
-    func viewModelForCellAt(indexPath: IndexPath) -> ReviewCellModel {
+    func viewModelForCellAt(indexPath: IndexPath) -> ReviewCellViewModel {
         let review = reviews[indexPath.row]
-        let viewModel = ReviewCellModel(review: review)
+        let viewModel = ReviewCellViewModel(review: review)
         return viewModel
     }
 }

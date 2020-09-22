@@ -32,7 +32,7 @@ class DetailViewController: UIViewController {
     private func setUpPageView() {
         guard let restaurant = viewModel?.restaurant else { return }
         let review = ReviewsViewController()
-        review.viewModel = ReviewCellViewModel (restaurant: restaurant )
+        review.viewModel = ReviewViewModel (restaurant: restaurant )
         viewControllers = [OverviewViewController(), MenuViewController(), review]
         pageController = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
         pageController.view.frame = CGRect(x: 0, y: 0, width: contentView.frame.width, height: contentView.frame.height)

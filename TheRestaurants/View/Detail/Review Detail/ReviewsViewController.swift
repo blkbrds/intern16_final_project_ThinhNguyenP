@@ -14,7 +14,7 @@ class ReviewsViewController: UIViewController {
     @IBOutlet private weak var ratingLabel: UILabel!
     @IBOutlet private weak var reviewCountLabel: UILabel!
     @IBOutlet private weak var headerView: UIView!
-    var viewModel = ReviewCellViewModel()
+    var viewModel = ReviewViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
         configTableView()
@@ -36,7 +36,7 @@ class ReviewsViewController: UIViewController {
             case .success:
                 this.tableView.reloadData()
                 this.reviewCountLabel.text = "\(this.viewModel.restaurant.review ?? 0) Reviews"
-                this.ratingLabel.text = "\(this.viewModel.restaurant.rating ?? "")"
+                this.ratingLabel.text = "\(this.viewModel.restaurant.rating ?? "0")"
             case .failure(let error):
                 this.alert(error: error)
             }

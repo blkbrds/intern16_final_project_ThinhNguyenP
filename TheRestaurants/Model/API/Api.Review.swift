@@ -10,7 +10,7 @@ import Foundation
 import Alamofire
 import ObjectMapper
 
-extension Api.Review {
+extension Api.Search {
     struct APIResult {
         var reviews: [Review]
     }

@@ -8,7 +8,7 @@
 
 import Foundation
 
-class ReviewCellModel {
+class ReviewCellViewModel {
     var review: Review
 
     init(review: Review) {
