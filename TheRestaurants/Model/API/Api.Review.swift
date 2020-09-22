@@ -11,9 +11,6 @@ import Alamofire
 import ObjectMapper
 
 extension Api.Search {
-    struct APIResult {
-        var reviews: [Review]
-    }
     struct ReviewParam {
         var id: String
         func toJSON() -> [String: Any] {
@@ -23,7 +20,7 @@ extension Api.Search {
         }
     }
 
-    static func getReviews(param: ReviewParam, completion: @escaping Completion<APIResult>) {
+    static func getReviews(param: ReviewParam, completion: @escaping Completion<[Review]>) {
         let path = Api.Path.Search().urlStringReview
         api.request(method: .get, urlString: path, parameters: param.toJSON()) { (result) in
             DispatchQueue.main.async {
@@ -38,8 +35,7 @@ extension Api.Search {
                         guard let json = review["review"] as? JSObject, let review = Mapper<Review>().map(JSONObject: json) else { return }
                         results.append(review)
                     }
-                    let result = APIResult(reviews: results)
-                    completion(.success(result))
+                    completion(.success(results))
                 case .failure(let error):
                     completion(.failure(error))
                 }

@@ -21,7 +21,7 @@ class ReviewViewModel {
              guard let this = self else { return }
              switch result {
              case .success(let result):
-                this.reviews = result.reviews
+                this.reviews = result
                 completion(.success)
              case .failure(let error):
                 completion(.failure(error))
