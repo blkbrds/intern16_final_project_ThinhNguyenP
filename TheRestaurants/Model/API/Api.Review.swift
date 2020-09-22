@@ -12,8 +12,6 @@ import ObjectMapper
 
 extension Api.Review {
     struct APIResult {
-        var totalRatings: Int
-        var totalReviews: Int
         var reviews: [Review]
     }
     struct ReviewParam {
@@ -35,18 +33,12 @@ extension Api.Review {
                         completion(.failure(Api.Error.json))
                         return
                     }
-                    var totalRatings: Int = 0
-                    var totalReviews: Int = 0
-                    if let resultRatings = value["reviews_shown"] as? Int, let resultReviews = value["reviews_count"] as? Int {
-                        totalRatings = resultRatings
-                        totalReviews = resultReviews
-                    }
                     var results: [Review] = []
                     for review in userReview {
                         guard let json = review["review"] as? JSObject, let review = Mapper<Review>().map(JSONObject: json) else { return }
                         results.append(review)
                     }
-                     let result = APIResult(totalRatings: totalRatings, totalReviews: totalReviews, reviews: results)
+                    let result = APIResult(reviews: results)
                     completion(.success(result))
                 case .failure(let error):
                     completion(.failure(error))

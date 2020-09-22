@@ -9,9 +9,9 @@
 import Foundation
 
 class DetailViewModel {
-    var id: String
+    var restaurant: Restaurant
 
-    init(id: String) {
-        self.id = id
+    init(restaurant: Restaurant) {
+        self.restaurant = restaurant
     }
 }

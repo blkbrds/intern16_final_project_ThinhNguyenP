@@ -10,21 +10,17 @@ import Foundation
 
 class ReviewsViewModel {
     var reviews: [Review] = []
-    var reviewsCount: Int = 0
-    var ratingCount: Int = 0
-    var id: String = ""
-    init(id: String = "") {
-        self.id = id
+    var restaurant: Restaurant
+    init(restaurant: Restaurant = Restaurant()) {
+        self.restaurant = restaurant
     }
 
   func loadReview(completion: @escaping (APICompletion)) {
-    let param = Api.Review.ReviewParam(id: id)
+    let param = Api.Review.ReviewParam(id: restaurant.id ?? "")
          Api.Review.getReviews(param: param) { [weak self ](result) in
              guard let this = self else { return }
              switch result {
              case .success(let cells):
-                this.reviewsCount = cells.totalReviews
-                this.ratingCount = cells.totalRatings
                 this.reviews = cells.reviews
                  completion(.success)
              case .failure(let error):
