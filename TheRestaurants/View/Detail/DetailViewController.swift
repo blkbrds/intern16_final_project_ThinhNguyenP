@@ -16,6 +16,8 @@ class DetailViewController: UIViewController {
     private var pageController: UIPageViewController!
     private var viewControllers: [UIViewController] = []
 
+    var viewModel: DetailViewModel?
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpPageView()
@@ -36,5 +38,6 @@ class DetailViewController: UIViewController {
         addChild(pageController)
         contentView.addSubview(self.pageController.view)
         pageController.didMove(toParent: self)
+        navigationController?.isNavigationBarHidden = true
     }
 }

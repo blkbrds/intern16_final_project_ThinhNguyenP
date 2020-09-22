@@ -21,7 +21,7 @@ class ReviewsViewController: UIViewController {
         loadReview()
     }
 
-    func configTableView() {
+    private func configTableView() {
         let cell = UINib(nibName: "ReviewCell", bundle: .main)
         tableView.register(cell, forCellReuseIdentifier: "cellReview")
         tableView.dataSource = self
