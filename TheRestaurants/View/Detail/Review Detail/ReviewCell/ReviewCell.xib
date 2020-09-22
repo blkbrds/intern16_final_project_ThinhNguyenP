@@ -130,7 +130,6 @@
                 <outlet property="commentLabel" destination="PoR-Zy-88T" id="dqM-xL-QNM"/>
                 <outlet property="likeLabel" destination="rea-x6-45U" id="iEN-QL-VLS"/>
                 <outlet property="nameUserReview" destination="LP3-SU-pEa" id="wfu-r8-HpT"/>
-                <outlet property="reviewStar" destination="EIq-a6-mcG" id="7UD-UR-jYT"/>
                 <outlet property="reviewTextLabel" destination="RaK-FM-ARb" id="Kqh-nE-u7w"/>
                 <outlet property="timeReviewLabel" destination="bR8-Ud-zbY" id="eX8-gS-3f6"/>
                 <outlet property="userImage" destination="8i2-CV-iiT" id="8bk-K2-5Qm"/>

@@ -16,8 +16,7 @@ class ReviewCell: UITableViewCell {
     @IBOutlet private weak var commentLabel: UILabel!
     @IBOutlet private weak var timeReviewLabel: UILabel!
     @IBOutlet private weak var reviewTextLabel: UILabel!
-    @IBOutlet private weak var reviewStar: UIStackView!
-    @IBOutlet var stars: [UIImageView]!
+    @IBOutlet private var stars: [UIImageView]!
     var viewModel: ReviewCellModel? {
         didSet {
             setUpView()
@@ -26,7 +25,7 @@ class ReviewCell: UITableViewCell {
 
     func setUpView() {
         guard let viewModel = viewModel else { return }
-        userImage.setImage(url: viewModel.review.userImage)
+        userImage.setImage(url: viewModel.review.userImageUrl)
         userImage.layer.cornerRadius = 15
         nameUserReview.text = viewModel.review.name
         likeLabel.text = "\(viewModel.review.like ?? 0)"

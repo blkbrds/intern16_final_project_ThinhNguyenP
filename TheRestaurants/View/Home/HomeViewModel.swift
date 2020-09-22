@@ -90,7 +90,7 @@ class HomeViewModel {
 
     func didSelectRowAt(indexPath: IndexPath) -> DetailViewModel {
         let value = restaurants[indexPath.row]
-        let viewModel = DetailViewModel(restaurant: value )
-        return viewModel
+        let restaurant = DetailViewModel(restaurant: value )
+        return restaurant
     }
 }

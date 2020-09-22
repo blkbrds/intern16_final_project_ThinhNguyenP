@@ -10,11 +10,11 @@ import UIKit
 
 class ReviewsViewController: UIViewController {
 
-    @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var ratingLabel: UILabel!
-    @IBOutlet weak var reviewCountLabel: UILabel!
-    @IBOutlet weak var headerView: UIView!
-    var viewModel = ReviewsViewModel()
+    @IBOutlet private weak var tableView: UITableView!
+    @IBOutlet private weak var ratingLabel: UILabel!
+    @IBOutlet private weak var reviewCountLabel: UILabel!
+    @IBOutlet private weak var headerView: UIView!
+    var viewModel = ReviewCellViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
         configTableView()
@@ -50,7 +50,7 @@ extension ReviewsViewController: UITableViewDataSource, UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "cellReview", for: indexPath) as? ReviewCell else { return UITableViewCell() }
-        cell.viewModel = viewModel.cellForRowAt(indexPath: indexPath)
+        cell.viewModel = viewModel.viewModelForCellAt(indexPath: indexPath)
         return cell
     }
 }

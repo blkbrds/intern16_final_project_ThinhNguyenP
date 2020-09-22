@@ -8,7 +8,7 @@
 
 import Foundation
 
-class ReviewsViewModel {
+class ReviewCellViewModel  {
     var reviews: [Review] = []
     var restaurant: Restaurant
     init(restaurant: Restaurant = Restaurant()) {
@@ -20,8 +20,8 @@ class ReviewsViewModel {
          Api.Review.getReviews(param: param) { [weak self ](result) in
              guard let this = self else { return }
              switch result {
-             case .success(let cells):
-                this.reviews = cells.reviews
+             case .success(let result):
+                this.reviews = result.reviews
                  completion(.success)
              case .failure(let error):
                  completion(.failure(error))
@@ -33,9 +33,9 @@ class ReviewsViewModel {
         return reviews.count
     }
 
-    func cellForRowAt(indexPath: IndexPath) -> ReviewCellModel {
-        let index = reviews[indexPath.row]
-        let viewModel = ReviewCellModel(review: index)
+    func viewModelForCellAt(indexPath: IndexPath) -> ReviewCellModel {
+        let review = reviews[indexPath.row]
+        let viewModel = ReviewCellModel(review: review)
         return viewModel
     }
 }

@@ -17,7 +17,7 @@ class Review: Mappable {
     var commentCount: Int?
     var reviewTime: String?
     var reviewText: String?
-    var userImage: String?
+    var userImageUrl: String?
     var ratingCount: Int?
     required convenience init?(map: Map) {
         self.init()
@@ -30,7 +30,7 @@ class Review: Mappable {
         like <- map["likes"]
         reviewsCount <- map["reviews_count"]
         name = user["name"] as? String
-        userImage = user["profile_image"] as? String
+        userImageUrl = user["profile_image"] as? String
         commentCount <- map["comments_count"]
         reviewTime <- map["review_time_friendly"]
         reviewText <- map["review_text"]
