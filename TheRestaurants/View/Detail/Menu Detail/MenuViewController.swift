@@ -10,6 +10,7 @@ import UIKit
 
 class MenuViewController: UIViewController {
 
+    @IBOutlet private weak var headerView: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
     }
