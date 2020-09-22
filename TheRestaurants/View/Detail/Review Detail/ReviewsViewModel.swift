@@ -12,9 +12,13 @@ class ReviewsViewModel {
     var reviews: [Review] = []
     var reviewsCount: Int = 0
     var ratingCount: Int = 0
+    var id: String = ""
+    init(id: String = "") {
+        self.id = id
+    }
 
   func loadReview(completion: @escaping (APICompletion)) {
-    let param = Api.Review.ReviewParam()
+    let param = Api.Review.ReviewParam(id: id)
          Api.Review.getReviews(param: param) { [weak self ](result) in
              guard let this = self else { return }
              switch result {

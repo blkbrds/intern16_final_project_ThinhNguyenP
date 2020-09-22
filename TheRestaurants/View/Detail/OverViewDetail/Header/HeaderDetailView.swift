@@ -9,7 +9,7 @@
 import UIKit
 
 class HeaderDetailView: UIView {
-    
+
     @IBOutlet private var containerView: UIView!
     @IBOutlet private weak var backButton: UIButton!
     @IBOutlet private weak var favoriteButton: UIButton!

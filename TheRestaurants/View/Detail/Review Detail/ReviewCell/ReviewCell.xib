@@ -30,7 +30,7 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="C.B" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LP3-SU-pEa">
-                        <rect key="frame" x="55" y="15" width="26.5" height="19.5"/>
+                        <rect key="frame" x="55" y="15" width="345" height="19.5"/>
                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -77,22 +77,25 @@
                     <stackView opaque="NO" contentMode="scaleToFill" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="EIq-a6-mcG">
                         <rect key="frame" x="430" y="15" width="82" height="14"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_starreview_detail" translatesAutoresizingMaskIntoConstraints="NO" id="B4a-OX-wN7">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_starreview_detail" translatesAutoresizingMaskIntoConstraints="NO" id="B4a-OX-wN7">
                                 <rect key="frame" x="0.0" y="0.0" width="14" height="14"/>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_starreview_detail" translatesAutoresizingMaskIntoConstraints="NO" id="piT-9j-Z25">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="2" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_starreview_detail" translatesAutoresizingMaskIntoConstraints="NO" id="piT-9j-Z25">
                                 <rect key="frame" x="17" y="0.0" width="14" height="14"/>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_starreview_detail" translatesAutoresizingMaskIntoConstraints="NO" id="7Mm-ZH-tUO">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="3" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_starreview_detail" translatesAutoresizingMaskIntoConstraints="NO" id="7Mm-ZH-tUO">
                                 <rect key="frame" x="34" y="0.0" width="14" height="14"/>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_starreview_detail" translatesAutoresizingMaskIntoConstraints="NO" id="fpF-XX-E5z">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="4" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_starreview_detail" translatesAutoresizingMaskIntoConstraints="NO" id="fpF-XX-E5z">
                                 <rect key="frame" x="51" y="0.0" width="14" height="14"/>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_starreview_detail" translatesAutoresizingMaskIntoConstraints="NO" id="cLF-eO-tsb">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="5" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_starreview_detail" translatesAutoresizingMaskIntoConstraints="NO" id="cLF-eO-tsb">
                                 <rect key="frame" x="68" y="0.0" width="14" height="14"/>
                             </imageView>
                         </subviews>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="82" id="Ypy-1y-GEF"/>
+                        </constraints>
                     </stackView>
                 </subviews>
                 <constraints>
@@ -103,6 +106,7 @@
                     <constraint firstItem="LP3-SU-pEa" firstAttribute="leading" secondItem="8i2-CV-iiT" secondAttribute="trailing" constant="5" id="6V9-xn-wzE"/>
                     <constraint firstItem="LP3-SU-pEa" firstAttribute="top" secondItem="8i2-CV-iiT" secondAttribute="top" id="8SI-eo-RLs"/>
                     <constraint firstItem="RaK-FM-ARb" firstAttribute="top" secondItem="zJg-OU-fgT" secondAttribute="bottom" constant="10" id="BrK-33-H13"/>
+                    <constraint firstItem="EIq-a6-mcG" firstAttribute="leading" secondItem="LP3-SU-pEa" secondAttribute="trailing" constant="30" id="FLx-QU-LQN"/>
                     <constraint firstItem="RaK-FM-ARb" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="HaC-D4-Ejn"/>
                     <constraint firstItem="PoR-Zy-88T" firstAttribute="centerY" secondItem="dYA-FR-vlO" secondAttribute="centerY" id="O9e-bQ-seN"/>
                     <constraint firstItem="BmW-ci-Ofa" firstAttribute="leading" secondItem="8i2-CV-iiT" secondAttribute="trailing" constant="5" id="OZe-vf-dwQ"/>
@@ -126,9 +130,15 @@
                 <outlet property="commentLabel" destination="PoR-Zy-88T" id="dqM-xL-QNM"/>
                 <outlet property="likeLabel" destination="rea-x6-45U" id="iEN-QL-VLS"/>
                 <outlet property="nameUserReview" destination="LP3-SU-pEa" id="wfu-r8-HpT"/>
+                <outlet property="reviewStar" destination="EIq-a6-mcG" id="7UD-UR-jYT"/>
                 <outlet property="reviewTextLabel" destination="RaK-FM-ARb" id="Kqh-nE-u7w"/>
                 <outlet property="timeReviewLabel" destination="bR8-Ud-zbY" id="eX8-gS-3f6"/>
                 <outlet property="userImage" destination="8i2-CV-iiT" id="8bk-K2-5Qm"/>
+                <outletCollection property="stars" destination="B4a-OX-wN7" collectionClass="NSMutableArray" id="pu4-ox-9Qa"/>
+                <outletCollection property="stars" destination="piT-9j-Z25" collectionClass="NSMutableArray" id="UUF-Bo-leW"/>
+                <outletCollection property="stars" destination="7Mm-ZH-tUO" collectionClass="NSMutableArray" id="sRo-pD-gyz"/>
+                <outletCollection property="stars" destination="fpF-XX-E5z" collectionClass="NSMutableArray" id="Lbl-XZ-Frr"/>
+                <outletCollection property="stars" destination="cLF-eO-tsb" collectionClass="NSMutableArray" id="A3t-HQ-fTW"/>
             </connections>
             <point key="canvasLocation" x="-52.898550724637687" y="98.4375"/>
         </tableViewCell>

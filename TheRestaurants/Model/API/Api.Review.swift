@@ -17,9 +17,10 @@ extension Api.Review {
         var reviews: [Review]
     }
     struct ReviewParam {
+        var id: String
         func toJSON() -> [String: Any] {
             return [
-                "res_id": 1777
+                "res_id": id
             ]
         }
     }

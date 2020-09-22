@@ -27,7 +27,7 @@ class Review: Mappable {
         var user: JSObject = [:]
         user <- map["user"]
         rating <- map["rating"]
-        like <- map["like"]
+        like <- map["likes"]
         reviewsCount <- map["reviews_count"]
         name = user["name"] as? String
         userImage = user["profile_image"] as? String

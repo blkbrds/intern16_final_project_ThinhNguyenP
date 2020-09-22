@@ -9,7 +9,7 @@
 import UIKit
 
 class InformationDetailView: UIView {
-    
+
     @IBOutlet private var containerView: UIView!
     @IBOutlet private weak var openingTimeLabel: UILabel!
     @IBOutlet private weak var phoneNumberLabel: UILabel!

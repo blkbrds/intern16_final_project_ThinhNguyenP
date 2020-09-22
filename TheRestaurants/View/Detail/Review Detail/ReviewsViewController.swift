@@ -13,7 +13,7 @@ class ReviewsViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var ratingLabel: UILabel!
     @IBOutlet weak var reviewCountLabel: UILabel!
-
+    @IBOutlet weak var headerView: UIView!
     var viewModel = ReviewsViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()

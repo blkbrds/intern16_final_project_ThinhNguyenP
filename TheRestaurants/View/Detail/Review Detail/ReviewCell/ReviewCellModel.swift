@@ -10,6 +10,7 @@ import Foundation
 
 class ReviewCellModel {
     var review: Review
+
     init(review: Review) {
         self.review = review
     }

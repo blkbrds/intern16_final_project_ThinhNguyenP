@@ -18,7 +18,7 @@ final class Api {
     struct Search { }
     struct ListCell { }
     struct Review { }
-    
+
 }
 
 extension Api.Path {
@@ -36,7 +36,7 @@ extension Api.Path {
         var urlStringListCollection: String {
             return Search.path / "collections"
         }
-        
+
         var urlStringReview: String {
             return Search.path / "reviews"
         }

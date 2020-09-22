@@ -10,25 +10,18 @@ import UIKit
 
 class ReviewCell: UITableViewCell {
 
-    @IBOutlet weak var userImage: UIImageView!
-    @IBOutlet weak var nameUserReview: UILabel!
-    @IBOutlet weak var likeLabel: UILabel!
-    @IBOutlet weak var commentLabel: UILabel!
-    @IBOutlet weak var timeReviewLabel: UILabel!
-    @IBOutlet weak var reviewTextLabel: UILabel!
-
+    @IBOutlet private weak var userImage: UIImageView!
+    @IBOutlet private weak var nameUserReview: UILabel!
+    @IBOutlet private weak var likeLabel: UILabel!
+    @IBOutlet private weak var commentLabel: UILabel!
+    @IBOutlet private weak var timeReviewLabel: UILabel!
+    @IBOutlet private weak var reviewTextLabel: UILabel!
+    @IBOutlet private weak var reviewStar: UIStackView!
+    @IBOutlet var stars: [UIImageView]!
     var viewModel: ReviewCellModel? {
         didSet {
             setUpView()
         }
-    }
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
     }
 
     func setUpView() {
@@ -40,5 +33,10 @@ class ReviewCell: UITableViewCell {
         commentLabel.text = "\(viewModel.review.commentCount ?? 0)"
         timeReviewLabel.text = viewModel.review.reviewTime
         reviewTextLabel.text = viewModel.review.reviewText
+        stars.forEach { (starImg) in
+            if starImg.tag > viewModel.review.rating ?? 0 {
+                starImg.image = #imageLiteral(resourceName: "ic_reviewdetail_star")
+            }
+        }
     }
 }
