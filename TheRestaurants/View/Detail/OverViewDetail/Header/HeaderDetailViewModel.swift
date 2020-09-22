@@ -10,6 +10,7 @@ import Foundation
 
 class HeaderDetailViewModel {
     var restaurant: Restaurant
+    var viewModel: OverviewViewModel?
 
     init(restaurant: Restaurant) {
         self.restaurant = restaurant

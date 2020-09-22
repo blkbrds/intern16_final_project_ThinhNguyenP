@@ -11,9 +11,7 @@ import Foundation
 class OverviewViewModel {
 
     var id: String = ""
-    var viewModel: DetailViewModel?
     var restaurant = Restaurant()
-    
     init(id: String = "") {
         self.id = id
     }

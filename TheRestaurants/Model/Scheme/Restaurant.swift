@@ -22,7 +22,7 @@ class Restaurant: Mappable {
     var timings: String?
     var phoneNumber: String?
     var url: String?
-    var highlights: String?
+    var highlights: [String]?
     var review: Int?
 
     var favorite: Bool = false

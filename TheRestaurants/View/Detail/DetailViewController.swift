@@ -20,11 +20,6 @@ class DetailViewController: UIViewController {
     var overView = OverviewViewController()
     var menuView = MenuViewController()
     var review = ReviewsViewController()
-    var overViewModel = OverviewViewModel() {
-        didSet {
-            updateView()
-        }
-    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,25 +34,14 @@ class DetailViewController: UIViewController {
     }
 
     private func setUpPageView() {
-//        if let id = viewModel?.restaurant.id {
-//            overView.viewModel = OverviewViewModel(id: id)
-//        }
-        guard let id = viewModel?.restaurant.id else { return }
+        guard let id = viewModel?.id else { return }
         overView.viewModel = OverviewViewModel(id: id)
-        viewControllers = [OverviewViewController(), MenuViewController(), ReviewsViewController()]
+        viewControllers = [overView, MenuViewController(), ReviewsViewController()]
         pageController = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
         pageController.view.frame = CGRect(x: 0, y: 0, width: contentView.frame.width, height: contentView.frame.height)
         pageController.setViewControllers([viewControllers[0]], direction: .forward, animated: false, completion: nil)
         addChild(pageController)
         contentView.addSubview(self.pageController.view)
         pageController.didMove(toParent: self)
-        //overView.loadAPI()
-//        overViewModel.restaurant.id = viewModel?.restaurant.id
-    }
-    
-    private func updateView() {
-        print("\(viewModel?.restaurant.id)")
-       // viewModel?.restaurant.id
-       // overView.viewModel = OverviewViewModel(id: )
     }
 }
