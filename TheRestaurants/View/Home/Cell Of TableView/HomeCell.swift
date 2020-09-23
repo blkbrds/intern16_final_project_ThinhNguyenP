@@ -26,12 +26,12 @@ class HomeCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
+        imageRestaurant.layer.cornerRadius = 10
         ratingView.layer.cornerRadius = 3
     }
 
     private func updateView() {
         guard let viewModel = viewModel else { return }
-        imageRestaurant.layer.cornerRadius = 10
         imageRestaurant.setImage(url: viewModel.imageURL, placeholderImage: #imageLiteral(resourceName: "ic-home-no-image"))
         nameRestaurantLabel.text = viewModel.name
         addressRestaurantLabel.attributedText = viewModel.address?.addLineSpacing(3)

@@ -9,7 +9,7 @@
 import Foundation
 
 class DetailViewModel {
-    var id: String?
+    var id: String
 
     init(id: String) {
         self.id = id
