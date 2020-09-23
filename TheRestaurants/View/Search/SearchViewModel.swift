@@ -19,7 +19,7 @@ class SearchViewModel {
     var search: [Search] = [.resultSearch, .historySearch]
     var history: [SearchHistory] = []
     var realmResult: [SearchHistory] = []
-     private var notificationToken: NotificationToken?
+    private var notificationToken: NotificationToken?
 
     func numberOfRowInSectionResult() -> Int {
         return results.count
@@ -62,6 +62,30 @@ class SearchViewModel {
             return history.count
         case .resultSearch:
             return results.count
+        }
+    }
+
+    func fetchData(completion: @escaping APICompletion) {
+        do {
+            let realm = try Realm()
+            let results = realm.objects(SearchHistory.self)
+            history = Array(results)
+        } catch {
+            print(error)
+        }
+    }
+
+    func addRealm(searchKey: String, completion: @escaping (Bool) -> Void) {
+        do {
+            let realm = try Realm()
+            let result = SearchHistory()
+            result.searchKey = searchKey
+            try realm.write {
+                realm.add(result)
+            }
+            completion(true)
+        } catch {
+            completion(false)
         }
     }
 }
