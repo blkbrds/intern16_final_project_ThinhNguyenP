@@ -24,31 +24,31 @@
                     <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="uBC-Xs-FpS">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="677"/>
+                             <rect key="frame" x="0.0" y="0.0" width="414" height="269"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HxE-Al-4pm" customClass="HeaderDetailView" customModule="TheRestaurants" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="166"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="166" id="yVa-P9-xfF"/>
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I4N-VL-xcF" customClass="MapDetailView" customModule="TheRestaurants" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="166" width="414" height="73"/>
+                                   <rect key="frame" x="0.0" y="60" width="414" height="50"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="236" id="U7F-DO-lPO"/>
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QhI-2L-vJg" customClass="InformationDetailView" customModule="TheRestaurants" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="239" width="414" height="138"/>
+                                     <rect key="frame" x="0.0" y="110" width="414" height="50"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                     <constraints>
                                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="73" id="fc9-Wk-DpA"/>
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kmO-8q-4sH" customClass="OtherInformationView" customModule="TheRestaurants" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="377" width="414" height="300"/>
+                                    <rect key="frame" x="0.0" y="160" width="414" height="109"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                     <constraints>
                                         <constraint firstAttribute="height" relation="greaterThanOrEqual" id="Fdg-4Z-MCs"/>

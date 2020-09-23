@@ -20,6 +20,11 @@ class InformationDetailView: UIView {
         xibSetup()
     }
 
+    var viewModel: InformationDetailViewModel? {
+        didSet {
+            updateView()
+        }
+    }
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         xibSetup()
@@ -29,5 +34,12 @@ class InformationDetailView: UIView {
         let nib = UINib(nibName: "InformationDetailView", bundle: .main)
         nib.instantiate(withOwner: self, options: nil)
         addSubview(containerView)
+    }
+
+    private func updateView() {
+        guard let viewModel = viewModel else { return }
+        openingTimeLabel.text = viewModel.openingTime
+        phoneNumberLabel.text = viewModel.restaurant.phoneNumber
+        websiteLabel.text = viewModel.restaurant.url
     }
 }
