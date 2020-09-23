@@ -12,6 +12,7 @@ class HomeCell: UITableViewCell {
 
     @IBOutlet private weak var imageRestaurant: UIImageView!
     @IBOutlet private weak var nameRestaurantLabel: UILabel!
+    @IBOutlet private weak var ratingView: UIView!
     @IBOutlet private weak var ratingRestautantLabel: UILabel!
     @IBOutlet private weak var cuisineStackView: UIStackView!
     @IBOutlet private weak var addressRestaurantLabel: UILabel!
@@ -23,12 +24,17 @@ class HomeCell: UITableViewCell {
         }
     }
 
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        ratingView.layer.cornerRadius = 3
+    }
+
     private func updateView() {
         guard let viewModel = viewModel else { return }
         imageRestaurant.layer.cornerRadius = 10
         imageRestaurant.setImage(url: viewModel.imageURL, placeholderImage: #imageLiteral(resourceName: "ic-home-no-image"))
         nameRestaurantLabel.text = viewModel.name
-        addressRestaurantLabel.text = viewModel.address
+        addressRestaurantLabel.attributedText = viewModel.address?.addLineSpacing(3)
         ratingRestautantLabel.text = viewModel.rating
         numberOfDeliveryLabel.text = "\(viewModel.onlineDelivery ?? 0) online delivery now"
         configCuisineStackView()
