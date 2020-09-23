@@ -58,6 +58,12 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>Lấy vị trí</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Lấy vị trí</string>
+	<key>CFBundleDisplayName</key>
+	<string></string>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
 </dict>

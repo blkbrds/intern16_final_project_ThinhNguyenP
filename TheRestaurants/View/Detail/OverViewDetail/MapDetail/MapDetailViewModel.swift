@@ -15,10 +15,4 @@ class MapDetailViewModel {
     init(restaurant: Restaurant) {
         self.restaurant = restaurant
     }
-    func loadLocation() {
-        
-    }
-    
-    
-   
 }
