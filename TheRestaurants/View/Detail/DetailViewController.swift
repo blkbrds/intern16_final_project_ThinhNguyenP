@@ -17,7 +17,6 @@ class DetailViewController: UIViewController {
     private var viewControllers: [UIViewController] = []
 
     var viewModel: DetailViewModel?
-
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpPageView()
@@ -31,7 +30,10 @@ class DetailViewController: UIViewController {
     }
 
     private func setUpPageView() {
-        viewControllers = [OverviewViewController(), MenuViewController(), ReviewsViewController()]
+        guard let restaurant = viewModel?.restaurant else { return }
+        let review = ReviewsViewController()
+        review.viewModel = ReviewViewModel (restaurant: restaurant )
+        viewControllers = [OverviewViewController(), MenuViewController(), review]
         pageController = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
         pageController.view.frame = CGRect(x: 0, y: 0, width: contentView.frame.width, height: contentView.frame.height)
         pageController.setViewControllers([viewControllers[0]], direction: .forward, animated: false, completion: nil)

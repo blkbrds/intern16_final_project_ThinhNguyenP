@@ -6,12 +6,11 @@
     },
     {
       "idiom" : "universal",
-      "filename" : "ic_reviewdetail_star.png",
+      "filename" : "ic_ratingstar_detail.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "ic_reviewdetail_star-1.png",
       "scale" : "3x"
     }
   ],

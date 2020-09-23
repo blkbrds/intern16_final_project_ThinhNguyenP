@@ -11,11 +11,14 @@ import UIKit
 class ReviewsViewController: UIViewController {
 
     @IBOutlet private weak var tableView: UITableView!
-
-    var viewModel = ReviewsViewModel()
+    @IBOutlet private weak var ratingLabel: UILabel!
+    @IBOutlet private weak var reviewCountLabel: UILabel!
+    @IBOutlet private weak var headerView: UIView!
+    var viewModel = ReviewViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
         configTableView()
+        loadReview()
     }
 
     private func configTableView() {
@@ -23,14 +26,31 @@ class ReviewsViewController: UIViewController {
         tableView.register(cell, forCellReuseIdentifier: "cellReview")
         tableView.dataSource = self
     }
+
+    func loadReview() {
+        Indicator.start()
+        viewModel.loadReview { [weak self](result) in
+            Indicator.stop()
+            guard let this = self else { return }
+            switch result {
+            case .success:
+                this.tableView.reloadData()
+                this.reviewCountLabel.text = "\(this.viewModel.restaurant.review ?? 0) Reviews"
+                this.ratingLabel.text = "\(this.viewModel.restaurant.rating ?? "0")"
+            case .failure(let error):
+                this.alert(error: error)
+            }
+        }
+    }
 }
-extension ReviewsViewController: UITableViewDataSource {
+extension ReviewsViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return viewModel.numberOfRowsInSection()
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "cellReview", for: indexPath) as? ReviewCell else { return UITableViewCell() }
+        cell.viewModel = viewModel.viewModelForCellAt(indexPath: indexPath)
         return cell
     }
 }
