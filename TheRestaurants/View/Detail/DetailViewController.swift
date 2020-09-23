@@ -43,5 +43,6 @@ class DetailViewController: UIViewController {
         addChild(pageController)
         contentView.addSubview(self.pageController.view)
         pageController.didMove(toParent: self)
+        navigationController?.isNavigationBarHidden = true
     }
 }

@@ -24,6 +24,8 @@ class Restaurant: Mappable {
     var url: String?
     var highlights: [String]?
     var review: Int?
+    var latitude: String?
+    var longitude: String?
 
     var favorite: Bool = false
     required convenience init?(map: Map) {
@@ -49,5 +51,7 @@ class Restaurant: Mappable {
         rating = userRating["aggregate_rating"] as? String
         votes = userRating["votes"] as? Int
         onlineDelivery <- map["has_online_delivery"]
+        latitude = location["latitude"] as? String
+        longitude = location["longitude"] as? String
     }
 }

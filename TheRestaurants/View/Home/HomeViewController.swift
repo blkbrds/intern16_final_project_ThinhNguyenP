@@ -108,9 +108,6 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let viewController = DetailViewController()
         viewController.viewModel = viewModel.didSelectRowAt(indexPath: indexPath)
-//        let item = viewModel.restaurants[indexPath.row].id
-        
-//        viewController.viewModel = DetailViewModel(id: item)
         viewController.hidesBottomBarWhenPushed = true
         navigationController?.pushViewController(viewController, animated: true)
     }

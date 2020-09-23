@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import MapKit
 
 class MapDetailViewModel {
     var restaurant: Restaurant
@@ -14,4 +15,10 @@ class MapDetailViewModel {
     init(restaurant: Restaurant) {
         self.restaurant = restaurant
     }
+    func loadLocation() {
+        
+    }
+    
+    
+   
 }
