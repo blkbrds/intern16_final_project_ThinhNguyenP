@@ -10,8 +10,8 @@ import UIKit
 
 class SearchViewController: BaseViewController {
 
-    @IBOutlet private weak var listHistoriedSerch: UITableView!
-    @IBOutlet private weak var listResultSearch: UITableView!
+    @IBOutlet private weak var searchHistoryTableView: UITableView!
+    @IBOutlet private weak var resultTableView: UITableView!
 
     var viewModel = SearchViewModel()
 
@@ -23,11 +23,11 @@ class SearchViewController: BaseViewController {
     }
 
     private func addRealm(searchKey: String) {
-        viewModel.addRealm(searchKey: searchKey) {  [weak self] (result) in
+        viewModel.saveKeyToRealm(searchKey: searchKey) {  [weak self] (result) in
             guard let this = self else { return }
             switch result {
             case.success:
-                this.fetchData()
+                this.searchHistoryTableView.reloadData()
             case.failure(let error):
                 this.alert(error: error)
             }
@@ -36,23 +36,25 @@ class SearchViewController: BaseViewController {
 
     func configTableView() {
         let searchResult = UINib(nibName: "HomeCell", bundle: .main)
-        listResultSearch.register(searchResult, forCellReuseIdentifier: "searchcell")
+        resultTableView.register(searchResult, forCellReuseIdentifier: "searchcell")
         let historySearch = UINib(nibName: "HistorySearchCell", bundle: .main)
-        listHistoriedSerch.register(historySearch, forCellReuseIdentifier: "historycell")
-        listHistoriedSerch.dataSource = self
-        listHistoriedSerch.delegate = self
-        listResultSearch.dataSource = self
-        listResultSearch.delegate = self
+        searchHistoryTableView.register(historySearch, forCellReuseIdentifier: "historycell")
+        searchHistoryTableView.dataSource = self
+        searchHistoryTableView.delegate = self
+        resultTableView.dataSource = self
+        resultTableView.delegate = self
     }
 
     func loadCell(keyword: String) {
+        searchHistoryTableView.isHidden = true
+        resultTableView.isHidden = false
         Indicator.start()
         viewModel.getResult(keywork: keyword) { [weak self ](result) in
             Indicator.stop()
             guard let this = self else { return }
             switch result {
             case.success:
-                this.listResultSearch.reloadData()
+                this.resultTableView.reloadData()
             case.failure(let error):
                 this.alert(error: error)
             }
@@ -75,11 +77,11 @@ class SearchViewController: BaseViewController {
     }
 
     func fetchData() {
-        viewModel.fetchData { [weak self ](result) in
+        viewModel.fetchSearchHistoryData { [weak self ](result) in
             guard let this = self else { return }
             switch result {
             case.success:
-                this.listHistoriedSerch.reloadData()
+                this.searchHistoryTableView.reloadData()
             case .failure(let error):
                 this.alert(error: error)
             }
@@ -92,29 +94,29 @@ class SearchViewController: BaseViewController {
 }
 extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if tableView == listHistoriedSerch {
+        if tableView == searchHistoryTableView {
             return viewModel.numberOfRowInSectionHistoried()
         }
         return viewModel.numberOfRowInSectionResult()
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if tableView == listHistoriedSerch {
+        if tableView == searchHistoryTableView {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "historycell", for: indexPath) as? HistorySearchCell else {
                 return UITableViewCell()
             }
-            cell.viewModel = viewModel.viewModelForCellHistoried(at: indexPath)
+            cell.viewModel = viewModel.viewModelForHistoryCell(at: indexPath)
             return cell
         }
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "searchcell", for: indexPath) as? HomeCell else {
             return UITableViewCell()
         }
-        cell.viewModel = viewModel.viewModelForCellResult(indexPath: indexPath)
+        cell.viewModel = viewModel.viewModelForResultCell(indexPath: indexPath)
         return cell
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if tableView == listResultSearch {
+        if tableView == resultTableView {
             let viewController = DetailViewController()
             viewController.viewModel = viewModel.didSelectRowAt(indexPath: indexPath)
             viewController.hidesBottomBarWhenPushed = true
@@ -122,8 +124,6 @@ extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
         } else {
             let keywork = viewModel.histories[indexPath.row].searchKey
             loadCell(keyword: keywork)
-            listResultSearch.isHidden = false
-            listHistoriedSerch.isHidden = true
         }
     }
 }
@@ -137,17 +137,17 @@ extension SearchViewController: UISearchBarDelegate {
     }
 
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-        listHistoriedSerch.isHidden = false
-        listResultSearch.isHidden = true
+        searchHistoryTableView.isHidden = false
+        resultTableView.isHidden = true
         fetchData()
     }
 
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-        listHistoriedSerch.isHidden = true
-        listResultSearch.isHidden = false
+        searchHistoryTableView.isHidden = true
+        resultTableView.isHidden = false
     }
 
-    func searchBarShouldEndEditing(_ searchBar: UISearchBar) -> Bool {
-        return true
-    }
+//    func searchBarShouldEndEditing(_ searchBar: UISearchBar) -> Bool {
+//        return true
+//    }
 }

@@ -16,9 +16,7 @@ enum Search {
 
 class SearchViewModel {
     var results: [Restaurant] = []
-    var search: [Search] = [.resultSearch, .historySearch]
     var histories: [SearchHistory] = []
-    private var notificationToken: NotificationToken?
 
     func numberOfRowInSectionResult() -> Int {
         return results.count
@@ -42,30 +40,30 @@ class SearchViewModel {
         }
     }
 
-    func viewModelForCellHistoried(at indexPath: IndexPath) -> HistorySearchCellModel {
+    func viewModelForHistoryCell(at indexPath: IndexPath) -> HistorySearchCellModel {
         let item = histories[indexPath.row]
         let viewModel = HistorySearchCellModel(searchHistory: item)
         return viewModel
     }
 
-    func viewModelForCellResult(indexPath: IndexPath) -> HomeCellModel {
+    func viewModelForResultCell(indexPath: IndexPath) -> HomeCellModel {
         let item = results[indexPath.row]
         let viewModel = HomeCellModel(cellsRestaurant: item)
         return viewModel
     }
 
-    func fetchData(completion: @escaping APICompletion) {
+    func fetchSearchHistoryData(completion: @escaping APICompletion) {
         do {
             let realm = try Realm()
             let results = realm.objects(SearchHistory.self)
             histories = Array((results).reversed().prefix(7))
             completion(.success)
         } catch {
-            print(error)
+            completion(.failure(error))
         }
     }
 
-    func addRealm(searchKey: String, completion: @escaping APICompletion) {
+    func saveKeyToRealm(searchKey: String, completion: @escaping APICompletion) {
         do {
             let realm = try Realm()
             let result = SearchHistory()

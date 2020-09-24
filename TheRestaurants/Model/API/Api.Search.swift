@@ -52,9 +52,9 @@ extension Api.Search {
                     }
                     var results: [Restaurant] = []
                     for item in restaurants {
-                        guard let restaurant = item["restaurant"] as? JSObject,
-                        let restaurant2 = Mapper<Restaurant>().map(JSONObject: restaurant) else { return }
-                        results.append(restaurant2)
+                        guard let json = item["restaurant"] as? JSObject,
+                        let restaurant = Mapper<Restaurant>().map(JSONObject: json) else { return }
+                        results.append(restaurant)
                     }
                     completion(.success(results))
                 case .failure(let error ):
