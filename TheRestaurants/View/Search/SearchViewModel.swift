@@ -28,7 +28,7 @@ class SearchViewModel {
 
     func getResult(keywork: String, completion: @escaping APICompletion) {
         let param = Api.Search.SearchParam(value: keywork)
-        Api.Search.searchResult(param: param) { [weak self ](result) in
+        Api.Search.searchRestaurants(param: param) { [weak self ](result) in
             guard let this = self else { return }
             switch result {
             case .success(let results):

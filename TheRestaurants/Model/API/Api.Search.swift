@@ -40,7 +40,7 @@ extension Api.Search {
         }
     }
 
-    static func searchResult(param: SearchParam, completion: @escaping Completion<[Restaurant]>) {
+    static func searchRestaurants(param: SearchParam, completion: @escaping Completion<[Restaurant]>) {
         let path = Api.Path.Search().urlStringListCell
         api.request(method: .get, urlString: path, parameters: param.toJSON()) { (result) in
             DispatchQueue.main.async {

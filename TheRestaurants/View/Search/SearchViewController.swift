@@ -19,7 +19,7 @@ class SearchViewController: BaseViewController {
         super.viewDidLoad()
         setUpSearchBar()
         configTableView()
-        fetchData()
+        fetchSearchHistoryData()
     }
 
     private func saveKeyToRealm(searchKey: String) {
@@ -45,7 +45,7 @@ class SearchViewController: BaseViewController {
         resultTableView.delegate = self
     }
 
-    func loadCell(keyword: String) {
+    func searchRestaurants(keyword: String) {
         searchHistoryTableView.isHidden = true
         resultTableView.isHidden = false
         Indicator.start()
@@ -76,7 +76,7 @@ class SearchViewController: BaseViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: searchBar)
     }
 
-    func fetchData() {
+    func fetchSearchHistoryData() {
         viewModel.fetchSearchHistoryData { [weak self ](result) in
             guard let this = self else { return }
             switch result {
@@ -123,7 +123,7 @@ extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
             navigationController?.pushViewController(viewController, animated: true)
         } else {
             let keywork = viewModel.histories[indexPath.row].searchKey
-            loadCell(keyword: keywork)
+            searchRestaurants(keyword: keywork)
         }
     }
 }
@@ -131,15 +131,15 @@ extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
 extension SearchViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let value = searchBar.text else { return }
-        loadCell(keyword: value)
         saveKeyToRealm(searchKey: value)
+        searchRestaurants(keyword: value)
         searchBar.endEditing(true)
     }
 
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         searchHistoryTableView.isHidden = false
         resultTableView.isHidden = true
-        fetchData()
+        fetchSearchHistoryData()
     }
 
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
