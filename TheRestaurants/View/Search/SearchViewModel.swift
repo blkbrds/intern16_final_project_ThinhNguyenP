@@ -54,31 +54,18 @@ class SearchViewModel {
         return viewModel
     }
 
-    func numberOfRowsInSection(section: Int) -> Int {
-        guard section < search.count else { return 1 }
-        switch search[section] {
-        case .historySearch:
-            return histories.count
-        case .resultSearch:
-            return results.count
-        }
-    }
-
     func fetchData(completion: @escaping APICompletion) {
         do {
             let realm = try Realm()
             let results = realm.objects(SearchHistory.self)
-//            histories = Array(results)
-            results.reversed()
-            histories = Array(results.prefix(5))
-//            histories.reverse()
-            print("DEBUG - Histories", histories.map({ $0.searchKey }))
+            histories = Array((results).reversed().prefix(7))
+            completion(.success)
         } catch {
             print(error)
         }
     }
 
-    func addRealm(searchKey: String, completion: @escaping (Bool) -> Void) {
+    func addRealm(searchKey: String, completion: @escaping APICompletion) {
         do {
             let realm = try Realm()
             let result = SearchHistory()
@@ -86,11 +73,12 @@ class SearchViewModel {
             try realm.write {
                 realm.add(result)
             }
-            completion(true)
+            completion(.success)
         } catch {
-            completion(false)
+            completion(.failure(error))
         }
     }
+
     func didSelectRowAt(indexPath: IndexPath) -> DetailViewModel {
         let item = results[indexPath.row]
         let viewModel = DetailViewModel(restaurant: item)

@@ -23,11 +23,13 @@ class SearchViewController: BaseViewController {
     }
 
     private func addRealm(searchKey: String) {
-        viewModel.addRealm(searchKey: searchKey) { (done) in
-            if done {
-                self.fetchData()
-            } else {
-                print("")
+        viewModel.addRealm(searchKey: searchKey) {  [weak self] (result) in
+            guard let this = self else { return }
+            switch result {
+            case.success:
+                this.fetchData()
+            case.failure(let error):
+                this.alert(error: error)
             }
         }
     }
@@ -43,9 +45,9 @@ class SearchViewController: BaseViewController {
         listResultSearch.delegate = self
     }
 
-    func loadCell(keywork: String) {
+    func loadCell(keyword: String) {
         Indicator.start()
-        viewModel.getResult(keywork: keywork) { [weak self ](result) in
+        viewModel.getResult(keywork: keyword) { [weak self ](result) in
             Indicator.stop()
             guard let this = self else { return }
             switch result {
@@ -119,8 +121,9 @@ extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
             navigationController?.pushViewController(viewController, animated: true)
         } else {
             let keywork = viewModel.histories[indexPath.row].searchKey
-            loadCell(keywork: keywork)
-//           getResultSearchByName(keywork: keywork)
+            loadCell(keyword: keywork)
+            listResultSearch.isHidden = false
+            listHistoriedSerch.isHidden = true
         }
     }
 }
@@ -128,7 +131,7 @@ extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
 extension SearchViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let value = searchBar.text else { return }
-        loadCell(keywork: value)
+        loadCell(keyword: value)
         addRealm(searchKey: value)
         searchBar.endEditing(true)
     }
