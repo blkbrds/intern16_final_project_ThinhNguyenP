@@ -12,6 +12,9 @@ class SearchViewController: BaseViewController {
 
     @IBOutlet private weak var listHistoriedSerch: UITableView!
     @IBOutlet private weak var listResultSearch: UITableView!
+
+    var viewModel = SearchViewModel()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpSearchBar()
@@ -29,15 +32,15 @@ class SearchViewController: BaseViewController {
         }
     }
 
-    var viewModel = SearchViewModel()
-    
     func configTableView() {
         let searchResult = UINib(nibName: "HomeCell", bundle: .main)
         listResultSearch.register(searchResult, forCellReuseIdentifier: "searchcell")
         let historySearch = UINib(nibName: "HistorySearchCell", bundle: .main)
         listHistoriedSerch.register(historySearch, forCellReuseIdentifier: "historycell")
         listHistoriedSerch.dataSource = self
+        listHistoriedSerch.delegate = self
         listResultSearch.dataSource = self
+        listResultSearch.delegate = self
     }
 
     func loadCell(keywork: String) {
@@ -60,7 +63,6 @@ class SearchViewController: BaseViewController {
             textfield.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
             textfield.placeholder = "Tìm kiếm địa điểm "
             textfield.attributedPlaceholder = NSAttributedString(string: textfield.placeholder ?? "", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
-            
             if let leftView = textfield.leftView as? UIImageView {
                 leftView.image = leftView.image?.withRenderingMode(.alwaysTemplate)
                 leftView.tintColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0.5125578704)
@@ -81,8 +83,12 @@ class SearchViewController: BaseViewController {
             }
         }
     }
+
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+    }
 }
-extension SearchViewController: UITableViewDataSource {
+extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if tableView == listHistoriedSerch {
             return viewModel.numberOfRowInSectionHistoried()
@@ -91,14 +97,31 @@ extension SearchViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if tableView == listResultSearch {
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "historycell", for: indexPath) as? HistorySearchCell else { return UITableViewCell()}
+        if tableView == listHistoriedSerch {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "historycell", for: indexPath) as? HistorySearchCell else {
+                return UITableViewCell()
+            }
             cell.viewModel = viewModel.viewModelForCellHistoried(at: indexPath)
             return cell
         }
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "searchcell", for: indexPath) as? HomeCell else { return UITableViewCell() }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "searchcell", for: indexPath) as? HomeCell else {
+            return UITableViewCell()
+        }
         cell.viewModel = viewModel.viewModelForCellResult(indexPath: indexPath)
         return cell
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if tableView == listResultSearch {
+            let viewController = DetailViewController()
+            viewController.viewModel = viewModel.didSelectRowAt(indexPath: indexPath)
+            viewController.hidesBottomBarWhenPushed = true
+            navigationController?.pushViewController(viewController, animated: true)
+        } else {
+            let keywork = viewModel.histories[indexPath.row].searchKey
+            loadCell(keywork: keywork)
+//           getResultSearchByName(keywork: keywork)
+        }
     }
 }
 
@@ -107,18 +130,21 @@ extension SearchViewController: UISearchBarDelegate {
         guard let value = searchBar.text else { return }
         loadCell(keywork: value)
         addRealm(searchKey: value)
+        searchBar.endEditing(true)
     }
 
-    func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
-
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         listHistoriedSerch.isHidden = false
         listResultSearch.isHidden = true
         fetchData()
-        return true
+    }
+
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        listHistoriedSerch.isHidden = true
+        listResultSearch.isHidden = false
     }
 
     func searchBarShouldEndEditing(_ searchBar: UISearchBar) -> Bool {
-        listHistoriedSerch.isHidden = true
         return true
     }
 }

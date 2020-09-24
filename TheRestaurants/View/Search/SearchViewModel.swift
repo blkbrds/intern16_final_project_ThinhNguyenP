@@ -17,8 +17,7 @@ enum Search {
 class SearchViewModel {
     var results: [Restaurant] = []
     var search: [Search] = [.resultSearch, .historySearch]
-    var history: [SearchHistory] = []
-    var realmResult: [SearchHistory] = []
+    var histories: [SearchHistory] = []
     private var notificationToken: NotificationToken?
 
     func numberOfRowInSectionResult() -> Int {
@@ -26,7 +25,7 @@ class SearchViewModel {
     }
 
     func numberOfRowInSectionHistoried() -> Int {
-        return history.count
+        return histories.count
     }
 
     func getResult(keywork: String, completion: @escaping APICompletion) {
@@ -44,7 +43,7 @@ class SearchViewModel {
     }
 
     func viewModelForCellHistoried(at indexPath: IndexPath) -> HistorySearchCellModel {
-        let item = history[indexPath.row]
+        let item = histories[indexPath.row]
         let viewModel = HistorySearchCellModel(searchHistory: item)
         return viewModel
     }
@@ -59,7 +58,7 @@ class SearchViewModel {
         guard section < search.count else { return 1 }
         switch search[section] {
         case .historySearch:
-            return history.count
+            return histories.count
         case .resultSearch:
             return results.count
         }
@@ -69,7 +68,11 @@ class SearchViewModel {
         do {
             let realm = try Realm()
             let results = realm.objects(SearchHistory.self)
-            history = Array(results)
+//            histories = Array(results)
+            results.reversed()
+            histories = Array(results.prefix(5))
+//            histories.reverse()
+            print("DEBUG - Histories", histories.map({ $0.searchKey }))
         } catch {
             print(error)
         }
@@ -87,5 +90,10 @@ class SearchViewModel {
         } catch {
             completion(false)
         }
+    }
+    func didSelectRowAt(indexPath: IndexPath) -> DetailViewModel {
+        let item = results[indexPath.row]
+        let viewModel = DetailViewModel(restaurant: item)
+        return viewModel
     }
 }
