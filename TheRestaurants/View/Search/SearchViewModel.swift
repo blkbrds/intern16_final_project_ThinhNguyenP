@@ -56,7 +56,7 @@ class SearchViewModel {
         do {
             let realm = try Realm()
             let results = realm.objects(SearchHistory.self)
-            histories = Array((results).reversed().prefix(7))
+            histories = Array((results).reversed())
             completion(.success)
         } catch {
             completion(.failure(error))

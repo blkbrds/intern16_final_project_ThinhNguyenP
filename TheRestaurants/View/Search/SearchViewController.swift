@@ -22,7 +22,7 @@ class SearchViewController: BaseViewController {
         fetchData()
     }
 
-    private func addRealm(searchKey: String) {
+    private func saveKeyToRealm(searchKey: String) {
         viewModel.saveKeyToRealm(searchKey: searchKey) {  [weak self] (result) in
             guard let this = self else { return }
             switch result {
@@ -132,7 +132,7 @@ extension SearchViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let value = searchBar.text else { return }
         loadCell(keyword: value)
-        addRealm(searchKey: value)
+        saveKeyToRealm(searchKey: value)
         searchBar.endEditing(true)
     }
 
