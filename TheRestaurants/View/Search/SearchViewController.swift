@@ -101,21 +101,11 @@ extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-<<<<<<< HEAD
-        switch viewModel.search[indexPath.row] {
-        case .historySearch:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "historycell", for: indexPath) as? HistorySearchCell else { return UITableViewCell()}
-            cell.viewModel = viewModel.viewModelForCell(at: indexPath)
-            return cell
-        case .resultSearch:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "searchcell", for: indexPath) as? HomeCell else { return UITableViewCell() }
-=======
         if tableView == searchHistoryTableView {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "historycell", for: indexPath) as? HistorySearchCell else {
                 return UITableViewCell()
             }
             cell.viewModel = viewModel.viewModelForHistoryCell(at: indexPath)
->>>>>>> master
             return cell
         }
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "searchcell", for: indexPath) as? HomeCell else {
