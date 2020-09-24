@@ -81,6 +81,10 @@ class HomeCell: UITableViewCell {
         cuisineStackView.addArrangedSubview(stackView)
         return -1
     }
+    
+    @IBAction func favoriteButtonTouchUpInside(_ sender: Any) {
+        print("123")
+    }
 }
 
 extension HomeCell {

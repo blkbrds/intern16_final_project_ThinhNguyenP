@@ -19,4 +19,6 @@ class FavoriteViewModel {
         let viewModel = FavoriteCellModel(restaurant: item)
         return viewModel
     }
+
+    
 }
