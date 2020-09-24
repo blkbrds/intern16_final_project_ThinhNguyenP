@@ -146,8 +146,4 @@ extension SearchViewController: UISearchBarDelegate {
         searchHistoryTableView.isHidden = true
         resultTableView.isHidden = false
     }
-
-//    func searchBarShouldEndEditing(_ searchBar: UISearchBar) -> Bool {
-//        return true
-//    }
 }
