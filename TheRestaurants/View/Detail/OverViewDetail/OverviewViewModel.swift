@@ -17,7 +17,7 @@ class OverviewViewModel {
 
     func loadData(completion: @escaping APICompletion) {
         let param = Api.Restaurant.RestaurantParam(id: id )
-        Api.Restaurant.detaiRestaurant(param: param) { [weak self ](result) in
+        Api.Restaurant.getRestaurantDetail(param: param) { [weak self ](result) in
             guard let this = self else { return }
             switch result {
             case .success(let restaurant):

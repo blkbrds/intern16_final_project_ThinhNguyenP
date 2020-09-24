@@ -20,20 +20,17 @@ extension Api.Restaurant {
         }
     }
 
-    static func detaiRestaurant(param: RestaurantParam, completion: @escaping Completion <Restaurant>) {
+    static func getRestaurantDetail(param: RestaurantParam, completion: @escaping Completion <Restaurant>) {
         let path = Api.Path.Search().urlStringRestaurant
         api.request(method: .get, urlString: path, parameters: param.toJSON()) { (result) in
             DispatchQueue.main.async {
                 switch result {
                 case .success(let value):
-                    guard let value = value as? JSObject else {
+                    guard let value = value as? JSObject, let valueData = Mapper<Restaurant>().map(JSONObject: value) else {
                         completion(.failure(Api.Error.json))
                         return
                     }
-                    var results: Restaurant
-                    guard let valueData = Mapper<Restaurant>().map(JSONObject: value) else { return }
-                    results = valueData
-                    completion(.success(results))
+                    completion(.success(valueData))
                 case .failure(let error):
                     completion(.failure(error))
                 }

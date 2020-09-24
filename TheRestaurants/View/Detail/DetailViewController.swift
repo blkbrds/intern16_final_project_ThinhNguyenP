@@ -18,11 +18,8 @@ class DetailViewController: UIViewController {
     private var viewControllers: [UIViewController] = []
     private var lineView: UIView!
 
-    var viewModel: DetailViewModel!
-    var overView = OverviewViewController()
+    var viewModel: DetailViewModel?
     var menuView = MenuViewController()
-    var review = ReviewsViewController()
-
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.isNavigationBarHidden = true
@@ -39,9 +36,12 @@ class DetailViewController: UIViewController {
     }
 
     private func setUpPageView() {
-        guard let id = viewModel?.id else { return }
+        guard let id = viewModel?.restaurant.id, let restaurant = viewModel?.restaurant else { return }
+        let overView = OverviewViewController()
+        let review = ReviewsViewController()
         overView.viewModel = OverviewViewModel(id: id)
-        viewControllers = [overView, MenuViewController(), ReviewsViewController()]
+        review.viewModel = ReviewViewModel(restaurant: restaurant)
+        viewControllers = [overView, MenuViewController(), review]
         pageController = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
         pageController.view.frame = CGRect(x: 0, y: 0, width: contentView.frame.width, height: contentView.frame.height)
         pageController.setViewControllers([viewControllers[0]], direction: .forward, animated: false, completion: nil)
@@ -64,13 +64,13 @@ class DetailViewController: UIViewController {
            view.bringSubviewToFront(lineView)
        }
 
-       private func configLineViewWithAnimation(selectedButtonTag: Int) {
+    private func configLineViewWithAnimation(selectedButtonTag: Int) {
            UIView.animate(withDuration: 0.5) {
                let newX: CGFloat = self.tabButtonsView.frame.width / 3 * CGFloat(selectedButtonTag)
                self.lineView.frame = CGRect(x: newX,
                                             y: self.lineView.frame.minY,
                                             width: self.lineView.frame.width,
                                             height: self.lineView.frame.height)
-           }
-       }
+        }
+    }
 }

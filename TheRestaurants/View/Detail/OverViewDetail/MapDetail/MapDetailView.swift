@@ -10,7 +10,7 @@ import UIKit
 import MapKit
 
 class MapDetailView: UIView {
-    
+
     @IBOutlet private var containerView: UIView!
     @IBOutlet private weak var ratingLabel: UILabel!
     @IBOutlet private weak var reviewLabel: UILabel!
@@ -57,7 +57,7 @@ class MapDetailView: UIView {
     }
 
     private func addAnnotation() {
-        guard let viewModel = viewModel, let latitude = viewModel.restaurant.latitudeDouble, let longitude = viewModel.restaurant.longitudeDouble else { return }
+        guard let viewModel = viewModel, let latitude = viewModel.restaurant.latitude, let longitude = viewModel.restaurant.longitude else { return }
         let annotation = MKPointAnnotation()
         annotation.coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
         mapView.addAnnotation(annotation)
