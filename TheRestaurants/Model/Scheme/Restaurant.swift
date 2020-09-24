@@ -24,9 +24,7 @@ class Restaurant: Mappable {
     var url: String?
     var highlights: [String]?
     var review: Int?
-//    var latitude: String?
     var latitude: Double?
-//    var longitude: String?
     var longitude: Double?
     var favorite: Bool = false
     required convenience init?(map: Map) {

@@ -15,7 +15,7 @@ class InformationDetailViewModel {
         self.restaurant = restaurant
     }
     var openingTime: String {
-        guard let cuisine = restaurant.timings else { return ""}
-        return cuisine.replacingOccurrences(of: ",", with: "")
+        guard let timing = restaurant.timings else { return ""}
+        return timing.replacingOccurrences(of: ",", with: "")
     }
 }

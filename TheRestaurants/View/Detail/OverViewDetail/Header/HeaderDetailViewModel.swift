@@ -10,14 +10,9 @@ import Foundation
 
 class HeaderDetailViewModel {
     var restaurant: Restaurant
-    var viewModel: OverviewViewModel?
-
-    init(restaurant: Restaurant) {
+    var cuisine: String
+    init(restaurant: Restaurant, cuisine: String = "") {
         self.restaurant = restaurant
-    }
-
-    var cuisine: String {
-    guard let cuisine = restaurant.cuisines else { return ""}
-        return cuisine.replacingOccurrences(of: ",", with: " |")
+        self.cuisine = cuisine.replacingOccurrences(of: ",", with: " |")
     }
 }

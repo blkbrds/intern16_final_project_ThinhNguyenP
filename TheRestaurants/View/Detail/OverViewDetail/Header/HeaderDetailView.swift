@@ -11,7 +11,7 @@ import UIKit
 class HeaderDetailView: UIView {
 
     @IBOutlet private var containerView: UIView!
-    @IBOutlet private weak var imageRestaurant: UIImageView!
+    @IBOutlet private weak var restaurantImageView: UIImageView!
     @IBOutlet private weak var backButton: UIButton!
     @IBOutlet private weak var favoriteButton: UIButton!
     @IBOutlet private weak var nameRestaurantLabel: UILabel!
@@ -43,7 +43,7 @@ class HeaderDetailView: UIView {
         guard let viewModel = viewModel else { return }
         nameRestaurantLabel.text = viewModel.restaurant.name
         cuisineLabel.text = viewModel.cuisine
-        imageRestaurant.setImage(url: viewModel.restaurant.imageURL, placeholderImage: #imageLiteral(resourceName: "ic-home-no-image"))
+        restaurantImageView.setImage(url: viewModel.restaurant.imageURL, placeholderImage: #imageLiteral(resourceName: "ic-home-no-image"))
     }
 
     @IBAction func favoriteButtonTouchUpInside(_ sender: Any) {

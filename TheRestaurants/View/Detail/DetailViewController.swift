@@ -36,12 +36,14 @@ class DetailViewController: UIViewController {
     }
 
     private func setUpPageView() {
-        guard let id = viewModel?.restaurant.id, let restaurant = viewModel?.restaurant else { return }
+        guard let restaurant = viewModel?.restaurant else { return }
         let overView = OverviewViewController()
         let review = ReviewsViewController()
-        overView.viewModel = OverviewViewModel(id: id)
+        let menu = MenuViewController()
+        menu.viewModel = MenuViewModel(restaurant: restaurant)
+        overView.viewModel = OverviewViewModel(restaurant: restaurant)
         review.viewModel = ReviewViewModel(restaurant: restaurant)
-        viewControllers = [overView, MenuViewController(), review]
+        viewControllers = [overView, menu, review]
         pageController = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
         pageController.view.frame = CGRect(x: 0, y: 0, width: contentView.frame.width, height: contentView.frame.height)
         pageController.setViewControllers([viewControllers[0]], direction: .forward, animated: false, completion: nil)
@@ -52,25 +54,25 @@ class DetailViewController: UIViewController {
     }
 
     private func configLineView() {
-           let frame = CGRect(x: 0,
-                              y: tabButtonsView.frame.minY,
-                              width: tabButtonsView.frame.width / 3,
-                              height: 3)
-           let lineView = UIView(frame: frame)
-           lineView.backgroundColor = #colorLiteral(red: 0, green: 0.3764705882, blue: 0.3921568627, alpha: 1)
-           self.lineView = lineView
+        let frame = CGRect(x: 0,
+                            y: tabButtonsView.frame.minY,
+                            width: tabButtonsView.frame.width / 3,
+                            height: 3)
+        let lineView = UIView(frame: frame)
+        lineView.backgroundColor = #colorLiteral(red: 0, green: 0.3764705882, blue: 0.3921568627, alpha: 1)
+        self.lineView = lineView
 
-           view.addSubview(lineView)
-           view.bringSubviewToFront(lineView)
-       }
+        view.addSubview(lineView)
+        view.bringSubviewToFront(lineView)
+    }
 
     private func configLineViewWithAnimation(selectedButtonTag: Int) {
-           UIView.animate(withDuration: 0.5) {
-               let newX: CGFloat = self.tabButtonsView.frame.width / 3 * CGFloat(selectedButtonTag)
-               self.lineView.frame = CGRect(x: newX,
-                                            y: self.lineView.frame.minY,
-                                            width: self.lineView.frame.width,
-                                            height: self.lineView.frame.height)
+        UIView.animate(withDuration: 0.5) {
+            let newX: CGFloat = self.tabButtonsView.frame.width / 3 * CGFloat(selectedButtonTag)
+            self.lineView.frame = CGRect(x: newX,
+                                         y: self.lineView.frame.minY,
+                                         width: self.lineView.frame.width,
+                                         height: self.lineView.frame.height)
         }
     }
 }

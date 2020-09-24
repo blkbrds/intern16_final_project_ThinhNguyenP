@@ -9,14 +9,13 @@
 import Foundation
 
 class OverviewViewModel {
-    var id: String = ""
-    var restaurant = Restaurant()
-    init(id: String = "") {
-        self.id = id
+    var restaurant: Restaurant
+    init(restaurant: Restaurant = Restaurant()) {
+        self.restaurant = restaurant
     }
 
     func loadData(completion: @escaping APICompletion) {
-        let param = Api.Restaurant.RestaurantParam(id: id )
+        let param = Api.Restaurant.RestaurantParam(id: restaurant.id ?? "" )
         Api.Restaurant.getRestaurantDetail(param: param) { [weak self ](result) in
             guard let this = self else { return }
             switch result {

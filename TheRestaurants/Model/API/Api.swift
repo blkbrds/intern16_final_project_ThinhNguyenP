@@ -44,6 +44,10 @@ extension Api.Path {
         var urlStringRestaurant: String {
             return Search.path / "restaurant"
         }
+
+        var urlStringMenu: String {
+            return Search.path / "dailymenu"
+        }
     }
 }
 
