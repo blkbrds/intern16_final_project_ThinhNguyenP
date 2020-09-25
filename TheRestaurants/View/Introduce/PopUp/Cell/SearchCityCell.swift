@@ -26,9 +26,6 @@ class SearchCityCell: UITableViewCell {
         flagImageView.clipsToBounds = true
         cityNameLabel.text = viewModel.city.cityName
         countryNameLabel.text = viewModel.city.countryName
-        viewModel.loadImage { [weak self] (image) in
-            guard let `self` = self else { return }
-            self.flagImageView.image = image
-        }
+        flagImageView.setImage(url: viewModel.city.flagUrl, placeholderImage: #imageLiteral(resourceName: "ic-home-no-image"))
     }
 }

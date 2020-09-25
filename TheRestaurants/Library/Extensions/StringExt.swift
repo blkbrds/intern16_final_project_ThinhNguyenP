@@ -6,7 +6,7 @@
 //  Copyright © 2020 Thinh Nguyen P[6] All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 extension String {
 
@@ -21,5 +21,20 @@ extension String {
             return host
         }
         return ""
+    }
+
+    func contentWidth(font: UIFont) -> CGFloat {
+        let size = (self as NSString).size(withAttributes: [.font: font])
+        return size.width
+    }
+
+    func contentHeight(withConstrainedWidth width: CGFloat, attributes: [NSAttributedString.Key: Any]) -> CGFloat {
+        let constraintRect: CGSize = CGSize(width: width, height: .greatestFiniteMagnitude)
+        let boundingBox: CGRect = self.boundingRect(with: constraintRect, options: .usesLineFragmentOrigin, attributes: attributes, context: nil)
+        return ceil(boundingBox.height)
+    }
+
+    var trimmed: String {
+        return trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
     }
 }

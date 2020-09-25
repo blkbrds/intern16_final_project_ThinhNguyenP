@@ -14,9 +14,10 @@ class BaseViewController: UIViewController {
         super.viewDidLoad()
         customNavigation()
     }
-    
+
     func customNavigation() {
-        UINavigationBar.appearance().barTintColor = #colorLiteral(red: 0, green: 0.5137254902, blue: 0.5607843137, alpha: 1)
-        UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        navigationController?.navigationBar.isTranslucent = false
+        navigationController?.navigationBar.barTintColor = #colorLiteral(red: 0, green: 0.448466301, blue: 0.4682235122, alpha: 1)
+        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
     }
 }

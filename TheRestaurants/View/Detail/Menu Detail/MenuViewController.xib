@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MenuViewController" customModule="TheRestaurants" customModuleProvider="target">
+            <connections>
+                <outlet property="headerView" destination="G9e-IN-Qlg" id="vHf-8J-80G"/>
+                <outlet property="notificationView" destination="wql-eb-Mtd" id="HrY-Uo-Xin"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G9e-IN-Qlg">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="166"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="166" id="7nE-Db-iay"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wql-eb-Mtd">
+                    <rect key="frame" x="0.0" y="166" width="414" height="696"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic-introduce" translatesAutoresizingMaskIntoConstraints="NO" id="qqJ-FA-stH">
+                            <rect key="frame" x="163" y="120" width="88" height="91"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="88" id="I6q-FD-5cp"/>
+                                <constraint firstAttribute="height" constant="91" id="Zix-2C-nNG"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No menu available for this restaurant at the moment. Please check again in some time." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9sr-5Y-4eT">
+                            <rect key="frame" x="48" y="226" width="318" height="31.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                            <color key="textColor" red="0.52549019607843139" green="0.52549019607843139" blue="0.52549019607843139" alpha="0.84705882352941175" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <constraints>
+                        <constraint firstItem="qqJ-FA-stH" firstAttribute="top" secondItem="wql-eb-Mtd" secondAttribute="top" constant="120" id="1sm-JN-rwI"/>
+                        <constraint firstItem="9sr-5Y-4eT" firstAttribute="top" secondItem="qqJ-FA-stH" secondAttribute="bottom" constant="15" id="S8b-2s-tOi"/>
+                        <constraint firstItem="9sr-5Y-4eT" firstAttribute="centerX" secondItem="wql-eb-Mtd" secondAttribute="centerX" id="VNR-yS-IDh"/>
+                        <constraint firstItem="qqJ-FA-stH" firstAttribute="centerX" secondItem="wql-eb-Mtd" secondAttribute="centerX" id="Vpm-9H-hzp"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="G9e-IN-Qlg" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="3O3-aj-ZtX"/>
+                <constraint firstItem="G9e-IN-Qlg" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="ABq-p4-4Mq"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="wql-eb-Mtd" secondAttribute="bottom" id="RbW-Au-cJl"/>
+                <constraint firstItem="G9e-IN-Qlg" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="SQt-az-asq"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="wql-eb-Mtd" secondAttribute="trailing" id="vcU-vR-SRl"/>
+                <constraint firstItem="wql-eb-Mtd" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="xq9-Th-gVF"/>
+                <constraint firstItem="wql-eb-Mtd" firstAttribute="top" secondItem="G9e-IN-Qlg" secondAttribute="bottom" id="zHF-Be-JbG"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="373.91304347826087" y="162.72321428571428"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="ic-introduce" width="108" height="126"/>
+    </resources>
+</document>
