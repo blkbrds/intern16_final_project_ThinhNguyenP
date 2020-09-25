@@ -16,7 +16,7 @@ class HistorySearchCell: UITableViewCell {
            didSet {
                updateView()
            }
-       }
+    }
 
     private func updateView() {
            guard let viewModel = viewModel else { return }

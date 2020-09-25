@@ -8,7 +8,14 @@
 
 import UIKit
 
+protocol HomeCellDelegate: class {
+    func cell(_ cell: HomeCell, needPerforms action: HomeCell.Action )
+}
 class HomeCell: UITableViewCell {
+
+    enum Action {
+        case favorite(isFavorite: Bool)
+    }
 
     @IBOutlet private weak var imageRestaurant: UIImageView!
     @IBOutlet private weak var nameRestaurantLabel: UILabel!
@@ -16,12 +23,15 @@ class HomeCell: UITableViewCell {
     @IBOutlet private weak var cuisineStackView: UIStackView!
     @IBOutlet private weak var addressRestaurantLabel: UILabel!
     @IBOutlet private weak var numberOfDeliveryLabel: UILabel!
-
+    @IBOutlet private weak var favoriteButton: UIButton!
+    weak var delegate: HomeCellDelegate?
+    
     var viewModel: HomeCellModel? {
         didSet {
             updateView()
         }
     }
+    
 
     private func updateView() {
         guard let viewModel = viewModel else { return }
@@ -32,6 +42,7 @@ class HomeCell: UITableViewCell {
         ratingRestautantLabel.text = viewModel.rating
         numberOfDeliveryLabel.text = "\(viewModel.onlineDelivery ?? 0) online delivery now"
         configCuisineStackView()
+        favoriteButton.isSelected = viewModel.isFavorite
     }
 
     private func configCuisineStackView() {
@@ -83,7 +94,9 @@ class HomeCell: UITableViewCell {
     }
     
     @IBAction func favoriteButtonTouchUpInside(_ sender: Any) {
-        print("123")
+        guard let delegate = delegate else { return }
+        favoriteButton.isSelected = !favoriteButton.isSelected
+        delegate.cell(self, needPerforms: .favorite(isFavorite: favoriteButton.isSelected))
     }
 }
 

@@ -15,6 +15,7 @@ class HeaderDetailView: UIView {
     @IBOutlet private weak var favoriteButton: UIButton!
     @IBOutlet private weak var nameRestaurantLabel: UILabel!
     @IBOutlet private weak var cuisineLabel: UILabel!
+    
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -30,5 +31,9 @@ class HeaderDetailView: UIView {
         let nib = UINib(nibName: "HeaderDetailView", bundle: .main)
         nib.instantiate(withOwner: self, options: nil)
         addSubview(containerView)
+    }
+    
+    @IBAction func favoriteButtonTouchUpInside(_ sender: UIButton) {
+        sender.isSelected = !sender.isSelected
     }
 }

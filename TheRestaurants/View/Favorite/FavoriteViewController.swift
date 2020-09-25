@@ -47,3 +47,12 @@ extension FavoriteViewController: UITableViewDataSource {
         return cell
     }
 }
+//extension FavoriteViewController : FavoriteViewModelDelegate {
+//    func syncFavorite(viewModel: FavoriteViewModel, needperformAction action: FavoriteViewModel.Action) {
+//        <#code#>
+//    }
+//
+//    func viewModel(_ viewModel: FavoriteViewController, needperfomAction action: FavoriteViewModel.Action) {
+//
+//    }
+//}

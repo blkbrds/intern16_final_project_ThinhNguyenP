@@ -8,16 +8,17 @@
 
 import Foundation
 import ObjectMapper
+import RealmSwift
 
 class Restaurant: Mappable {
 
-    var address: String?
-    var name: String?
+    @objc dynamic var address: String?
+    @objc dynamic var name: String?
     var cuisines: String?
-    var imageURL: String?
-    var rating: String?
-    var onlineDelivery: Int?
-    var id: String?
+    @objc dynamic var imageURL: String?
+    @objc dynamic var rating: String?
+    @objc dynamic var onlineDelivery: Int = 0
+    @objc dynamic var id: String?
     var review: Int?
     var favorite: Bool = false
     required convenience init?(map: Map) {
@@ -40,5 +41,6 @@ class Restaurant: Mappable {
         rating = userRating["aggregate_rating"] as? String
         onlineDelivery <- map["has_online_delivery"]
         review <- map ["all_reviews_count"]
+
     }
 }
