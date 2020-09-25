@@ -43,5 +43,9 @@ class Restaurant: Mappable {
         rating = userRating["aggregate_rating"] as? String
         onlineDelivery <- map["has_online_delivery"]
         review <- map ["all_reviews_count"]
+        timings <- map["timings"]
+        phoneNumber <- map["phone_numbers"]
+        url <- map["url"]
+        highlights <- map["highlights"]
     }
 }
