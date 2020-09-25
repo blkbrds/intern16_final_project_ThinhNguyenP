@@ -35,7 +35,7 @@ class ReviewsViewController: UIViewController {
             switch result {
             case .success:
                 this.tableView.reloadData()
-                this.reviewCountLabel.text = "\(this.viewModel.restaurant.review ?? 0) Reviews"
+                this.reviewCountLabel.text = "- \(this.viewModel.restaurant.review ?? 0) Reviews"
                 this.ratingLabel.text = "\(this.viewModel.restaurant.rating ?? "0")"
             case .failure(let error):
                 this.alert(error: error)
