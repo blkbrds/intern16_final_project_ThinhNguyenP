@@ -11,11 +11,17 @@ import UIKit
 class HeaderDetailView: UIView {
 
     @IBOutlet private var containerView: UIView!
+    @IBOutlet private weak var restaurantImageView: UIImageView!
     @IBOutlet private weak var backButton: UIButton!
     @IBOutlet private weak var favoriteButton: UIButton!
     @IBOutlet private weak var nameRestaurantLabel: UILabel!
     @IBOutlet private weak var cuisineLabel: UILabel!
-    
+
+    var viewModel: HeaderDetailViewModel? {
+        didSet {
+            updateView()
+        }
+    }
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -32,8 +38,21 @@ class HeaderDetailView: UIView {
         nib.instantiate(withOwner: self, options: nil)
         addSubview(containerView)
     }
-    
+
     @IBAction func favoriteButtonTouchUpInside(_ sender: UIButton) {
         sender.isSelected = !sender.isSelected
+    }
+
+    private func updateView() {
+        guard let viewModel = viewModel else { return }
+        nameRestaurantLabel.text = viewModel.restaurant.name
+        cuisineLabel.text = viewModel.cuisine
+        let imageURL = viewModel.restaurant.imageURL?.replacingOccurrences(of: "?output-format=webp", with: "")
+        restaurantImageView.setImage(url: imageURL, placeholderImage: #imageLiteral(resourceName: "ic-home-no-image"))
+    }
+
+    @IBAction func backButtonTouchUpInside(_ sender: Any) {
+        SceneDelegate.shared.changeRoot(root: .tabbar)
+
     }
 }

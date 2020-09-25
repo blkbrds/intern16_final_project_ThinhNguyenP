@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -31,14 +31,14 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" horizontalCompressionResistancePriority="751" text="label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vgR-9f-YdG">
-                        <rect key="frame" x="7" y="103" width="84" height="20.5"/>
-                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
+                        <rect key="frame" x="7" y="103" width="84" height="21"/>
+                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j6m-ng-JIG">
-                        <rect key="frame" x="7" y="132.5" width="17" height="7.5"/>
-                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="6"/>
+                        <rect key="frame" x="7" y="129" width="23.5" height="11"/>
+                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="9"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -54,7 +54,7 @@
                 <constraint firstItem="vgR-9f-YdG" firstAttribute="top" relation="lessThanOrEqual" secondItem="gTV-IL-0wX" secondAttribute="top" constant="103" id="K1n-hD-7Mi"/>
                 <constraint firstItem="nEp-Fs-vOo" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="POE-Zj-eX8"/>
                 <constraint firstItem="eaM-J7-uMA" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="QdQ-at-Heh"/>
-                <constraint firstItem="j6m-ng-JIG" firstAttribute="top" secondItem="vgR-9f-YdG" secondAttribute="bottom" constant="9" id="Qfi-jM-931"/>
+                <constraint firstItem="j6m-ng-JIG" firstAttribute="top" secondItem="vgR-9f-YdG" secondAttribute="bottom" constant="5" id="Qfi-jM-931"/>
                 <constraint firstAttribute="trailing" secondItem="nEp-Fs-vOo" secondAttribute="trailing" id="Xzi-0M-tJd"/>
                 <constraint firstAttribute="bottom" secondItem="eaM-J7-uMA" secondAttribute="bottom" id="Zq9-o3-H0W"/>
                 <constraint firstItem="vgR-9f-YdG" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="6.8799999999999999" id="dBp-A5-TiC"/>

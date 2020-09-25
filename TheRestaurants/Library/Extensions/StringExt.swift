@@ -37,4 +37,10 @@ extension String {
     var trimmed: String {
         return trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
     }
+
+    func addLineSpacing(_ lineSpacing: CGFloat) -> NSAttributedString {
+        let paragraph = NSMutableParagraphStyle()
+        paragraph.lineSpacing = lineSpacing
+        return NSAttributedString(string: self, attributes: [.paragraphStyle: paragraph])
+    }
 }

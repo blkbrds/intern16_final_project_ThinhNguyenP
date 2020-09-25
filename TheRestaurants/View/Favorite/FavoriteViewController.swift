@@ -28,7 +28,7 @@ class FavoriteViewController: BaseViewController {
     }
 
     private func setUpNavigation() {
-        let deleteAll = UIBarButtonItem(image: UIImage(named: "ic_favorite_trash" ), style: .plain, target: self, action: #selector(deleteAllFavoriteButtonTouchUpInside))
+        let deleteAll = UIBarButtonItem(image: #imageLiteral(resourceName: "ic_favorite_trash"), style: .plain, target: self, action: #selector(deleteAllFavoriteButtonTouchUpInside))
         navigationController?.navigationBar.tintColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         navigationItem.title = "Favorite List"
         navigationItem.rightBarButtonItem = deleteAll

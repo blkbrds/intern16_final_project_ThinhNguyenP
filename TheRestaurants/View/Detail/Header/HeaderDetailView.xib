@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -10,22 +9,36 @@
             <connections>
                 <outlet property="backButton" destination="lm2-Nd-e90" id="waF-Hu-DtT"/>
                 <outlet property="containerView" destination="iN0-l3-epB" id="AYr-KS-qmy"/>
-                <outlet property="cuisineLabel" destination="0Ym-8T-U3U" id="HYn-zF-cpc"/>
+                <outlet property="cuisineLabel" destination="0Ym-8T-U3U" id="f4W-xf-jqg"/>
                 <outlet property="favoriteButton" destination="4om-8G-RD6" id="pWq-DR-Fex"/>
-                <outlet property="nameRestaurantLabel" destination="G9S-zB-TOJ" id="35D-jU-0Y1"/>
+                <outlet property="nameRestaurantLabel" destination="G9S-zB-TOJ" id="QYS-ft-juy"/>
+                <outlet property="restaurantImageView" destination="8qL-tF-2ok" id="oM0-fD-hUf"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="414" height="166"/>
+            <rect key="frame" x="0.0" y="0.0" width="420" height="166"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8qL-tF-2ok">
-                    <rect key="frame" x="0.0" y="0.0" width="414" height="166"/>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8qL-tF-2ok">
+                    <rect key="frame" x="0.0" y="0.0" width="420" height="166"/>
                 </imageView>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_home_rectange" translatesAutoresizingMaskIntoConstraints="NO" id="EBd-bQ-wq8">
-                    <rect key="frame" x="0.0" y="0.0" width="414" height="166"/>
+                    <rect key="frame" x="0.0" y="0.0" width="420" height="166"/>
                 </imageView>
+                <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4om-8G-RD6">
+                    <rect key="frame" x="386" y="34" width="18" height="18"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="18" id="Rxt-PT-sJU"/>
+                        <constraint firstAttribute="height" constant="18" id="Xvd-gc-KCu"/>
+                    </constraints>
+                    <color key="tintColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
+                    <state key="normal" image="ic_favorite_header"/>
+                    <state key="selected" image="ic_detail_favorite"/>
+                    <connections>
+                        <action selector="favoriteButtonTouchUpInside:" destination="-1" eventType="touchUpInside" id="uUL-IV-hGX"/>
+                    </connections>
+                </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lm2-Nd-e90">
                     <rect key="frame" x="16" y="36.5" width="18" height="13"/>
                     <constraints>
@@ -37,27 +50,17 @@
                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="titleShadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4om-8G-RD6">
-                    <rect key="frame" x="380" y="34" width="18" height="18"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="18" id="Rxt-PT-sJU"/>
-                        <constraint firstAttribute="height" constant="18" id="Xvd-gc-KCu"/>
-                    </constraints>
-                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <state key="normal" image="ic_tabbar_favorite"/>
-                    <state key="selected" backgroundImage="ic_detail_favorite"/>
                     <connections>
-                        <action selector="favoriteButtonTouchUpInside:" destination="-1" eventType="touchUpInside" id="QgW-eb-9qt"/>
+                        <action selector="backButtonTouchUpInside:" destination="-1" eventType="touchUpInside" id="1Lc-Aa-H9D"/>
                     </connections>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G9S-zB-TOJ">
-                    <rect key="frame" x="14" y="112" width="386" height="21"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G9S-zB-TOJ">
+                    <rect key="frame" x="14" y="111.5" width="392" height="21.5"/>
                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Ym-8T-U3U">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="0Ym-8T-U3U">
                     <rect key="frame" x="14" y="137" width="386" height="17"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -68,32 +71,32 @@
             <constraints>
                 <constraint firstItem="lm2-Nd-e90" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="34" id="3GW-8R-EdO"/>
                 <constraint firstItem="4om-8G-RD6" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="34" id="4m3-qK-GhG"/>
-                <constraint firstItem="0Ym-8T-U3U" firstAttribute="leading" secondItem="G9S-zB-TOJ" secondAttribute="leading" id="6D2-eb-WPy"/>
+                <constraint firstAttribute="bottom" secondItem="0Ym-8T-U3U" secondAttribute="bottom" constant="12" id="8Xt-FC-Nsc"/>
+                <constraint firstAttribute="trailing" secondItem="0Ym-8T-U3U" secondAttribute="trailing" constant="20" id="9bf-ny-j5l"/>
                 <constraint firstAttribute="trailing" secondItem="G9S-zB-TOJ" secondAttribute="trailing" constant="14" id="9g2-80-rK9"/>
+                <constraint firstItem="0Ym-8T-U3U" firstAttribute="top" secondItem="G9S-zB-TOJ" secondAttribute="bottom" constant="4" id="FpK-p5-pJD"/>
                 <constraint firstItem="EBd-bQ-wq8" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="GHw-MB-lzs"/>
                 <constraint firstItem="G9S-zB-TOJ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="14" id="JIB-ac-N6G"/>
-                <constraint firstAttribute="trailing" secondItem="0Ym-8T-U3U" secondAttribute="trailing" constant="14" id="Jir-x3-bDB"/>
                 <constraint firstItem="8qL-tF-2ok" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Joj-Ia-Dx6"/>
                 <constraint firstAttribute="trailing" secondItem="4om-8G-RD6" secondAttribute="trailing" constant="16" id="K7s-Hi-lX8"/>
                 <constraint firstItem="8qL-tF-2ok" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="LOK-wC-W2I"/>
-                <constraint firstItem="G9S-zB-TOJ" firstAttribute="top" relation="greaterThanOrEqual" secondItem="4om-8G-RD6" secondAttribute="bottom" constant="5" id="TPX-Dv-yLt"/>
-                <constraint firstItem="0Ym-8T-U3U" firstAttribute="top" secondItem="G9S-zB-TOJ" secondAttribute="bottom" constant="4" id="W3b-mg-rBQ"/>
+                <constraint firstItem="G9S-zB-TOJ" firstAttribute="top" relation="greaterThanOrEqual" secondItem="iN0-l3-epB" secondAttribute="top" constant="50" id="NJx-me-BRy"/>
                 <constraint firstAttribute="trailing" secondItem="EBd-bQ-wq8" secondAttribute="trailing" id="XPv-BE-llN"/>
                 <constraint firstAttribute="trailing" secondItem="8qL-tF-2ok" secondAttribute="trailing" id="cFY-pV-PO5"/>
                 <constraint firstAttribute="bottom" secondItem="8qL-tF-2ok" secondAttribute="bottom" id="d5R-vj-pWH"/>
+                <constraint firstItem="0Ym-8T-U3U" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="14" id="e95-nv-iKN"/>
                 <constraint firstItem="EBd-bQ-wq8" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="h5u-Vq-rFS"/>
                 <constraint firstItem="lm2-Nd-e90" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="nzx-c5-C4N"/>
                 <constraint firstAttribute="bottom" secondItem="EBd-bQ-wq8" secondAttribute="bottom" id="qBl-fp-wvZ"/>
-                <constraint firstAttribute="bottom" secondItem="0Ym-8T-U3U" secondAttribute="bottom" constant="12" id="wmP-8U-l7I"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="2.8985507246376816" y="44.196428571428569"/>
+            <point key="canvasLocation" x="7.2463768115942031" y="60.602678571428569"/>
         </view>
     </objects>
     <resources>
         <image name="arrow.left" catalog="system" width="64" height="48"/>
         <image name="ic_detail_favorite" width="18" height="16"/>
+        <image name="ic_favorite_header" width="18" height="18"/>
         <image name="ic_home_rectange" width="100" height="150"/>
-        <image name="ic_tabbar_favorite" width="21" height="19"/>
     </resources>
 </document>

@@ -37,6 +37,9 @@
             </constraints>
             <nil key="simulatedTopBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="contentLabel" destination="LDL-vE-xfE" id="9pY-L9-C5a"/>
+            </connections>
             <point key="canvasLocation" x="140.57971014492756" y="130.91517857142856"/>
         </view>
     </objects>

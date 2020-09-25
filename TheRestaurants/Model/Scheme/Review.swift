@@ -12,25 +12,22 @@ import ObjectMapper
 class Review: Mappable {
     var rating: Int?
     var reviewsCount: Int?
-    var name: String?
     var like: Int?
     var commentCount: Int?
     var reviewTime: String?
     var reviewText: String?
-    var userImageUrl: String?
     var ratingCount: Int?
+    var user: User = User()
+
     required convenience init?(map: Map) {
         self.init()
     }
 
     func mapping(map: Map) {
-        var user: JSObject = [:]
         user <- map["user"]
         rating <- map["rating"]
         like <- map["likes"]
         reviewsCount <- map["reviews_count"]
-        name = user["name"] as? String
-        userImageUrl = user["profile_image"] as? String
         commentCount <- map["comments_count"]
         reviewTime <- map["review_time_friendly"]
         reviewText <- map["review_text"]
