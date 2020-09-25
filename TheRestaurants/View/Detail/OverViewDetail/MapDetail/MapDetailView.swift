@@ -57,7 +57,9 @@ class MapDetailView: UIView {
     }
 
     private func addAnnotation() {
-        guard let viewModel = viewModel, let latitude = viewModel.restaurant.location.latitude, let longitude = viewModel.restaurant.location.longitude else { return }
+        guard let viewModel = viewModel,
+              let latitude = viewModel.restaurant.location.latitude,
+              let longitude = viewModel.restaurant.location.longitude else { return }
         let annotation = MKPointAnnotation()
         annotation.coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
         mapView.addAnnotation(annotation)

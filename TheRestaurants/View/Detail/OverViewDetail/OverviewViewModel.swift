@@ -14,7 +14,7 @@ class OverviewViewModel {
         self.restaurant = restaurant
     }
 
-    func loadData(completion: @escaping APICompletion) {
+    func getRestaurantDetail(completion: @escaping APICompletion) {
         let param = Api.Restaurant.RestaurantParam(id: restaurant.id ?? "" )
         Api.Restaurant.getRestaurantDetail(param: param) { [weak self ](result) in
             guard let this = self else { return }

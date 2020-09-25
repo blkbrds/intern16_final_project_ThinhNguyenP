@@ -45,23 +45,3 @@ class Restaurant: Mappable {
         review <- map ["all_reviews_count"]
     }
 }
-
-class Location: Mappable {
-    required convenience init?(map: Map) {
-        self.init()
-    }
-
-    var latitude: Double?
-    var longitude: Double?
-    var address: String?
-
-    func mapping(map: Map) {
-        var latitude: String = ""
-        var longitude: String = ""
-        latitude <- map["latitude"]
-        longitude <- map["longitude"]
-        self.latitude = Double(latitude)
-        self.longitude = Double(longitude)
-        address <- map["address"]
-    }
-}

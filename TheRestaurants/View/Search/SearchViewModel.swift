@@ -48,7 +48,7 @@ class SearchViewModel {
 
     func viewModelForResultCell(indexPath: IndexPath) -> HomeCellModel {
         let item = results[indexPath.row]
-        let viewModel = HomeCellModel(cellsRestaurant: item)
+        let viewModel = HomeCellModel(restaurant: item)
         return viewModel
     }
 

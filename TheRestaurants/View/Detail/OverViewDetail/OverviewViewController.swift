@@ -18,12 +18,12 @@ class OverviewViewController: UIViewController {
     var viewModel = OverviewViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadAPI()
+        getRestaurantDetail()
     }
 
-    func loadAPI() {
+    func getRestaurantDetail() {
         Indicator.start()
-        viewModel.loadData { [weak self] (result) in
+        viewModel.getRestaurantDetail { [weak self] (result) in
             Indicator.stop()
             guard let this = self else { return }
             switch result {

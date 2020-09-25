@@ -34,17 +34,3 @@ class Review: Mappable {
         ratingCount <- map["reviews_start"]
     }
 }
-
-class User: Mappable {
-    required convenience init?(map: Map) {
-        self.init()
-    }
-
-    var name: String?
-    var userImageUrl: String?
-
-    func mapping(map: Map) {
-        name <- map["name"]
-        userImageUrl <- map["profile_image"]
-    }
-}

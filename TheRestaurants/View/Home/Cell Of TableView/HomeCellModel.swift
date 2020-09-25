@@ -24,14 +24,14 @@ class HomeCellModel {
         return ["Cuisine"] + cuisineStr.split(separator: ",").map { String($0) }
     }
 
-    init(cellsRestaurant: Restaurant) {
-        self.address = cellsRestaurant.location.address
-        self.name = cellsRestaurant.name
-        self.cuisines = cellsRestaurant.cuisines
-        let imageURL = cellsRestaurant.imageURL ?? ""
+    init(restaurant: Restaurant) {
+        address = restaurant.location.address
+        name = restaurant.name
+        cuisines = restaurant.cuisines
+        let imageURL = restaurant.imageURL ?? ""
         self.imageURL = imageURL.replacingOccurrences(of: "?output-format=webp", with: "")
-        self.rating = cellsRestaurant.rating
-        self.onlineDelivery = cellsRestaurant.onlineDelivery
-        self.isFavorite = cellsRestaurant.favorite
+        rating = restaurant.rating
+        onlineDelivery = restaurant.onlineDelivery
+        isFavorite = restaurant.favorite
     }
 }

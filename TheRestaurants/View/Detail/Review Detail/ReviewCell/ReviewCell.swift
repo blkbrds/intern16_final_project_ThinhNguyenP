@@ -25,7 +25,7 @@ class ReviewCell: UITableViewCell {
 
     func setUpView() {
         guard let viewModel = viewModel else { return }
-        userImage.setImage(url: viewModel.review.user.userImageUrl)
+        userImage.setImage(url: viewModel.review.user.imageUrl)
         userImage.layer.cornerRadius = 15
         nameUserReview.text = viewModel.review.user.name
         likeLabel.text = "\(viewModel.review.like ?? 0)"
