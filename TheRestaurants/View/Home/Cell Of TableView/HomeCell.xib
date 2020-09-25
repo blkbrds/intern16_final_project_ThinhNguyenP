@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -31,7 +31,7 @@
                         <state key="normal" backgroundImage="ic_home_favorite_white"/>
                         <state key="selected" backgroundImage="ic_home_favoritebutton"/>
                     </button>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hqu-Dk-OV8">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Hqu-Dk-OV8">
                         <rect key="frame" x="15" y="200" width="44.5" height="17"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="17" id="HHv-mB-hr0"/>
@@ -71,7 +71,7 @@
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="top" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="ldf-n0-xYn">
                         <rect key="frame" x="15" y="224" width="305" height="17.5"/>
                     </stackView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="axa-w2-D0g">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="axa-w2-D0g">
                         <rect key="frame" x="41" y="251.5" width="279" height="18"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <nil key="textColor"/>
@@ -107,8 +107,6 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="ldf-n0-xYn" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="6hb-BH-e5X"/>
-                    <constraint firstItem="axa-w2-D0g" firstAttribute="centerY" secondItem="tke-fp-Sd7" secondAttribute="centerY" id="8hx-J8-esq"/>
-                    <constraint firstItem="rms-ke-p4b" firstAttribute="top" secondItem="tke-fp-Sd7" secondAttribute="bottom" constant="10" id="8r6-g6-FgK"/>
                     <constraint firstItem="gUs-3g-ZCd" firstAttribute="top" secondItem="tqp-ND-WSz" secondAttribute="top" constant="10" id="BEI-CQ-5p4"/>
                     <constraint firstItem="TZw-L4-qTi" firstAttribute="centerY" secondItem="rms-ke-p4b" secondAttribute="centerY" id="BSo-mN-FBj"/>
                     <constraint firstAttribute="trailing" secondItem="axa-w2-D0g" secondAttribute="trailing" constant="15" id="BuO-S8-0TH"/>
@@ -118,10 +116,12 @@
                     <constraint firstItem="rms-ke-p4b" firstAttribute="leading" secondItem="tke-fp-Sd7" secondAttribute="leading" id="ISd-eW-jIO"/>
                     <constraint firstItem="gUs-3g-ZCd" firstAttribute="trailing" secondItem="tqp-ND-WSz" secondAttribute="trailing" constant="-10" id="JyG-Hp-ktq"/>
                     <constraint firstItem="0Fe-wP-prx" firstAttribute="centerY" secondItem="Hqu-Dk-OV8" secondAttribute="centerY" id="KpH-zA-Opf"/>
+                    <constraint firstItem="axa-w2-D0g" firstAttribute="top" secondItem="ldf-n0-xYn" secondAttribute="bottom" constant="10" id="Syf-pf-MZP"/>
                     <constraint firstItem="aPb-O2-pHY" firstAttribute="top" secondItem="rms-ke-p4b" secondAttribute="bottom" constant="15" id="TgO-cW-9NQ"/>
                     <constraint firstItem="axa-w2-D0g" firstAttribute="leading" secondItem="tke-fp-Sd7" secondAttribute="trailing" constant="8" id="VfV-i5-dVy"/>
                     <constraint firstItem="tke-fp-Sd7" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="WhA-K2-28i"/>
                     <constraint firstItem="ldf-n0-xYn" firstAttribute="top" secondItem="Hqu-Dk-OV8" secondAttribute="bottom" constant="7" id="WuF-QN-UNd"/>
+                    <constraint firstItem="axa-w2-D0g" firstAttribute="centerY" secondItem="tke-fp-Sd7" secondAttribute="centerY" id="XcI-tg-v95"/>
                     <constraint firstAttribute="trailingMargin" secondItem="TZw-L4-qTi" secondAttribute="trailing" constant="15" id="Y2f-2d-McY"/>
                     <constraint firstItem="aPb-O2-pHY" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="ZQh-gx-gms"/>
                     <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="0Fe-wP-prx" secondAttribute="trailing" id="c5b-8M-0kr"/>
@@ -131,8 +131,8 @@
                     <constraint firstItem="0Fe-wP-prx" firstAttribute="leading" secondItem="Hqu-Dk-OV8" secondAttribute="trailing" constant="5" id="nnW-37-OpV"/>
                     <constraint firstItem="Hqu-Dk-OV8" firstAttribute="leading" secondItem="tqp-ND-WSz" secondAttribute="leading" id="q8x-8a-JGJ"/>
                     <constraint firstAttribute="trailing" secondItem="tqp-ND-WSz" secondAttribute="trailing" constant="15" id="qOJ-3h-2zM"/>
-                    <constraint firstItem="axa-w2-D0g" firstAttribute="top" secondItem="ldf-n0-xYn" secondAttribute="bottom" constant="10" id="sin-HX-jh0"/>
                     <constraint firstAttribute="trailing" secondItem="aPb-O2-pHY" secondAttribute="trailing" constant="15" id="tiv-XO-U38"/>
+                    <constraint firstItem="TZw-L4-qTi" firstAttribute="top" secondItem="axa-w2-D0g" secondAttribute="bottom" constant="10" id="zjD-wx-UtW"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
@@ -143,6 +143,7 @@
                 <outlet property="nameRestaurantLabel" destination="Hqu-Dk-OV8" id="hKI-T9-CGQ"/>
                 <outlet property="numberOfDeliveryLabel" destination="TZw-L4-qTi" id="pkW-7x-7a7"/>
                 <outlet property="ratingRestautantLabel" destination="3C8-io-a4W" id="ln1-8J-evB"/>
+                <outlet property="ratingView" destination="0Fe-wP-prx" id="tM1-6I-YVv"/>
             </connections>
             <point key="canvasLocation" x="-332" y="210.04497751124438"/>
         </tableViewCell>

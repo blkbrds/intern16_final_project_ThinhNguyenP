@@ -9,5 +9,22 @@
 import Foundation
 
 class OverviewViewModel {
+    var restaurant: Restaurant
+    init(restaurant: Restaurant = Restaurant()) {
+        self.restaurant = restaurant
+    }
 
+    func getRestaurantDetail(completion: @escaping APICompletion) {
+        let param = Api.Restaurant.RestaurantParam(id: restaurant.id ?? "" )
+        Api.Restaurant.getRestaurantDetail(param: param) { [weak self ](result) in
+            guard let this = self else { return }
+            switch result {
+            case .success(let restaurant):
+                this.restaurant = restaurant
+                completion(.success)
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+    }
 }

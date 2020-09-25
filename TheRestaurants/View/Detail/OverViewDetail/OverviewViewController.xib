@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -23,55 +23,65 @@
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7bO-q1-CxJ">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                     <subviews>
-                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="uBC-Xs-FpS">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="677"/>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ssf-u7-gHV">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="582"/>
                             <subviews>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HxE-Al-4pm" customClass="HeaderDetailView" customModule="TheRestaurants" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="166"/>
-                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="166" id="yVa-P9-xfF"/>
-                                    </constraints>
-                                </view>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I4N-VL-xcF" customClass="MapDetailView" customModule="TheRestaurants" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="166" width="414" height="73"/>
-                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="236" id="U7F-DO-lPO"/>
-                                    </constraints>
-                                </view>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QhI-2L-vJg" customClass="InformationDetailView" customModule="TheRestaurants" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="239" width="414" height="138"/>
-                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="73" id="fc9-Wk-DpA"/>
-                                    </constraints>
-                                </view>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kmO-8q-4sH" customClass="OtherInformationView" customModule="TheRestaurants" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="377" width="414" height="300"/>
-                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" id="Fdg-4Z-MCs"/>
-                                    </constraints>
-                                </view>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="uBC-Xs-FpS">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="582"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HxE-Al-4pm" customClass="HeaderDetailView" customModule="TheRestaurants" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="166"/>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="166" id="yVa-P9-xfF"/>
+                                            </constraints>
+                                        </view>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I4N-VL-xcF" customClass="MapDetailView" customModule="TheRestaurants" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="166" width="414" height="236"/>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="236" id="U7F-DO-lPO"/>
+                                            </constraints>
+                                        </view>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QhI-2L-vJg" customClass="InformationDetailView" customModule="TheRestaurants" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="402" width="414" height="108"/>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="108" id="fc9-Wk-DpA"/>
+                                            </constraints>
+                                        </view>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kmO-8q-4sH" customClass="OtherInformationView" customModule="TheRestaurants" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="510" width="414" height="72"/>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="72" id="Fdg-4Z-MCs"/>
+                                            </constraints>
+                                        </view>
+                                    </subviews>
+                                </stackView>
                             </subviews>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             <constraints>
-                                <constraint firstAttribute="height" priority="250" constant="166" id="clv-kb-YYd"/>
+                                <constraint firstItem="uBC-Xs-FpS" firstAttribute="leading" secondItem="ssf-u7-gHV" secondAttribute="leading" id="517-IO-tW0"/>
+                                <constraint firstItem="uBC-Xs-FpS" firstAttribute="top" secondItem="ssf-u7-gHV" secondAttribute="top" id="Vxm-HA-B10"/>
+                                <constraint firstAttribute="height" priority="250" constant="582" id="YRO-4s-Lki"/>
+                                <constraint firstAttribute="trailing" secondItem="uBC-Xs-FpS" secondAttribute="trailing" id="oX6-la-6WZ"/>
+                                <constraint firstAttribute="bottom" secondItem="uBC-Xs-FpS" secondAttribute="bottom" id="tVA-ee-Wob"/>
                             </constraints>
-                        </stackView>
+                        </view>
                     </subviews>
                     <constraints>
-                        <constraint firstItem="uBC-Xs-FpS" firstAttribute="width" secondItem="7bO-q1-CxJ" secondAttribute="width" id="6hv-9Y-M2N"/>
-                        <constraint firstItem="uBC-Xs-FpS" firstAttribute="top" secondItem="7bO-q1-CxJ" secondAttribute="top" id="FTq-Pj-MP3"/>
-                        <constraint firstItem="uBC-Xs-FpS" firstAttribute="leading" secondItem="7bO-q1-CxJ" secondAttribute="leading" id="QIb-Hn-Z5f"/>
-                        <constraint firstAttribute="bottom" secondItem="uBC-Xs-FpS" secondAttribute="bottom" id="UTB-aL-Lh4"/>
-                        <constraint firstAttribute="trailing" secondItem="uBC-Xs-FpS" secondAttribute="trailing" id="qgo-7E-Wh2"/>
+                        <constraint firstAttribute="trailing" secondItem="ssf-u7-gHV" secondAttribute="trailing" id="38g-sO-3Qo"/>
+                        <constraint firstAttribute="bottom" secondItem="ssf-u7-gHV" secondAttribute="bottom" id="g8T-Sa-JmI"/>
+                        <constraint firstItem="ssf-u7-gHV" firstAttribute="leading" secondItem="7bO-q1-CxJ" secondAttribute="leading" id="swz-08-cCr"/>
+                        <constraint firstItem="ssf-u7-gHV" firstAttribute="top" secondItem="7bO-q1-CxJ" secondAttribute="top" id="xNF-sq-1ls"/>
                     </constraints>
                 </scrollView>
             </subviews>
             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
             <constraints>
                 <constraint firstItem="7bO-q1-CxJ" firstAttribute="top" secondItem="846-eP-1Jm" secondAttribute="top" id="GMH-aN-84g"/>
+                <constraint firstItem="ssf-u7-gHV" firstAttribute="width" secondItem="846-eP-1Jm" secondAttribute="width" id="GWF-6e-j6q"/>
                 <constraint firstAttribute="bottom" secondItem="7bO-q1-CxJ" secondAttribute="bottom" id="VMz-ga-Ad6"/>
                 <constraint firstItem="7bO-q1-CxJ" firstAttribute="leading" secondItem="846-eP-1Jm" secondAttribute="leading" id="cXM-hl-aTH"/>
                 <constraint firstAttribute="trailing" secondItem="7bO-q1-CxJ" secondAttribute="trailing" id="iIn-vn-Set"/>

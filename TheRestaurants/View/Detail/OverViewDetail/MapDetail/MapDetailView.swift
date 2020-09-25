@@ -19,6 +19,12 @@ class MapDetailView: UIView {
     @IBOutlet private weak var addressContainerView: UIView!
     @IBOutlet private weak var addressLabel: UILabel!
 
+    var viewModel: MapDetailViewModel? {
+        didSet {
+            updateView()
+        }
+    }
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         xibSetup()
@@ -38,5 +44,36 @@ class MapDetailView: UIView {
     override func awakeFromNib() {
         super.awakeFromNib()
         addressContainerView.layer.cornerRadius = 5
+    }
+
+    private func updateView() {
+        guard let viewModel = viewModel else { return }
+        ratingLabel.text = viewModel.restaurant.rating
+        voteLabel.text = "\(viewModel.restaurant.votes ?? 0)"
+        reviewLabel.text = "\(viewModel.restaurant.review ?? 0 )"
+        addressLabel.text = viewModel.restaurant.location.address
+        mapView.delegate = self
+        addAnnotation()
+    }
+
+    private func addAnnotation() {
+        guard let viewModel = viewModel,
+              let latitude = viewModel.restaurant.location.latitude,
+              let longitude = viewModel.restaurant.location.longitude else { return }
+        let annotation = MKPointAnnotation()
+        annotation.coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+        mapView.addAnnotation(annotation)
+        mapView.setCenter(annotation.coordinate, animated: true)
+        let span = MKCoordinateSpan(latitudeDelta: 0.005, longitudeDelta: 0.005)
+        let region = MKCoordinateRegion(center: annotation.coordinate, span: span)
+        mapView.setRegion(region, animated: true)
+    }
+}
+extension MapDetailView: MKMapViewDelegate {
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        let pin = MKPinAnnotationView(annotation: annotation, reuseIdentifier: "pin")
+        pin.animatesDrop = false
+        pin.image = #imageLiteral(resourceName: "ic_pin_detail_overview.png")
+        return pin
     }
 }
