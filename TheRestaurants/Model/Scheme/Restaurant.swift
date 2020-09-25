@@ -11,7 +11,6 @@ import ObjectMapper
 
 class Restaurant: Mappable {
 
-    var address: String?
     var name: String?
     var cuisines: String?
     var imageURL: String?
@@ -24,8 +23,7 @@ class Restaurant: Mappable {
     var url: String?
     var highlights: [String]?
     var review: Int?
-    var latitude: Double?
-    var longitude: Double?
+    var location: Location = Location()
     var favorite: Bool = false
     required convenience init?(map: Map) {
         self.init()
@@ -35,11 +33,9 @@ class Restaurant: Mappable {
     }
 
     func mapping(map: Map) {
-        var location: JSObject = [:]
         var userRating: JSObject = [:]
         location <- map["location"]
         userRating <- map["user_rating"]
-        address = location["address"] as? String
         name <- map["name"]
         id <- map["id"]
         cuisines <- map["cuisines"]
@@ -47,9 +43,25 @@ class Restaurant: Mappable {
         rating = userRating["aggregate_rating"] as? String
         onlineDelivery <- map["has_online_delivery"]
         review <- map ["all_reviews_count"]
-        let latitude = (location["latitude"] as? String) ?? ""
-        let longitude = (location["longitude"] as? String) ?? ""
+    }
+}
+
+class Location: Mappable {
+    required convenience init?(map: Map) {
+        self.init()
+    }
+
+    var latitude: Double?
+    var longitude: Double?
+    var address: String?
+
+    func mapping(map: Map) {
+        var latitude: String = ""
+        var longitude: String = ""
+        latitude <- map["latitude"]
+        longitude <- map["longitude"]
         self.latitude = Double(latitude)
         self.longitude = Double(longitude)
+        address <- map["address"]
     }
 }

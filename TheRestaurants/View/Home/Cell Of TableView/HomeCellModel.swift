@@ -25,7 +25,7 @@ class HomeCellModel {
     }
 
     init(cellsRestaurant: Restaurant) {
-        self.address = cellsRestaurant.address
+        self.address = cellsRestaurant.location.address
         self.name = cellsRestaurant.name
         self.cuisines = cellsRestaurant.cuisines
         let imageURL = cellsRestaurant.imageURL ?? ""
