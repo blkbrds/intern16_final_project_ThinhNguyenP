@@ -41,6 +41,7 @@ class HeaderDetailView: UIView {
 
     @IBAction func favoriteButtonTouchUpInside(_ sender: UIButton) {
         sender.isSelected = !sender.isSelected
+        
     }
 
     private func updateView() {

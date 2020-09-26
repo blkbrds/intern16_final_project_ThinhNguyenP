@@ -23,10 +23,7 @@ class FavoriteViewModel {
     var isFavorite: Bool = false
     private var notificationToken: NotificationToken?
     weak var delegate: FavoriteViewModelDelegate?
-    
-    
-    
-    
+
     func numberOfRowInSection() -> Int {
         return restautants.count
     }
@@ -60,6 +57,20 @@ class FavoriteViewModel {
 //            completion(.failure(error))
 //        }
 //    }
-
-
+//    func addFavorite(name: String, onlineDelivery: Int, imageURL: String, address: String) {
+//        do {
+//            let realm = try Realm()
+//            let restaurant = Restaurant()
+//            restaurant.name = name
+//            restaurant.location.address = address
+//            restaurant.onlineDelivery = onlineDelivery
+//            restaurant.imageURL = imageURL
+//            try realm.write {
+//                realm.add(restaurant, update: .all)
+//                checkFavorite(favorite: true, name: name )
+//            }
+//        } catch {
+//            print(error)
+//        }
+//    }
 }

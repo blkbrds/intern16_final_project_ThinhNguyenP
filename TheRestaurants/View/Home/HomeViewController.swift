@@ -122,3 +122,13 @@ extension HomeViewController: UIScrollViewDelegate {
         }
     }
 }
+extension HomeViewController: HomeCellDelegate {
+    func handleFavorite(cell: HomeCell, name: String, isFavorite: Bool) {
+        if isFavorite {
+            viewModel.deleteItemFavorite(name: name)
+        } else {
+            viewModel.addFavorite(name: cell.viewModel?.name ?? "", onlineDelivery: cell.viewModel?.onlineDelivery ?? 0, imageURL: cell.viewModel?.imageURL ?? "", address: cell.viewModel?.address ?? "")
+        }
+    }
+
+}

@@ -9,13 +9,9 @@
 import UIKit
 
 protocol HomeCellDelegate: class {
-    func cell(_ cell: HomeCell, needPerforms action: HomeCell.Action )
+    func handleFavorite(cell: HomeCell, name: String, isFavorite: Bool )
 }
 class HomeCell: UITableViewCell {
-
-    enum Action {
-        case favorite(isFavorite: Bool)
-    }
 
     @IBOutlet private weak var imageRestaurant: UIImageView!
     @IBOutlet private weak var nameRestaurantLabel: UILabel!
@@ -98,11 +94,12 @@ class HomeCell: UITableViewCell {
         cuisineStackView.addArrangedSubview(stackView)
         return -1
     }
-    
+
+
     @IBAction func favoriteButtonTouchUpInside(_ sender: Any) {
-        guard let delegate = delegate else { return }
-        favoriteButton.isSelected = !favoriteButton.isSelected
-        delegate.cell(self, needPerforms: .favorite(isFavorite: favoriteButton.isSelected))
+        guard let viewModel = viewModel, let delegate = delegate else { return }
+        delegate.handleFavorite(cell: self, name: viewModel.name ?? "", isFavorite: viewModel.isFavorite )
+        updateView()
     }
 }
 

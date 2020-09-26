@@ -7,14 +7,16 @@
 //
 
 import Foundation
+import RealmSwift
 
 class HomeViewModel {
-
+    
     enum Cell {
         case collectionView
         case tableView
     }
     var isLoadingMore: Bool = false
+    var realmRestaurant: [Restaurant] = []
     var collections: [Collection] = []
     var restaurants: [Restaurant] = []
     var cells: [Cell] = [.collectionView, .tableView]
@@ -23,7 +25,7 @@ class HomeViewModel {
     var canLoadMore: Bool {
         return start <= totalResults
     }
-
+    
     func loadCollection(completion: @escaping (APICompletion)) {
         let param = Api.ListCollection.ListCollectionParam()
         Api.ListCollection.getCollections(param: param) { [weak self ](result) in
@@ -37,7 +39,7 @@ class HomeViewModel {
             }
         }
     }
-
+    
     func loadCell(isLoadMore: Bool = false, completion: @escaping (APICompletion)) {
         if isLoadMore {
             start += 20
@@ -61,23 +63,23 @@ class HomeViewModel {
             }
         }
     }
-
+    
     func numberOfSection() -> Int {
         return cells.count
     }
-
+    
     func viewModelForCell(indexPath: IndexPath) -> ListCollectionsCellModel {
         let item = collections
         let viewModel = ListCollectionsCellModel(collections: item)
         return viewModel
     }
-
+    
     func viewModelForCell2(indexPath: IndexPath) -> HomeCellModel {
         let item = restaurants[indexPath.row]
         let viewModel = HomeCellModel(restaurant: item)
         return viewModel
     }
-
+    
     func numberOfRowsInSection(section: Int) -> Int {
         guard section < cells.count else { return 1 }
         switch cells[section] {
@@ -87,10 +89,44 @@ class HomeViewModel {
             return restaurants.count
         }
     }
-
+    
     func didSelectRowAt(indexPath: IndexPath) -> DetailViewModel {
         let restaurant = restaurants[indexPath.row]
         let viewModel = DetailViewModel(restaurant: restaurant)
         return viewModel
+    }
+    
+    func deleteItemFavorite(name: String) {
+        do {
+            let realm = try Realm()
+            let result = realm.objects(Restaurant.self).filter("name = '\(name)'")
+            try realm.write {
+                realm.delete(result)
+                checkFavorite(favorite: false, name: name)
+            }
+        } catch {
+            print(error)
+        }
+    }
+    func checkFavorite(favorite: Bool, name: String) {
+        for item in realmRestaurant where item.name == name {
+            item.favorite = favorite
+        }
+    }
+    func addFavorite(name: String, onlineDelivery: Int, imageURL: String, address: String) {
+        do {
+            let realm = try Realm()
+            let restaurant = Restaurant()
+            restaurant.name = name
+            restaurant.location.address = address
+            restaurant.onlineDelivery = onlineDelivery
+            restaurant.imageURL = imageURL
+            try realm.write {
+                realm.add(restaurant, update: .all)
+                checkFavorite(favorite: true, name: name )
+            }
+        } catch {
+            print(error)
+        }
     }
 }

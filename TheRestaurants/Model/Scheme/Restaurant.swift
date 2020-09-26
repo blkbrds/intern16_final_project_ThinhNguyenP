@@ -10,13 +10,13 @@ import Foundation
 import ObjectMapper
 import RealmSwift
 
-class Restaurant: Mappable {
+class Restaurant: Object, Mappable {
 
     @objc dynamic var name: String?
     @objc dynamic var imageURL: String?
     @objc dynamic var rating: String?
     @objc dynamic var onlineDelivery: Int = 0
-    @objc dynamic var id: String?
+    var id: String?
     var cuisines: String?
     var votes: Int?
     var timings: String?
@@ -24,10 +24,10 @@ class Restaurant: Mappable {
     var url: String?
     var highlights: [String]?
     var review: Int?
-    var location: Location = Location()
+    @objc dynamic var location: Location = Location()
     var favorite: Bool = false
 
-    init() { }
+    required init() { }
 
     required convenience init?(map: Map) {
         self.init()
