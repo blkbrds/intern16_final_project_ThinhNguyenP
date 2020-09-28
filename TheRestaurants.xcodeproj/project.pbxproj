@@ -78,6 +78,9 @@
 		8414C13725022FA60066701F /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8414C13425022FA60066701F /* HomeViewController.swift */; };
 		842DF84B250680DF00061000 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842DF849250680DF00061000 /* BaseViewController.swift */; };
 		842DF84C250680DF00061000 /* BaseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 842DF84A250680DF00061000 /* BaseViewController.xib */; };
+		8434EF6E251FCA8A0050C81E /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8434EF6C251FCA8A0050C81E /* MenuCell.swift */; };
+		8434EF6F251FCA8A0050C81E /* MenuCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8434EF6D251FCA8A0050C81E /* MenuCell.xib */; };
+		8434EF71251FCAA80050C81E /* MenuCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8434EF70251FCAA80050C81E /* MenuCellModel.swift */; };
 		844E57D925075F1A0012BA18 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844E57D025075F190012BA18 /* SearchViewModel.swift */; };
 		844E57DA25075F1A0012BA18 /* SearchHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844E57D225075F1A0012BA18 /* SearchHistory.swift */; };
 		844E57DB25075F1A0012BA18 /* HistorySearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844E57D325075F1A0012BA18 /* HistorySearchCell.swift */; };
@@ -189,6 +192,9 @@
 		8414C13425022FA60066701F /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		842DF849250680DF00061000 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		842DF84A250680DF00061000 /* BaseViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BaseViewController.xib; sourceTree = "<group>"; };
+		8434EF6C251FCA8A0050C81E /* MenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
+		8434EF6D251FCA8A0050C81E /* MenuCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuCell.xib; sourceTree = "<group>"; };
+		8434EF70251FCAA80050C81E /* MenuCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCellModel.swift; sourceTree = "<group>"; };
 		844E57D025075F190012BA18 /* SearchViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		844E57D225075F1A0012BA18 /* SearchHistory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchHistory.swift; sourceTree = "<group>"; };
 		844E57D325075F1A0012BA18 /* HistorySearchCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistorySearchCell.swift; sourceTree = "<group>"; };
@@ -265,6 +271,7 @@
 		7436E4DA251DC903001E55B2 /* Menu Detail */ = {
 			isa = PBXGroup;
 			children = (
+				8434EF6B251FCA170050C81E /* Cell */,
 				7436E4DB251DC903001E55B2 /* MenuViewModel.swift */,
 				7436E4DC251DC903001E55B2 /* MenuViewController.xib */,
 				7436E4DD251DC903001E55B2 /* MenuViewController.swift */,
@@ -569,6 +576,16 @@
 			path = BaseView;
 			sourceTree = "<group>";
 		};
+		8434EF6B251FCA170050C81E /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				8434EF6C251FCA8A0050C81E /* MenuCell.swift */,
+				8434EF6D251FCA8A0050C81E /* MenuCell.xib */,
+				8434EF70251FCAA80050C81E /* MenuCellModel.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		844E57D125075F1A0012BA18 /* HistorySearch */ = {
 			isa = PBXGroup;
 			children = (
@@ -733,6 +750,7 @@
 				7436E508251DC903001E55B2 /* ReviewsViewController.xib in Resources */,
 				842DF84C250680DF00061000 /* BaseViewController.xib in Resources */,
 				84A933322501F6F800BEE475 /* HomeCell.xib in Resources */,
+				8434EF6F251FCA8A0050C81E /* MenuCell.xib in Resources */,
 				74A4196824F3B7BC00D1C1D6 /* LaunchScreen.storyboard in Resources */,
 				7436E513251DC903001E55B2 /* OverviewViewController.xib in Resources */,
 				74A4196524F3B7BC00D1C1D6 /* Assets.xcassets in Resources */,
@@ -850,6 +868,7 @@
 				7436E507251DC903001E55B2 /* ReviewsViewController.swift in Sources */,
 				72705D4C251B3A9D00F5CDC1 /* Api.Overview.swift in Sources */,
 				845966B524FD08BD00A61A79 /* Api.Collection.swift in Sources */,
+				8434EF71251FCAA80050C81E /* MenuCellModel.swift in Sources */,
 				74A419A024F3CB2300D1C1D6 /* ResponseSerializer.swift in Sources */,
 				7436E519251DC903001E55B2 /* MapDetailViewModel.swift in Sources */,
 				846A2BA424FA5917004160B3 /* SearchCityCell.swift in Sources */,
@@ -862,6 +881,7 @@
 				7436E512251DC903001E55B2 /* OtherInfomationViewModel.swift in Sources */,
 				84AD7C66250A6AAE001EFEC3 /* FavoriteCellModel.swift in Sources */,
 				7436E50C251DC903001E55B2 /* OtherInformationView.swift in Sources */,
+				8434EF6E251FCA8A0050C81E /* MenuCell.swift in Sources */,
 				7436E50E251DC903001E55B2 /* HighlightView.swift in Sources */,
 				84A933262501F6E700BEE475 /* CollectionCell.swift in Sources */,
 				7436E50A251DC903001E55B2 /* ReviewCell.swift in Sources */,

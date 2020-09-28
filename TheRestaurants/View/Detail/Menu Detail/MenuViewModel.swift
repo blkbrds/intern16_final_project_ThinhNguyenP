@@ -13,4 +13,5 @@ class MenuViewModel {
     init(restaurant: Restaurant = Restaurant()) {
         self.restaurant = restaurant
     }
+    
 }
