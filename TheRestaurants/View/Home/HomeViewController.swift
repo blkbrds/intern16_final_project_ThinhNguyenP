@@ -7,13 +7,18 @@
 //
 
 import UIKit
+import RealmSwift
 
+protocol HomeViewControllerDelegate: class {
+    func view(_ viewController: HomeViewController)
+}
 class HomeViewController: BaseViewController {
 
     @IBOutlet private weak var tableView: UITableView!
-
+    weak var delegate: HomeViewControllerDelegate?
     var viewModel = HomeViewModel()
     override func viewDidLoad() {
+        print(Realm.Configuration.defaultConfiguration.fileURL)
         super.viewDidLoad()
         configTableView()
         loadCollection()
@@ -38,6 +43,7 @@ class HomeViewController: BaseViewController {
         let nib = UINib(nibName: "ListCollectionsCell", bundle: .main)
         tableView.register(nib, forCellReuseIdentifier: "collectionViewCell")
         let tableNib = UINib(nibName: "HomeCell", bundle: .main)
+
         tableView.register(tableNib, forCellReuseIdentifier: "tableViewCell")
         tableView.dataSource = self
         tableView.delegate = self
@@ -65,6 +71,7 @@ class HomeViewController: BaseViewController {
             switch result {
             case.success:
                 this.tableView.reloadData()
+                this.tableView.delegate = self
             case.failure(let error):
                 this.alert(error: error)
             }
@@ -91,6 +98,7 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
         case .tableView:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "tableViewCell", for: indexPath)
                 as? HomeCell else { return UITableViewCell() }
+            cell.delegate = self
             cell.viewModel = viewModel.viewModelForCell2(indexPath: indexPath)
             return cell
         }
@@ -111,24 +119,36 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
         viewController.hidesBottomBarWhenPushed = true
         navigationController?.pushViewController(viewController, animated: true)
     }
+
+    func addFavorite(index: Int) {
+        viewModel.addFavorite(index: index)
+//        viewModel.addFavorite(index: index) { [weak self](result) in
+//            guard let this = self else { return }
+//            switch result {
+//            case.success:
+//                this.loadCell()
+////                this.tableView.reloadData()
+//            case.failure(let error):
+//                this.alert(error: error)
+//            }
+//        }
+    }
 }
 extension HomeViewController: UIScrollViewDelegate {
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         guard viewModel.canLoadMore else { return }
         let contentOffset = scrollView.contentOffset.y
         let maximumOffset = scrollView.contentSize.height - scrollView.frame.size.height
-        if !viewModel.isLoadingMore && (maximumOffset - contentOffset <= 100) {
+        if !viewModel.isLoadingMore && (maximumOffset - contentOffset <= 10) {
             loadCell(isLoadMore: true)
         }
     }
 }
 extension HomeViewController: HomeCellDelegate {
-    func handleFavorite(cell: HomeCell, name: String, isFavorite: Bool) {
-        if isFavorite {
-            viewModel.deleteItemFavorite(name: name)
-        } else {
-            viewModel.addFavorite(name: cell.viewModel?.name ?? "", onlineDelivery: cell.viewModel?.onlineDelivery ?? 0, imageURL: cell.viewModel?.imageURL ?? "", address: cell.viewModel?.address ?? "")
-        }
+    func cell(_ cell: HomeCell, needPerform action: HomeCell.Action) {
+        guard let indexPath = tableView.indexPath(for: cell) else { return }
+        viewModel.addFavorite(index: indexPath.row)
     }
-
+//        addFavorite(index: indexPath.row)
 }

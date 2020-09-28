@@ -7,18 +7,26 @@
 //
 
 import UIKit
+protocol OverviewControllerDelegate: class {
+    func viewController(_ viewController: OverviewViewController, needPerform action: OverviewViewController.Action)
+}
 
 class OverviewViewController: UIViewController {
+    enum Action {
+        case back
+    }
 
     @IBOutlet private weak var headerView: HeaderDetailView!
     @IBOutlet private weak var mapDetailView: MapDetailView!
     @IBOutlet private weak var informationView: InformationDetailView!
     @IBOutlet private weak var otherInformationView: OtherInformationView!
+    weak var delegate: OverviewControllerDelegate?
 
     var viewModel = OverviewViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
         getRestaurantDetail()
+        headerView.delegate = self
     }
 
     func getRestaurantDetail() {
@@ -35,6 +43,14 @@ class OverviewViewController: UIViewController {
             case .failure(let error):
                 this.alert(error: error)
             }
+        }
+    }
+}
+extension OverviewViewController: HeaderDetailViewDelegate {
+    func view(_ view: HeaderDetailView, needPerforms action: HeaderDetailView.Action) {
+        switch action {
+        case .back:
+            delegate?.viewController(self, needPerform: .back)
         }
     }
 }

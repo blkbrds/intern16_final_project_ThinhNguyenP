@@ -27,7 +27,7 @@ class FavoriteCell: UITableViewCell {
         guard let viewModel = viewModel else { return }
         ratingLabel.text = viewModel.restaurant.rating
         deliveryLabel.text = "\(viewModel.restaurant.onlineDelivery ?? 0) now "
-        locationLabel.text = viewModel.restaurant.location.address
+        locationLabel.text = viewModel.restaurant.location?.address
         nameRestaurant.text = viewModel.restaurant.name
     }
 

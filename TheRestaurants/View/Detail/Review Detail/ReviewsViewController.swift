@@ -8,17 +8,22 @@
 
 import UIKit
 
+protocol ReviewsViewControllerDelegate: class {
+    func view(_ viewController: ReviewsViewController, needPerform action: HeaderDetailView.Action)
+}
 class ReviewsViewController: UIViewController {
 
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private weak var ratingLabel: UILabel!
     @IBOutlet private weak var reviewCountLabel: UILabel!
-    @IBOutlet private weak var headerView: UIView!
+    @IBOutlet private weak var headerView: HeaderDetailView!
+    weak var delegate: ReviewsViewControllerDelegate?
     var viewModel = ReviewViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
         configTableView()
         loadReview()
+        headerView.delegate = self
     }
 
     private func configTableView() {
@@ -35,6 +40,7 @@ class ReviewsViewController: UIViewController {
             switch result {
             case .success:
                 this.tableView.reloadData()
+                this.headerView.viewModel = HeaderDetailViewModel(restaurant: this.viewModel.restaurant, cuisine: this.viewModel.restaurant.cuisines ?? "")
                 this.reviewCountLabel.text = "- \(this.viewModel.restaurant.review ?? 0) Reviews"
                 this.ratingLabel.text = "\(this.viewModel.restaurant.rating ?? "0")"
             case .failure(let error):
@@ -52,5 +58,13 @@ extension ReviewsViewController: UITableViewDataSource, UITableViewDelegate {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "cellReview", for: indexPath) as? ReviewCell else { return UITableViewCell() }
         cell.viewModel = viewModel.viewModelForCellAt(indexPath: indexPath)
         return cell
+    }
+}
+extension ReviewsViewController: HeaderDetailViewDelegate {
+    func view(_ view: HeaderDetailView, needPerforms action: HeaderDetailView.Action) {
+        switch action {
+        case .back:
+            delegate?.view(self, needPerform: .back)
+        }
     }
 }

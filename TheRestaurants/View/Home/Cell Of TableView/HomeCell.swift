@@ -9,10 +9,12 @@
 import UIKit
 
 protocol HomeCellDelegate: class {
-    func handleFavorite(cell: HomeCell, name: String, isFavorite: Bool )
+    func cell(_ cell: HomeCell, needPerform action: HomeCell.Action )
 }
 class HomeCell: UITableViewCell {
-
+    enum Action {
+        case favorite(isFavorite: Bool)
+    }
     @IBOutlet private weak var imageRestaurant: UIImageView!
     @IBOutlet private weak var nameRestaurantLabel: UILabel!
     @IBOutlet private weak var ratingView: UIView!
@@ -22,13 +24,12 @@ class HomeCell: UITableViewCell {
     @IBOutlet private weak var numberOfDeliveryLabel: UILabel!
     @IBOutlet private weak var favoriteButton: UIButton!
     weak var delegate: HomeCellDelegate?
-    
+
     var viewModel: HomeCellModel? {
         didSet {
             updateView()
         }
     }
-    
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -44,7 +45,7 @@ class HomeCell: UITableViewCell {
         ratingRestautantLabel.text = viewModel.rating
         numberOfDeliveryLabel.text = "\(viewModel.onlineDelivery ?? 0) online delivery now"
         configCuisineStackView()
-        favoriteButton.isSelected = viewModel.isFavorite
+//        favoriteButton.isSelected = viewModel.isFavorite
     }
 
     private func configCuisineStackView() {
@@ -95,12 +96,23 @@ class HomeCell: UITableViewCell {
         return -1
     }
 
-
     @IBAction func favoriteButtonTouchUpInside(_ sender: Any) {
-        guard let viewModel = viewModel, let delegate = delegate else { return }
-        delegate.handleFavorite(cell: self, name: viewModel.name ?? "", isFavorite: viewModel.isFavorite )
+        favoriteButton.isSelected = !favoriteButton.isSelected
+        delegate?.cell(self, needPerform: .favorite(isFavorite: favoriteButton.isSelected))
         updateView()
     }
+    
+//    private func saveKeyToRealm(searchKey: String) {
+//        viewModel.saveKeyToRealm(searchKey: searchKey) { [weak self] (result) in
+//            guard let this = self else { return }
+//            switch result {
+//            case.success:
+//                this.searchHistoryTableView.reloadData()
+//            case.failure(let error):
+//                this.alert(error: error)
+//            }
+//        }
+//    }
 }
 
 extension HomeCell {

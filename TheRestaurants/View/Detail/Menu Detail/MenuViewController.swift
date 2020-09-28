@@ -7,12 +7,27 @@
 //
 
 import UIKit
-
+protocol MenuViewControllerDelegate: class {
+    func viewController(_ viewController: MenuViewController, needPerform action: OverviewViewController.Action)
+}
 class MenuViewController: UIViewController {
 
-    @IBOutlet private weak var headerView: UIView!
+    enum Action {
+        case back
+    }
+    @IBOutlet private weak var headerView: HeaderDetailView!
+    weak var delegate: MenuViewControllerDelegate?
     override func viewDidLoad() {
         super.viewDidLoad()
+        headerView.delegate = self
     }
     var viewModel = MenuViewModel()
+}
+extension MenuViewController: HeaderDetailViewDelegate {
+    func view(_ view: HeaderDetailView, needPerforms action: HeaderDetailView.Action) {
+        switch action {
+        case .back:
+            delegate?.viewController(self, needPerform: .back)
+        }
+    }
 }

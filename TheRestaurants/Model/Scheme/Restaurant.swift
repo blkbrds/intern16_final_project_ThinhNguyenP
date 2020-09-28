@@ -10,13 +10,17 @@ import Foundation
 import ObjectMapper
 import RealmSwift
 
-class Restaurant: Object, Mappable {
+@objcMembers class Restaurant: Object, Mappable {
 
-    @objc dynamic var name: String?
-    @objc dynamic var imageURL: String?
-    @objc dynamic var rating: String?
-    @objc dynamic var onlineDelivery: Int = 0
-    var id: String?
+    dynamic var id: String?
+    dynamic var name: String?
+    dynamic var imageURL: String?
+    dynamic var rating: String?
+    dynamic var onlineDelivery: Int = 0
+    dynamic var favorite: Bool = false
+    dynamic var location: Location?
+    dynamic var establishment: List<String> = List<String>()
+
     var cuisines: String?
     var votes: Int?
     var timings: String?
@@ -24,13 +28,19 @@ class Restaurant: Object, Mappable {
     var url: String?
     var highlights: [String]?
     var review: Int?
-    @objc dynamic var location: Location = Location()
-    var favorite: Bool = false
 
     required init() { }
 
     required convenience init?(map: Map) {
         self.init()
+    }
+    
+    override static func primaryKey() -> String? {
+        return "id"
+    }
+
+    override class func ignoredProperties() -> [String] {
+        return ["cuisines", "votes", "timings", "phoneNumber", "url", "highlights", "review"]
     }
 
     func mapping(map: Map) {
@@ -48,5 +58,6 @@ class Restaurant: Object, Mappable {
         phoneNumber <- map["phone_numbers"]
         url <- map["url"]
         highlights <- map["highlights"]
+        establishment <- map["establishment"]
     }
 }

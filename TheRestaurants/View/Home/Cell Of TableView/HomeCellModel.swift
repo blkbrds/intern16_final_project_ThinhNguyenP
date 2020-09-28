@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import RealmSwift
 
 class HomeCellModel {
 
@@ -25,7 +26,7 @@ class HomeCellModel {
     }
 
     init(restaurant: Restaurant) {
-        address = restaurant.location.address
+        address = restaurant.location?.address
         name = restaurant.name
         cuisines = restaurant.cuisines
         let imageURL = restaurant.imageURL ?? ""
@@ -34,4 +35,23 @@ class HomeCellModel {
         onlineDelivery = restaurant.onlineDelivery
         isFavorite = restaurant.favorite
     }
+
+//    func saveKeyToRealm(restaurant: HomeCellModel, completion: @escaping APICompletion) {
+//        do {
+//            let realm = try Realm()
+//            let result = Restaurant()
+//        result.name = restaurant.name
+//        result.location?.address = restaurant.address
+//        result.imageURL = restaurant.imageURL
+//        result.onlineDelivery = restaurant.onlineDelivery ?? 0
+//        result.rating = restaurant.rating
+//        result.favorite = restaurant.isFavorite
+//            try realm.write {
+//                realm.add(result)
+//            }
+//            completion(.success)
+//        } catch {
+//            completion(.failure(error))
+//        }
+//    }
 }

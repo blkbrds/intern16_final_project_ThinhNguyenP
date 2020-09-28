@@ -9,7 +9,8 @@
 import Foundation
 import ObjectMapper
 import RealmSwift
-class Location: Object,Mappable {
+class Location: Object, Mappable {
+    
     required convenience init?(map: Map) {
         self.init()
     }

@@ -18,6 +18,8 @@ class FavoriteViewController: BaseViewController {
         super.viewDidLoad()
         configTableView()
         setUpNavigation()
+        viewModel.setupObserve()
+        viewModel.feachRealm()
     }
 
     private func configTableView() {
