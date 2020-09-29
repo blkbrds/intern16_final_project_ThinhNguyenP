@@ -13,13 +13,14 @@ class FavoriteViewController: BaseViewController {
     @IBOutlet private weak var tableView: UITableView!
 
     var viewModel = FavoriteViewModel()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configTableView()
         setUpNavigation()
+        feachRealm()
+        viewModel.delegate = self
         viewModel.setupObserve()
-        viewModel.feachRealm()
     }
 
     private func configTableView() {
@@ -36,7 +37,30 @@ class FavoriteViewController: BaseViewController {
         navigationItem.rightBarButtonItem = deleteAll
     }
 
-    @objc func deleteAllFavoriteButtonTouchUpInside() { }
+    func feachRealm() {
+        viewModel.feachRealm { [weak self] (result) in
+            guard let this = self else { return }
+            switch result {
+            case .success:
+                this.viewModel.delegate = self
+                this.tableView.reloadData()
+            case.failure(let error):
+                this.alert(error: error)
+            }
+        }
+    }
+
+    @objc func deleteAllFavoriteButtonTouchUpInside() {
+        viewModel.deleteAllItem { [weak self] (result) in
+            guard let this = self else { return }
+            switch result {
+            case.success:
+                this.feachRealm()
+            case.failure(let error):
+                this.alert(error: error)
+            }
+        }
+    }
 }
 extension FavoriteViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -49,12 +73,13 @@ extension FavoriteViewController: UITableViewDataSource {
         return cell
     }
 }
-//extension FavoriteViewController : FavoriteViewModelDelegate {
-//    func syncFavorite(viewModel: FavoriteViewModel, needperformAction action: FavoriteViewModel.Action) {
-//        <#code#>
-//    }
-//
-//    func viewModel(_ viewModel: FavoriteViewController, needperfomAction action: FavoriteViewModel.Action) {
-//
-//    }
-//}
+extension FavoriteViewController : FavoriteViewModelDelegate {
+    func syncFavorite(viewModel: FavoriteViewModel, needperformAction action: FavoriteViewModel.Action) {
+        feachRealm()
+    }
+}
+extension FavoriteViewController: FavoriteCellDelegate {
+    func cell(_ view: FavoriteCell, needPerformAction action: FavoriteCell.Action) {
+        guard let indexPath = tableView.indexPath(for: view) else { return }
+    }
+}

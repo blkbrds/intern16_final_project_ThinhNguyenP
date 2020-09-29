@@ -9,11 +9,12 @@
 import UIKit
 
 protocol HomeCellDelegate: class {
-    func cell(_ cell: HomeCell, needPerform action: HomeCell.Action )
+    func cell(_ cell: HomeCell, needPerform action: HomeCell.Action)
 }
 class HomeCell: UITableViewCell {
     enum Action {
         case favorite(isFavorite: Bool)
+//        case removeFavorite(id: String)
     }
     @IBOutlet private weak var imageRestaurant: UIImageView!
     @IBOutlet private weak var nameRestaurantLabel: UILabel!
@@ -45,7 +46,7 @@ class HomeCell: UITableViewCell {
         ratingRestautantLabel.text = viewModel.rating
         numberOfDeliveryLabel.text = "\(viewModel.onlineDelivery ?? 0) online delivery now"
         configCuisineStackView()
-//        favoriteButton.isSelected = viewModel.isFavorite
+        favoriteButton.isSelected = viewModel.isFavorite
     }
 
     private func configCuisineStackView() {
@@ -97,22 +98,8 @@ class HomeCell: UITableViewCell {
     }
 
     @IBAction func favoriteButtonTouchUpInside(_ sender: Any) {
-        favoriteButton.isSelected = !favoriteButton.isSelected
         delegate?.cell(self, needPerform: .favorite(isFavorite: favoriteButton.isSelected))
-        updateView()
     }
-    
-//    private func saveKeyToRealm(searchKey: String) {
-//        viewModel.saveKeyToRealm(searchKey: searchKey) { [weak self] (result) in
-//            guard let this = self else { return }
-//            switch result {
-//            case.success:
-//                this.searchHistoryTableView.reloadData()
-//            case.failure(let error):
-//                this.alert(error: error)
-//            }
-//        }
-//    }
 }
 
 extension HomeCell {

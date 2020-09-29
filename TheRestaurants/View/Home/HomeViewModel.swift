@@ -9,24 +9,24 @@
 import Foundation
 import RealmSwift
 
-protocol HomeViewModelDelegate: class {
-    func viewModel(_ viewModel: HomeViewModel)
-}
 class HomeViewModel {
     
     enum Cell {
         case collectionView
         case tableView
     }
+
+    enum Action {
+        case reloadData
+    }
+
     var isLoadingMore: Bool = false
-    var realmRestaurant: [Restaurant] = []
     var collections: [Collection] = []
     var restaurants: [Restaurant] = []
     var cells: [Cell] = [.collectionView, .tableView]
     var totalResults: Int = 0
     private var start: Int = 0
     var notificationToken: NotificationToken?
-    weak var delegate: HomeViewModelDelegate?
     var canLoadMore: Bool {
         return start <= totalResults
     }
@@ -62,7 +62,7 @@ class HomeViewModel {
                 } else {
                     this.restaurants = result.restaurants
                 }
-                completion(.success)
+                this.fetchRealmData(completion: completion)
             case .failure(let error):
                 completion(.failure(error))
             }
@@ -73,13 +73,13 @@ class HomeViewModel {
         return cells.count
     }
 
-    func viewModelForCell(indexPath: IndexPath) -> ListCollectionsCellModel {
+    func viewModelForListCollection(indexPath: IndexPath) -> ListCollectionsCellModel {
         let item = collections
         let viewModel = ListCollectionsCellModel(collections: item)
         return viewModel
     }
 
-    func viewModelForCell2(indexPath: IndexPath) -> HomeCellModel {
+    func viewModelForHomeCell(indexPath: IndexPath) -> HomeCellModel {
         let item = restaurants[indexPath.row]
         let viewModel = HomeCellModel(restaurant: item)
         return viewModel
@@ -101,42 +101,73 @@ class HomeViewModel {
         return viewModel
     }
 
-    func deleteItemFavorite(name: String) {
-        do {
-            let realm = try Realm()
-            let result = realm.objects(Restaurant.self).filter("name = '\(name)'")
-            try realm.write {
-                realm.delete(result)
-                checkFavorite(favorite: false, name: name)
-            }
-        } catch {
-            print(error)
-        }
-    }
-
-    func checkFavorite(favorite: Bool, name: String) {
-        for item in realmRestaurant where item.name == name {
+    func checkFavorite(favorite: Bool, id: String) {
+        for item in restaurants where item.id == id {
             item.favorite = favorite
         }
     }
 
-    func addFavorite(index: Int) {
+    func fetchRealmData(completion: @escaping APICompletion) {
+        do {
+            let realm = try Realm()
+            let results = Array(realm.objects(Restaurant.self))
+            for item in restaurants {
+                if results.contains(where: { $0.id == item.id }) {
+                    item.favorite = true
+                }
+            }
+            completion(.success)
+        } catch {
+            completion(.failure(error))
+        }
+    }
+
+    func addFavorite(index: Int, completion: @escaping APICompletion) {
         do {
             let realm = try Realm()
             let restaurant = restaurants[index]
+            let tempRestaurant = Restaurant(id: restaurant.id,
+                                            name: restaurant.name,
+                                            imageURL: restaurant.imageURL,
+                                            rating: restaurant.rating,
+                                            onlineDelivery: restaurant.onlineDelivery,
+                                            favorite: restaurant.favorite,
+                                            location: restaurant.location,
+                                            establishment: restaurant.establishment)
             try realm.write {
-                realm.add(restaurant, update: .all)
+                realm.create(Restaurant.self, value: tempRestaurant, update: .all)
+                checkFavorite(favorite: true, id: tempRestaurant.id ?? "")
             }
+            completion(.success)
         } catch {
-            print(error.localizedDescription)
+            completion(.failure(error))
+        }
+    }
+
+    func unFavorite(index: Int, completion: @escaping APICompletion) {
+       do {
+            let realm = try Realm()
+            let restaurant = restaurants[index]
+            let result = realm.objects(Restaurant.self)
+            try realm.write {
+                realm.delete(result)
+            }
+        completion(.success)
+        } catch {
+            completion(.failure(error))
         }
     }
 
     func setupObserve() {
 //        do {
 //            let realm = try Realm()
-//            notificationToken = realm.objects(Restaurant.self).observe({ (_) in
-//                self.delegate?.viewModel(self)
+//            notificationToken = realm.objects(Restaurant.self).observe({ [weak self ](_) in
+//                guard let this = self, let delegate = this.delegate else { return }
+//                this.fetchRealmData()
+//                for index in 0..<this.restaurants.count {
+//                    this.restaurants[index].favorite = this.realmRestaurant.contains(where: { $0.id == this.restaurants[index].id })
+//                }
+//                delegate.syncFavorite(this, needperformAction: .reloadData)
 //            })
 //        } catch {
 //            print(error.localizedDescription)

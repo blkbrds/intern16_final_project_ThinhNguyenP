@@ -7,9 +7,24 @@
 //
 
 import Foundation
+import RealmSwift
+
 class FavoriteCellModel {
     let restaurant: Restaurant
     init(restaurant: Restaurant) {
         self.restaurant = restaurant
     }
+    
+    func deleteItemFavorite(id: String) {
+        do {
+            let realm = try Realm()
+            let result = realm.objects(Restaurant.self).filter("id = '\(id)'")
+            try realm.write {
+                realm.delete(result)
+            }
+        } catch {
+           print("Error")
+        }
+    }
 }
+

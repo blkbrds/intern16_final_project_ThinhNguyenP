@@ -35,6 +35,26 @@ import RealmSwift
         self.init()
     }
     
+    init(
+        id: String?,
+        name: String?,
+        imageURL: String?,
+        rating: String?,
+        onlineDelivery: Int,
+        favorite: Bool,
+        location: Location?,
+        establishment: List<String>
+    ) {
+        self.id = id
+        self.name = name
+        self.imageURL = imageURL
+        self.rating = rating
+        self.onlineDelivery = onlineDelivery
+        self.favorite = favorite
+        self.location = location
+        self.establishment = establishment
+    }
+    
     override static func primaryKey() -> String? {
         return "id"
     }

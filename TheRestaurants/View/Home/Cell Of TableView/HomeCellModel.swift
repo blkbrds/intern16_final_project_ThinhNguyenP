@@ -18,8 +18,7 @@ class HomeCellModel {
     var imageURL: String?
     var rating: String?
     var onlineDelivery: Int?
-    var isFavorite: Bool
-
+    var isFavorite = true
     var cuisineArr: [String] {
         guard let cuisineStr = cuisines else { return [] }
         return ["Cuisine"] + cuisineStr.split(separator: ",").map { String($0) }
