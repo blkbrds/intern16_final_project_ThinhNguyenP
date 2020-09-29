@@ -7,3 +7,11 @@
 //
 
 import Foundation
+
+class MenuCellModel {
+    var dailyMenu: DailyMenu
+
+    init(dailyMenu: DailyMenu) {
+        self.dailyMenu = dailyMenu
+    }
+}

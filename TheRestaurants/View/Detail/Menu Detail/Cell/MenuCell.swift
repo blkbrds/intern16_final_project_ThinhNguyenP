@@ -10,10 +10,13 @@ import UIKit
 
 class MenuCell: UITableViewCell {
 
-    
     @IBOutlet weak var dishNameLabel: UILabel!
     @IBOutlet weak var dishPriceLabel: UILabel!
-    
+    var viewModel: MenuCellModel? {
+        didSet {
+            setupView()
+        }
+    }
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -25,4 +28,9 @@ class MenuCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    func setupView() {
+        guard let viewModel = viewModel else { return }
+        dishNameLabel.text = viewModel.dailyMenu.dish.dishName
+        dishPriceLabel.text = viewModel.dailyMenu.dish.dishPrice
+    }
 }
