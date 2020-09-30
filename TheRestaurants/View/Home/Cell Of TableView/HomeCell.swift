@@ -9,10 +9,12 @@
 import UIKit
 
 protocol HomeCellDelegate: class {
+
     func cell(_ cell: HomeCell, id: String, needPerform action: HomeCell.Action)
 }
 
 class HomeCell: UITableViewCell {
+
     enum Action {
         case favorite(isFavorite: Bool)
     }

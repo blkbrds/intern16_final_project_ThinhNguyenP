@@ -9,9 +9,11 @@
 import UIKit
 
 protocol FavoriteCellDelegate: class {
+
     func cell(_ cell: FavoriteCell, id: String, needPerformAction action: FavoriteCell.Action)
 }
 final class FavoriteCell: UITableViewCell {
+
     enum Action {
         case delete
     }

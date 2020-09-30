@@ -30,7 +30,10 @@ class FavoriteViewController: BaseViewController {
     }
 
     private func setUpNavigation() {
-        let deleteAll = UIBarButtonItem(image: #imageLiteral(resourceName: "ic_favorite_trash"), style: .plain, target: self, action: #selector(deleteAllFavoriteButtonTouchUpInside))
+        let deleteAll = UIBarButtonItem(image: #imageLiteral(resourceName: "ic_favorite_trash"),
+                                        style: .plain,
+                                        target: self,
+                                        action: #selector(deleteAllFavoriteButtonTouchUpInside))
         navigationController?.navigationBar.tintColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         navigationItem.title = "Favorite List"
         navigationItem.rightBarButtonItem = deleteAll
@@ -67,13 +70,14 @@ extension FavoriteViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? FavoriteCell else { return UITableViewCell()}
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? FavoriteCell
+            else { return UITableViewCell() }
         cell.delegate = self
         cell.viewModel = viewModel.cellForItemAt(indexPath: indexPath)
         return cell
     }
 }
-extension FavoriteViewController : FavoriteViewModelDelegate {
+extension FavoriteViewController: FavoriteViewModelDelegate {
     func syncFavorite(viewModel: FavoriteViewModel, needperformAction action: FavoriteViewModel.Action) {
         feachRealm()
     }

@@ -40,7 +40,8 @@ class ReviewsViewController: UIViewController {
             switch result {
             case .success:
                 this.tableView.reloadData()
-                this.headerView.viewModel = HeaderDetailViewModel(restaurant: this.viewModel.restaurant, cuisine: this.viewModel.restaurant.cuisines ?? "")
+                this.headerView.viewModel = HeaderDetailViewModel(restaurant: this.viewModel.restaurant,
+                                                                  cuisine: this.viewModel.restaurant.cuisines ?? "")
                 this.reviewCountLabel.text = "- \(this.viewModel.restaurant.review ?? 0) Reviews"
                 this.ratingLabel.text = "\(this.viewModel.restaurant.rating ?? "0")"
             case .failure(let error):
@@ -55,7 +56,8 @@ extension ReviewsViewController: UITableViewDataSource, UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cellReview", for: indexPath) as? ReviewCell else { return UITableViewCell() }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cellReview", for: indexPath) as? ReviewCell
+            else { return UITableViewCell() }
         cell.viewModel = viewModel.viewModelForCellAt(indexPath: indexPath)
         return cell
     }
