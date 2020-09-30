@@ -7,7 +7,8 @@
 //
 
 import Foundation
-class HistorySearchCellModel {
+
+final class HistorySearchCellModel {
     var searchKey: String
     init(searchHistory: SearchHistory) {
         searchKey = searchHistory.searchKey

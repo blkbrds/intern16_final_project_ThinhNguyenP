@@ -14,7 +14,7 @@ protocol HomeViewModelDelegate: class {
 }
 
 class HomeViewModel {
-    
+
     enum Cell {
         case collectionView
         case tableView

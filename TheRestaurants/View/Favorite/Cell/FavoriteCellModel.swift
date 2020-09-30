@@ -14,7 +14,7 @@ class FavoriteCellModel {
     init(restaurant: Restaurant) {
         self.restaurant = restaurant
     }
-    
+
     func deleteItemFavorite(id: String) {
         do {
             let realm = try Realm()
@@ -27,4 +27,3 @@ class FavoriteCellModel {
         }
     }
 }
-

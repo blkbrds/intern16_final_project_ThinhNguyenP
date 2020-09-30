@@ -13,7 +13,6 @@ class FavoriteViewController: BaseViewController {
     @IBOutlet private weak var tableView: UITableView!
 
     var viewModel = FavoriteViewModel()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         configTableView()
@@ -81,7 +80,6 @@ extension FavoriteViewController : FavoriteViewModelDelegate {
 }
 extension FavoriteViewController: FavoriteCellDelegate {
     func cell(_ view: FavoriteCell, id: String, needPerformAction action: FavoriteCell.Action) {
-        guard let indexPath = tableView.indexPath(for: view) else { return }
         switch action {
         case .delete:
             viewModel.deleteItemFavorite(id: id)

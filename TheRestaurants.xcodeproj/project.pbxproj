@@ -10,8 +10,6 @@
 		2498F2DDBF069E2095168507 /* Pods_TheRestaurants.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 904414929699BD83F02E1C1E /* Pods_TheRestaurants.framework */; };
 		72364837251D982F00A6F8AA /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72364836251D982F00A6F8AA /* Location.swift */; };
 		72364839251D986D00A6F8AA /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72364838251D986D00A6F8AA /* User.swift */; };
-		7236483B251DA4C300A6F8AA /* FavoriteHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7236483A251DA4C300A6F8AA /* FavoriteHistory.swift */; };
-		7236483F251DBA9600A6F8AA /* Establishments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7236483E251DBA9600A6F8AA /* Establishments.swift */; };
 		72705D4C251B3A9D00F5CDC1 /* Api.Overview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72705D4B251B3A9D00F5CDC1 /* Api.Overview.swift */; };
 		7272791325134010002E65DC /* Api.Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7272791225134010002E65DC /* Api.Review.swift */; };
 		72727915251341C2002E65DC /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72727914251341C2002E65DC /* Review.swift */; };
@@ -121,8 +119,6 @@
 		17D5525B66B4BE20FAD3B95A /* Pods-TheRestaurants.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheRestaurants.debug.xcconfig"; path = "Target Support Files/Pods-TheRestaurants/Pods-TheRestaurants.debug.xcconfig"; sourceTree = "<group>"; };
 		72364836251D982F00A6F8AA /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		72364838251D986D00A6F8AA /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		7236483A251DA4C300A6F8AA /* FavoriteHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteHistory.swift; sourceTree = "<group>"; };
-		7236483E251DBA9600A6F8AA /* Establishments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Establishments.swift; sourceTree = "<group>"; };
 		72705D4B251B3A9D00F5CDC1 /* Api.Overview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Api.Overview.swift; sourceTree = "<group>"; };
 		7272791225134010002E65DC /* Api.Review.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Api.Review.swift; sourceTree = "<group>"; };
 		72727914251341C2002E65DC /* Review.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
@@ -513,8 +509,6 @@
 				840D72C42502048D0007E901 /* Restaurant.swift */,
 				844E57D225075F1A0012BA18 /* SearchHistory.swift */,
 				72727914251341C2002E65DC /* Review.swift */,
-				7236483A251DA4C300A6F8AA /* FavoriteHistory.swift */,
-				7236483E251DBA9600A6F8AA /* Establishments.swift */,
 				72364836251D982F00A6F8AA /* Location.swift */,
 				72364838251D986D00A6F8AA /* User.swift */,
 			);
@@ -859,7 +853,6 @@
 				74A419A024F3CB2300D1C1D6 /* ResponseSerializer.swift in Sources */,
 				7436E519251DC903001E55B2 /* MapDetailViewModel.swift in Sources */,
 				846A2BA424FA5917004160B3 /* SearchCityCell.swift in Sources */,
-				7236483B251DA4C300A6F8AA /* FavoriteHistory.swift in Sources */,
 				7436E516251DC903001E55B2 /* InformationDetailView.swift in Sources */,
 				74A419AF24F3CFF300D1C1D6 /* App.swift in Sources */,
 				7436E50B251DC903001E55B2 /* ReviewCellViewModel.swift in Sources */,
@@ -880,7 +873,6 @@
 				74A4199D24F3CA2E00D1C1D6 /* Session.swift in Sources */,
 				84AD7C63250A6AAE001EFEC3 /* FavoriteViewModel.swift in Sources */,
 				845966B324FD03C200A61A79 /* CollectionRestaurant.swift in Sources */,
-				7236483F251DBA9600A6F8AA /* Establishments.swift in Sources */,
 				7448210C2501CD64005ACDFF /* UIViewControllerExt.swift in Sources */,
 				84AD7C82250C56AA001EFEC3 /* UIViewExt.swift in Sources */,
 				84A9332B2501F6E700BEE475 /* ListCollectionsCellModel.swift in Sources */,

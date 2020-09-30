@@ -11,7 +11,7 @@ import UIKit
 protocol FavoriteCellDelegate: class {
     func cell(_ cell: FavoriteCell, id: String, needPerformAction action: FavoriteCell.Action)
 }
-class FavoriteCell: UITableViewCell {
+final class FavoriteCell: UITableViewCell {
     enum Action {
         case delete
     }

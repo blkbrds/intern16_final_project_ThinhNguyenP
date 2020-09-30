@@ -34,7 +34,7 @@ import RealmSwift
     required convenience init?(map: Map) {
         self.init()
     }
-    
+
     init(
         id: String?,
         name: String?,
@@ -54,7 +54,7 @@ import RealmSwift
         self.location = location
         self.establishment = establishment
     }
-    
+
     override static func primaryKey() -> String? {
         return "id"
     }

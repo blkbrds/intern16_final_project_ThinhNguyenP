@@ -77,7 +77,7 @@ class SearchViewController: BaseViewController {
         searchBar.delegate = self 
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: searchBar)
     }
-    
+
     func fetchSearchHistoryData() {
         viewModel.fetchSearchHistoryData { [weak self ](result) in
             guard let this = self else { return }

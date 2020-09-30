@@ -29,7 +29,7 @@ class HomeViewController: BaseViewController {
         button.tintColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         self.navigationItem.rightBarButtonItem = button
     }
-    
+
     @objc func changeLocationButtonTouchUpInside() {
         Session.cityId = nil
         SceneDelegate.shared.changeRoot(root: .introduce)

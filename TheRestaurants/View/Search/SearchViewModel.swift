@@ -112,7 +112,7 @@ class SearchViewModel {
             completion(.failure(error))
         }
     }
-    
+
     func addFavorite(index: Int, completion: @escaping APICompletion) {
         do {
             let realm = try Realm()

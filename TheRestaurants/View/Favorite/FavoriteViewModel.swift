@@ -34,26 +34,6 @@ class FavoriteViewModel {
         return viewModel
     }
 
-    //    func getData(completion: @escaping (Bool) -> ()) {
-    //        do {
-    //            restautants.removeAll()
-    //            let realm = try Realm()
-    //            let restaurant = realm.objects(Restaurant.self)
-    //            for item in restaurant {
-    //                let restaurant = Restaurant()
-    //                restaurant.name = item.name
-    //                restaurant.imageURL = item.imageURL
-    //                restaurant.onlineDelivery = item.onlineDelivery
-    //                restaurant.rating = item.rating
-    //                restaurant.location?.address = item.location?.address
-    //                restaurant.app
-    //            }
-    //            completion(true)
-    //        } catch {
-    //            completion(false)
-    //        }
-    //    }
-    
     func feachRealm(completion: @escaping APICompletion) {
         do {
             let realm = try Realm()
