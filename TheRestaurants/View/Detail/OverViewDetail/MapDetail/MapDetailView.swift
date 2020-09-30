@@ -39,6 +39,7 @@ class MapDetailView: UIView {
         let nib = UINib(nibName: "MapDetailView", bundle: .main)
         nib.instantiate(withOwner: self, options: nil)
         addSubview(containerView)
+        containerView.fillToSuperview()
     }
 
     override func awakeFromNib() {

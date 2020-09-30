@@ -15,16 +15,17 @@ class InformationDetailView: UIView {
     @IBOutlet private weak var phoneNumberLabel: UILabel!
     @IBOutlet private weak var websiteLabel: UILabel!
 
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        xibSetup()
-    }
-
     var viewModel: InformationDetailViewModel? {
         didSet {
             updateView()
         }
     }
+
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        xibSetup()
+    }
+
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         xibSetup()
@@ -34,6 +35,7 @@ class InformationDetailView: UIView {
         let nib = UINib(nibName: "InformationDetailView", bundle: .main)
         nib.instantiate(withOwner: self, options: nil)
         addSubview(containerView)
+        containerView.fillToSuperview()
     }
 
     private func updateView() {

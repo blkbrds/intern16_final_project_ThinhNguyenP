@@ -10,7 +10,8 @@ import UIKit
 
 final class HighlightView: UIView {
 
-    @IBOutlet weak var contentLabel: UILabel!
+    @IBOutlet var containerView: UIView!
+    @IBOutlet private weak var contentLabel: UILabel!
 
     var viewModel: HighlightViewModel? {
         didSet {
@@ -18,16 +19,24 @@ final class HighlightView: UIView {
         }
     }
 
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        xibSetup()
+    }
+
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        xibSetup()
+    }
+
+    func xibSetup() {
+        let nib = UINib(nibName: "HighlightView", bundle: .main)
+        nib.instantiate(withOwner: self, options: nil)
+        addSubview(containerView)
+        containerView.fillToSuperview()
+    }
+
     private func updateUI() {
         contentLabel.text = viewModel?.content
-    }
-}
-
-extension HighlightView {
-    struct Config {
-        static let width: CGFloat = 150
-        static let imageWidth: CGFloat = 150
-        static let imageToLabelSpacing: CGFloat = 8
-        static let labelFont: UIFont = .systemFont(ofSize: 13)
     }
 }

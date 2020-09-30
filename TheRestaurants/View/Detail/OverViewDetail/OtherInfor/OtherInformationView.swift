@@ -35,17 +35,13 @@ class OtherInformationView: UIView {
         let nib = UINib(nibName: "OtherInformationView", bundle: .main)
         nib.instantiate(withOwner: self, options: nil)
         addSubview(containerView)
+        containerView.fillToSuperview()
     }
 
     private func configStackView() {
         guard let viewModel = viewModel else { return }
         for (index, highlight) in viewModel.highlights.enumerated() {
-            let hightlightView: HighlightView = HighlightView.loadNib()
-            let highlightViewWidth: CGFloat = HighlightView.Config.width * UIScreen.main.bounds.width / 375
-            let contentLabelWidth: CGFloat = highlightViewWidth - HighlightView.Config.imageWidth - HighlightView.Config.imageToLabelSpacing
-            let contentLabelHeight: CGFloat = highlight.contentHeight(withConstrainedWidth: contentLabelWidth,
-                                                                      attributes: [.font: HighlightView.Config.labelFont])
-            hightlightView.frame = CGRect(x: 0, y: 0, width: highlightViewWidth, height: contentLabelHeight)
+            let hightlightView: HighlightView = HighlightView()
             hightlightView.viewModel = HighlightViewModel(content: highlight)
             if index % 2 == 0 {
                 leftStackView.addArrangedSubview(hightlightView)

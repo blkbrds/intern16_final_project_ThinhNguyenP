@@ -44,6 +44,7 @@ class HeaderDetailView: UIView {
         let nib = UINib(nibName: "HeaderDetailView", bundle: .main)
         nib.instantiate(withOwner: self, options: nil)
         addSubview(containerView)
+        containerView.fillToSuperview()
     }
 
     @IBAction func favoriteButtonTouchUpInside(_ sender: UIButton) {

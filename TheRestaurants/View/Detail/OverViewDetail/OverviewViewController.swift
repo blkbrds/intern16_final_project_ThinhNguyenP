@@ -36,7 +36,8 @@ class OverviewViewController: UIViewController {
             guard let this = self else { return }
             switch result {
             case .success:
-                this.headerView.viewModel = HeaderDetailViewModel(restaurant: this.viewModel.restaurant, cuisine: this.viewModel.restaurant.cuisines ?? "")
+                this.headerView.viewModel = HeaderDetailViewModel(restaurant: this.viewModel.restaurant,
+                                                                  cuisine: this.viewModel.restaurant.cuisines ?? "")
                 this.informationView.viewModel = InformationDetailViewModel(restaurant: this.viewModel.restaurant)
                 this.mapDetailView.viewModel = MapDetailViewModel(restaurant: this.viewModel.restaurant)
                 this.otherInformationView.viewModel = OtherInformationViewModel(highlights: this.viewModel.restaurant.highlights ?? [])
