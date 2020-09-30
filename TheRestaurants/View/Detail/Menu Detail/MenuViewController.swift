@@ -19,15 +19,19 @@ class MenuViewController: UIViewController {
     weak var delegate: MenuViewControllerDelegate?
     override func viewDidLoad() {
         super.viewDidLoad()
-        headerView.delegate = self
+//        headerView.delegate = self
     }
     var viewModel = MenuViewModel()
 }
-extension MenuViewController: HeaderDetailViewDelegate {
-    func view(_ view: HeaderDetailView, needPerforms action: HeaderDetailView.Action) {
-        switch action {
-        case .back:
-            delegate?.viewController(self, needPerform: .back)
-        }
-    }
-}
+//extension MenuViewController: HeaderDetailViewDelegate {
+//    func view(_ view: HeaderDetailView, id: String, needPerforms action: HeaderDetailView.Action) {
+//        switch action {
+//        case .back:
+//            
+//        default:
+//            <#code#>
+//        }
+//    }
+//    
+//    
+//}

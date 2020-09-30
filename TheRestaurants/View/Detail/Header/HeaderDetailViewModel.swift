@@ -13,6 +13,8 @@ class HeaderDetailViewModel {
     var cuisine: String
     init(restaurant: Restaurant, cuisine: String = "") {
         self.restaurant = restaurant
+        self.restaurant.id = restaurant.id
+//        self.restaurant.favorite = restaurant.favorite
         self.cuisine = cuisine.replacingOccurrences(of: ",", with: " |")
     }
 }

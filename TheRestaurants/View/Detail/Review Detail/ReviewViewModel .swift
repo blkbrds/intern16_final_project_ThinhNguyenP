@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import RealmSwift
 
 class ReviewViewModel {
     var reviews: [Review] = []
@@ -37,5 +38,25 @@ class ReviewViewModel {
         let review = reviews[indexPath.row]
         let viewModel = ReviewCellViewModel(review: review)
         return viewModel
+    }
+    
+    func unFavorite(id: String, completion: @escaping APICompletion) {
+        do {
+            let realm = try Realm()
+            let result = realm.objects(Restaurant.self).filter("id = '\(id)'")
+            try realm.write {
+                realm.delete(result)
+                checkFavorite(favorite: false, id: id)
+            }
+            completion(.success)
+        } catch {
+            completion(.failure(error))
+        }
+    }
+
+    func checkFavorite(favorite: Bool, id: String) {
+        if restaurant.id == id {
+            restaurant.favorite = favorite
+        }
     }
 }

@@ -37,7 +37,7 @@
                     <state key="normal" image="ic_favorite_header"/>
                     <state key="selected" image="ic_detail_favorite"/>
                     <connections>
-                        <action selector="favoriteButtonTouchUpInside:" destination="-1" eventType="touchUpInside" id="uUL-IV-hGX"/>
+                        <action selector="favoriteButtonTouchUpInside:" destination="-1" eventType="touchUpInside" id="cFB-uJ-fIC"/>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lm2-Nd-e90">

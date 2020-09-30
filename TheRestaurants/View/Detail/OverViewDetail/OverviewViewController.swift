@@ -14,21 +14,22 @@ protocol OverviewControllerDelegate: class {
 class OverviewViewController: UIViewController {
     enum Action {
         case back
+        case favorite(isFavorite: Bool)
     }
-
+    
     @IBOutlet private weak var headerView: HeaderDetailView!
     @IBOutlet private weak var mapDetailView: MapDetailView!
     @IBOutlet private weak var informationView: InformationDetailView!
     @IBOutlet private weak var otherInformationView: OtherInformationView!
     weak var delegate: OverviewControllerDelegate?
-
+    
     var viewModel = OverviewViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
         getRestaurantDetail()
         headerView.delegate = self
     }
-
+    
     func getRestaurantDetail() {
         Indicator.start()
         viewModel.getRestaurantDetail { [weak self] (result) in
@@ -37,6 +38,7 @@ class OverviewViewController: UIViewController {
             switch result {
             case .success:
                 this.headerView.viewModel = HeaderDetailViewModel(restaurant: this.viewModel.restaurant, cuisine: this.viewModel.restaurant.cuisines ?? "")
+                this.headerView.delegate = self
                 this.informationView.viewModel = InformationDetailViewModel(restaurant: this.viewModel.restaurant)
                 this.mapDetailView.viewModel = MapDetailViewModel(restaurant: this.viewModel.restaurant)
                 this.otherInformationView.viewModel = OtherInformationViewModel(highlights: this.viewModel.restaurant.highlights ?? [])
@@ -51,6 +53,37 @@ extension OverviewViewController: HeaderDetailViewDelegate {
         switch action {
         case .back:
             delegate?.viewController(self, needPerform: .back)
+        case .favorite(let isFavorite):
+            delegate?.viewController(self, needPerform: .favorite(isFavorite: isFavorite))
         }
     }
+    
+//    func view(_ view: HeaderDetailView, id: String, needPerforms action: HeaderDetailView.Action) {
+//        switch action {
+//        case .back:
+//            delegate?.viewController(self, needPerform: .back)
+//        case .favorite(let isFavorite):
+//            if isFavorite {
+//                viewModel.unFavorite(id: id) { [weak self] result in
+//                    guard let this = self else { return }
+//                    switch result {
+//                    case .success:
+//                        this.headerView.viewModel = HeaderDetailViewModel(restaurant: this.viewModel.restaurant, cuisine: this.viewModel.restaurant.cuisines ?? "")
+//                    case.failure(let error):
+//                        this.alert(error: error)
+//                    }
+//                }
+//            } else {
+//                viewModel.addFavorite(id: id) { [weak self] result in
+//                    guard let this = self else { return }
+//                    switch result {
+//                    case .success:
+//                        this.headerView.viewModel = HeaderDetailViewModel(restaurant: this.viewModel.restaurant, cuisine: this.viewModel.restaurant.cuisines ?? "")
+//                    case .failure(let error):
+//                        this.alert(error: error)
+//                    }
+//                }
+//            }
+//        }
+//    }
 }

@@ -34,26 +34,6 @@ class FavoriteViewModel {
         return viewModel
     }
 
-    //    func getData(completion: @escaping (Bool) -> ()) {
-    //        do {
-    //            restautants.removeAll()
-    //            let realm = try Realm()
-    //            let restaurant = realm.objects(Restaurant.self)
-    //            for item in restaurant {
-    //                let restaurant = Restaurant()
-    //                restaurant.name = item.name
-    //                restaurant.imageURL = item.imageURL
-    //                restaurant.onlineDelivery = item.onlineDelivery
-    //                restaurant.rating = item.rating
-    //                restaurant.location?.address = item.location?.address
-    //                restaurant.app
-    //            }
-    //            completion(true)
-    //        } catch {
-    //            completion(false)
-    //        }
-    //    }
-    
     func feachRealm(completion: @escaping APICompletion) {
         do {
             let realm = try Realm()
@@ -103,48 +83,11 @@ class FavoriteViewModel {
         }
     }
 
-//    func deleteItemFavorite(id: String) {
-//        do {
-//            let realm = try Realm()
-//            let result = realm.objects(Restaurant.self).filter("id = '\(id)'")
-//            try realm.write {
-//                realm.delete(result)
-//                checkFavorite(favorite: false, id: id)
-//            }
-//        } catch {
-//            print(error)
-//        }
-//    }
 
     func checkFavorite(favorite: Bool, id: String) {
         for item in restautants where item.id == id {
             item.favorite = favorite
            }
        }
-    //    func fetchSearchHistoryData(completion: @escaping APICompletion) {
-    //        do {
-    //            let realm = try Realm()
-    //            let results = realm.objects(FavoriteHistory.self)
-    //            favorite = Array((results).reversed())
-    //            completion(.success)
-    //        } catch {
-    //            completion(.failure(error))
-    //        }
-    //    }
-    //    func addFavorite(name: String, onlineDelivery: Int, imageURL: String, address: String) {
-    //        do {
-    //            let realm = try Realm()
-    //            let restaurant = Restaurant()
-    //            restaurant.name = name
-    //            restaurant.location.address = address
-    //            restaurant.onlineDelivery = onlineDelivery
-    //            restaurant.imageURL = imageURL
-    //            try realm.write {
-    //                realm.add(restaurant, update: .all)
-    //                checkFavorite(favorite: true, name: name )
-    //            }
-    //        } catch {
-    //            print(error)
-    //        }
-    //    }
+   
 }

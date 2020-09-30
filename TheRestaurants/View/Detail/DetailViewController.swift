@@ -10,14 +10,14 @@ import UIKit
 import MapKit
 
 class DetailViewController: UIViewController {
-
+    
     @IBOutlet private weak var contentView: UIView!
     @IBOutlet private weak var tabButtonsView: UIView!
     @IBOutlet private var tabButtons: [UIButton]!
     private var pageController: UIPageViewController!
     private var viewControllers: [UIViewController] = []
     private var lineView: UIView!
-
+    
     var viewModel: DetailViewModel?
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,30 +25,30 @@ class DetailViewController: UIViewController {
         setUpPageView()
         configLineView()
     }
-
+    
     @IBAction private func buttonTouchUpInside(_ sender: UIButton) {
-       for button in tabButtons {
+        for button in tabButtons {
             button.isSelected = button.tag == sender.tag
         }
         pageController.setViewControllers([viewControllers[sender.tag]], direction: .reverse, animated: false, completion: nil)
         configLineViewWithAnimation(selectedButtonTag: sender.tag)
     }
-
+    
     private func setUpPageView() {
         guard let restaurant = viewModel?.restaurant else { return }
-
+        
         // Setup view controllers
         let overviewViewController = OverviewViewController()
         overviewViewController.delegate = self
         overviewViewController.viewModel = OverviewViewModel(restaurant: restaurant)
         let reviewViewController = ReviewsViewController()
-        reviewViewController.delegate = self
+        //        reviewViewController.delegate = self
         reviewViewController.viewModel = ReviewViewModel(restaurant: restaurant)
         let menuViewController = MenuViewController()
         menuViewController.delegate = self
         menuViewController.viewModel = MenuViewModel(restaurant: restaurant)
         viewControllers = [overviewViewController, menuViewController, reviewViewController]
-
+        
         // Setup page view
         pageController = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
         pageController.view.frame = CGRect(x: 0, y: 0, width: contentView.frame.width, height: contentView.frame.height)
@@ -58,20 +58,20 @@ class DetailViewController: UIViewController {
         pageController.didMove(toParent: self)
         navigationController?.isNavigationBarHidden = true
     }
-
+    
     private func configLineView() {
         let frame = CGRect(x: 0,
-                            y: tabButtonsView.frame.minY,
-                            width: tabButtonsView.frame.width / 3,
-                            height: 3)
+                           y: tabButtonsView.frame.minY,
+                           width: tabButtonsView.frame.width / 3,
+                           height: 3)
         let lineView = UIView(frame: frame)
         lineView.backgroundColor = #colorLiteral(red: 0, green: 0.3764705882, blue: 0.3921568627, alpha: 1)
         self.lineView = lineView
-
+        
         view.addSubview(lineView)
         view.bringSubviewToFront(lineView)
     }
-
+    
     private func configLineViewWithAnimation(selectedButtonTag: Int) {
         UIView.animate(withDuration: 0.5) {
             let newX: CGFloat = self.tabButtonsView.frame.width / 3 * CGFloat(selectedButtonTag)
@@ -88,6 +88,11 @@ extension DetailViewController: OverviewControllerDelegate {
         switch action {
         case .back:
             navigationController?.popViewController(animated: true)
+        case .favorite(let isFavorite):
+            viewModel?.unFavorite(completion: { [weak self] (result) in
+                guard let this = self else { return }
+                switch.r
+            })
         }
     }
 }
@@ -96,14 +101,16 @@ extension DetailViewController: MenuViewControllerDelegate {
         switch action {
         case .back:
             navigationController?.popViewController(animated: true)
+        case .favorite(let isFavorite):
+            <#code#>
         }
     }
 }
-extension DetailViewController: ReviewsViewControllerDelegate {
-    func view(_ viewController: ReviewsViewController, needPerform action: HeaderDetailView.Action) {
-        switch action {
-        case .back:
-            navigationController?.popViewController(animated: true)
-        }
-    }
-}
+//extension DetailViewController: ReviewsViewControllerDelegate {
+////    func view(_ viewController: ReviewsViewController, needPerform action: HeaderDetailView.Action) {
+////        switch action {
+////        case .back:
+////            navigationController?.popViewController(animated: true)
+////        }
+////    }
+//}

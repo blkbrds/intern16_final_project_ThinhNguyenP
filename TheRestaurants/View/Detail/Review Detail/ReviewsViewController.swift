@@ -12,7 +12,7 @@ protocol ReviewsViewControllerDelegate: class {
     func view(_ viewController: ReviewsViewController, needPerform action: HeaderDetailView.Action)
 }
 class ReviewsViewController: UIViewController {
-
+    
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private weak var ratingLabel: UILabel!
     @IBOutlet private weak var reviewCountLabel: UILabel!
@@ -25,13 +25,13 @@ class ReviewsViewController: UIViewController {
         loadReview()
         headerView.delegate = self
     }
-
+    
     private func configTableView() {
         let cell = UINib(nibName: "ReviewCell", bundle: .main)
         tableView.register(cell, forCellReuseIdentifier: "cellReview")
         tableView.dataSource = self
     }
-
+    
     func loadReview() {
         Indicator.start()
         viewModel.loadReview { [weak self](result) in
@@ -53,7 +53,7 @@ extension ReviewsViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.numberOfRowsInSection()
     }
-
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "cellReview", for: indexPath) as? ReviewCell else { return UITableViewCell() }
         cell.viewModel = viewModel.viewModelForCellAt(indexPath: indexPath)
@@ -65,6 +65,19 @@ extension ReviewsViewController: HeaderDetailViewDelegate {
         switch action {
         case .back:
             delegate?.view(self, needPerform: .back)
+        case .favorite(let isFavorite):
+            delegate?.view(self, needPerform: .favorite(isFavorite: isFavorite))
+        }
+    }
+    
+    func view(_ view: HeaderDetailView, id: String, needPerforms action: HeaderDetailView.Action) {
+        switch action {
+        case .back:
+            delegate?.view(self, needPerform: .back)
+        case .favorite(let isFavorite):
+            if isFavorite {
+                
+            }
         }
     }
 }
