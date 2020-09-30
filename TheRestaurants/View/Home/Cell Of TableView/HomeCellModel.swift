@@ -36,23 +36,4 @@ class HomeCellModel {
         isFavorite = restaurant.favorite
         id = restaurant.id
     }
-
-//    func saveKeyToRealm(restaurant: HomeCellModel, completion: @escaping APICompletion) {
-//        do {
-//            let realm = try Realm()
-//            let result = Restaurant()
-//        result.name = restaurant.name
-//        result.location?.address = restaurant.address
-//        result.imageURL = restaurant.imageURL
-//        result.onlineDelivery = restaurant.onlineDelivery ?? 0
-//        result.rating = restaurant.rating
-//        result.favorite = restaurant.isFavorite
-//            try realm.write {
-//                realm.add(result)
-//            }
-//            completion(.success)
-//        } catch {
-//            completion(.failure(error))
-//        }
-//    }
 }

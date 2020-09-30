@@ -13,6 +13,7 @@ class ListCollectionsCell: UITableViewCell {
     @IBOutlet weak var trendingCollectionViewCell: UICollectionView!
 
     var viewModel = ListCollectionsCellModel()
+     var homeViewModel = HomeViewModel()
 
     override func awakeFromNib() {
            super.awakeFromNib()

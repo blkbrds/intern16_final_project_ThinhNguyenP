@@ -22,6 +22,7 @@ class HomeViewModel {
 
     enum Action {
         case reloadData
+        case fail(Error)
     }
 
     var isLoadingMore: Bool = false
@@ -35,6 +36,10 @@ class HomeViewModel {
     weak var delegate: HomeViewModelDelegate?
     var canLoadMore: Bool {
         return start <= totalResults
+    }
+
+    deinit {
+        notificationToken?.invalidate()
     }
 
     func loadCollection(completion: @escaping (APICompletion)) {
@@ -151,48 +156,41 @@ class HomeViewModel {
     }
 
     func unFavorite(id: String, completion: @escaping APICompletion) {
-       do {
+        do {
             let realm = try Realm()
-        let result = realm.objects(Restaurant.self).filter("id = '\(id)'")
+            let result = realm.objects(Restaurant.self).filter("id = '\(id)'")
             try realm.write {
                 realm.delete(result)
                 checkFavorite(favorite: false, id: id)
             }
-        completion(.success)
+            completion(.success)
         } catch {
             completion(.failure(error))
         }
     }
 
-//    func setupObserve() {
-//        do {
-//            let realm = try Realm()
-//            notificationToken = realm.objects(Restaurant.self).observe({ (_) in
-//                if let delegate = self.delegate {
-//                    delegate.syncFavorite(viewModel: self, needperformAction: .reloadData)
-//                }
-//            })
-//        } catch {
-//            print(error)
-//        }
-//    }
-    
-    func setupObserve() {
-//        do {
-//            let realm = try Realm()
-//            notificationToken = realm.objects(Restaurant.self).observe({ [weak self] _ in
-//                guard let this = self else { return }
-//                if let delegate = this.delegate {
-//                    this.fetchRealmData { (result) in
-//                        for i in 0..<this.restaurants.count {
-//                            this.restaurants[i].favorite = this.tempRestaurant.contains(where: { $0.id == this.restaurants[i].id })
-//                        }
-//                    }
-//                    delegate.syncFavorite(viewModel: this, needperformAction: .reloadData)
-//                }
-//            })
-//        } catch {
-//            print(error)
-//        }
+    func setupObserver() {
+        do {
+            let realm = try Realm()
+            notificationToken = realm.objects(Restaurant.self).observe({ [weak self] changes in
+                guard let this = self else { return }
+                switch changes {
+                case .update(let restaurants, _, _, _):
+                    for item in this.restaurants {
+                        if restaurants.contains(where: { $0.id == item.id }) {
+                            item.favorite = true
+                        } else {
+                            item.favorite = false
+                        }
+                    }
+                    this.delegate?.syncFavorite(viewModel: this, needperformAction: .reloadData)
+                case .error(let error):
+                    this.delegate?.syncFavorite(viewModel: this, needperformAction: .fail(error))
+                default: break
+                }
+            })
+        } catch {
+            delegate?.syncFavorite(viewModel: self, needperformAction: .fail(error))
+        }
     }
 }

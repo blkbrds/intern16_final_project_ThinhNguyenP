@@ -14,14 +14,16 @@ class SearchViewController: BaseViewController {
     @IBOutlet private weak var resultTableView: UITableView!
 
     var viewModel = SearchViewModel()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpSearchBar()
         configTableView()
         fetchSearchHistoryData()
+        viewModel.delegate = self
+        viewModel.setupObserver()
     }
-
+    
     private func saveKeyToRealm(searchKey: String) {
         viewModel.saveKeyToRealm(searchKey: searchKey) {  [weak self] (result) in
             guard let this = self else { return }
@@ -75,7 +77,7 @@ class SearchViewController: BaseViewController {
         searchBar.delegate = self 
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: searchBar)
     }
-
+    
     func fetchSearchHistoryData() {
         viewModel.fetchSearchHistoryData { [weak self ](result) in
             guard let this = self else { return }
@@ -87,6 +89,18 @@ class SearchViewController: BaseViewController {
             }
         }
     }
+
+    func feachRealm() {
+            viewModel.fetchRealmData { [weak self] (result) in
+                guard let this = self else { return }
+                switch result {
+                case .success:
+                    this.resultTableView.reloadData()
+                case.failure(let error):
+                    this.alert(error: error)
+                }
+            }
+        }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
@@ -111,6 +125,7 @@ extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "searchcell", for: indexPath) as? HomeCell else {
             return UITableViewCell()
         }
+        cell.delegate = self as? HomeCellDelegate
         cell.viewModel = viewModel.viewModelForResultCell(indexPath: indexPath)
         return cell
     }
@@ -145,5 +160,44 @@ extension SearchViewController: UISearchBarDelegate {
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
         searchHistoryTableView.isHidden = true
         resultTableView.isHidden = false
+    }
+}
+extension SearchViewController: SearchViewModelDelegate {
+    func syncFavorite(viewModel: SearchViewModel, needperformAction action: SearchViewModel.Action) {
+        switch action {
+        case .reloadData:
+            resultTableView.reloadData()
+        case .fail(let error):
+            alert(error: error)
+        }
+    }
+}
+extension SearchViewController: HomeCellDelegate {
+    func cell(_ cell: HomeCell, id: String, needPerform action: HomeCell.Action) {
+        guard let indexPath = resultTableView.indexPath(for: cell) else { return }
+        switch action {
+        case .favorite(let isFavorite):
+            if isFavorite {
+                viewModel.unFavorite(id: id) { [weak self] result in
+                    guard let this = self else { return }
+                    switch result {
+                    case .success:
+                        this.resultTableView.reloadData()
+                    case.failure(let error):
+                        this.alert(error: error)
+                    }
+                }
+            } else {
+                viewModel.addFavorite(index: indexPath.row) { [weak self] result in
+                    guard let this = self else { return }
+                    switch result {
+                    case .success:
+                        this.resultTableView.reloadData()
+                    case .failure(let error):
+                        this.alert(error: error)
+                    }
+                }
+            }
+        }
     }
 }

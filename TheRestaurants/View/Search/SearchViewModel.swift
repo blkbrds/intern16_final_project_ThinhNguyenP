@@ -9,14 +9,29 @@
 import Foundation
 import RealmSwift
 
+protocol SearchViewModelDelegate: class {
+    func syncFavorite(viewModel: SearchViewModel, needperformAction action: SearchViewModel.Action)
+}
 enum Search {
     case resultSearch
     case historySearch
 }
 
 class SearchViewModel {
+
+    enum Action {
+        case reloadData
+        case fail(Error)
+    }
+
     var results: [Restaurant] = []
     var histories: [SearchHistory] = []
+    var notificationToken: NotificationToken?
+    weak var delegate: SearchViewModelDelegate?
+
+    deinit {
+        notificationToken?.invalidate()
+    }
 
     func numberOfRowInSectionResult() -> Int {
         return results.count
@@ -33,7 +48,7 @@ class SearchViewModel {
             switch result {
             case .success(let results):
                 this.results = results
-                completion( .success)
+                this.fetchRealmData(completion: completion)
             case .failure(let error):
                 completion(.failure(error))
             }
@@ -81,5 +96,87 @@ class SearchViewModel {
         let item = results[indexPath.row]
         let viewModel = DetailViewModel(restaurant: item)
         return viewModel
+    }
+
+    func fetchRealmData(completion: @escaping APICompletion) {
+        do {
+            let realm = try Realm()
+            let resultsRealm = Array(realm.objects(Restaurant.self))
+            for item in results {
+                if resultsRealm.contains(where: { $0.id == item.id }) {
+                    item.favorite = true
+                }
+            }
+            completion(.success)
+        } catch {
+            completion(.failure(error))
+        }
+    }
+    
+    func addFavorite(index: Int, completion: @escaping APICompletion) {
+        do {
+            let realm = try Realm()
+            let restaurant = results[index]
+            let tempRestaurant = Restaurant(id: restaurant.id,
+                                            name: restaurant.name,
+                                            imageURL: restaurant.imageURL,
+                                            rating: restaurant.rating,
+                                            onlineDelivery: restaurant.onlineDelivery,
+                                            favorite: restaurant.favorite,
+                                            location: restaurant.location,
+                                            establishment: restaurant.establishment)
+            try realm.write {
+                realm.create(Restaurant.self, value: tempRestaurant, update: .all)
+                checkFavorite(favorite: true, id: tempRestaurant.id ?? "")
+            }
+            completion(.success)
+        } catch {
+            completion(.failure(error))
+        }
+    }
+
+    func checkFavorite(favorite: Bool, id: String) {
+        for item in results where item.id == id {
+            item.favorite = favorite
+        }
+    }
+
+    func unFavorite(id: String, completion: @escaping APICompletion) {
+        do {
+            let realm = try Realm()
+            let result = realm.objects(Restaurant.self).filter("id = '\(id)'")
+            try realm.write {
+                realm.delete(result)
+                checkFavorite(favorite: false, id: id)
+            }
+            completion(.success)
+        } catch {
+            completion(.failure(error))
+        }
+    }
+
+    func setupObserver() {
+        do {
+            let realm = try Realm()
+            notificationToken = realm.objects(Restaurant.self).observe({ [weak self] changes in
+                guard let this = self else { return }
+                switch changes {
+                case .update(let restaurants, _, _, _):
+                    for item in this.results {
+                        if restaurants.contains(where: { $0.id == item.id }) {
+                            item.favorite = true
+                        } else {
+                            item.favorite = false
+                        }
+                    }
+                    this.delegate?.syncFavorite(viewModel: this, needperformAction: .reloadData)
+                case .error(let error):
+                    this.delegate?.syncFavorite(viewModel: this, needperformAction: .fail(error))
+                default: break
+                }
+            })
+        } catch {
+            delegate?.syncFavorite(viewModel: self, needperformAction: .fail(error))
+        }
     }
 }

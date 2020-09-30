@@ -91,6 +91,18 @@ class FavoriteViewModel {
         }
     }
 
+    func deleteItemFavorite(id: String) {
+        do {
+            let realm = try Realm()
+            let result = realm.objects(Restaurant.self).filter("id = '\(id)'")
+            try realm.write {
+                realm.delete(result)
+            }
+        } catch {
+           print("Error")
+        }
+    }
+
 //    func deleteItemFavorite(id: String) {
 //        do {
 //            let realm = try Realm()
