@@ -10,6 +10,7 @@ import UIKit
 
 class CuisineView: UIView {
 
+    @IBOutlet var containerView: UIView!
     @IBOutlet private weak var cuisineView: UIView!
     @IBOutlet private weak var cuisineLabel: UILabel!
 
@@ -19,8 +20,21 @@ class CuisineView: UIView {
         }
     }
 
-    override func  awakeFromNib() {
-        super.awakeFromNib()
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        xibSetup()
+    }
+
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        xibSetup()
+    }
+
+    func xibSetup() {
+        let nib = UINib(nibName: "CuisineView", bundle: .main)
+        nib.instantiate(withOwner: self, options: nil)
+        addSubview(containerView)
+        containerView.fillToSuperview()
         setupView()
     }
 

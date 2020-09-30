@@ -70,7 +70,7 @@ class HomeCell: UITableViewCell {
                 let isTitle = item.elementsEqual("Cuisine")
                 let font: UIFont = isTitle ? CuisineView.Config.cuisineLabelTitleFont : CuisineView.Config.cuisineLabelFont
                 let cuisineViewWidth = item.contentWidth(font: font) + CuisineView.Config.cuisineLabelMargin * 2
-                let cuisineView: CuisineView = CuisineView.loadNib()
+                let cuisineView: CuisineView = CuisineView()
                 cuisineView.frame = CGRect(x: 0, y: 0, width: cuisineViewWidth, height: 18)
                 cuisineView.viewModel = CuisineViewModel(cuisine: item, isTitle: isTitle)
                 stackView.addArrangedSubview(cuisineView)
