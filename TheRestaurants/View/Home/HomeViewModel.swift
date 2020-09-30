@@ -9,6 +9,10 @@
 import Foundation
 import RealmSwift
 
+protocol HomeViewModelDelegate: class {
+    func syncFavorite(viewModel: HomeViewModel, needperformAction action: HomeViewModel.Action)
+}
+
 class HomeViewModel {
     
     enum Cell {
@@ -23,10 +27,12 @@ class HomeViewModel {
     var isLoadingMore: Bool = false
     var collections: [Collection] = []
     var restaurants: [Restaurant] = []
+    var totalRealm: [Restaurant] = []
     var cells: [Cell] = [.collectionView, .tableView]
     var totalResults: Int = 0
     private var start: Int = 0
     var notificationToken: NotificationToken?
+    weak var delegate: HomeViewModelDelegate?
     var canLoadMore: Bool {
         return start <= totalResults
     }
@@ -144,13 +150,13 @@ class HomeViewModel {
         }
     }
 
-    func unFavorite(index: Int, completion: @escaping APICompletion) {
+    func unFavorite(id: String, completion: @escaping APICompletion) {
        do {
             let realm = try Realm()
-            let restaurant = restaurants[index]
-            let result = realm.objects(Restaurant.self)
+        let result = realm.objects(Restaurant.self).filter("id = '\(id)'")
             try realm.write {
                 realm.delete(result)
+                checkFavorite(favorite: false, id: id)
             }
         completion(.success)
         } catch {
@@ -158,19 +164,35 @@ class HomeViewModel {
         }
     }
 
+//    func setupObserve() {
+//        do {
+//            let realm = try Realm()
+//            notificationToken = realm.objects(Restaurant.self).observe({ (_) in
+//                if let delegate = self.delegate {
+//                    delegate.syncFavorite(viewModel: self, needperformAction: .reloadData)
+//                }
+//            })
+//        } catch {
+//            print(error)
+//        }
+//    }
+    
     func setupObserve() {
 //        do {
 //            let realm = try Realm()
-//            notificationToken = realm.objects(Restaurant.self).observe({ [weak self ](_) in
-//                guard let this = self, let delegate = this.delegate else { return }
-//                this.fetchRealmData()
-//                for index in 0..<this.restaurants.count {
-//                    this.restaurants[index].favorite = this.realmRestaurant.contains(where: { $0.id == this.restaurants[index].id })
+//            notificationToken = realm.objects(Restaurant.self).observe({ [weak self] _ in
+//                guard let this = self else { return }
+//                if let delegate = this.delegate {
+//                    this.fetchRealmData { (result) in
+//                        for i in 0..<this.restaurants.count {
+//                            this.restaurants[i].favorite = this.tempRestaurant.contains(where: { $0.id == this.restaurants[i].id })
+//                        }
+//                    }
+//                    delegate.syncFavorite(viewModel: this, needperformAction: .reloadData)
 //                }
-//                delegate.syncFavorite(this, needperformAction: .reloadData)
 //            })
 //        } catch {
-//            print(error.localizedDescription)
+//            print(error)
 //        }
     }
 }

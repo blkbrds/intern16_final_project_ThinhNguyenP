@@ -21,9 +21,10 @@ class HomeViewController: BaseViewController {
         super.viewDidLoad()
         configTableView()
         loadCollection()
-        loadCell(isLoadMore: false) 
+        loadCell(isLoadMore: false)
+        viewModel.delegate = self
         viewModel.setupObserve()
-        //        viewModel.delegate = self
+        
     }
     
     override func customNavigation() {
@@ -90,7 +91,20 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.numberOfRowsInSection(section: section)
     }
-    
+
+    func feachRealm() {
+        viewModel.fetchRealmData { [weak self] (result) in
+            guard let this = self else { return }
+            switch result {
+            case .success:
+//                this.viewModel.delegate = self
+                this.tableView.reloadData()
+            case.failure(let error):
+                this.alert(error: error)
+            }
+        }
+    }
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch viewModel.cells[indexPath.section] {
         case .collectionView:
@@ -136,13 +150,12 @@ extension HomeViewController: UIScrollViewDelegate {
     }
 }
 extension HomeViewController: HomeCellDelegate {
-    func cell(_ cell: HomeCell, needPerform action: HomeCell.Action) {
+    func cell(_ cell: HomeCell, id: String, needPerform action: HomeCell.Action) {
         guard let indexPath = tableView.indexPath(for: cell) else { return }
         switch action {
         case .favorite(let isFavorite):
             if isFavorite {
-                // xoá
-                viewModel.unFavorite(index: indexPath.row) { [weak self](result) in
+                viewModel.unFavorite(id: id) { [weak self] result in
                     guard let this = self else { return }
                     switch result {
                     case .success:
@@ -163,5 +176,20 @@ extension HomeViewController: HomeCellDelegate {
                 }
             }
         }
+    }
+}
+extension HomeViewController: HomeViewModelDelegate {
+    func syncFavorite(viewModel: HomeViewModel, needperformAction action: HomeViewModel.Action) {
+        feachRealm()
+//        viewModel.fetchRealmData { [weak self] (result) in
+//            guard let this = self else { return }
+//            switch result {
+//            case .success:
+//                this.viewModel.delegate = self
+//                this.tableView.reloadData()
+//            case.failure(let error):
+//                this.alert(error: error)
+//            }
+//        }
     }
 }

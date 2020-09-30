@@ -9,12 +9,12 @@
 import UIKit
 
 protocol HomeCellDelegate: class {
-    func cell(_ cell: HomeCell, needPerform action: HomeCell.Action)
+    func cell(_ cell: HomeCell, id: String, needPerform action: HomeCell.Action)
 }
+
 class HomeCell: UITableViewCell {
     enum Action {
         case favorite(isFavorite: Bool)
-//        case removeFavorite(id: String)
     }
     @IBOutlet private weak var imageRestaurant: UIImageView!
     @IBOutlet private weak var nameRestaurantLabel: UILabel!
@@ -98,7 +98,7 @@ class HomeCell: UITableViewCell {
     }
 
     @IBAction func favoriteButtonTouchUpInside(_ sender: Any) {
-        delegate?.cell(self, needPerform: .favorite(isFavorite: favoriteButton.isSelected))
+        delegate?.cell(self, id: viewModel?.id ?? "", needPerform: .favorite(isFavorite: favoriteButton.isSelected))
     }
 }
 

@@ -14,6 +14,7 @@ protocol FavoriteViewModelDelegate: class {
 }
 
 class FavoriteViewModel {
+
     enum Action {
         case reloadData
     }

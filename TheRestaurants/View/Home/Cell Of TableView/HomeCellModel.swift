@@ -19,6 +19,7 @@ class HomeCellModel {
     var rating: String?
     var onlineDelivery: Int?
     var isFavorite = true
+    var id: String?
     var cuisineArr: [String] {
         guard let cuisineStr = cuisines else { return [] }
         return ["Cuisine"] + cuisineStr.split(separator: ",").map { String($0) }
@@ -33,6 +34,7 @@ class HomeCellModel {
         rating = restaurant.rating
         onlineDelivery = restaurant.onlineDelivery
         isFavorite = restaurant.favorite
+        id = restaurant.id
     }
 
 //    func saveKeyToRealm(restaurant: HomeCellModel, completion: @escaping APICompletion) {
