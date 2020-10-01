@@ -157,7 +157,8 @@ class HomeViewModel {
     func unfavorite(index: Int, completion: @escaping APICompletion) {
         do {
             let realm = try Realm()
-            let result = realm.objects(Restaurant.self).filter("id = '\(index)'")
+            let restaurant = restaurants[index]
+            let result = realm.objects(Restaurant.self).filter("id = '\(restaurant.id ?? "")'")
             try realm.write {
                 realm.delete(result)
             }

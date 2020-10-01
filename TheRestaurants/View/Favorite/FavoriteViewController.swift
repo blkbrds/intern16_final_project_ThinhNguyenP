@@ -19,7 +19,7 @@ class FavoriteViewController: BaseViewController {
         setUpNavigation()
         fetchRealmData()
         viewModel.delegate = self
-        viewModel.setupObserve()
+        setupObserve()
     }
 
     private func configTableView() {
@@ -45,6 +45,18 @@ class FavoriteViewController: BaseViewController {
             switch result {
             case .success:
                 this.tableView.reloadData()
+            case.failure(let error):
+                this.alert(error: error)
+            }
+        }
+    }
+
+    func setupObserve() {
+        viewModel.setupObserve { [weak self] (result) in
+            guard let this = self else { return }
+            switch result {
+            case.success:
+                fetchRealmData()
             case.failure(let error):
                 this.alert(error: error)
             }

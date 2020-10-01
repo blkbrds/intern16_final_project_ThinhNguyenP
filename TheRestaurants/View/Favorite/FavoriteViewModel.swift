@@ -44,7 +44,7 @@ class FavoriteViewModel {
         }
     }
 
-    func setupObserve() {
+    func setupObserve(completion: APICompletion) {
         do {
             let realm = try Realm()
             notificationToken = realm.objects(Restaurant.self).observe({ (_) in
@@ -52,8 +52,9 @@ class FavoriteViewModel {
                     delegate.syncFavorite(viewModel: self, needPerforms: .reloadData)
                 }
             })
+            completion(.success)
         } catch {
-            print(error.localizedDescription)
+            completion(.failure(error))
         }
     }
 
