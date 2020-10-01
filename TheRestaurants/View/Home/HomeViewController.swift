@@ -22,6 +22,11 @@ class HomeViewController: BaseViewController {
         viewModel.setupObserver()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.isNavigationBarHidden = false
+    }
+
     override func customNavigation() {
         super.customNavigation()
         navigationItem.title = "Home"
@@ -110,10 +115,15 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let viewController = DetailViewController()
-        viewController.viewModel = viewModel.didSelectRowAt(indexPath: indexPath)
-        viewController.hidesBottomBarWhenPushed = true
-        navigationController?.pushViewController(viewController, animated: true)
+        switch viewModel.cells[indexPath.section] {
+        case .collectionView:
+            break
+        case .tableView:
+            let viewController = DetailViewController()
+            viewController.viewModel = viewModel.didSelectRowAt(indexPath: indexPath)
+            viewController.hidesBottomBarWhenPushed = true
+            navigationController?.pushViewController(viewController, animated: true)
+        }
     }
 }
 extension HomeViewController: UIScrollViewDelegate {
