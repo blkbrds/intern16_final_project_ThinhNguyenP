@@ -18,7 +18,6 @@ final class Api {
     struct Search { }
     struct ListCell { }
     struct Restaurant { }
-
 }
 
 extension Api.Path {

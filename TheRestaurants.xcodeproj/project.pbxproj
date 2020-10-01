@@ -253,8 +253,9 @@
 			isa = PBXGroup;
 			children = (
 				7436E4DE251DC903001E55B2 /* DetailViewController.swift */,
-				7436E501251DC903001E55B2 /* DetailViewController.xib */,
 				7436E500251DC903001E55B2 /* DetailViewModel.swift */,
+				7436E501251DC903001E55B2 /* DetailViewController.xib */,
+				7436E4FC251DC903001E55B2 /* Header */,
 				7436E4DA251DC903001E55B2 /* Menu Detail */,
 				7436E4E7251DC903001E55B2 /* OverViewDetail */,
 				7436E4DF251DC903001E55B2 /* Review Detail */,
@@ -296,7 +297,6 @@
 		7436E4E7251DC903001E55B2 /* OverViewDetail */ = {
 			isa = PBXGroup;
 			children = (
-				7436E4FC251DC903001E55B2 /* Header */,
 				7436E4F2251DC903001E55B2 /* Information */,
 				7436E4F6251DC903001E55B2 /* MapDetail */,
 				7436E4E8251DC903001E55B2 /* OtherInfor */,

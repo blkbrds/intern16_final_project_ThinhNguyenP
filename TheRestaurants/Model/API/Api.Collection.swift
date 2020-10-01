@@ -31,7 +31,8 @@ extension Api.ListCollection {
                     }
                     var results: [Collection] = []
                     for collection in collections {
-                        guard let json = collection["collection"] as? JSObject, let result = Mapper<Collection>().map(JSONObject: json) else { return }
+                        guard let json = collection["collection"] as? JSObject,
+                            let result = Mapper<Collection>().map(JSONObject: json) else { return }
                         results.append(result)
                     }
                     completion(.success(results))

@@ -19,7 +19,6 @@ class DetailViewController: UIViewController {
     private var lineView: UIView!
 
     var viewModel: DetailViewModel?
-    var menuView = MenuViewController()
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.isNavigationBarHidden = true
@@ -37,13 +36,20 @@ class DetailViewController: UIViewController {
 
     private func setUpPageView() {
         guard let restaurant = viewModel?.restaurant else { return }
-        let overView = OverviewViewController()
-        let review = ReviewsViewController()
-        let menu = MenuViewController()
-        menu.viewModel = MenuViewModel(restaurant: restaurant)
-        overView.viewModel = OverviewViewModel(restaurant: restaurant)
-        review.viewModel = ReviewViewModel(restaurant: restaurant)
-        viewControllers = [overView, menu, review]
+
+        // Setup view controllers
+        let overviewViewController = OverviewViewController()
+        overviewViewController.delegate = self
+        overviewViewController.viewModel = OverviewViewModel(restaurant: restaurant)
+        let reviewViewController = ReviewsViewController()
+        reviewViewController.delegate = self
+        reviewViewController.viewModel = ReviewViewModel(restaurant: restaurant)
+        let menuViewController = MenuViewController()
+        menuViewController.delegate = self
+        menuViewController.viewModel = MenuViewModel(restaurant: restaurant)
+        viewControllers = [overviewViewController, menuViewController, reviewViewController]
+
+        // Setup page view
         pageController = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
         pageController.view.frame = CGRect(x: 0, y: 0, width: contentView.frame.width, height: contentView.frame.height)
         pageController.setViewControllers([viewControllers[0]], direction: .forward, animated: false, completion: nil)
@@ -73,6 +79,31 @@ class DetailViewController: UIViewController {
                                          y: self.lineView.frame.minY,
                                          width: self.lineView.frame.width,
                                          height: self.lineView.frame.height)
+        }
+    }
+}
+
+extension DetailViewController: OverviewControllerDelegate {
+    func viewController(_ viewController: OverviewViewController, needPerform action: OverviewViewController.Action) {
+        switch action {
+        case .back:
+            navigationController?.popViewController(animated: true)
+        }
+    }
+}
+extension DetailViewController: MenuViewControllerDelegate {
+    func viewController(_ viewController: MenuViewController, needPerform action: OverviewViewController.Action) {
+        switch action {
+        case .back:
+            navigationController?.popViewController(animated: true)
+        }
+    }
+}
+extension DetailViewController: ReviewsViewControllerDelegate {
+    func view(_ viewController: ReviewsViewController, needPerform action: HeaderDetailView.Action) {
+        switch action {
+        case .back:
+            navigationController?.popViewController(animated: true)
         }
     }
 }

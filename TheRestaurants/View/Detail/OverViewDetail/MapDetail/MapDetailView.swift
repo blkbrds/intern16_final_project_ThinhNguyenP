@@ -52,15 +52,15 @@ class MapDetailView: UIView {
         ratingLabel.text = viewModel.restaurant.rating
         voteLabel.text = "\(viewModel.restaurant.votes ?? 0)"
         reviewLabel.text = "\(viewModel.restaurant.review ?? 0 )"
-        addressLabel.text = viewModel.restaurant.location.address
+        addressLabel.text = viewModel.restaurant.location?.address
         mapView.delegate = self
         addAnnotation()
     }
 
     private func addAnnotation() {
         guard let viewModel = viewModel,
-              let latitude = viewModel.restaurant.location.latitude,
-              let longitude = viewModel.restaurant.location.longitude else { return }
+            let latitude = viewModel.restaurant.location?.latitude,
+            let longitude = viewModel.restaurant.location?.longitude else { return }
         let annotation = MKPointAnnotation()
         annotation.coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
         mapView.addAnnotation(annotation)

@@ -8,7 +8,14 @@
 
 import UIKit
 
+protocol HeaderDetailViewDelegate: class {
+    func view(_ view: HeaderDetailView, needPerforms action: HeaderDetailView.Action)
+}
 class HeaderDetailView: UIView {
+
+    enum Action {
+        case back
+    }
 
     @IBOutlet private var containerView: UIView!
     @IBOutlet private weak var restaurantImageView: UIImageView!
@@ -16,7 +23,7 @@ class HeaderDetailView: UIView {
     @IBOutlet private weak var favoriteButton: UIButton!
     @IBOutlet private weak var nameRestaurantLabel: UILabel!
     @IBOutlet private weak var cuisineLabel: UILabel!
-
+    weak var delegate: HeaderDetailViewDelegate?
     var viewModel: HeaderDetailViewModel? {
         didSet {
             updateView()
@@ -40,18 +47,19 @@ class HeaderDetailView: UIView {
         containerView.fillToSuperview()
     }
 
+    @IBAction func favoriteButtonTouchUpInside(_ sender: UIButton) {
+        sender.isSelected = !sender.isSelected
+    }
+
     private func updateView() {
         guard let viewModel = viewModel else { return }
         nameRestaurantLabel.text = viewModel.restaurant.name
         cuisineLabel.text = viewModel.cuisine
-        restaurantImageView.setImage(url: viewModel.restaurant.imageURL, placeholderImage: #imageLiteral(resourceName: "ic-home-no-image"))
-    }
-
-    @IBAction func favoriteButtonTouchUpInside(_ sender: Any) {
-        favoriteButton.isSelected = true
+        let imageURL = viewModel.restaurant.imageURL?.replacingOccurrences(of: "?output-format=webp", with: "")
+        restaurantImageView.setImage(url: imageURL, placeholderImage: #imageLiteral(resourceName: "ic-home-no-image"))
     }
 
     @IBAction func backButtonTouchUpInside(_ sender: Any) {
-        SceneDelegate.shared.changeRoot(root: .tabbar)
+        delegate?.view(self, needPerforms: .back)
     }
 }

@@ -8,28 +8,59 @@
 
 import Foundation
 import ObjectMapper
+import RealmSwift
 
-class Restaurant: Mappable {
+@objcMembers class Restaurant: Object, Mappable {
 
-    var name: String?
+    dynamic var id: String?
+    dynamic var name: String?
+    dynamic var imageURL: String?
+    dynamic var rating: String?
+    dynamic var onlineDelivery: Int = 0
+    dynamic var favorite: Bool = false
+    dynamic var location: Location?
+    dynamic var establishment: String?
+
     var cuisines: String?
-    var imageURL: String?
-    var rating: String?
     var votes: Int?
-    var onlineDelivery: Int?
-    var id: String?
     var timings: String?
     var phoneNumber: String?
     var url: String?
     var highlights: [String]?
     var review: Int?
-    var location: Location = Location()
-    var favorite: Bool = false
+
+    required init() { }
+
     required convenience init?(map: Map) {
         self.init()
     }
 
-    init() {
+    init(
+        id: String?,
+        name: String?,
+        imageURL: String?,
+        rating: String?,
+        onlineDelivery: Int,
+        favorite: Bool,
+        location: Location?,
+        establishment: String?
+    ) {
+        self.id = id
+        self.name = name
+        self.imageURL = imageURL
+        self.rating = rating
+        self.onlineDelivery = onlineDelivery
+        self.favorite = favorite
+        self.location = location
+        self.establishment = establishment
+    }
+
+    override static func primaryKey() -> String? {
+        return "id"
+    }
+
+    override class func ignoredProperties() -> [String] {
+        return ["cuisines", "votes", "timings", "phoneNumber", "url", "highlights", "review"]
     }
 
     func mapping(map: Map) {
@@ -47,5 +78,8 @@ class Restaurant: Mappable {
         phoneNumber <- map["phone_numbers"]
         url <- map["url"]
         highlights <- map["highlights"]
+        var establishmentArr: [String] = []
+        establishmentArr <- map ["establishment"]
+        establishment = establishmentArr.first
     }
 }

@@ -29,6 +29,9 @@
                         </constraints>
                         <state key="normal" backgroundImage="ic_home_favorite_white"/>
                         <state key="selected" backgroundImage="ic_home_favoritebutton"/>
+                        <connections>
+                            <action selector="favoriteButtonTouchUpInside:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="OQi-vd-gYd"/>
+                        </connections>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Hqu-Dk-OV8">
                         <rect key="frame" x="20" y="200" width="44.5" height="20.5"/>
@@ -134,6 +137,7 @@
             <connections>
                 <outlet property="addressRestaurantLabel" destination="axa-w2-D0g" id="C82-ZE-hrx"/>
                 <outlet property="cuisineStackView" destination="ldf-n0-xYn" id="H9e-QQ-uW6"/>
+                <outlet property="favoriteButton" destination="gUs-3g-ZCd" id="lG7-a3-o64"/>
                 <outlet property="imageRestaurant" destination="tqp-ND-WSz" id="b0e-wE-x8F"/>
                 <outlet property="nameRestaurantLabel" destination="Hqu-Dk-OV8" id="hKI-T9-CGQ"/>
                 <outlet property="numberOfDeliveryLabel" destination="TZw-L4-qTi" id="pkW-7x-7a7"/>

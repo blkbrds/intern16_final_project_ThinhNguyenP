@@ -7,17 +7,24 @@
 //
 
 import UIKit
+import RealmSwift
 
 class HomeViewController: BaseViewController {
 
     @IBOutlet private weak var tableView: UITableView!
-
     var viewModel = HomeViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
         configTableView()
         loadCollection()
-        loadCell()
+        loadCell(isLoadMore: false)
+        viewModel.delegate = self
+        viewModel.setupObserver()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.isNavigationBarHidden = false
     }
 
     override func customNavigation() {
@@ -38,6 +45,7 @@ class HomeViewController: BaseViewController {
         let nib = UINib(nibName: "ListCollectionsCell", bundle: .main)
         tableView.register(nib, forCellReuseIdentifier: "collectionViewCell")
         let tableNib = UINib(nibName: "HomeCell", bundle: .main)
+
         tableView.register(tableNib, forCellReuseIdentifier: "tableViewCell")
         tableView.dataSource = self
         tableView.delegate = self
@@ -85,13 +93,14 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
         case .collectionView:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "collectionViewCell", for: indexPath)
                 as? ListCollectionsCell else { return UITableViewCell() }
-            cell.viewModel = viewModel.viewModelForCell(indexPath: indexPath)
+            cell.viewModel = viewModel.viewModelForListCollection(indexPath: indexPath)
             cell.trendingCollectionViewCell.reloadData()
             return cell
         case .tableView:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "tableViewCell", for: indexPath)
                 as? HomeCell else { return UITableViewCell() }
-            cell.viewModel = viewModel.viewModelForCell2(indexPath: indexPath)
+            cell.delegate = self
+            cell.viewModel = viewModel.viewModelForHomeCell(indexPath: indexPath)
             return cell
         }
     }
@@ -106,19 +115,64 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let viewController = DetailViewController()
-        viewController.viewModel = viewModel.didSelectRowAt(indexPath: indexPath)
-        viewController.hidesBottomBarWhenPushed = true
-        navigationController?.pushViewController(viewController, animated: true)
+        switch viewModel.cells[indexPath.section] {
+        case .collectionView:
+            break
+        case .tableView:
+            let viewController = DetailViewController()
+            viewController.viewModel = viewModel.didSelectRowAt(indexPath: indexPath)
+            viewController.hidesBottomBarWhenPushed = true
+            navigationController?.pushViewController(viewController, animated: true)
+        }
     }
 }
 extension HomeViewController: UIScrollViewDelegate {
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         guard viewModel.canLoadMore else { return }
         let contentOffset = scrollView.contentOffset.y
         let maximumOffset = scrollView.contentSize.height - scrollView.frame.size.height
-        if !viewModel.isLoadingMore && (maximumOffset - contentOffset <= 100) {
+        if !viewModel.isLoadingMore && (maximumOffset - contentOffset <= 10) {
             loadCell(isLoadMore: true)
+        }
+    }
+}
+extension HomeViewController: HomeCellDelegate {
+    func cell(_ cell: HomeCell, needPerform action: HomeCell.Action) {
+        guard let indexPath = tableView.indexPath(for: cell) else { return }
+        switch action {
+        case .favorite(let isFavorite):
+            if isFavorite {
+                viewModel.unfavorite(index: indexPath.row) { [weak self] result in
+                    guard let this = self else { return }
+                    switch result {
+                    case .success:
+                        this.tableView.reloadData()
+                    case.failure(let error):
+                        this.alert(error: error)
+                    }
+                }
+            } else {
+                viewModel.addFavorite(index: indexPath.row) { [weak self] result in
+                    guard let this = self else { return }
+                    switch result {
+                    case .success:
+                        this.tableView.reloadData()
+                    case .failure(let error):
+                        this.alert(error: error)
+                    }
+                }
+            }
+        }
+    }
+}
+extension HomeViewController: HomeViewModelDelegate {
+    func syncFavorite(viewModel: HomeViewModel, needPerform action: HomeViewModel.Action) {
+        switch action {
+        case .reloadData:
+            tableView.reloadData()
+        case .fail(let error):
+            alert(error: error)
         }
     }
 }

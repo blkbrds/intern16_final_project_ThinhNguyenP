@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import RealmSwift
 
 class HomeCellModel {
 
@@ -17,15 +18,14 @@ class HomeCellModel {
     var imageURL: String?
     var rating: String?
     var onlineDelivery: Int?
-    var isFavorite: Bool
-
+    var isFavorite = false
     var cuisineArr: [String] {
         guard let cuisineStr = cuisines else { return [] }
         return ["Cuisine"] + cuisineStr.split(separator: ",").map { String($0) }
     }
 
     init(restaurant: Restaurant) {
-        address = restaurant.location.address
+        address = restaurant.location?.address
         name = restaurant.name
         cuisines = restaurant.cuisines
         let imageURL = restaurant.imageURL ?? ""

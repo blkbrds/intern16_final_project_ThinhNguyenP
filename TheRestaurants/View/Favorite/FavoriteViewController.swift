@@ -13,11 +13,13 @@ class FavoriteViewController: BaseViewController {
     @IBOutlet private weak var tableView: UITableView!
 
     var viewModel = FavoriteViewModel()
-
     override func viewDidLoad() {
         super.viewDidLoad()
         configTableView()
         setUpNavigation()
+        fetchRealmData()
+        viewModel.delegate = self
+        viewModel.setupObserve()
     }
 
     private func configTableView() {
@@ -28,13 +30,38 @@ class FavoriteViewController: BaseViewController {
     }
 
     private func setUpNavigation() {
-        let deleteAll = UIBarButtonItem(image: #imageLiteral(resourceName: "ic_favorite_trash"), style: .plain, target: self, action: #selector(deleteAllFavoriteButtonTouchUpInside))
+        let deleteAll = UIBarButtonItem(image: #imageLiteral(resourceName: "ic_favorite_trash"),
+                                        style: .plain,
+                                        target: self,
+                                        action: #selector(deleteAllFavoriteButtonTouchUpInside))
         navigationController?.navigationBar.tintColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         navigationItem.title = "Favorite List"
         navigationItem.rightBarButtonItem = deleteAll
     }
 
-    @objc func deleteAllFavoriteButtonTouchUpInside() { }
+    func fetchRealmData() {
+        viewModel.fetchRealmData { [weak self] (result) in
+            guard let this = self else { return }
+            switch result {
+            case .success:
+                this.tableView.reloadData()
+            case.failure(let error):
+                this.alert(error: error)
+            }
+        }
+    }
+
+    @objc func deleteAllFavoriteButtonTouchUpInside() {
+        viewModel.deleteAllItem { [weak self] (result) in
+            guard let this = self else { return }
+            switch result {
+            case.success:
+                this.fetchRealmData()
+            case.failure(let error):
+                this.alert(error: error)
+            }
+        }
+    }
 }
 extension FavoriteViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -42,8 +69,36 @@ extension FavoriteViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? FavoriteCell else { return UITableViewCell()}
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? FavoriteCell
+            else { return UITableViewCell() }
+        cell.delegate = self
         cell.viewModel = viewModel.cellForItemAt(indexPath: indexPath)
         return cell
+    }
+}
+extension FavoriteViewController: FavoriteViewModelDelegate {
+    func syncFavorite(viewModel: FavoriteViewModel, needPerforms action: FavoriteViewModel.Action) {
+        switch action {
+        case .reloadData:
+            fetchRealmData()
+        case .fail(let error):
+            alert(error: error)
+        }
+    }
+}
+extension FavoriteViewController: FavoriteCellDelegate {
+    func cell(_ cell: FavoriteCell, needPerforms action: FavoriteCell.Action) {
+        switch action {
+        case .delete:
+            viewModel.deleteItemFavorite(id: cell.viewModel?.restaurant.id ?? "") { [weak self] (result) in
+                guard let this = self else { return }
+                switch result {
+                case.success:
+                    this.fetchRealmData()
+                case .failure(let error):
+                    this.alert(error: error)
+                }
+            }
+        }
     }
 }
