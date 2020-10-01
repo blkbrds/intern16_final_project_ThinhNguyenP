@@ -35,16 +35,19 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <stackView clipsSubviews="YES" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="qyk-9Q-vnv">
+                <stackView clipsSubviews="YES" contentMode="scaleToFill" alignment="top" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="qyk-9Q-vnv">
                     <rect key="frame" x="15" y="46" width="345" height="40"/>
                     <subviews>
-                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="obl-jw-KbO">
-                            <rect key="frame" x="0.0" y="0.0" width="172.5" height="40"/>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="obl-jw-KbO">
+                            <rect key="frame" x="0.0" y="0.0" width="160" height="40"/>
                         </stackView>
-                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="63H-hf-Cgo">
-                            <rect key="frame" x="172.5" y="0.0" width="172.5" height="40"/>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="63H-hf-Cgo">
+                            <rect key="frame" x="185" y="0.0" width="160" height="40"/>
                         </stackView>
                     </subviews>
+                    <constraints>
+                        <constraint firstItem="obl-jw-KbO" firstAttribute="width" secondItem="63H-hf-Cgo" secondAttribute="width" id="zqu-Q5-6ma"/>
+                    </constraints>
                 </stackView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
