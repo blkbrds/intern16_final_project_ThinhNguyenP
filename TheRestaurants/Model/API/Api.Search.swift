@@ -20,6 +20,17 @@ extension Api.Search {
             ]
         }
     }
+    struct SearchRestaurant {
+        var value: String = ""
+        var city: String = ""
+        func toJSON() -> [String: Any] {
+            return [
+                "q": value,
+                "entity_id": Session.cityId as Any,
+                "entity_type": city
+            ]
+        }
+    }
 
     static func search(param: SearchParam, completion: @escaping Completion<[City]>) {
         let path = Api.Path.Search().urlString
