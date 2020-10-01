@@ -12,6 +12,7 @@
                 <outlet property="informationView" destination="QhI-2L-vJg" id="mGg-es-a97"/>
                 <outlet property="mapDetailView" destination="I4N-VL-xcF" id="Q4x-AZ-vDb"/>
                 <outlet property="otherInformationView" destination="kmO-8q-4sH" id="rkq-sY-DR9"/>
+                <outlet property="scrollView" destination="7bO-q1-CxJ" id="cUG-kT-Ujb"/>
                 <outlet property="view" destination="846-eP-1Jm" id="zIa-nf-D0C"/>
             </connections>
         </placeholder>

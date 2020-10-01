@@ -40,8 +40,8 @@ class InformationDetailView: UIView {
 
     private func updateView() {
         guard let viewModel = viewModel else { return }
-        openingTimeLabel.text = viewModel.openingTime
-        phoneNumberLabel.text = viewModel.restaurant.phoneNumber
+        openingTimeLabel.attributedText = viewModel.openingTime.addLineSpacing(3, alingment: .right)
+        phoneNumberLabel.attributedText = viewModel.phoneNumber.addLineSpacing(3, alingment: .right)
         websiteLabel.text = viewModel.restaurant.url
     }
 }
