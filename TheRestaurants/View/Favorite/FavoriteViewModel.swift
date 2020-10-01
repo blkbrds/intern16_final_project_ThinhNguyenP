@@ -17,6 +17,7 @@ class FavoriteViewModel {
 
     enum Action {
         case reloadData
+        case fail(Error)
     }
 
     var restautants: [Restaurant] = []
@@ -44,7 +45,7 @@ class FavoriteViewModel {
         }
     }
 
-    func setupObserve(completion: APICompletion) {
+    func setupObserve() {
         do {
             let realm = try Realm()
             notificationToken = realm.objects(Restaurant.self).observe({ (_) in
@@ -52,9 +53,8 @@ class FavoriteViewModel {
                     delegate.syncFavorite(viewModel: self, needPerforms: .reloadData)
                 }
             })
-            completion(.success)
         } catch {
-            completion(.failure(error))
+            delegate?.syncFavorite(viewModel: self, needPerforms: .fail(error))
         }
     }
 

@@ -167,7 +167,7 @@ extension HomeViewController: HomeCellDelegate {
     }
 }
 extension HomeViewController: HomeViewModelDelegate {
-    func syncFavorite(viewModel: HomeViewModel, needperformAction action: HomeViewModel.Action) {
+    func syncFavorite(viewModel: HomeViewModel, needPerform action: HomeViewModel.Action) {
         switch action {
         case .reloadData:
             tableView.reloadData()

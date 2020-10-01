@@ -10,7 +10,7 @@ import Foundation
 import RealmSwift
 
 protocol HomeViewModelDelegate: class {
-    func syncFavorite(viewModel: HomeViewModel, needperformAction action: HomeViewModel.Action)
+    func syncFavorite(viewModel: HomeViewModel, needPerform action: HomeViewModel.Action)
 }
 
 class HomeViewModel {
@@ -111,12 +111,6 @@ class HomeViewModel {
         return viewModel
     }
 
-    func checkFavorite(favorite: Bool, id: String) {
-        for item in restaurants where item.id == id {
-            item.favorite = favorite
-        }
-    }
-
     func fetchRealmData(completion: @escaping APICompletion) {
         do {
             let realm = try Realm()
@@ -146,7 +140,6 @@ class HomeViewModel {
                                             establishment: restaurant.establishment)
             try realm.write {
                 realm.create(Restaurant.self, value: tempRestaurant, update: .all)
-                checkFavorite(favorite: true, id: tempRestaurant.id ?? "")
             }
             completion(.success)
         } catch {
@@ -182,14 +175,14 @@ class HomeViewModel {
                             item.favorite = false
                         }
                     }
-                    this.delegate?.syncFavorite(viewModel: this, needperformAction: .reloadData)
+                    this.delegate?.syncFavorite(viewModel: this, needPerform: .reloadData)
                 case .error(let error):
-                    this.delegate?.syncFavorite(viewModel: this, needperformAction: .fail(error))
+                    this.delegate?.syncFavorite(viewModel: this, needPerform: .fail(error))
                 default: break
                 }
             })
         } catch {
-            delegate?.syncFavorite(viewModel: self, needperformAction: .fail(error))
+            delegate?.syncFavorite(viewModel: self, needPerform: .fail(error))
         }
     }
 }
