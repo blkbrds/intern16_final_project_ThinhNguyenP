@@ -128,12 +128,12 @@ extension HomeViewController: UIScrollViewDelegate {
     }
 }
 extension HomeViewController: HomeCellDelegate {
-    func cell(_ cell: HomeCell, id: String, needPerform action: HomeCell.Action) {
+    func cell(_ cell: HomeCell, needPerform action: HomeCell.Action) {
         guard let indexPath = tableView.indexPath(for: cell) else { return }
         switch action {
         case .favorite(let isFavorite):
             if isFavorite {
-                viewModel.unFavorite(id: id) { [weak self] result in
+                viewModel.unfavorite(index: indexPath.row) { [weak self] result in
                     guard let this = self else { return }
                     switch result {
                     case .success:

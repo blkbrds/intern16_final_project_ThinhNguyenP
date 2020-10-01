@@ -40,9 +40,6 @@ extension Api.Path {
             return Search.path / "reviews"
         }
 
-        var urlStringEstablishment: String {
-            return Search.path / "establishments"
-        }
         var urlStringRestaurant: String {
             return Search.path / "restaurant"
         }

@@ -19,7 +19,7 @@ import RealmSwift
     dynamic var onlineDelivery: Int = 0
     dynamic var favorite: Bool = false
     dynamic var location: Location?
-    dynamic var establishment: List<String> = List<String>()
+    dynamic var establishment: String?
 
     var cuisines: String?
     var votes: Int?
@@ -43,7 +43,7 @@ import RealmSwift
         onlineDelivery: Int,
         favorite: Bool,
         location: Location?,
-        establishment: List<String>
+        establishment: String?
     ) {
         self.id = id
         self.name = name
@@ -78,6 +78,8 @@ import RealmSwift
         phoneNumber <- map["phone_numbers"]
         url <- map["url"]
         highlights <- map["highlights"]
-        establishment <- map["establishment"]
+        var establishmentArr: [String] = []
+        establishmentArr <- map ["establishment"]
+        establishment = establishmentArr.first
     }
 }

@@ -15,15 +15,16 @@ class FavoriteCellModel {
         self.restaurant = restaurant
     }
 
-    func deleteItemFavorite(id: String) {
+    func deleteItemFavorite(id: String, completion: @escaping APICompletion) {
         do {
             let realm = try Realm()
             let result = realm.objects(Restaurant.self).filter("id = '\(id)'")
             try realm.write {
                 realm.delete(result)
             }
+            completion(.success)
         } catch {
-           print("Error")
+            completion(.failure(error))
         }
     }
 }

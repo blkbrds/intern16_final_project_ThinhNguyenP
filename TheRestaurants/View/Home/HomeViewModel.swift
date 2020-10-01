@@ -28,7 +28,6 @@ class HomeViewModel {
     var isLoadingMore: Bool = false
     var collections: [Collection] = []
     var restaurants: [Restaurant] = []
-    var totalRealm: [Restaurant] = []
     var cells: [Cell] = [.collectionView, .tableView]
     var totalResults: Int = 0
     private var start: Int = 0
@@ -155,13 +154,12 @@ class HomeViewModel {
         }
     }
 
-    func unFavorite(id: String, completion: @escaping APICompletion) {
+    func unfavorite(index: Int, completion: @escaping APICompletion) {
         do {
             let realm = try Realm()
-            let result = realm.objects(Restaurant.self).filter("id = '\(id)'")
+            let result = realm.objects(Restaurant.self).filter("id = '\(index)'")
             try realm.write {
                 realm.delete(result)
-                checkFavorite(favorite: false, id: id)
             }
             completion(.success)
         } catch {

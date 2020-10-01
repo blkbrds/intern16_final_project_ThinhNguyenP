@@ -10,7 +10,7 @@ import UIKit
 
 protocol HomeCellDelegate: class {
 
-    func cell(_ cell: HomeCell, id: String, needPerform action: HomeCell.Action)
+    func cell(_ cell: HomeCell, needPerform action: HomeCell.Action)
 }
 
 class HomeCell: UITableViewCell {
@@ -100,7 +100,7 @@ class HomeCell: UITableViewCell {
     }
 
     @IBAction func favoriteButtonTouchUpInside(_ sender: Any) {
-        delegate?.cell(self, id: viewModel?.id ?? "", needPerform: .favorite(isFavorite: favoriteButton.isSelected))
+        delegate?.cell(self, needPerform: .favorite(isFavorite: favoriteButton.isSelected))
     }
 }
 

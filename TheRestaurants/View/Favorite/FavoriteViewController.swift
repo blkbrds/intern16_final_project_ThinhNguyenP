@@ -17,7 +17,7 @@ class FavoriteViewController: BaseViewController {
         super.viewDidLoad()
         configTableView()
         setUpNavigation()
-        feachRealm()
+        fetchRealmData()
         viewModel.delegate = self
         viewModel.setupObserve()
     }
@@ -39,12 +39,11 @@ class FavoriteViewController: BaseViewController {
         navigationItem.rightBarButtonItem = deleteAll
     }
 
-    func feachRealm() {
-        viewModel.feachRealm { [weak self] (result) in
+    func fetchRealmData() {
+        viewModel.fetchRealmData { [weak self] (result) in
             guard let this = self else { return }
             switch result {
             case .success:
-                this.viewModel.delegate = self
                 this.tableView.reloadData()
             case.failure(let error):
                 this.alert(error: error)
@@ -57,7 +56,7 @@ class FavoriteViewController: BaseViewController {
             guard let this = self else { return }
             switch result {
             case.success:
-                this.feachRealm()
+                this.fetchRealmData()
             case.failure(let error):
                 this.alert(error: error)
             }
@@ -78,15 +77,26 @@ extension FavoriteViewController: UITableViewDataSource {
     }
 }
 extension FavoriteViewController: FavoriteViewModelDelegate {
-    func syncFavorite(viewModel: FavoriteViewModel, needperformAction action: FavoriteViewModel.Action) {
-        feachRealm()
+    func syncFavorite(viewModel: FavoriteViewModel, needPerforms action: FavoriteViewModel.Action) {
+        switch action {
+        case .reloadData:
+            fetchRealmData()
+        }
     }
 }
 extension FavoriteViewController: FavoriteCellDelegate {
-    func cell(_ view: FavoriteCell, id: String, needPerformAction action: FavoriteCell.Action) {
+    func cell(_ cell: FavoriteCell, needPerforms action: FavoriteCell.Action) {
         switch action {
         case .delete:
-            viewModel.deleteItemFavorite(id: id)
+            viewModel.deleteItemFavorite(id: cell.viewModel?.restaurant.id ?? "") { [weak self] (result) in
+                guard let this = self else { return }
+                switch result {
+                case.success:
+                    this.fetchRealmData()
+                case .failure(let error):
+                    this.alert(error: error)
+                }
+            }
         }
     }
 }
