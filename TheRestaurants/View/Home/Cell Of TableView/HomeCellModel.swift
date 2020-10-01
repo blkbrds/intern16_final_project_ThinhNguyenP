@@ -18,8 +18,7 @@ class HomeCellModel {
     var imageURL: String?
     var rating: String?
     var onlineDelivery: Int?
-    var isFavorite = true
-    var id: String?
+    var isFavorite = false
     var cuisineArr: [String] {
         guard let cuisineStr = cuisines else { return [] }
         return ["Cuisine"] + cuisineStr.split(separator: ",").map { String($0) }
@@ -34,6 +33,5 @@ class HomeCellModel {
         rating = restaurant.rating
         onlineDelivery = restaurant.onlineDelivery
         isFavorite = restaurant.favorite
-        id = restaurant.id
     }
 }

@@ -8,13 +8,11 @@
 
 import UIKit
 protocol MenuViewControllerDelegate: class {
-    func viewController(_ viewController: MenuViewController, needPerform action: HeaderDetailView.Action)
+
+    func viewController(_ viewController: MenuViewController, needPerform action: OverviewViewController.Action)
 }
 class MenuViewController: UIViewController {
 
-    enum Action {
-        case back
-    }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         headerView.viewModel = HeaderDetailViewModel(restaurant: viewModel.restaurant)

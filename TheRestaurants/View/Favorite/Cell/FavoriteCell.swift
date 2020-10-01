@@ -9,9 +9,11 @@
 import UIKit
 
 protocol FavoriteCellDelegate: class {
-    func cell(_ cell: FavoriteCell, id: String, needPerformAction action: FavoriteCell.Action)
+
+    func cell(_ cell: FavoriteCell, needPerforms action: FavoriteCell.Action)
 }
-class FavoriteCell: UITableViewCell {
+final class FavoriteCell: UITableViewCell {
+
     enum Action {
         case delete
     }
@@ -39,10 +41,11 @@ class FavoriteCell: UITableViewCell {
         nameRestaurant.text = viewModel.restaurant.name
         ratingLabel.text = viewModel.restaurant.rating
         establishmentLabel.text = viewModel.restaurant.establishment
-        restaurantImage.setImage(url: viewModel.restaurant.imageURL?.replacingOccurrences(of: "?output-format=webp", with: ""))
+        let urlImage = viewModel.restaurant.imageURL?.replacingOccurrences(of: "?output-format=webp", with: "")
+        restaurantImage.setImage(url: urlImage)
     }
 
     @IBAction func deleteFavoriteButtonTouchUpInside(_ sender: Any) {
-        delegate?.cell(self, id: viewModel?.restaurant.id ?? "", needPerformAction: .delete)
+        delegate?.cell(self, needPerforms: .delete)
     }
 }

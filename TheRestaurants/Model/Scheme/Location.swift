@@ -10,14 +10,14 @@ import Foundation
 import ObjectMapper
 import RealmSwift
 class Location: Object, Mappable {
-    
-    required convenience init?(map: Map) {
-        self.init()
-    }
 
     var latitude: Double?
     var longitude: Double?
     @objc dynamic var address: String?
+    
+    required convenience init?(map: Map) {
+          self.init()
+    }
 
     func mapping(map: Map) {
         var latitude: String = ""

@@ -63,16 +63,4 @@ extension Api.Search {
             }
         }
     }
-
-//    static func establishmentRestaurant(param: SearchParam, completion: @escaping Completion <[Restaurant]>) {
-//        let path = Api.Path.Search().urlStringEstablishment
-//        api.request(method: .get, urlString: path, parameters: param.toJSON()) { (result) in
-//            DispatchQueue.main.async {
-//                switch result {
-//                case.success(let value):
-//                    guard let value = value as? JSObject, let establishments = value["establishments"] as? JSArray
-//                }
-//            }
-//        }
-//    }
 }

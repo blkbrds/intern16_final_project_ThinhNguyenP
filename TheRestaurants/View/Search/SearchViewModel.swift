@@ -10,11 +10,11 @@ import Foundation
 import RealmSwift
 
 protocol SearchViewModelDelegate: class {
-    func syncFavorite(viewModel: SearchViewModel, needperformAction action: SearchViewModel.Action)
+    func syncFavorite(viewModel: SearchViewModel, needPerforms action: SearchViewModel.Action)
 }
 enum Search {
-    case resultSearch
-    case historySearch
+    case result
+    case history
 }
 
 class SearchViewModel {
@@ -112,7 +112,7 @@ class SearchViewModel {
             completion(.failure(error))
         }
     }
-    
+
     func addFavorite(index: Int, completion: @escaping APICompletion) {
         do {
             let realm = try Realm()
@@ -127,7 +127,6 @@ class SearchViewModel {
                                             establishment: restaurant.establishment)
             try realm.write {
                 realm.create(Restaurant.self, value: tempRestaurant, update: .all)
-                checkFavorite(favorite: true, id: tempRestaurant.id ?? "")
             }
             completion(.success)
         } catch {
@@ -135,19 +134,13 @@ class SearchViewModel {
         }
     }
 
-    func checkFavorite(favorite: Bool, id: String) {
-        for item in results where item.id == id {
-            item.favorite = favorite
-        }
-    }
-
-    func unFavorite(id: String, completion: @escaping APICompletion) {
+    func unFavorite(index: Int, completion: @escaping APICompletion) {
         do {
             let realm = try Realm()
-            let result = realm.objects(Restaurant.self).filter("id = '\(id)'")
+            let restaurant = results[index]
+            let result = realm.objects(Restaurant.self).filter("id = '\(restaurant.id ?? "")'")
             try realm.write {
                 realm.delete(result)
-                checkFavorite(favorite: false, id: id)
             }
             completion(.success)
         } catch {
@@ -169,14 +162,14 @@ class SearchViewModel {
                             item.favorite = false
                         }
                     }
-                    this.delegate?.syncFavorite(viewModel: this, needperformAction: .reloadData)
+                    this.delegate?.syncFavorite(viewModel: this, needPerforms: .reloadData)
                 case .error(let error):
-                    this.delegate?.syncFavorite(viewModel: this, needperformAction: .fail(error))
+                    this.delegate?.syncFavorite(viewModel: this, needPerforms: .fail(error))
                 default: break
                 }
             })
         } catch {
-            delegate?.syncFavorite(viewModel: self, needperformAction: .fail(error))
+            delegate?.syncFavorite(viewModel: self, needPerforms: .fail(error))
         }
     }
 }

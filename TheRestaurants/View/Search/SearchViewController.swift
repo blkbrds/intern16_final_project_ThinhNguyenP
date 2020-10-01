@@ -14,7 +14,7 @@ class SearchViewController: BaseViewController {
     @IBOutlet private weak var resultTableView: UITableView!
 
     var viewModel = SearchViewModel()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpSearchBar()
@@ -23,7 +23,7 @@ class SearchViewController: BaseViewController {
         viewModel.delegate = self
         viewModel.setupObserver()
     }
-    
+
     private func saveKeyToRealm(searchKey: String) {
         viewModel.saveKeyToRealm(searchKey: searchKey) {  [weak self] (result) in
             guard let this = self else { return }
@@ -68,16 +68,17 @@ class SearchViewController: BaseViewController {
         if let textfield = searchBar.value(forKey: "searchField") as? UITextField {
             textfield.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
             textfield.placeholder = "Tìm kiếm địa điểm "
-            textfield.attributedPlaceholder = NSAttributedString(string: textfield.placeholder ?? "", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+            textfield.attributedPlaceholder = NSAttributedString(string: textfield.placeholder ?? "",
+                                                                 attributes: [.foregroundColor: UIColor.white])
             if let leftView = textfield.leftView as? UIImageView {
                 leftView.image = leftView.image?.withRenderingMode(.alwaysTemplate)
                 leftView.tintColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0.5125578704)
             }
         }
-        searchBar.delegate = self 
+        searchBar.delegate = self
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: searchBar)
     }
-    
+
     func fetchSearchHistoryData() {
         viewModel.fetchSearchHistoryData { [weak self ](result) in
             guard let this = self else { return }
@@ -89,18 +90,6 @@ class SearchViewController: BaseViewController {
             }
         }
     }
-
-    func feachRealm() {
-            viewModel.fetchRealmData { [weak self] (result) in
-                guard let this = self else { return }
-                switch result {
-                case .success:
-                    this.resultTableView.reloadData()
-                case.failure(let error):
-                    this.alert(error: error)
-                }
-            }
-        }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
@@ -116,16 +105,15 @@ extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if tableView == searchHistoryTableView {
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "historycell", for: indexPath) as? HistorySearchCell else {
-                return UITableViewCell()
-            }
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "historycell", for: indexPath) as? HistorySearchCell
+                else { return UITableViewCell() }
             cell.viewModel = viewModel.viewModelForHistoryCell(at: indexPath)
             return cell
         }
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "searchcell", for: indexPath) as? HomeCell else {
             return UITableViewCell()
         }
-        cell.delegate = self as? HomeCellDelegate
+        cell.delegate = self
         cell.viewModel = viewModel.viewModelForResultCell(indexPath: indexPath)
         return cell
     }
@@ -163,7 +151,7 @@ extension SearchViewController: UISearchBarDelegate {
     }
 }
 extension SearchViewController: SearchViewModelDelegate {
-    func syncFavorite(viewModel: SearchViewModel, needperformAction action: SearchViewModel.Action) {
+    func syncFavorite(viewModel: SearchViewModel, needPerforms action: SearchViewModel.Action) {
         switch action {
         case .reloadData:
             resultTableView.reloadData()
@@ -173,12 +161,12 @@ extension SearchViewController: SearchViewModelDelegate {
     }
 }
 extension SearchViewController: HomeCellDelegate {
-    func cell(_ cell: HomeCell, id: String, needPerform action: HomeCell.Action) {
+    func cell(_ cell: HomeCell, needPerform action: HomeCell.Action) {
         guard let indexPath = resultTableView.indexPath(for: cell) else { return }
         switch action {
         case .favorite(let isFavorite):
             if isFavorite {
-                viewModel.unFavorite(id: id) { [weak self] result in
+                viewModel.unFavorite(index: indexPath.row ) { [weak self] result in
                     guard let this = self else { return }
                     switch result {
                     case .success:

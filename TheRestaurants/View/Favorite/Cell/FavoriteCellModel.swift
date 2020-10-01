@@ -14,17 +14,17 @@ class FavoriteCellModel {
     init(restaurant: Restaurant) {
         self.restaurant = restaurant
     }
-    
-    func deleteItemFavorite(id: String) {
+
+    func deleteItemFavorite(completion: @escaping APICompletion) {
         do {
             let realm = try Realm()
-            let result = realm.objects(Restaurant.self).filter("id = '\(id)'")
+            let result = realm.objects(Restaurant.self).filter("id = '\(restaurant.id)'")
             try realm.write {
                 realm.delete(result)
             }
+            completion(.success)
         } catch {
-           print("Error")
+            completion(.failure(error))
         }
     }
 }
-

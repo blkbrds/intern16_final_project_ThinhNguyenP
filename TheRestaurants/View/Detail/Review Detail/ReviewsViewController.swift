@@ -9,7 +9,7 @@
 import UIKit
 
 protocol ReviewsViewControllerDelegate: class {
-    func view(_ viewController: ReviewsViewController, needPerform action: HeaderDetailView.Action)
+    func view(_ viewController: ReviewsViewController, needPerform action: OverviewViewController.Action)
 }
 class ReviewsViewController: UIViewController {
 
@@ -67,7 +67,8 @@ extension ReviewsViewController: UITableViewDataSource, UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cellReview", for: indexPath) as? ReviewCell else { return UITableViewCell() }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cellReview", for: indexPath) as? ReviewCell
+            else { return UITableViewCell() }
         cell.viewModel = viewModel.viewModelForCellAt(indexPath: indexPath)
         return cell
     }

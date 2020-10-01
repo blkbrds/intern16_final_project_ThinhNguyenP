@@ -28,19 +28,14 @@ extension String {
         return size.width
     }
 
-    func contentHeight(withConstrainedWidth width: CGFloat, attributes: [NSAttributedString.Key: Any]) -> CGFloat {
-        let constraintRect: CGSize = CGSize(width: width, height: .greatestFiniteMagnitude)
-        let boundingBox: CGRect = self.boundingRect(with: constraintRect, options: .usesLineFragmentOrigin, attributes: attributes, context: nil)
-        return ceil(boundingBox.height)
-    }
-
     var trimmed: String {
         return trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
     }
 
-    func addLineSpacing(_ lineSpacing: CGFloat) -> NSAttributedString {
+    func addLineSpacing(_ lineSpacing: CGFloat, alingment: NSTextAlignment = .left) -> NSAttributedString {
         let paragraph = NSMutableParagraphStyle()
         paragraph.lineSpacing = lineSpacing
+        paragraph.alignment = alingment
         return NSAttributedString(string: self, attributes: [.paragraphStyle: paragraph])
     }
 }

@@ -9,10 +9,12 @@
 import UIKit
 
 protocol HomeCellDelegate: class {
-    func cell(_ cell: HomeCell, id: String, needPerform action: HomeCell.Action)
+
+    func cell(_ cell: HomeCell, needPerform action: HomeCell.Action)
 }
 
 class HomeCell: UITableViewCell {
+
     enum Action {
         case favorite(isFavorite: Bool)
     }
@@ -79,7 +81,7 @@ class HomeCell: UITableViewCell {
                 let isTitle = item.elementsEqual("Cuisine")
                 let font: UIFont = isTitle ? CuisineView.Config.cuisineLabelTitleFont : CuisineView.Config.cuisineLabelFont
                 let cuisineViewWidth = item.contentWidth(font: font) + CuisineView.Config.cuisineLabelMargin * 2
-                let cuisineView: CuisineView = CuisineView.loadNib()
+                let cuisineView: CuisineView = CuisineView()
                 cuisineView.frame = CGRect(x: 0, y: 0, width: cuisineViewWidth, height: 18)
                 cuisineView.viewModel = CuisineViewModel(cuisine: item, isTitle: isTitle)
                 stackView.addArrangedSubview(cuisineView)
@@ -98,7 +100,7 @@ class HomeCell: UITableViewCell {
     }
 
     @IBAction func favoriteButtonTouchUpInside(_ sender: Any) {
-        delegate?.cell(self, id: viewModel?.id ?? "", needPerform: .favorite(isFavorite: favoriteButton.isSelected))
+        delegate?.cell(self, needPerform: .favorite(isFavorite: favoriteButton.isSelected))
     }
 }
 
@@ -107,4 +109,3 @@ extension HomeCell {
         static let stackViewInRowSpacing: CGFloat = 8
     }
 }
-

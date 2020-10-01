@@ -32,7 +32,8 @@ extension Api.Search {
                     }
                     var results: [Review] = []
                     for review in userReview {
-                        guard let json = review["review"] as? JSObject, let review = Mapper<Review>().map(JSONObject: json) else { return }
+                        guard let json = review["review"] as? JSObject,
+                            let review = Mapper<Review>().map(JSONObject: json) else { return }
                         results.append(review)
                     }
                     completion(.success(results))

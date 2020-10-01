@@ -11,11 +11,28 @@ import Foundation
 class InformationDetailViewModel {
     var restaurant: Restaurant
 
-    init(restaurant: Restaurant) {
-        self.restaurant = restaurant
-    }
     var openingTime: String {
         guard let timing = restaurant.timings else { return "" }
-        return timing.replacingOccurrences(of: ",", with: "\n")
+        let timingArr = timing.split(separator: ",")
+        var resultArr: [String] = []
+        for (index, str) in timingArr.enumerated() {
+            if let firstCharacter = String(str).trimmed.first, !firstCharacter.isNumber, index > 0 {
+                resultArr.removeLast()
+                let newStr = "\(timingArr[index - 1])" + ",\(str)".trimmed
+                resultArr.append(newStr)
+            } else {
+                resultArr.append(String(str).trimmed)
+            }
+        }
+        return resultArr.joined(separator: "\n")
+    }
+
+    var phoneNumber: String {
+        guard let phoneNumber = restaurant.phoneNumber else { return "" }
+        return phoneNumber.replacingOccurrences(of: ", ", with: "\n")
+    }
+
+    init(restaurant: Restaurant) {
+        self.restaurant = restaurant
     }
 }

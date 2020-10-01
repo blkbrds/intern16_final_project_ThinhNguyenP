@@ -15,16 +15,17 @@ class InformationDetailView: UIView {
     @IBOutlet private weak var phoneNumberLabel: UILabel!
     @IBOutlet private weak var websiteLabel: UILabel!
 
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        xibSetup()
-    }
-
     var viewModel: InformationDetailViewModel? {
         didSet {
             updateView()
         }
     }
+
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        xibSetup()
+    }
+
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         xibSetup()
@@ -34,12 +35,13 @@ class InformationDetailView: UIView {
         let nib = UINib(nibName: "InformationDetailView", bundle: .main)
         nib.instantiate(withOwner: self, options: nil)
         addSubview(containerView)
+        containerView.fillToSuperview()
     }
 
     private func updateView() {
         guard let viewModel = viewModel else { return }
-        openingTimeLabel.text = viewModel.openingTime
-        phoneNumberLabel.text = viewModel.restaurant.phoneNumber
+        openingTimeLabel.attributedText = viewModel.openingTime.addLineSpacing(3, alingment: .right)
+        phoneNumberLabel.attributedText = viewModel.phoneNumber.addLineSpacing(3, alingment: .right)
         websiteLabel.text = viewModel.restaurant.url
     }
 }

@@ -22,6 +22,11 @@ class HomeViewController: BaseViewController {
         viewModel.setupObserver()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.isNavigationBarHidden = false
+    }
+
     override func customNavigation() {
         super.customNavigation()
         navigationItem.title = "Home"
@@ -110,10 +115,15 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let viewController = DetailViewController()
-        viewController.viewModel = viewModel.didSelectRowAt(indexPath: indexPath)
-        viewController.hidesBottomBarWhenPushed = true
-        navigationController?.pushViewController(viewController, animated: true)
+        switch viewModel.cells[indexPath.section] {
+        case .collectionView:
+            break
+        case .tableView:
+            let viewController = DetailViewController()
+            viewController.viewModel = viewModel.didSelectRowAt(indexPath: indexPath)
+            viewController.hidesBottomBarWhenPushed = true
+            navigationController?.pushViewController(viewController, animated: true)
+        }
     }
 }
 extension HomeViewController: UIScrollViewDelegate {
@@ -128,12 +138,12 @@ extension HomeViewController: UIScrollViewDelegate {
     }
 }
 extension HomeViewController: HomeCellDelegate {
-    func cell(_ cell: HomeCell, id: String, needPerform action: HomeCell.Action) {
+    func cell(_ cell: HomeCell, needPerform action: HomeCell.Action) {
         guard let indexPath = tableView.indexPath(for: cell) else { return }
         switch action {
         case .favorite(let isFavorite):
             if isFavorite {
-                viewModel.unFavorite(id: id) { [weak self] result in
+                viewModel.unfavorite(index: indexPath.row) { [weak self] result in
                     guard let this = self else { return }
                     switch result {
                     case .success:
@@ -157,7 +167,7 @@ extension HomeViewController: HomeCellDelegate {
     }
 }
 extension HomeViewController: HomeViewModelDelegate {
-    func syncFavorite(viewModel: HomeViewModel, needperformAction action: HomeViewModel.Action) {
+    func syncFavorite(viewModel: HomeViewModel, needPerform action: HomeViewModel.Action) {
         switch action {
         case .reloadData:
             tableView.reloadData()

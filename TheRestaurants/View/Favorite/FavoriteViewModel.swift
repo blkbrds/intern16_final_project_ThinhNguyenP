@@ -10,17 +10,17 @@ import Foundation
 import RealmSwift
 
 protocol FavoriteViewModelDelegate: class {
-     func syncFavorite(viewModel: FavoriteViewModel, needperformAction action: FavoriteViewModel.Action)
+     func syncFavorite(viewModel: FavoriteViewModel, needPerforms action: FavoriteViewModel.Action)
 }
 
 class FavoriteViewModel {
 
     enum Action {
         case reloadData
+        case fail(Error)
     }
 
     var restautants: [Restaurant] = []
-    var isFavorite: Bool = false
     private var notificationToken: NotificationToken?
     weak var delegate: FavoriteViewModelDelegate?
 
@@ -34,7 +34,7 @@ class FavoriteViewModel {
         return viewModel
     }
 
-    func feachRealm(completion: @escaping APICompletion) {
+    func fetchRealmData(completion: @escaping APICompletion) {
         do {
             let realm = try Realm()
             let results = realm.objects(Restaurant.self)
@@ -50,11 +50,11 @@ class FavoriteViewModel {
             let realm = try Realm()
             notificationToken = realm.objects(Restaurant.self).observe({ (_) in
                 if let delegate = self.delegate {
-                    delegate.syncFavorite(viewModel: self, needperformAction: .reloadData)
+                    delegate.syncFavorite(viewModel: self, needPerforms: .reloadData)
                 }
             })
         } catch {
-            print(error)
+            delegate?.syncFavorite(viewModel: self, needPerforms: .fail(error))
         }
     }
 
@@ -71,23 +71,16 @@ class FavoriteViewModel {
         }
     }
 
-    func deleteItemFavorite(id: String) {
+    func deleteItemFavorite(id: String, completion: @escaping APICompletion) {
         do {
             let realm = try Realm()
             let result = realm.objects(Restaurant.self).filter("id = '\(id)'")
             try realm.write {
                 realm.delete(result)
             }
+            completion(.success)
         } catch {
-           print("Error")
+            completion(.failure(error))
         }
     }
-
-
-    func checkFavorite(favorite: Bool, id: String) {
-        for item in restautants where item.id == id {
-            item.favorite = favorite
-           }
-       }
-   
 }

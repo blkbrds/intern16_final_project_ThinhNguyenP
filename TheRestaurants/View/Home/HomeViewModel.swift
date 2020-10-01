@@ -10,11 +10,11 @@ import Foundation
 import RealmSwift
 
 protocol HomeViewModelDelegate: class {
-    func syncFavorite(viewModel: HomeViewModel, needperformAction action: HomeViewModel.Action)
+    func syncFavorite(viewModel: HomeViewModel, needPerform action: HomeViewModel.Action)
 }
 
 class HomeViewModel {
-    
+
     enum Cell {
         case collectionView
         case tableView
@@ -28,7 +28,6 @@ class HomeViewModel {
     var isLoadingMore: Bool = false
     var collections: [Collection] = []
     var restaurants: [Restaurant] = []
-    var totalRealm: [Restaurant] = []
     var cells: [Cell] = [.collectionView, .tableView]
     var totalResults: Int = 0
     private var start: Int = 0
@@ -112,12 +111,6 @@ class HomeViewModel {
         return viewModel
     }
 
-    func checkFavorite(favorite: Bool, id: String) {
-        for item in restaurants where item.id == id {
-            item.favorite = favorite
-        }
-    }
-
     func fetchRealmData(completion: @escaping APICompletion) {
         do {
             let realm = try Realm()
@@ -147,7 +140,6 @@ class HomeViewModel {
                                             establishment: restaurant.establishment)
             try realm.write {
                 realm.create(Restaurant.self, value: tempRestaurant, update: .all)
-                checkFavorite(favorite: true, id: tempRestaurant.id ?? "")
             }
             completion(.success)
         } catch {
@@ -155,13 +147,13 @@ class HomeViewModel {
         }
     }
 
-    func unFavorite(id: String, completion: @escaping APICompletion) {
+    func unfavorite(index: Int, completion: @escaping APICompletion) {
         do {
             let realm = try Realm()
-            let result = realm.objects(Restaurant.self).filter("id = '\(id)'")
+            let restaurant = restaurants[index]
+            let result = realm.objects(Restaurant.self).filter("id = '\(restaurant.id ?? "")'")
             try realm.write {
                 realm.delete(result)
-                checkFavorite(favorite: false, id: id)
             }
             completion(.success)
         } catch {
@@ -183,14 +175,14 @@ class HomeViewModel {
                             item.favorite = false
                         }
                     }
-                    this.delegate?.syncFavorite(viewModel: this, needperformAction: .reloadData)
+                    this.delegate?.syncFavorite(viewModel: this, needPerform: .reloadData)
                 case .error(let error):
-                    this.delegate?.syncFavorite(viewModel: this, needperformAction: .fail(error))
+                    this.delegate?.syncFavorite(viewModel: this, needPerform: .fail(error))
                 default: break
                 }
             })
         } catch {
-            delegate?.syncFavorite(viewModel: self, needperformAction: .fail(error))
+            delegate?.syncFavorite(viewModel: self, needPerform: .fail(error))
         }
     }
 }

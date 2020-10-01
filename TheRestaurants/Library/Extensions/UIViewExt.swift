@@ -9,16 +9,14 @@
 import UIKit
 
 extension UIView {
-    public class func nib() -> UINib {
-        return UINib(nibName: String(describing: self), bundle: nil)
-    }
-
-    public class func loadNib<T: UIView>() -> T {
-        let name = String(describing: self)
-        let bundle = Bundle(for: T.self)
-        guard let xib = bundle.loadNibNamed(name, owner: nil, options: nil)?.first as? T else {
-            fatalError("Cannot load nib named \(name)")
+    func fillToSuperview() {
+        translatesAutoresizingMaskIntoConstraints = false
+        if let superview = superview {
+            let left = leftAnchor.constraint(equalTo: superview.leftAnchor)
+            let right = rightAnchor.constraint(equalTo: superview.rightAnchor)
+            let top = topAnchor.constraint(equalTo: superview.topAnchor)
+            let bottom = bottomAnchor.constraint(equalTo: superview.bottomAnchor)
+            NSLayoutConstraint.activate([left, right, top, bottom])
         }
-        return xib
     }
 }

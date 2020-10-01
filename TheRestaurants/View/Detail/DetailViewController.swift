@@ -20,7 +20,7 @@ class DetailViewController: UIViewController {
     var overviewViewController: OverviewViewController?
     var reviewViewController: ReviewsViewController?
     var menuViewController: MenuViewController?
-
+    
     var viewModel: DetailViewModel?
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +28,7 @@ class DetailViewController: UIViewController {
         setUpPageView()
         configLineView()
     }
-
+    
     @IBAction private func buttonTouchUpInside(_ sender: UIButton) {
         for button in tabButtons {
             button.isSelected = button.tag == sender.tag
@@ -36,7 +36,7 @@ class DetailViewController: UIViewController {
         pageController.setViewControllers([viewControllers[sender.tag]], direction: .reverse, animated: false, completion: nil)
         configLineViewWithAnimation(selectedButtonTag: sender.tag)
     }
-
+    
     private func setUpPageView() {
         guard let restaurant = viewModel?.restaurant else { return }
         overviewViewController = OverviewViewController()
@@ -62,7 +62,7 @@ class DetailViewController: UIViewController {
         pageController.didMove(toParent: self)
         navigationController?.isNavigationBarHidden = true
     }
-
+    
     private func configLineView() {
         let frame = CGRect(x: 0,
                            y: tabButtonsView.frame.minY,
@@ -71,11 +71,11 @@ class DetailViewController: UIViewController {
         let lineView = UIView(frame: frame)
         lineView.backgroundColor = #colorLiteral(red: 0, green: 0.3764705882, blue: 0.3921568627, alpha: 1)
         self.lineView = lineView
-
+        
         view.addSubview(lineView)
         view.bringSubviewToFront(lineView)
     }
-
+    
     private func configLineViewWithAnimation(selectedButtonTag: Int) {
         UIView.animate(withDuration: 0.5) {
             let newX: CGFloat = self.tabButtonsView.frame.width / 3 * CGFloat(selectedButtonTag)
@@ -85,48 +85,14 @@ class DetailViewController: UIViewController {
                                          height: self.lineView.frame.height)
         }
     }
-
+    
     func updateHeaderViewInViewController(isFavorite: Bool) {
         overviewViewController?.updateHeaderView(isFavorite: isFavorite)
         reviewViewController?.updateHeaderView(isFavorite: isFavorite)
         menuViewController?.updateHeaderView(isFavorite: isFavorite)
     }
-}
 
-extension DetailViewController: OverviewControllerDelegate {
-    func viewController(_ viewController: OverviewViewController, needPerform action: HeaderDetailView.Action) {
-        guard let viewModel = viewModel else { return }
-        switch action {
-        case .back:
-            navigationController?.popViewController(animated: true)
-        case .favorite(let isFavorite):
-            if isFavorite {
-                viewModel.unFavorite { [weak self](result) in
-                    guard let this = self else { return }
-                    switch result {
-                    case.success:
-                        this.updateHeaderViewInViewController(isFavorite: false)
-                    case .failure(let error):
-                        this.alert(error: error)
-                    }
-                }
-            } else {
-                viewModel.addFavorite {[weak self] (result) in
-                    guard let this = self else { return }
-                    switch result {
-                    case.success:
-                        viewController.updateHeaderView(isFavorite: true)
-                    case.failure(let error):
-                        this.alert(error: error)
-                    }
-                }
-            }
-        }
-    }
-}
-
-extension DetailViewController: MenuViewControllerDelegate {
-    func viewController(_ viewController: MenuViewController, needPerform action: HeaderDetailView.Action) {
+    func handleViewControllerAction(action: OverviewViewController.Action) {
         guard let viewModel = viewModel else { return }
         switch action {
         case .back:
@@ -156,34 +122,20 @@ extension DetailViewController: MenuViewControllerDelegate {
         }
     }
 }
+
+extension DetailViewController: OverviewControllerDelegate {
+    func viewController(_ viewController: OverviewViewController, needPerform action: OverviewViewController.Action) {
+        handleViewControllerAction(action: action)
+    }
+}
+
+extension DetailViewController: MenuViewControllerDelegate {
+    func viewController(_ viewController: MenuViewController, needPerform action: OverviewViewController.Action) {
+        handleViewControllerAction(action: action)
+    }
+}
 extension DetailViewController: ReviewsViewControllerDelegate {
-    func view(_ viewController: ReviewsViewController, needPerform action: HeaderDetailView.Action) {
-        guard let viewModel = viewModel else { return }
-        switch action {
-        case .back:
-            navigationController?.popViewController(animated: true)
-        case .favorite(let isFavorite):
-            if isFavorite {
-                viewModel.unFavorite { [weak self](result) in
-                    guard let this = self else { return }
-                    switch result {
-                    case.success:
-                       this.updateHeaderViewInViewController(isFavorite: false)
-                    case .failure(let error):
-                        this.alert(error: error)
-                    }
-                }
-            } else {
-                viewModel.addFavorite {[weak self] (result) in
-                    guard let this = self else { return }
-                    switch result {
-                    case.success:
-                        viewController.updateHeaderView(isFavorite: true)
-                    case.failure(let error):
-                        this.alert(error: error)
-                    }
-                }
-            }
-        }
+    func view(_ viewController: ReviewsViewController, needPerform action: OverviewViewController.Action) {
+        handleViewControllerAction(action: action)
     }
 }

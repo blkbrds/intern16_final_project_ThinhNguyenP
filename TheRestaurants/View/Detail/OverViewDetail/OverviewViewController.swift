@@ -8,15 +8,18 @@
 
 import UIKit
 protocol OverviewControllerDelegate: class {
-    func viewController(_ viewController: OverviewViewController, needPerform action: HeaderDetailView.Action)
+
+    func viewController(_ viewController: OverviewViewController, needPerform action: OverviewViewController.Action)
 }
 
 class OverviewViewController: UIViewController {
+
     enum Action {
         case back
         case favorite(isFavorite: Bool)
     }
-    
+
+    @IBOutlet private weak var scrollView: UIScrollView!
     @IBOutlet private weak var headerView: HeaderDetailView!
     @IBOutlet private weak var mapDetailView: MapDetailView!
     @IBOutlet private weak var informationView: InformationDetailView!
@@ -27,6 +30,7 @@ class OverviewViewController: UIViewController {
    
     override func viewDidLoad() {
         super.viewDidLoad()
+        scrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 50, right: 0)
         getRestaurantDetail()
         headerView.delegate = self
     }
