@@ -8,7 +8,7 @@
 
 import UIKit
 protocol MenuViewControllerDelegate: class {
-    func viewController(_ viewController: MenuViewController, needPerform action: OverviewViewController.Action)
+    func viewController(_ viewController: MenuViewController, needPerform action: HeaderDetailView.Action)
 }
 class MenuViewController: UIViewController {
 
@@ -19,9 +19,19 @@ class MenuViewController: UIViewController {
     weak var delegate: MenuViewControllerDelegate?
     override func viewDidLoad() {
         super.viewDidLoad()
-//        headerView.delegate = self
+        headerView.delegate = self
     }
     var viewModel = MenuViewModel()
+}
+extension MenuViewController: HeaderDetailViewDelegate {
+    func view(_ view: HeaderDetailView, needPerforms action: HeaderDetailView.Action) {
+        switch action {
+        case .back:
+            delegate?.viewController(self, needPerform: .back)
+        case .favorite(let isFavorite):
+            delegate?.viewController(self, needPerform: .favorite(isFavorite: isFavorite))
+        }
+    }
 }
 //extension MenuViewController: HeaderDetailViewDelegate {
 //    func view(_ view: HeaderDetailView, id: String, needPerforms action: HeaderDetailView.Action) {

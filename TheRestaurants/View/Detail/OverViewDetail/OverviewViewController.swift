@@ -8,7 +8,7 @@
 
 import UIKit
 protocol OverviewControllerDelegate: class {
-    func viewController(_ viewController: OverviewViewController, needPerform action: OverviewViewController.Action)
+    func viewController(_ viewController: OverviewViewController, needPerform action: HeaderDetailView.Action)
 }
 
 class OverviewViewController: UIViewController {
@@ -57,33 +57,4 @@ extension OverviewViewController: HeaderDetailViewDelegate {
             delegate?.viewController(self, needPerform: .favorite(isFavorite: isFavorite))
         }
     }
-    
-//    func view(_ view: HeaderDetailView, id: String, needPerforms action: HeaderDetailView.Action) {
-//        switch action {
-//        case .back:
-//            delegate?.viewController(self, needPerform: .back)
-//        case .favorite(let isFavorite):
-//            if isFavorite {
-//                viewModel.unFavorite(id: id) { [weak self] result in
-//                    guard let this = self else { return }
-//                    switch result {
-//                    case .success:
-//                        this.headerView.viewModel = HeaderDetailViewModel(restaurant: this.viewModel.restaurant, cuisine: this.viewModel.restaurant.cuisines ?? "")
-//                    case.failure(let error):
-//                        this.alert(error: error)
-//                    }
-//                }
-//            } else {
-//                viewModel.addFavorite(id: id) { [weak self] result in
-//                    guard let this = self else { return }
-//                    switch result {
-//                    case .success:
-//                        this.headerView.viewModel = HeaderDetailViewModel(restaurant: this.viewModel.restaurant, cuisine: this.viewModel.restaurant.cuisines ?? "")
-//                    case .failure(let error):
-//                        this.alert(error: error)
-//                    }
-//                }
-//            }
-//        }
-//    }
 }

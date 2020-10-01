@@ -42,7 +42,7 @@ class DetailViewController: UIViewController {
         overviewViewController.delegate = self
         overviewViewController.viewModel = OverviewViewModel(restaurant: restaurant)
         let reviewViewController = ReviewsViewController()
-        //        reviewViewController.delegate = self
+        reviewViewController.delegate = self
         reviewViewController.viewModel = ReviewViewModel(restaurant: restaurant)
         let menuViewController = MenuViewController()
         menuViewController.delegate = self
@@ -84,33 +84,96 @@ class DetailViewController: UIViewController {
 }
 
 extension DetailViewController: OverviewControllerDelegate {
-    func viewController(_ viewController: OverviewViewController, needPerform action: OverviewViewController.Action) {
+    func viewController(_ viewController: OverviewViewController, needPerform action: HeaderDetailView.Action) {
+        guard let viewModel = viewModel else { return }
         switch action {
         case .back:
             navigationController?.popViewController(animated: true)
         case .favorite(let isFavorite):
-            viewModel?.unFavorite(completion: { [weak self] (result) in
-                guard let this = self else { return }
-                switch.r
-            })
+            if isFavorite {
+                viewModel.unFavorite { [weak self](result) in
+                    guard let this = self else { return }
+                    switch result {
+                    case.success:
+                        viewController.getRestaurantDetail()
+                    case .failure(let error):
+                        this.alert(error: error)
+                    }
+                }
+            } else {
+                viewModel.addFavorite {[weak self] (result) in
+                    guard let this = self else { return }
+                    switch result {
+                    case.success:
+                        viewController.getRestaurantDetail()
+                    case.failure(let error):
+                        this.alert(error: error)
+                    }
+                }
+            }
         }
     }
 }
+
 extension DetailViewController: MenuViewControllerDelegate {
-    func viewController(_ viewController: MenuViewController, needPerform action: OverviewViewController.Action) {
+    func viewController(_ viewController: MenuViewController, needPerform action: HeaderDetailView.Action) {
+        guard let viewModel = viewModel else { return }
         switch action {
         case .back:
             navigationController?.popViewController(animated: true)
         case .favorite(let isFavorite):
-            <#code#>
+            if isFavorite {
+                viewModel.unFavorite { [weak self](result) in
+                    guard let this = self else { return }
+                    switch result {
+                    case.success:
+                        viewController.viewDidLoad()
+                    case .failure(let error):
+                        this.alert(error: error)
+                    }
+                }
+            } else {
+                viewModel.addFavorite {[weak self] (result) in
+                    guard let this = self else { return }
+                    switch result {
+                    case.success:
+                        viewController.viewDidLoad()
+                    case.failure(let error):
+                        this.alert(error: error)
+                    }
+                }
+            }
         }
     }
 }
-//extension DetailViewController: ReviewsViewControllerDelegate {
-////    func view(_ viewController: ReviewsViewController, needPerform action: HeaderDetailView.Action) {
-////        switch action {
-////        case .back:
-////            navigationController?.popViewController(animated: true)
-////        }
-////    }
-//}
+extension DetailViewController: ReviewsViewControllerDelegate {
+    func view(_ viewController: ReviewsViewController, needPerform action: HeaderDetailView.Action) {
+        guard let viewModel = viewModel else { return }
+        switch action {
+        case .back:
+            navigationController?.popViewController(animated: true)
+        case .favorite(let isFavorite):
+            if isFavorite {
+                viewModel.unFavorite { [weak self](result) in
+                    guard let this = self else { return }
+                    switch result {
+                    case.success:
+                        viewController.loadReview()
+                    case .failure(let error):
+                        this.alert(error: error)
+                    }
+                }
+            } else {
+                viewModel.addFavorite {[weak self] (result) in
+                    guard let this = self else { return }
+                    switch result {
+                    case.success:
+                        viewController.loadReview()
+                    case.failure(let error):
+                        this.alert(error: error)
+                    }
+                }
+            }
+        }
+    }
+}

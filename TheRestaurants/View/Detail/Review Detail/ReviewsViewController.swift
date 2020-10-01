@@ -12,7 +12,7 @@ protocol ReviewsViewControllerDelegate: class {
     func view(_ viewController: ReviewsViewController, needPerform action: HeaderDetailView.Action)
 }
 class ReviewsViewController: UIViewController {
-    
+
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private weak var ratingLabel: UILabel!
     @IBOutlet private weak var reviewCountLabel: UILabel!
@@ -25,13 +25,13 @@ class ReviewsViewController: UIViewController {
         loadReview()
         headerView.delegate = self
     }
-    
+
     private func configTableView() {
         let cell = UINib(nibName: "ReviewCell", bundle: .main)
         tableView.register(cell, forCellReuseIdentifier: "cellReview")
         tableView.dataSource = self
     }
-    
+
     func loadReview() {
         Indicator.start()
         viewModel.loadReview { [weak self](result) in
@@ -41,6 +41,7 @@ class ReviewsViewController: UIViewController {
             case .success:
                 this.tableView.reloadData()
                 this.headerView.viewModel = HeaderDetailViewModel(restaurant: this.viewModel.restaurant, cuisine: this.viewModel.restaurant.cuisines ?? "")
+                this.headerView.delegate = self
                 this.reviewCountLabel.text = "- \(this.viewModel.restaurant.review ?? 0) Reviews"
                 this.ratingLabel.text = "\(this.viewModel.restaurant.rating ?? "0")"
             case .failure(let error):
@@ -67,17 +68,6 @@ extension ReviewsViewController: HeaderDetailViewDelegate {
             delegate?.view(self, needPerform: .back)
         case .favorite(let isFavorite):
             delegate?.view(self, needPerform: .favorite(isFavorite: isFavorite))
-        }
-    }
-    
-    func view(_ view: HeaderDetailView, id: String, needPerforms action: HeaderDetailView.Action) {
-        switch action {
-        case .back:
-            delegate?.view(self, needPerform: .back)
-        case .favorite(let isFavorite):
-            if isFavorite {
-                
-            }
         }
     }
 }

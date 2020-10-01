@@ -52,13 +52,14 @@ class HeaderDetailView: UIView {
         delegate?.view(self, needPerforms: .favorite(isFavorite: favoriteButton.isSelected))
     }
 
-    private func updateView() {
+    func updateView() {
         guard let viewModel = viewModel else { return }
         nameRestaurantLabel.text = viewModel.restaurant.name
         cuisineLabel.text = viewModel.cuisine
         let imageURL = viewModel.restaurant.imageURL?.replacingOccurrences(of: "?output-format=webp", with: "")
         restaurantImageView.setImage(url: imageURL, placeholderImage: #imageLiteral(resourceName: "ic-home-no-image"))
-        favoriteButton.isSelected = viewModel.restaurant.favorite
+//        favoriteButton.isSelected = viewModel.isFavorite
+        favoriteButton.isSelected = viewModel.isFavorite
     }
 
     @IBAction func backButtonTouchUpInside(_ sender: Any) {

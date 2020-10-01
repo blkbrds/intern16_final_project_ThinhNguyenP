@@ -10,10 +10,12 @@ import Foundation
 
 class HeaderDetailViewModel {
     var restaurant: Restaurant
+    var isFavorite = true
     var cuisine: String
     init(restaurant: Restaurant, cuisine: String = "") {
         self.restaurant = restaurant
         self.restaurant.id = restaurant.id
+        isFavorite = restaurant.favorite
 //        self.restaurant.favorite = restaurant.favorite
         self.cuisine = cuisine.replacingOccurrences(of: ",", with: " |")
     }
