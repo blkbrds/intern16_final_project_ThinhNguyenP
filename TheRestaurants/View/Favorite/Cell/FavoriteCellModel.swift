@@ -18,7 +18,7 @@ class FavoriteCellModel {
     func deleteItemFavorite(completion: @escaping APICompletion) {
         do {
             let realm = try Realm()
-            let result = realm.objects(Restaurant.self).filter("id = '\(restaurant.id)'")
+            let result = realm.objects(Restaurant.self).filter("id = '\(restaurant.id ?? "")'")
             try realm.write {
                 realm.delete(result)
             }

@@ -10,7 +10,6 @@ import Foundation
 
 class HeaderDetailViewModel {
     var restaurant: Restaurant
-//    var isFavorite = false
     var cuisine: String {
         guard let cuisine = restaurant.cuisines else { return "" }
         return cuisine.replacingOccurrences(of: ",", with: " |")
@@ -18,6 +17,5 @@ class HeaderDetailViewModel {
 
     init(restaurant: Restaurant) {
         self.restaurant = restaurant
-//        isFavorite = restaurant.favorite
     }
 }

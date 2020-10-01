@@ -13,7 +13,7 @@ protocol DetailViewModelDelegate: class {
      func syncFavorite(viewModel: DetailViewModel, needperformAction action: DetailViewModel.Action)
 }
 class DetailViewModel {
-    
+
     enum Action {
         case reloadData
     }
@@ -43,7 +43,7 @@ class DetailViewModel {
                                             establishment: restaurant.establishment)
             try realm.write {
                 realm.create(Restaurant.self, value: tempRestaurant, update: .all)
-//                checkFavorite(favorite: true, id: tempRestaurant.id ?? "")
+                checkFavorite(favorite: true, id: tempRestaurant.id ?? "")
             }
             completion(.success)
         } catch {
@@ -77,4 +77,16 @@ class DetailViewModel {
                print(error)
            }
        }
+
+    func fetchRealmData() {
+        do {
+            let realm = try Realm()
+            let results = Array(realm.objects(Restaurant.self))
+                if results.contains(where: { $0.id == restaurant.id }) {
+                    restaurant.favorite = true
+                }
+        } catch {
+            print(error)
+        }
+    }
 }

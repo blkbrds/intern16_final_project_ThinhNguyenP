@@ -27,7 +27,7 @@ class OverviewViewController: UIViewController {
     weak var delegate: OverviewControllerDelegate?
 
     var viewModel = OverviewViewModel()
-   
+
     override func viewDidLoad() {
         super.viewDidLoad()
         scrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 50, right: 0)

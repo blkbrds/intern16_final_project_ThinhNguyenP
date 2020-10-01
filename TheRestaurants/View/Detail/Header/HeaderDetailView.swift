@@ -49,7 +49,6 @@ class HeaderDetailView: UIView {
     }
 
     @IBAction func favoriteButtonTouchUpInside(_ sender: UIButton) {
-//        sender.isSelected = !sender.isSelected
         delegate?.view(self, needPerforms: .favorite(isFavorite: favoriteButton.isSelected))
     }
 
@@ -59,7 +58,6 @@ class HeaderDetailView: UIView {
         cuisineLabel.text = viewModel.cuisine
         let imageURL = viewModel.restaurant.imageURL?.replacingOccurrences(of: "?output-format=webp", with: "")
         restaurantImageView.setImage(url: imageURL, placeholderImage: #imageLiteral(resourceName: "ic-home-no-image"))
-//        favoriteButton.isSelected = viewModel.isFavorite
         favoriteButton.isSelected = viewModel.restaurant.favorite
     }
 

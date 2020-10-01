@@ -26,6 +26,7 @@ class FavoriteViewController: BaseViewController {
         let nib = UINib(nibName: "FavoriteCell", bundle: .main)
         tableView.register(nib, forCellReuseIdentifier: "cell")
         tableView.dataSource = self
+        tableView.delegate = self
         tableView.rowHeight = 121
     }
 
@@ -52,22 +53,27 @@ class FavoriteViewController: BaseViewController {
     }
 
     @objc func deleteAllFavoriteButtonTouchUpInside() {
-        viewModel.deleteAllItem { [weak self] (result) in
-            guard let this = self else { return }
-            switch result {
-            case.success:
-                this.fetchRealmData()
-            case.failure(let error):
-                this.alert(error: error)
+        let alert = UIAlertController(title: "DELETE ALL", message: "Do you want to delete all favorite ??", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (result) in
+            self.viewModel.deleteAllItem { [weak self] (result) in
+                guard let this = self else { return }
+                switch result {
+                case.success:
+                    this.fetchRealmData()
+                case.failure(let error):
+                    this.alert(error: error)
+                }
             }
-        }
+        }))
+        alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
+        self.present(alert, animated: true)
     }
 }
-extension FavoriteViewController: UITableViewDataSource {
+extension FavoriteViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.numberOfRowInSection()
     }
-
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? FavoriteCell
             else { return UITableViewCell() }
@@ -75,7 +81,15 @@ extension FavoriteViewController: UITableViewDataSource {
         cell.viewModel = viewModel.cellForItemAt(indexPath: indexPath)
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let viewController = DetailViewController()
+        viewController.viewModel = viewModel.didSelectRowAt(indexPath: indexPath)
+        viewController.hidesBottomBarWhenPushed = true
+        navigationController?.pushViewController(viewController, animated: true)
+    }
 }
+
 extension FavoriteViewController: FavoriteViewModelDelegate {
     func syncFavorite(viewModel: FavoriteViewModel, needPerforms action: FavoriteViewModel.Action) {
         switch action {
@@ -86,6 +100,7 @@ extension FavoriteViewController: FavoriteViewModelDelegate {
         }
     }
 }
+
 extension FavoriteViewController: FavoriteCellDelegate {
     func cell(_ cell: FavoriteCell, needPerforms action: FavoriteCell.Action) {
         switch action {

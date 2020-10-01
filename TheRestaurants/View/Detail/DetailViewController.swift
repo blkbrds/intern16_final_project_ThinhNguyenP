@@ -10,7 +10,7 @@ import UIKit
 import MapKit
 
 class DetailViewController: UIViewController {
-    
+
     @IBOutlet private weak var contentView: UIView!
     @IBOutlet private weak var tabButtonsView: UIView!
     @IBOutlet private var tabButtons: [UIButton]!
@@ -20,7 +20,7 @@ class DetailViewController: UIViewController {
     var overviewViewController: OverviewViewController?
     var reviewViewController: ReviewsViewController?
     var menuViewController: MenuViewController?
-    
+
     var viewModel: DetailViewModel?
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +28,7 @@ class DetailViewController: UIViewController {
         setUpPageView()
         configLineView()
     }
-    
+
     @IBAction private func buttonTouchUpInside(_ sender: UIButton) {
         for button in tabButtons {
             button.isSelected = button.tag == sender.tag
@@ -36,8 +36,8 @@ class DetailViewController: UIViewController {
         pageController.setViewControllers([viewControllers[sender.tag]], direction: .reverse, animated: false, completion: nil)
         configLineViewWithAnimation(selectedButtonTag: sender.tag)
     }
-    
-    private func setUpPageView() {
+
+    func setUpPageView() {
         guard let restaurant = viewModel?.restaurant else { return }
         overviewViewController = OverviewViewController()
         overviewViewController?.delegate = self
@@ -62,7 +62,7 @@ class DetailViewController: UIViewController {
         pageController.didMove(toParent: self)
         navigationController?.isNavigationBarHidden = true
     }
-    
+
     private func configLineView() {
         let frame = CGRect(x: 0,
                            y: tabButtonsView.frame.minY,
@@ -71,11 +71,11 @@ class DetailViewController: UIViewController {
         let lineView = UIView(frame: frame)
         lineView.backgroundColor = #colorLiteral(red: 0, green: 0.3764705882, blue: 0.3921568627, alpha: 1)
         self.lineView = lineView
-        
+
         view.addSubview(lineView)
         view.bringSubviewToFront(lineView)
     }
-    
+
     private func configLineViewWithAnimation(selectedButtonTag: Int) {
         UIView.animate(withDuration: 0.5) {
             let newX: CGFloat = self.tabButtonsView.frame.width / 3 * CGFloat(selectedButtonTag)
@@ -85,7 +85,7 @@ class DetailViewController: UIViewController {
                                          height: self.lineView.frame.height)
         }
     }
-    
+
     func updateHeaderViewInViewController(isFavorite: Bool) {
         overviewViewController?.updateHeaderView(isFavorite: isFavorite)
         reviewViewController?.updateHeaderView(isFavorite: isFavorite)

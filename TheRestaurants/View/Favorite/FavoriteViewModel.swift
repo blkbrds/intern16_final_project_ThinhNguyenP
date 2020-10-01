@@ -83,4 +83,10 @@ class FavoriteViewModel {
             completion(.failure(error))
         }
     }
+
+    func didSelectRowAt(indexPath: IndexPath) -> DetailViewModel {
+        let restaurant = restautants[indexPath.row]
+        let viewModel = DetailViewModel(restaurant: restaurant)
+        return viewModel
+    }
 }

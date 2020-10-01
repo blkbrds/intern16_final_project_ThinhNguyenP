@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -164,10 +164,12 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="deliveryImage" destination="fmP-we-Tg3" id="Pjo-53-Bj7"/>
                 <outlet property="deliveryLabel" destination="p2m-pJ-ENl" id="YDq-3B-xNS"/>
                 <outlet property="establishmentLabel" destination="Hra-Z6-Cq8" id="8eV-Zz-pkU"/>
                 <outlet property="locationLabel" destination="uV6-es-YUo" id="dke-7i-aIl"/>
                 <outlet property="nameRestaurant" destination="d26-K7-PFL" id="gJM-xW-ud9"/>
+                <outlet property="ratingImage" destination="9A9-zK-4Yu" id="mCL-eV-ibe"/>
                 <outlet property="ratingLabel" destination="qkb-6L-Qxw" id="lv4-SR-DtQ"/>
                 <outlet property="removeFavorite" destination="vhL-uH-LbQ" id="8RH-9m-3aD"/>
                 <outlet property="restaurantImage" destination="GH9-Uz-d7J" id="ruY-V4-1BQ"/>
