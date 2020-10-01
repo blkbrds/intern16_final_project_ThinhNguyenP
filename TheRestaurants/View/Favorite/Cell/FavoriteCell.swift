@@ -22,6 +22,7 @@ class FavoriteCell: UITableViewCell {
     @IBOutlet private weak var removeFavorite: UIButton!
     @IBOutlet private weak var locationLabel: UILabel!
     @IBOutlet private weak var nameRestaurant: UILabel!
+    @IBOutlet private weak var establishmentLabel: UILabel!
     weak var delegate: FavoriteCellDelegate?
 
     var viewModel: FavoriteCellModel? {
@@ -37,6 +38,7 @@ class FavoriteCell: UITableViewCell {
         locationLabel.text = viewModel.restaurant.location?.address
         nameRestaurant.text = viewModel.restaurant.name
         ratingLabel.text = viewModel.restaurant.rating
+        establishmentLabel.text = viewModel.restaurant.establishment
         restaurantImage.setImage(url: viewModel.restaurant.imageURL?.replacingOccurrences(of: "?output-format=webp", with: ""))
     }
 

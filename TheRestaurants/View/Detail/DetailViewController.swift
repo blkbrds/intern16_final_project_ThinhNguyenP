@@ -17,7 +17,10 @@ class DetailViewController: UIViewController {
     private var pageController: UIPageViewController!
     private var viewControllers: [UIViewController] = []
     private var lineView: UIView!
-    
+    var overviewViewController: OverviewViewController?
+    var reviewViewController: ReviewsViewController?
+    var menuViewController: MenuViewController?
+
     var viewModel: DetailViewModel?
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,7 +28,7 @@ class DetailViewController: UIViewController {
         setUpPageView()
         configLineView()
     }
-    
+
     @IBAction private func buttonTouchUpInside(_ sender: UIButton) {
         for button in tabButtons {
             button.isSelected = button.tag == sender.tag
@@ -33,22 +36,23 @@ class DetailViewController: UIViewController {
         pageController.setViewControllers([viewControllers[sender.tag]], direction: .reverse, animated: false, completion: nil)
         configLineViewWithAnimation(selectedButtonTag: sender.tag)
     }
-    
+
     private func setUpPageView() {
         guard let restaurant = viewModel?.restaurant else { return }
-        
-        // Setup view controllers
-        let overviewViewController = OverviewViewController()
-        overviewViewController.delegate = self
-        overviewViewController.viewModel = OverviewViewModel(restaurant: restaurant)
-        let reviewViewController = ReviewsViewController()
-        reviewViewController.delegate = self
-        reviewViewController.viewModel = ReviewViewModel(restaurant: restaurant)
-        let menuViewController = MenuViewController()
-        menuViewController.delegate = self
-        menuViewController.viewModel = MenuViewModel(restaurant: restaurant)
-        viewControllers = [overviewViewController, menuViewController, reviewViewController]
-        
+        overviewViewController = OverviewViewController()
+        overviewViewController?.delegate = self
+        overviewViewController?.viewModel = OverviewViewModel(restaurant: restaurant)
+        menuViewController = MenuViewController()
+        menuViewController?.delegate = self
+        menuViewController?.viewModel = MenuViewModel(restaurant: restaurant)
+        reviewViewController = ReviewsViewController()
+        reviewViewController?.delegate = self
+        reviewViewController?.viewModel = ReviewViewModel(restaurant: restaurant)
+        if let overviewViewController = overviewViewController,
+            let menuViewController = menuViewController,
+            let reviewViewController = reviewViewController {
+            viewControllers = [overviewViewController, menuViewController, reviewViewController]
+        }
         // Setup page view
         pageController = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
         pageController.view.frame = CGRect(x: 0, y: 0, width: contentView.frame.width, height: contentView.frame.height)
@@ -58,7 +62,7 @@ class DetailViewController: UIViewController {
         pageController.didMove(toParent: self)
         navigationController?.isNavigationBarHidden = true
     }
-    
+
     private func configLineView() {
         let frame = CGRect(x: 0,
                            y: tabButtonsView.frame.minY,
@@ -67,11 +71,11 @@ class DetailViewController: UIViewController {
         let lineView = UIView(frame: frame)
         lineView.backgroundColor = #colorLiteral(red: 0, green: 0.3764705882, blue: 0.3921568627, alpha: 1)
         self.lineView = lineView
-        
+
         view.addSubview(lineView)
         view.bringSubviewToFront(lineView)
     }
-    
+
     private func configLineViewWithAnimation(selectedButtonTag: Int) {
         UIView.animate(withDuration: 0.5) {
             let newX: CGFloat = self.tabButtonsView.frame.width / 3 * CGFloat(selectedButtonTag)
@@ -80,6 +84,12 @@ class DetailViewController: UIViewController {
                                          width: self.lineView.frame.width,
                                          height: self.lineView.frame.height)
         }
+    }
+
+    func updateHeaderViewInViewController(isFavorite: Bool) {
+        overviewViewController?.updateHeaderView(isFavorite: isFavorite)
+        reviewViewController?.updateHeaderView(isFavorite: isFavorite)
+        menuViewController?.updateHeaderView(isFavorite: isFavorite)
     }
 }
 
@@ -95,7 +105,7 @@ extension DetailViewController: OverviewControllerDelegate {
                     guard let this = self else { return }
                     switch result {
                     case.success:
-                        viewController.getRestaurantDetail()
+                        this.updateHeaderViewInViewController(isFavorite: false)
                     case .failure(let error):
                         this.alert(error: error)
                     }
@@ -105,7 +115,7 @@ extension DetailViewController: OverviewControllerDelegate {
                     guard let this = self else { return }
                     switch result {
                     case.success:
-                        viewController.getRestaurantDetail()
+                        viewController.updateHeaderView(isFavorite: true)
                     case.failure(let error):
                         this.alert(error: error)
                     }
@@ -127,7 +137,7 @@ extension DetailViewController: MenuViewControllerDelegate {
                     guard let this = self else { return }
                     switch result {
                     case.success:
-                        viewController.viewDidLoad()
+                        this.updateHeaderViewInViewController(isFavorite: false)
                     case .failure(let error):
                         this.alert(error: error)
                     }
@@ -137,7 +147,7 @@ extension DetailViewController: MenuViewControllerDelegate {
                     guard let this = self else { return }
                     switch result {
                     case.success:
-                        viewController.viewDidLoad()
+                        this.updateHeaderViewInViewController(isFavorite: true)
                     case.failure(let error):
                         this.alert(error: error)
                     }
@@ -158,7 +168,7 @@ extension DetailViewController: ReviewsViewControllerDelegate {
                     guard let this = self else { return }
                     switch result {
                     case.success:
-                        viewController.loadReview()
+                       this.updateHeaderViewInViewController(isFavorite: false)
                     case .failure(let error):
                         this.alert(error: error)
                     }
@@ -168,7 +178,7 @@ extension DetailViewController: ReviewsViewControllerDelegate {
                     guard let this = self else { return }
                     switch result {
                     case.success:
-                        viewController.loadReview()
+                        viewController.updateHeaderView(isFavorite: true)
                     case.failure(let error):
                         this.alert(error: error)
                     }

@@ -10,13 +10,14 @@ import Foundation
 
 class HeaderDetailViewModel {
     var restaurant: Restaurant
-    var isFavorite = true
-    var cuisine: String
-    init(restaurant: Restaurant, cuisine: String = "") {
+//    var isFavorite = false
+    var cuisine: String {
+        guard let cuisine = restaurant.cuisines else { return "" }
+        return cuisine.replacingOccurrences(of: ",", with: " |")
+    }
+
+    init(restaurant: Restaurant) {
         self.restaurant = restaurant
-        self.restaurant.id = restaurant.id
-        isFavorite = restaurant.favorite
-//        self.restaurant.favorite = restaurant.favorite
-        self.cuisine = cuisine.replacingOccurrences(of: ",", with: " |")
+//        isFavorite = restaurant.favorite
     }
 }

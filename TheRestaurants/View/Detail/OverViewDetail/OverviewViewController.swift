@@ -22,14 +22,20 @@ class OverviewViewController: UIViewController {
     @IBOutlet private weak var informationView: InformationDetailView!
     @IBOutlet private weak var otherInformationView: OtherInformationView!
     weak var delegate: OverviewControllerDelegate?
-    
+
     var viewModel = OverviewViewModel()
+   
     override func viewDidLoad() {
         super.viewDidLoad()
         getRestaurantDetail()
         headerView.delegate = self
     }
-    
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        headerView.viewModel = HeaderDetailViewModel(restaurant: viewModel.restaurant)
+    }
+
     func getRestaurantDetail() {
         Indicator.start()
         viewModel.getRestaurantDetail { [weak self] (result) in
@@ -37,7 +43,7 @@ class OverviewViewController: UIViewController {
             guard let this = self else { return }
             switch result {
             case .success:
-                this.headerView.viewModel = HeaderDetailViewModel(restaurant: this.viewModel.restaurant, cuisine: this.viewModel.restaurant.cuisines ?? "")
+                this.headerView.viewModel = HeaderDetailViewModel(restaurant: this.viewModel.restaurant)
                 this.headerView.delegate = self
                 this.informationView.viewModel = InformationDetailViewModel(restaurant: this.viewModel.restaurant)
                 this.mapDetailView.viewModel = MapDetailViewModel(restaurant: this.viewModel.restaurant)
@@ -45,6 +51,13 @@ class OverviewViewController: UIViewController {
             case .failure(let error):
                 this.alert(error: error)
             }
+        }
+    }
+
+    func updateHeaderView(isFavorite: Bool) {
+        viewModel.restaurant.favorite = isFavorite
+        if headerView != nil {
+            headerView.viewModel = HeaderDetailViewModel(restaurant: viewModel.restaurant)
         }
     }
 }

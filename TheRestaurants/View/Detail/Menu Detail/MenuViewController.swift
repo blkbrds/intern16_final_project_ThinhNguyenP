@@ -15,6 +15,11 @@ class MenuViewController: UIViewController {
     enum Action {
         case back
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        headerView.viewModel = HeaderDetailViewModel(restaurant: viewModel.restaurant)
+    }
+    
     @IBOutlet private weak var headerView: HeaderDetailView!
     weak var delegate: MenuViewControllerDelegate?
     override func viewDidLoad() {
@@ -22,6 +27,12 @@ class MenuViewController: UIViewController {
         headerView.delegate = self
     }
     var viewModel = MenuViewModel()
+    func updateHeaderView(isFavorite: Bool) {
+        viewModel.restaurant.favorite = isFavorite
+        if headerView != nil {
+            headerView.viewModel = HeaderDetailViewModel(restaurant: viewModel.restaurant)
+        }
+    }
 }
 extension MenuViewController: HeaderDetailViewDelegate {
     func view(_ view: HeaderDetailView, needPerforms action: HeaderDetailView.Action) {
@@ -33,15 +44,3 @@ extension MenuViewController: HeaderDetailViewDelegate {
         }
     }
 }
-//extension MenuViewController: HeaderDetailViewDelegate {
-//    func view(_ view: HeaderDetailView, id: String, needPerforms action: HeaderDetailView.Action) {
-//        switch action {
-//        case .back:
-//            
-//        default:
-//            <#code#>
-//        }
-//    }
-//    
-//    
-//}

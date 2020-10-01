@@ -59,7 +59,7 @@ class HeaderDetailView: UIView {
         let imageURL = viewModel.restaurant.imageURL?.replacingOccurrences(of: "?output-format=webp", with: "")
         restaurantImageView.setImage(url: imageURL, placeholderImage: #imageLiteral(resourceName: "ic-home-no-image"))
 //        favoriteButton.isSelected = viewModel.isFavorite
-        favoriteButton.isSelected = viewModel.isFavorite
+        favoriteButton.isSelected = viewModel.restaurant.favorite
     }
 
     @IBAction func backButtonTouchUpInside(_ sender: Any) {

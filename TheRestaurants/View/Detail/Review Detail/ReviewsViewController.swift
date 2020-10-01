@@ -26,6 +26,10 @@ class ReviewsViewController: UIViewController {
         headerView.delegate = self
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        headerView.viewModel = HeaderDetailViewModel(restaurant: viewModel.restaurant)
+    }
+
     private func configTableView() {
         let cell = UINib(nibName: "ReviewCell", bundle: .main)
         tableView.register(cell, forCellReuseIdentifier: "cellReview")
@@ -40,7 +44,7 @@ class ReviewsViewController: UIViewController {
             switch result {
             case .success:
                 this.tableView.reloadData()
-                this.headerView.viewModel = HeaderDetailViewModel(restaurant: this.viewModel.restaurant, cuisine: this.viewModel.restaurant.cuisines ?? "")
+                this.headerView.viewModel = HeaderDetailViewModel(restaurant: this.viewModel.restaurant)
                 this.headerView.delegate = self
                 this.reviewCountLabel.text = "- \(this.viewModel.restaurant.review ?? 0) Reviews"
                 this.ratingLabel.text = "\(this.viewModel.restaurant.rating ?? "0")"
@@ -49,12 +53,19 @@ class ReviewsViewController: UIViewController {
             }
         }
     }
+
+    func updateHeaderView(isFavorite: Bool) {
+        viewModel.restaurant.favorite = isFavorite
+        if headerView != nil {
+            headerView.viewModel = HeaderDetailViewModel(restaurant: viewModel.restaurant)
+        }
+    }
 }
 extension ReviewsViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.numberOfRowsInSection()
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "cellReview", for: indexPath) as? ReviewCell else { return UITableViewCell() }
         cell.viewModel = viewModel.viewModelForCellAt(indexPath: indexPath)
