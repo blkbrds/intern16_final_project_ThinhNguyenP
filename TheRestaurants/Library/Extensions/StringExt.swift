@@ -32,9 +32,10 @@ extension String {
         return trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
     }
 
-    func addLineSpacing(_ lineSpacing: CGFloat) -> NSAttributedString {
+    func addLineSpacing(_ lineSpacing: CGFloat, alingment: NSTextAlignment = .left) -> NSAttributedString {
         let paragraph = NSMutableParagraphStyle()
         paragraph.lineSpacing = lineSpacing
+        paragraph.alignment = alingment
         return NSAttributedString(string: self, attributes: [.paragraphStyle: paragraph])
     }
 }

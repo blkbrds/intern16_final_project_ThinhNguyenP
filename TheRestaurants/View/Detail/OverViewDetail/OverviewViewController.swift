@@ -18,6 +18,7 @@ class OverviewViewController: UIViewController {
         case back
     }
 
+    @IBOutlet private weak var scrollView: UIScrollView!
     @IBOutlet private weak var headerView: HeaderDetailView!
     @IBOutlet private weak var mapDetailView: MapDetailView!
     @IBOutlet private weak var informationView: InformationDetailView!
@@ -27,6 +28,7 @@ class OverviewViewController: UIViewController {
     var viewModel = OverviewViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
+        scrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 50, right: 0)
         getRestaurantDetail()
         headerView.delegate = self
     }
