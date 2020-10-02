@@ -32,7 +32,7 @@ class DetailViewModel {
                                          location: restaurant.location,
                                          establishment: restaurant.establishment)
     }
-    
+
     func addFavorite(completion: @escaping APICompletion) {
         do {
             let realm = try Realm()
@@ -73,17 +73,4 @@ class DetailViewModel {
             completion(.failure(error))
         }
     }
-
-//     func setupObserve() {
-//           do {
-//               let realm = try Realm()
-//               notificationToken = realm.objects(Restaurant.self).observe({ (_) in
-//                   if let delegate = self.delegate {
-//                       delegate.syncFavorite(viewModel: self, needperformAction: .reloadData)
-//                   }
-//               })
-//           } catch {
-//               print(error)
-//           }
-//       }
 }

@@ -32,6 +32,7 @@ class HomeViewController: BaseViewController {
 
     @objc func changeLocationButtonTouchUpInside() {
         let vc = SearchCityPopUpViewController()
+        vc.delegate = self
         tabBarController?.present(vc, animated: true)
     }
 
@@ -168,5 +169,11 @@ extension HomeViewController: HomeViewModelDelegate {
         case .fail(let error):
             alert(error: error)
         }
+    }
+}
+extension HomeViewController: SearchCityPopUpViewControllerDelegate {
+    func view(_ view: SearchCityPopUpViewController, needPerform action: SearchCityPopUpViewController.Action) {
+        loadCell()
+        loadCollection()
     }
 }

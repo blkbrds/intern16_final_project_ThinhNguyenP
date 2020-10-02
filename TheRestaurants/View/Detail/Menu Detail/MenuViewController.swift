@@ -17,7 +17,7 @@ class MenuViewController: UIViewController {
         super.viewWillAppear(animated)
         headerView.viewModel = HeaderDetailViewModel(restaurant: viewModel.restaurant)
     }
-    
+
     @IBOutlet private weak var headerView: HeaderDetailView!
     weak var delegate: MenuViewControllerDelegate?
     override func viewDidLoad() {

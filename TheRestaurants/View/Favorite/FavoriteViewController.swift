@@ -12,7 +12,7 @@ class FavoriteViewController: BaseViewController {
 
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private weak var emptyView: UIView!
-    
+
     var viewModel = FavoriteViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -79,7 +79,7 @@ extension FavoriteViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.numberOfRowInSection()
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? FavoriteCell
             else { return UITableViewCell() }
@@ -87,7 +87,7 @@ extension FavoriteViewController: UITableViewDataSource, UITableViewDelegate {
         cell.viewModel = viewModel.cellForItemAt(indexPath: indexPath)
         return cell
     }
-    
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let viewController = DetailViewController()
         viewController.viewModel = viewModel.didSelectRowAt(indexPath: indexPath)
