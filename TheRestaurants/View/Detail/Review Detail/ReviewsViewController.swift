@@ -27,6 +27,7 @@ class ReviewsViewController: UIViewController {
     }
 
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         headerView.viewModel = HeaderDetailViewModel(restaurant: viewModel.restaurant)
     }
 

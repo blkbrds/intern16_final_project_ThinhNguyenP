@@ -32,13 +32,7 @@ class DetailViewModel {
                                          location: restaurant.location,
                                          establishment: restaurant.establishment)
     }
-
-//    func checkFavorite(favorite: Bool, id: String) {
-//        if restaurant.id == id {
-//            restaurant.favorite = favorite
-//        }
-//    }
-
+    
     func addFavorite(completion: @escaping APICompletion) {
         do {
             let realm = try Realm()
@@ -52,7 +46,6 @@ class DetailViewModel {
                                             establishment: usedRestaurant.establishment)
             try realm.write {
                 realm.create(Restaurant.self, value: tempRestaurant, update: .all)
-//                checkFavorite(favorite: true, id: tempRestaurant.id ?? "")
             }
             completion(.success)
         } catch {
@@ -81,16 +74,16 @@ class DetailViewModel {
         }
     }
 
-     func setupObserve() {
-           do {
-               let realm = try Realm()
-               notificationToken = realm.objects(Restaurant.self).observe({ (_) in
-                   if let delegate = self.delegate {
-                       delegate.syncFavorite(viewModel: self, needperformAction: .reloadData)
-                   }
-               })
-           } catch {
-               print(error)
-           }
-       }
+//     func setupObserve() {
+//           do {
+//               let realm = try Realm()
+//               notificationToken = realm.objects(Restaurant.self).observe({ (_) in
+//                   if let delegate = self.delegate {
+//                       delegate.syncFavorite(viewModel: self, needperformAction: .reloadData)
+//                   }
+//               })
+//           } catch {
+//               print(error)
+//           }
+//       }
 }

@@ -21,11 +21,11 @@ extension Api.Search {
         }
     }
     struct SearchRestaurant {
-        var value: String = ""
+        var entityType: String = ""
         var city: String = ""
         func toJSON() -> [String: Any] {
             return [
-                "q": value,
+                "q": entityType,
                 "entity_id": Session.cityId as Any,
                 "entity_type": city
             ]

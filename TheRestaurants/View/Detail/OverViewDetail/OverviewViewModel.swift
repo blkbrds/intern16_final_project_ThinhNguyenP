@@ -11,8 +11,10 @@ import RealmSwift
 
 class OverviewViewModel {
     var restaurant: Restaurant
+    var isFavorite: Bool
     init(restaurant: Restaurant = Restaurant()) {
         self.restaurant = restaurant
+        isFavorite = restaurant.favorite
     }
 
     func getRestaurantDetail(completion: @escaping APICompletion) {
@@ -22,7 +24,8 @@ class OverviewViewModel {
             switch result {
             case .success(let restaurant):
                 this.restaurant = restaurant
-                this.fetchRealmData(completion: completion)
+                this.restaurant.favorite = this.isFavorite
+                completion(.success)
             case .failure(let error):
                 completion(.failure(error))
             }
@@ -55,16 +58,16 @@ class OverviewViewModel {
         }
     }
 
-    func fetchRealmData(completion: @escaping APICompletion) {
-        do {
-            let realm = try Realm()
-            let results = Array(realm.objects(Restaurant.self))
-                if results.contains(where: { $0.id == restaurant.id }) {
-                    restaurant.favorite = true
-                }
-            completion(.success)
-        } catch {
-            completion(.failure(error))
-        }
-    }
+//    func fetchRealmData(completion: @escaping APICompletion) {
+//        do {
+//            let realm = try Realm()
+//            let results = Array(realm.objects(Restaurant.self))
+//                if results.contains(where: { $0.id == restaurant.id }) {
+//                    restaurant.favorite = true
+//                }
+//            completion(.success)
+//        } catch {
+//            completion(.failure(error))
+//        }
+//    }
 }

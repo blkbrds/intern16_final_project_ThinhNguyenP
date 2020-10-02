@@ -56,28 +56,4 @@ extension Api.ListCell {
             }
         }
     }
-
-//    static func searchRestaurants(param: SearchParam, completion: @escaping Completion<[Restaurant]>) {
-//        let path = Api.Path.Search().urlStringListCell
-//        api.request(method: .get, urlString: path, parameters: param.toJSON()) { (result) in
-//            DispatchQueue.main.async {
-//                switch result {
-//                case .success(let value):
-//                    guard let value = value as? JSObject, let restaurants = value["restaurants"] as? JSArray else {
-//                        completion(.failure(Api.Error.json))
-//                        return
-//                    }
-//                    var results: [Restaurant] = []
-//                    for item in restaurants {
-//                        guard let json = item["restaurant"] as? JSObject,
-//                        let restaurant = Mapper<Restaurant>().map(JSONObject: json) else { return }
-//                        results.append(restaurant)
-//                    }
-//                    completion(.success(results))
-//                case .failure(let error ):
-//                    completion(.failure(error))
-//                }
-//            }
-//        }
-//    }
 }

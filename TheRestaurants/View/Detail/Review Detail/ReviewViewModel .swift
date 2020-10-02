@@ -39,17 +39,4 @@ class ReviewViewModel {
         let viewModel = ReviewCellViewModel(review: review)
         return viewModel
     }
-
-    func fetchRealmData(completion: @escaping APICompletion) {
-        do {
-            let realm = try Realm()
-            let results = Array(realm.objects(Restaurant.self))
-                if results.contains(where: { $0.id == restaurant.id }) {
-                    restaurant.favorite = true
-                }
-            completion(.success)
-        } catch {
-            completion(.failure(error))
-        }
-    }
 }
