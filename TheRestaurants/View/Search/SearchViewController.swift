@@ -23,11 +23,6 @@ class SearchViewController: BaseViewController {
         viewModel.delegate = self
         viewModel.setupObserver()
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationController?.isNavigationBarHidden = false
-    }
 
     private func saveKeyToRealm(searchKey: String) {
         viewModel.saveKeyToRealm(searchKey: searchKey) {  [weak self] (result) in

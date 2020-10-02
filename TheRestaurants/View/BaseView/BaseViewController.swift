@@ -15,6 +15,11 @@ class BaseViewController: UIViewController {
         customNavigation()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.isNavigationBarHidden = false
+    }
+
     func customNavigation() {
         navigationController?.navigationBar.isTranslucent = false
         navigationController?.navigationBar.barTintColor = #colorLiteral(red: 0, green: 0.448466301, blue: 0.4682235122, alpha: 1)

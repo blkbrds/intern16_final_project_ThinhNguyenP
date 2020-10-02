@@ -22,11 +22,6 @@ class HomeViewController: BaseViewController {
         viewModel.setupObserver()
     }
 
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationController?.isNavigationBarHidden = false
-    }
-
     override func customNavigation() {
         super.customNavigation()
         navigationItem.title = "Home"
@@ -45,7 +40,6 @@ class HomeViewController: BaseViewController {
         let nib = UINib(nibName: "ListCollectionsCell", bundle: .main)
         tableView.register(nib, forCellReuseIdentifier: "collectionViewCell")
         let tableNib = UINib(nibName: "HomeCell", bundle: .main)
-
         tableView.register(tableNib, forCellReuseIdentifier: "tableViewCell")
         tableView.dataSource = self
         tableView.delegate = self

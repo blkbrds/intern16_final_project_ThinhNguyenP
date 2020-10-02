@@ -38,7 +38,7 @@ class DetailViewController: UIViewController {
     }
 
     func setUpPageView() {
-        guard let restaurant = viewModel?.restaurant else { return }
+        guard let restaurant = viewModel?.usedRestaurant else { return }
         overviewViewController = OverviewViewController()
         overviewViewController?.delegate = self
         overviewViewController?.viewModel = OverviewViewModel(restaurant: restaurant)

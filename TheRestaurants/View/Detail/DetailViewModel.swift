@@ -17,33 +17,42 @@ class DetailViewModel {
     enum Action {
         case reloadData
     }
+    var usedRestaurant: Restaurant
     var restaurant: Restaurant
     var notificationToken: NotificationToken?
     weak var delegate: DetailViewModelDelegate?
     init(restaurant: Restaurant) {
         self.restaurant = restaurant
+        self.usedRestaurant = Restaurant(id: restaurant.id,
+                                         name: restaurant.name,
+                                         imageURL: restaurant.imageURL,
+                                         rating: restaurant.rating,
+                                         onlineDelivery: restaurant.onlineDelivery,
+                                         favorite: restaurant.favorite,
+                                         location: restaurant.location,
+                                         establishment: restaurant.establishment)
     }
 
-    func checkFavorite(favorite: Bool, id: String) {
-        if restaurant.id == id {
-            restaurant.favorite = favorite
-        }
-    }
+//    func checkFavorite(favorite: Bool, id: String) {
+//        if restaurant.id == id {
+//            restaurant.favorite = favorite
+//        }
+//    }
 
     func addFavorite(completion: @escaping APICompletion) {
         do {
             let realm = try Realm()
-            let tempRestaurant = Restaurant(id: restaurant.id,
-                                            name: restaurant.name,
-                                            imageURL: restaurant.imageURL,
-                                            rating: restaurant.rating,
-                                            onlineDelivery: restaurant.onlineDelivery,
-                                            favorite: restaurant.favorite,
-                                            location: restaurant.location,
-                                            establishment: restaurant.establishment)
+            let tempRestaurant = Restaurant(id: usedRestaurant.id,
+                                            name: usedRestaurant.name,
+                                            imageURL: usedRestaurant.imageURL,
+                                            rating: usedRestaurant.rating,
+                                            onlineDelivery: usedRestaurant.onlineDelivery,
+                                            favorite: true,
+                                            location: usedRestaurant.location,
+                                            establishment: usedRestaurant.establishment)
             try realm.write {
                 realm.create(Restaurant.self, value: tempRestaurant, update: .all)
-                checkFavorite(favorite: true, id: tempRestaurant.id ?? "")
+//                checkFavorite(favorite: true, id: tempRestaurant.id ?? "")
             }
             completion(.success)
         } catch {
@@ -57,7 +66,14 @@ class DetailViewModel {
             let result = realm.objects(Restaurant.self).filter("id = '\(restaurant.id ?? "")'")
             try realm.write {
                 realm.delete(result)
-                checkFavorite(favorite: false, id: restaurant.id ?? "")
+                restaurant = Restaurant(id: usedRestaurant.id,
+                                        name: usedRestaurant.name,
+                                        imageURL: usedRestaurant.imageURL,
+                                        rating: usedRestaurant.rating,
+                                        onlineDelivery: usedRestaurant.onlineDelivery,
+                                        favorite: true,
+                                        location: usedRestaurant.location,
+                                        establishment: usedRestaurant.establishment)
             }
             completion(.success)
         } catch {
@@ -77,16 +93,4 @@ class DetailViewModel {
                print(error)
            }
        }
-
-    func fetchRealmData() {
-        do {
-            let realm = try Realm()
-            let results = Array(realm.objects(Restaurant.self))
-                if results.contains(where: { $0.id == restaurant.id }) {
-                    restaurant.favorite = true
-                }
-        } catch {
-            print(error)
-        }
-    }
 }

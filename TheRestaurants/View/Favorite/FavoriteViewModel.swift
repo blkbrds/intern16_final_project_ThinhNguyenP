@@ -21,6 +21,9 @@ class FavoriteViewModel {
     }
 
     var restautants: [Restaurant] = []
+    var isEmpty: Bool {
+        return restautants.isEmpty
+    }
     private var notificationToken: NotificationToken?
     weak var delegate: FavoriteViewModelDelegate?
 

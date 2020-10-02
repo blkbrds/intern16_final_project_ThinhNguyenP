@@ -135,7 +135,7 @@ class HomeViewModel {
                                             imageURL: restaurant.imageURL,
                                             rating: restaurant.rating,
                                             onlineDelivery: restaurant.onlineDelivery,
-                                            favorite: restaurant.favorite,
+                                            favorite: true,
                                             location: restaurant.location,
                                             establishment: restaurant.establishment)
             try realm.write {

@@ -11,7 +11,8 @@ import UIKit
 class FavoriteViewController: BaseViewController {
 
     @IBOutlet private weak var tableView: UITableView!
-
+    @IBOutlet private weak var emptyView: UIView!
+    
     var viewModel = FavoriteViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,12 +41,17 @@ class FavoriteViewController: BaseViewController {
         navigationItem.rightBarButtonItem = deleteAll
     }
 
+    private func updateEmptyView() {
+        emptyView.isHidden = !viewModel.isEmpty
+    }
+
     func fetchRealmData() {
         viewModel.fetchRealmData { [weak self] (result) in
             guard let this = self else { return }
             switch result {
             case .success:
                 this.tableView.reloadData()
+                this.updateEmptyView()
             case.failure(let error):
                 this.alert(error: error)
             }
