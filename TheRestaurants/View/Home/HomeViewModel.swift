@@ -10,6 +10,7 @@ import Foundation
 import RealmSwift
 
 protocol HomeViewModelDelegate: class {
+
     func syncFavorite(viewModel: HomeViewModel, needPerform action: HomeViewModel.Action)
 }
 

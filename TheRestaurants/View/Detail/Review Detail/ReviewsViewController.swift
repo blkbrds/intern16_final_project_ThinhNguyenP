@@ -9,6 +9,7 @@
 import UIKit
 
 protocol ReviewsViewControllerDelegate: class {
+
     func view(_ viewController: ReviewsViewController, needPerform action: OverviewViewController.Action)
 }
 class ReviewsViewController: UIViewController {
@@ -32,6 +33,7 @@ class ReviewsViewController: UIViewController {
     }
 
     private func configTableView() {
+        tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 50, right: 0)
         let cell = UINib(nibName: "ReviewCell", bundle: .main)
         tableView.register(cell, forCellReuseIdentifier: "cellReview")
         tableView.dataSource = self

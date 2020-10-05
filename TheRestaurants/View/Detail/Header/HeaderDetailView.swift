@@ -18,7 +18,7 @@ class HeaderDetailView: UIView {
         case favorite(isFavorite: Bool)
     }
 
-    @IBOutlet private var containerView: UIView!
+    @IBOutlet private weak var containerView: UIView!
     @IBOutlet private weak var restaurantImageView: UIImageView!
     @IBOutlet private weak var backButton: UIButton!
     @IBOutlet private weak var favoriteButton: UIButton!
