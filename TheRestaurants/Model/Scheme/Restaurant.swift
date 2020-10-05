@@ -20,8 +20,8 @@ import RealmSwift
     dynamic var favorite: Bool = false
     dynamic var location: Location?
     dynamic var establishment: String?
+    dynamic var cuisines: String?
 
-    var cuisines: String?
     var votes: Int?
     var timings: String?
     var phoneNumber: String?
@@ -43,7 +43,8 @@ import RealmSwift
         onlineDelivery: Int,
         favorite: Bool,
         location: Location?,
-        establishment: String?
+        establishment: String?,
+        cuisines: String?
     ) {
         self.id = id
         self.name = name
@@ -53,6 +54,7 @@ import RealmSwift
         self.favorite = favorite
         self.location = location
         self.establishment = establishment
+        self.cuisines = cuisines
     }
 
     override static func primaryKey() -> String? {

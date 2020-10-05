@@ -9,6 +9,7 @@
 import Foundation
 
 final class HighlightViewModel {
+
     var content: String
 
     init(content: String) {

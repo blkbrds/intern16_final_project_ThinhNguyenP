@@ -9,9 +9,6 @@
 import Foundation
 import RealmSwift
 
-protocol DetailViewModelDelegate: class {
-     func syncFavorite(viewModel: DetailViewModel, needperformAction action: DetailViewModel.Action)
-}
 class DetailViewModel {
 
     enum Action {
@@ -19,8 +16,6 @@ class DetailViewModel {
     }
     var usedRestaurant: Restaurant
     var restaurant: Restaurant
-    var notificationToken: NotificationToken?
-    weak var delegate: DetailViewModelDelegate?
     init(restaurant: Restaurant) {
         self.restaurant = restaurant
         self.usedRestaurant = Restaurant(id: restaurant.id,
@@ -30,7 +25,16 @@ class DetailViewModel {
                                          onlineDelivery: restaurant.onlineDelivery,
                                          favorite: restaurant.favorite,
                                          location: restaurant.location,
-                                         establishment: restaurant.establishment)
+                                         establishment: restaurant.establishment,
+                                         cuisines: restaurant.cuisines)
+//        self.usedRestaurant = Restaurant(id: restaurant.id,
+//                                         name: restaurant.name,
+//                                         imageURL: restaurant.imageURL,
+//                                         rating: restaurant.rating,
+//                                         onlineDelivery: restaurant.onlineDelivery,
+//                                         favorite: restaurant.favorite,
+//                                         location: restaurant.location,
+//                                         establishment: restaurant.establishment)
     }
 
     func addFavorite(completion: @escaping APICompletion) {
@@ -43,7 +47,8 @@ class DetailViewModel {
                                             onlineDelivery: usedRestaurant.onlineDelivery,
                                             favorite: true,
                                             location: usedRestaurant.location,
-                                            establishment: usedRestaurant.establishment)
+                                            establishment: usedRestaurant.establishment,
+                                            cuisines: restaurant.cuisines)
             try realm.write {
                 realm.create(Restaurant.self, value: tempRestaurant, update: .all)
             }
@@ -66,7 +71,8 @@ class DetailViewModel {
                                         onlineDelivery: usedRestaurant.onlineDelivery,
                                         favorite: true,
                                         location: usedRestaurant.location,
-                                        establishment: usedRestaurant.establishment)
+                                        establishment: usedRestaurant.establishment,
+                                        cuisines: restaurant.cuisines)
             }
             completion(.success)
         } catch {

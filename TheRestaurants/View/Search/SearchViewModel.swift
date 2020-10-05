@@ -124,7 +124,8 @@ class SearchViewModel {
                                             onlineDelivery: restaurant.onlineDelivery,
                                             favorite: restaurant.favorite,
                                             location: restaurant.location,
-                                            establishment: restaurant.establishment)
+                                            establishment: restaurant.establishment,
+                                            cuisines: restaurant.cuisines)
             try realm.write {
                 realm.create(Restaurant.self, value: tempRestaurant, update: .all)
             }
