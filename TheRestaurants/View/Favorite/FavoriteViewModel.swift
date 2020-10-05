@@ -8,6 +8,7 @@
 
 import Foundation
 class FavoriteViewModel {
+
     var restautants: [Restaurant] = []
 
     func numberOfRowInSection() -> Int {

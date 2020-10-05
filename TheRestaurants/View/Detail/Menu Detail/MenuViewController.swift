@@ -18,6 +18,7 @@ class MenuViewController: UIViewController {
         configTableView()
         loadMenu()
     }
+
     private func configTableView() {
         let cell = UINib(nibName: "MenuCell", bundle: .main)
         tableView.register(cell, forCellReuseIdentifier: "cellMenu")
@@ -42,9 +43,9 @@ extension MenuViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.numberOfRowsInSection()
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cellMenu", for: indexPath) as? MenuCell else { return UITableViewCell()}
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cellMenu", for: indexPath) as? MenuCell else { return UITableViewCell() }
         cell.viewModel = viewModel.viewModelForCellAt(indexPath: indexPath)
         return cell
     }

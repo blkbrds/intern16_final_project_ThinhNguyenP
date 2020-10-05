@@ -15,6 +15,7 @@ enum Search {
 }
 
 class SearchViewModel {
+
     var results: [Restaurant] = []
     var histories: [SearchHistory] = []
 

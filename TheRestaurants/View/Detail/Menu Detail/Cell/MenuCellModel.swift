@@ -9,6 +9,7 @@
 import Foundation
 
 class MenuCellModel {
+
     var dailyMenu: DailyMenu
 
     init(dailyMenu: DailyMenu) {

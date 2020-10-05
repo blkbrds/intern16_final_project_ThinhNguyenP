@@ -10,6 +10,7 @@ import Foundation
 import ObjectMapper
 
 class Review: Mappable {
+
     var rating: Int?
     var reviewsCount: Int?
     var like: Int?

@@ -10,6 +10,7 @@ import Foundation
 import ObjectMapper
 
 class Location: Mappable {
+
     required convenience init?(map: Map) {
         self.init()
     }

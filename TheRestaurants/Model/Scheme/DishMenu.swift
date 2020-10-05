@@ -15,7 +15,7 @@ class DishMenu: Mappable {
     required convenience init?(map: Map) {
         self.init()
     }
-    
+
     func mapping(map: Map) {
         dishName <- map["name"]
         dishPrice <- map["price"]

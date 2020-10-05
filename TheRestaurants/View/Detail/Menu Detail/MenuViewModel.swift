@@ -9,12 +9,14 @@
 import Foundation
 
 class MenuViewModel {
+
     var dailyMenus: [DailyMenu] = []
     var restaurant: Restaurant
-    
+
     init(restaurant: Restaurant = Restaurant()) {
         self.restaurant = restaurant
     }
+
     func getDailyMenuDetail(completion: @escaping APICompletion) {
         let param = Api.Search.ReviewParam(id: restaurant.id ?? "" )
         Api.Search.getMenu(param: param) { [weak self](result) in
@@ -28,6 +30,7 @@ class MenuViewModel {
             }
         }
     }
+
    func numberOfRowsInSection() -> Int {
         return dailyMenus.count
     }

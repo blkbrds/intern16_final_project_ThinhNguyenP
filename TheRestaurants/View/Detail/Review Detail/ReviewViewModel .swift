@@ -9,6 +9,7 @@
 import Foundation
 
 class ReviewViewModel {
+
     var reviews: [Review] = []
     var restaurant: Restaurant
     init(restaurant: Restaurant = Restaurant()) {

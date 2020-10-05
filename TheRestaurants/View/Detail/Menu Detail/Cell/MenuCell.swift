@@ -17,6 +17,7 @@ class MenuCell: UITableViewCell {
             setupView()
         }
     }
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -27,7 +28,7 @@ class MenuCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    
+
     func setupView() {
         guard let viewModel = viewModel else { return }
         dishNameLabel.text = viewModel.dailyMenu.dish.dishName

@@ -32,7 +32,8 @@ extension Api.Search {
                     }
                     var results: [Review] = []
                     for review in userReview {
-                        guard let json = review["review"] as? JSObject, let review = Mapper<Review>().map(JSONObject: json) else { return }
+                        guard let json = review["review"] as? JSObject,
+                            let review = Mapper<Review>().map(JSONObject: json) else { return }
                         results.append(review)
                     }
                     completion(.success(results))
@@ -55,7 +56,10 @@ extension Api.Search {
                     }
                     var menus: [DailyMenu] = []
                     for dailymenu in dailyMenus {
-                        guard let json = dailymenu["daily_menu"] as? JSObject, let dailyMenu = Mapper<DailyMenu>().map(JSONObject: json), let dishes = dailymenu["dish"] as? JSArray, let dish = Mapper<DailyMenu>().map(JSONObject: dishes) else { return }
+                        guard let json = dailymenu["daily_menu"] as? JSObject,
+                            let dailyMenu = Mapper<DailyMenu>().map(JSONObject: json),
+                            let dishes = dailymenu["dish"] as? JSArray,
+                            let dish = Mapper<DailyMenu>().map(JSONObject: dishes) else { return }
                         menus.append(dish)
                         menus.append(dailyMenu)
                     }

@@ -15,7 +15,7 @@ class DailyMenu: Mappable {
     var endDate: String?
     var name: String?
     var dish: DishMenu = DishMenu()
-    
+
     required convenience init?(map: Map) {
         self.init()
     }

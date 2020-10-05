@@ -13,5 +13,5 @@ class HeaderMenuView: UIView {
     @IBOutlet weak var listMenuLabel: UILabel!
     @IBOutlet weak var startDateLabel: UILabel!
     @IBOutlet weak var endDateLabel: UILabel!
-    
+
 }
