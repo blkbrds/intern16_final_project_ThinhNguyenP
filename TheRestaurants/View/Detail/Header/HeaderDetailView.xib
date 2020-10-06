@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -34,10 +34,10 @@
                         <constraint firstAttribute="height" constant="18" id="Xvd-gc-KCu"/>
                     </constraints>
                     <color key="tintColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
-                    <state key="normal" image="ic_favorite_header"/>
-                    <state key="selected" image="ic_detail_favorite"/>
+                    <state key="normal" backgroundImage="ic_favorite_header"/>
+                    <state key="selected" backgroundImage="ic_detail_favorite"/>
                     <connections>
-                        <action selector="favoriteButtonTouchUpInside:" destination="-1" eventType="touchUpInside" id="uUL-IV-hGX"/>
+                        <action selector="favoriteButtonTouchUpInside:" destination="-1" eventType="touchUpInside" id="cFB-uJ-fIC"/>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lm2-Nd-e90">
@@ -81,7 +81,7 @@
                 <constraint firstItem="8qL-tF-2ok" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Joj-Ia-Dx6"/>
                 <constraint firstAttribute="trailing" secondItem="4om-8G-RD6" secondAttribute="trailing" constant="16" id="K7s-Hi-lX8"/>
                 <constraint firstItem="8qL-tF-2ok" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="LOK-wC-W2I"/>
-                <constraint firstItem="G9S-zB-TOJ" firstAttribute="top" relation="greaterThanOrEqual" secondItem="iN0-l3-epB" secondAttribute="top" constant="50" id="NJx-me-BRy"/>
+                <constraint firstItem="G9S-zB-TOJ" firstAttribute="top" relation="greaterThanOrEqual" secondItem="iN0-l3-epB" secondAttribute="top" constant="40" id="NJx-me-BRy"/>
                 <constraint firstAttribute="trailing" secondItem="EBd-bQ-wq8" secondAttribute="trailing" id="XPv-BE-llN"/>
                 <constraint firstAttribute="trailing" secondItem="8qL-tF-2ok" secondAttribute="trailing" id="cFY-pV-PO5"/>
                 <constraint firstAttribute="bottom" secondItem="8qL-tF-2ok" secondAttribute="bottom" id="d5R-vj-pWH"/>

@@ -22,11 +22,6 @@ class HomeViewController: BaseViewController {
         viewModel.setupObserver()
     }
 
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationController?.isNavigationBarHidden = false
-    }
-
     override func customNavigation() {
         super.customNavigation()
         navigationItem.title = "Home"
@@ -35,9 +30,10 @@ class HomeViewController: BaseViewController {
         self.navigationItem.rightBarButtonItem = button
     }
 
-    @objc func changeLocationButtonTouchUpInside() {
-        Session.cityId = nil
-        SceneDelegate.shared.changeRoot(root: .introduce)
+    @objc private func changeLocationButtonTouchUpInside() {
+        let vc = SearchCityPopUpViewController()
+        vc.delegate = self
+        tabBarController?.present(vc, animated: true)
     }
 
     private func configTableView() {
@@ -45,7 +41,6 @@ class HomeViewController: BaseViewController {
         let nib = UINib(nibName: "ListCollectionsCell", bundle: .main)
         tableView.register(nib, forCellReuseIdentifier: "collectionViewCell")
         let tableNib = UINib(nibName: "HomeCell", bundle: .main)
-
         tableView.register(tableNib, forCellReuseIdentifier: "tableViewCell")
         tableView.dataSource = self
         tableView.delegate = self
@@ -143,7 +138,7 @@ extension HomeViewController: HomeCellDelegate {
         switch action {
         case .favorite(let isFavorite):
             if isFavorite {
-                viewModel.unfavorite(index: indexPath.row) { [weak self] result in
+                viewModel.unfavoriteItem(index: indexPath.row) { [weak self] result in
                     guard let this = self else { return }
                     switch result {
                     case .success:
@@ -153,7 +148,7 @@ extension HomeViewController: HomeCellDelegate {
                     }
                 }
             } else {
-                viewModel.addFavorite(index: indexPath.row) { [weak self] result in
+                viewModel.addFavoriteItem(index: indexPath.row) { [weak self] result in
                     guard let this = self else { return }
                     switch result {
                     case .success:
@@ -174,5 +169,11 @@ extension HomeViewController: HomeViewModelDelegate {
         case .fail(let error):
             alert(error: error)
         }
+    }
+}
+extension HomeViewController: SearchCityPopUpViewControllerDelegate {
+    func view(_ view: SearchCityPopUpViewController, needPerform action: SearchCityPopUpViewController.Action) {
+        loadCell()
+        loadCollection()
     }
 }

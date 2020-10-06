@@ -9,6 +9,7 @@
 import Foundation
 
 final class OtherInformationViewModel {
+
     var highlights: [String]
 
     init(highlights: [String]) {

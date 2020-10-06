@@ -10,6 +10,7 @@ import Foundation
 import MapKit
 
 class MapDetailViewModel {
+
     var restaurant: Restaurant
 
     init(restaurant: Restaurant) {

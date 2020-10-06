@@ -16,6 +16,7 @@ class OverviewViewController: UIViewController {
 
     enum Action {
         case back
+        case favorite(isFavorite: Bool)
     }
 
     @IBOutlet private weak var scrollView: UIScrollView!
@@ -26,6 +27,7 @@ class OverviewViewController: UIViewController {
     weak var delegate: OverviewControllerDelegate?
 
     var viewModel = OverviewViewModel()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         scrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 50, right: 0)
@@ -33,15 +35,20 @@ class OverviewViewController: UIViewController {
         headerView.delegate = self
     }
 
-    func getRestaurantDetail() {
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        headerView.viewModel = HeaderDetailViewModel(restaurant: viewModel.restaurant)
+    }
+
+    private func getRestaurantDetail() {
         Indicator.start()
         viewModel.getRestaurantDetail { [weak self] (result) in
             Indicator.stop()
             guard let this = self else { return }
             switch result {
             case .success:
-                this.headerView.viewModel = HeaderDetailViewModel(restaurant: this.viewModel.restaurant,
-                                                                  cuisine: this.viewModel.restaurant.cuisines ?? "")
+                this.headerView.viewModel = HeaderDetailViewModel(restaurant: this.viewModel.restaurant)
+                this.headerView.delegate = self
                 this.informationView.viewModel = InformationDetailViewModel(restaurant: this.viewModel.restaurant)
                 this.mapDetailView.viewModel = MapDetailViewModel(restaurant: this.viewModel.restaurant)
                 this.otherInformationView.viewModel = OtherInformationViewModel(highlights: this.viewModel.restaurant.highlights ?? [])
@@ -50,12 +57,21 @@ class OverviewViewController: UIViewController {
             }
         }
     }
+
+    func updateHeaderView(isFavorite: Bool) {
+        viewModel.restaurant.favorite = isFavorite
+        if headerView != nil {
+            headerView.viewModel = HeaderDetailViewModel(restaurant: viewModel.restaurant)
+        }
+    }
 }
 extension OverviewViewController: HeaderDetailViewDelegate {
     func view(_ view: HeaderDetailView, needPerforms action: HeaderDetailView.Action) {
         switch action {
         case .back:
             delegate?.viewController(self, needPerform: .back)
+        case .favorite(let isFavorite):
+            delegate?.viewController(self, needPerform: .favorite(isFavorite: isFavorite))
         }
     }
 }

@@ -12,6 +12,12 @@ class IntroduceViewController: BaseViewController {
 
     @IBAction func chooseCityButtonTouchUpInside(_ sender: Any) {
         let vc = SearchCityPopUpViewController()
+        vc.delegate = self
         present(vc, animated: true)
+    }
+}
+extension IntroduceViewController: SearchCityPopUpViewControllerDelegate {
+    func view(_ view: SearchCityPopUpViewController, needPerform action: SearchCityPopUpViewController.Action) {
+         SceneDelegate.shared.changeRoot(root: .tabbar)
     }
 }

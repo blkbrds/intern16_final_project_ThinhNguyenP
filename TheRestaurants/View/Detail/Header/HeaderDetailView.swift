@@ -9,15 +9,17 @@
 import UIKit
 
 protocol HeaderDetailViewDelegate: class {
+
     func view(_ view: HeaderDetailView, needPerforms action: HeaderDetailView.Action)
 }
 class HeaderDetailView: UIView {
 
     enum Action {
         case back
+        case favorite(isFavorite: Bool)
     }
 
-    @IBOutlet private var containerView: UIView!
+    @IBOutlet private weak var containerView: UIView!
     @IBOutlet private weak var restaurantImageView: UIImageView!
     @IBOutlet private weak var backButton: UIButton!
     @IBOutlet private weak var favoriteButton: UIButton!
@@ -47,8 +49,8 @@ class HeaderDetailView: UIView {
         containerView.fillToSuperview()
     }
 
-    @IBAction func favoriteButtonTouchUpInside(_ sender: UIButton) {
-        sender.isSelected = !sender.isSelected
+    @IBAction private func favoriteButtonTouchUpInside(_ sender: UIButton) {
+        delegate?.view(self, needPerforms: .favorite(isFavorite: favoriteButton.isSelected))
     }
 
     private func updateView() {
@@ -57,9 +59,10 @@ class HeaderDetailView: UIView {
         cuisineLabel.text = viewModel.cuisine
         let imageURL = viewModel.restaurant.imageURL?.replacingOccurrences(of: "?output-format=webp", with: "")
         restaurantImageView.setImage(url: imageURL, placeholderImage: #imageLiteral(resourceName: "ic-home-no-image"))
+        favoriteButton.isSelected = viewModel.restaurant.favorite
     }
 
-    @IBAction func backButtonTouchUpInside(_ sender: Any) {
+    @IBAction private func backButtonTouchUpInside(_ sender: Any) {
         delegate?.view(self, needPerforms: .back)
     }
 }

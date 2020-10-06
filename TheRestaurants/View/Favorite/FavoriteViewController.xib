@@ -9,6 +9,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FavoriteViewController" customModule="TheRestaurants" customModuleProvider="target">
             <connections>
+                <outlet property="emptyView" destination="Xmh-bX-mdh" id="l9R-Fw-NbF"/>
                 <outlet property="tableView" destination="3VJ-Sr-JuD" id="VId-2C-gTg"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -18,20 +19,54 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3VJ-Sr-JuD">
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3VJ-Sr-JuD">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                 </tableView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xmh-bX-mdh">
+                    <rect key="frame" x="109" y="265" width="157" height="137.5"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic-introduce" translatesAutoresizingMaskIntoConstraints="NO" id="qcH-An-4u2">
+                            <rect key="frame" x="34.5" y="0.0" width="88" height="91"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="91" id="Mv6-cr-w1z"/>
+                                <constraint firstAttribute="width" constant="88" id="kCt-sU-qWs"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XKl-9e-vlZ">
+                            <rect key="frame" x="0.0" y="106" width="157" height="31.5"/>
+                            <string key="text">There is no favorite items.
+Pleas add some items.</string>
+                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                            <color key="textColor" red="0.52549019610000003" green="0.52549019610000003" blue="0.52549019610000003" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <constraints>
+                        <constraint firstItem="qcH-An-4u2" firstAttribute="top" secondItem="Xmh-bX-mdh" secondAttribute="top" id="AhN-ML-mA4"/>
+                        <constraint firstAttribute="bottom" secondItem="XKl-9e-vlZ" secondAttribute="bottom" id="Glh-ve-YX6"/>
+                        <constraint firstItem="XKl-9e-vlZ" firstAttribute="leading" secondItem="Xmh-bX-mdh" secondAttribute="leading" id="JLN-8J-Opf"/>
+                        <constraint firstItem="XKl-9e-vlZ" firstAttribute="top" secondItem="qcH-An-4u2" secondAttribute="bottom" constant="15" id="d9F-30-E5l"/>
+                        <constraint firstAttribute="trailing" secondItem="XKl-9e-vlZ" secondAttribute="trailing" id="oeo-lj-WV9"/>
+                        <constraint firstItem="qcH-An-4u2" firstAttribute="centerX" secondItem="Xmh-bX-mdh" secondAttribute="centerX" id="wgg-FX-u34"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
             <constraints>
                 <constraint firstItem="3VJ-Sr-JuD" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="0Ve-Xl-gOD"/>
                 <constraint firstItem="3VJ-Sr-JuD" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="2XP-6s-5yX"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="3VJ-Sr-JuD" secondAttribute="bottom" id="T7x-73-4lW"/>
+                <constraint firstItem="Xmh-bX-mdh" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="Y7D-S7-7CN"/>
+                <constraint firstItem="Xmh-bX-mdh" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="jb4-0N-ZHP"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="3VJ-Sr-JuD" secondAttribute="trailing" id="rKw-HQ-LMs"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <point key="canvasLocation" x="139" y="131"/>
+            <point key="canvasLocation" x="138.40000000000001" y="130.88455772113943"/>
         </view>
     </objects>
+    <resources>
+        <image name="ic-introduce" width="108" height="126"/>
+    </resources>
 </document>

@@ -18,12 +18,15 @@ final class FavoriteCell: UITableViewCell {
         case delete
     }
 
+    @IBOutlet private weak var ratingImage: UIView!
+    @IBOutlet private weak var deliveryImage: UIView!
     @IBOutlet private weak var restaurantImage: UIImageView!
     @IBOutlet private weak var ratingLabel: UILabel!
     @IBOutlet private weak var deliveryLabel: UILabel!
     @IBOutlet private weak var removeFavorite: UIButton!
     @IBOutlet private weak var locationLabel: UILabel!
     @IBOutlet private weak var nameRestaurant: UILabel!
+    @IBOutlet private weak var establishmentLabel: UILabel!
     weak var delegate: FavoriteCellDelegate?
 
     var viewModel: FavoriteCellModel? {
@@ -32,15 +35,18 @@ final class FavoriteCell: UITableViewCell {
         }
     }
 
-    func setupView() {
+    private func setupView() {
         guard let viewModel = viewModel else { return }
+        deliveryImage.layer.cornerRadius = 3
+        ratingImage.layer.cornerRadius = 3
         ratingLabel.text = viewModel.restaurant.rating
         deliveryLabel.text = "\(viewModel.restaurant.onlineDelivery ) now "
         locationLabel.text = viewModel.restaurant.location?.address
         nameRestaurant.text = viewModel.restaurant.name
         ratingLabel.text = viewModel.restaurant.rating
+        establishmentLabel.text = viewModel.restaurant.establishment
         let urlImage = viewModel.restaurant.imageURL?.replacingOccurrences(of: "?output-format=webp", with: "")
-        restaurantImage.setImage(url: urlImage)
+        restaurantImage.setImage(url: urlImage, placeholderImage: #imageLiteral(resourceName: "ic-home-no-image"))
     }
 
     @IBAction func deleteFavoriteButtonTouchUpInside(_ sender: Any) {

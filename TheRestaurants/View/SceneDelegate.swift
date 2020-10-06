@@ -51,9 +51,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let home = HomeViewController()
         let homeNavi = UINavigationController(rootViewController: home)
         homeNavi.tabBarItem = UITabBarItem(title: "", image: #imageLiteral(resourceName: "ic_tabbar_home"), tag: 0)
-        let map = MapViewController()
-        let mapNavi = UINavigationController(rootViewController: map)
-        mapNavi.tabBarItem = UITabBarItem(title: "", image: #imageLiteral(resourceName: "ic_tabbar_map"), tag: 1)
         let favorite = FavoriteViewController()
         let favoriteNavi = UINavigationController(rootViewController: favorite)
         favoriteNavi.tabBarItem = UITabBarItem(title: "", image: #imageLiteral(resourceName: "ic_tabbar_favorite"), tag: 2)
@@ -63,7 +60,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let tabbarController = UITabBarController()
         tabbarController.tabBar.tintColor = #colorLiteral(red: 0, green: 0.3764705882, blue: 0.3921568627, alpha: 1)
         tabbarController.tabBar.standardAppearance = appearance
-        tabbarController.viewControllers = [homeNavi, mapNavi, favoriteNavi, searchNavi]
+        tabbarController.viewControllers = [homeNavi, favoriteNavi, searchNavi]
         return tabbarController
     }
 }

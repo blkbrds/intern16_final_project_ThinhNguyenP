@@ -9,7 +9,8 @@
 import UIKit
 
 protocol ReviewsViewControllerDelegate: class {
-    func view(_ viewController: ReviewsViewController, needPerform action: HeaderDetailView.Action)
+
+    func view(_ viewController: ReviewsViewController, needPerform action: OverviewViewController.Action)
 }
 class ReviewsViewController: UIViewController {
 
@@ -26,7 +27,13 @@ class ReviewsViewController: UIViewController {
         headerView.delegate = self
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        headerView.viewModel = HeaderDetailViewModel(restaurant: viewModel.restaurant)
+    }
+
     private func configTableView() {
+        tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 50, right: 0)
         let cell = UINib(nibName: "ReviewCell", bundle: .main)
         tableView.register(cell, forCellReuseIdentifier: "cellReview")
         tableView.dataSource = self
@@ -40,13 +47,20 @@ class ReviewsViewController: UIViewController {
             switch result {
             case .success:
                 this.tableView.reloadData()
-                this.headerView.viewModel = HeaderDetailViewModel(restaurant: this.viewModel.restaurant,
-                                                                  cuisine: this.viewModel.restaurant.cuisines ?? "")
+                this.headerView.viewModel = HeaderDetailViewModel(restaurant: this.viewModel.restaurant)
+                this.headerView.delegate = self
                 this.reviewCountLabel.text = "- \(this.viewModel.restaurant.review ?? 0) Reviews"
                 this.ratingLabel.text = "\(this.viewModel.restaurant.rating ?? "0")"
             case .failure(let error):
                 this.alert(error: error)
             }
+        }
+    }
+
+    func updateHeaderView(isFavorite: Bool) {
+        viewModel.restaurant.favorite = isFavorite
+        if headerView != nil {
+            headerView.viewModel = HeaderDetailViewModel(restaurant: viewModel.restaurant)
         }
     }
 }
@@ -67,6 +81,8 @@ extension ReviewsViewController: HeaderDetailViewDelegate {
         switch action {
         case .back:
             delegate?.view(self, needPerform: .back)
+        case .favorite(let isFavorite):
+            delegate?.view(self, needPerform: .favorite(isFavorite: isFavorite))
         }
     }
 }

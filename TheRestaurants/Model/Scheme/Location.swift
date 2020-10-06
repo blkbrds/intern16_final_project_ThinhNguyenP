@@ -14,7 +14,7 @@ class Location: Object, Mappable {
     var latitude: Double?
     var longitude: Double?
     @objc dynamic var address: String?
-    
+
     required convenience init?(map: Map) {
           self.init()
     }

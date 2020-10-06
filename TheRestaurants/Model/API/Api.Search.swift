@@ -20,6 +20,17 @@ extension Api.Search {
             ]
         }
     }
+    struct SearchRestaurant {
+        var entityType: String = ""
+        var q: String = ""
+        func toJSON() -> [String: Any] {
+            return [
+                "q": q,
+                "entity_id": Session.cityId as Any,
+                "entity_type": entityType
+            ]
+        }
+    }
 
     static func search(param: SearchParam, completion: @escaping Completion<[City]>) {
         let path = Api.Path.Search().urlString
@@ -40,7 +51,7 @@ extension Api.Search {
         }
     }
 
-    static func searchRestaurants(param: SearchParam, completion: @escaping Completion<[Restaurant]>) {
+    static func searchRestaurants(param: SearchRestaurant, completion: @escaping Completion<[Restaurant]>) {
         let path = Api.Path.Search().urlStringListCell
         api.request(method: .get, urlString: path, parameters: param.toJSON()) { (result) in
             DispatchQueue.main.async {

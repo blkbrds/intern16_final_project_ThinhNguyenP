@@ -10,6 +10,7 @@ import Foundation
 import RealmSwift
 
 protocol SearchViewModelDelegate: class {
+
     func syncFavorite(viewModel: SearchViewModel, needPerforms action: SearchViewModel.Action)
 }
 enum Search {
@@ -42,7 +43,7 @@ class SearchViewModel {
     }
 
     func getResult(keywork: String, completion: @escaping APICompletion) {
-        let param = Api.Search.SearchParam(value: keywork)
+        let param = Api.Search.SearchRestaurant(entityType: "city", q: keywork)
         Api.Search.searchRestaurants(param: param) { [weak self ](result) in
             guard let this = self else { return }
             switch result {
@@ -124,7 +125,8 @@ class SearchViewModel {
                                             onlineDelivery: restaurant.onlineDelivery,
                                             favorite: restaurant.favorite,
                                             location: restaurant.location,
-                                            establishment: restaurant.establishment)
+                                            establishment: restaurant.establishment,
+                                            cuisines: restaurant.cuisines)
             try realm.write {
                 realm.create(Restaurant.self, value: tempRestaurant, update: .all)
             }

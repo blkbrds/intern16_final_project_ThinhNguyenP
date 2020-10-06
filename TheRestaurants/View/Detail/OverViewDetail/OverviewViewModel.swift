@@ -7,11 +7,15 @@
 //
 
 import Foundation
+import RealmSwift
 
 class OverviewViewModel {
+
     var restaurant: Restaurant
+    var isFavorite: Bool
     init(restaurant: Restaurant = Restaurant()) {
         self.restaurant = restaurant
+        isFavorite = restaurant.favorite
     }
 
     func getRestaurantDetail(completion: @escaping APICompletion) {
@@ -21,10 +25,37 @@ class OverviewViewModel {
             switch result {
             case .success(let restaurant):
                 this.restaurant = restaurant
+                this.restaurant.favorite = this.isFavorite
                 completion(.success)
             case .failure(let error):
                 completion(.failure(error))
             }
+        }
+    }
+
+    func addFavorite(completion: @escaping APICompletion) {
+        do {
+            let realm = try Realm()
+            let tempRestaurant = Restaurant(value: restaurant.id ?? "")
+            try realm.write {
+                realm.create(Restaurant.self, value: tempRestaurant, update: .all)
+            }
+            completion(.success)
+        } catch {
+            completion(.failure(error))
+        }
+    }
+
+    func unfavorite(completion: @escaping APICompletion) {
+        do {
+            let realm = try Realm()
+            let result = realm.objects(Restaurant.self).filter("id = '\(restaurant.id ?? "")'")
+            try realm.write {
+                realm.delete(result)
+            }
+            completion(.success)
+        } catch {
+            completion(.failure(error))
         }
     }
 }

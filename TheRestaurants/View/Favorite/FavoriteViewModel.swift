@@ -21,6 +21,9 @@ class FavoriteViewModel {
     }
 
     var restautants: [Restaurant] = []
+    var isEmpty: Bool {
+        return restautants.isEmpty
+    }
     private var notificationToken: NotificationToken?
     weak var delegate: FavoriteViewModelDelegate?
 
@@ -82,5 +85,11 @@ class FavoriteViewModel {
         } catch {
             completion(.failure(error))
         }
+    }
+
+    func viewModelForDetail(indexPath: IndexPath) -> DetailViewModel {
+        let restaurant = restautants[indexPath.row]
+        let viewModel = DetailViewModel(restaurant: restaurant)
+        return viewModel
     }
 }

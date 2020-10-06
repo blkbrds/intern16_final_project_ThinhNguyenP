@@ -7,14 +7,22 @@
 //
 
 import UIKit
-import Contacts
 
+protocol SearchCityPopUpViewControllerDelegate: class {
+
+    func view(_ view: SearchCityPopUpViewController, needPerform action: SearchCityPopUpViewController.Action)
+}
 class SearchCityPopUpViewController: UIViewController {
+
+    enum Action {
+        case didSelectCity
+    }
 
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private weak var searchTitleLabel: UILabel!
     @IBOutlet private weak var searchBar: UISearchBar!
     var viewModel = SearchCityPopUpViewModel()
+    weak var delegate: SearchCityPopUpViewControllerDelegate?
 
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -84,7 +92,8 @@ extension SearchCityPopUpViewController: UITableViewDataSource, UITableViewDeleg
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         viewModel.didSelectRowAt(index: indexPath.row)
-        SceneDelegate.shared.changeRoot(root: .tabbar)
+        dismiss(animated: true, completion: nil)
+        delegate?.view(self, needPerform: .didSelectCity)
     }
 }
 

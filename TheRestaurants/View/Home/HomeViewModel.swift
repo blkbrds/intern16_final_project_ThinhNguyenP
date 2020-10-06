@@ -10,6 +10,7 @@ import Foundation
 import RealmSwift
 
 protocol HomeViewModelDelegate: class {
+
     func syncFavorite(viewModel: HomeViewModel, needPerform action: HomeViewModel.Action)
 }
 
@@ -126,7 +127,7 @@ class HomeViewModel {
         }
     }
 
-    func addFavorite(index: Int, completion: @escaping APICompletion) {
+    func addFavoriteItem(index: Int, completion: @escaping APICompletion) {
         do {
             let realm = try Realm()
             let restaurant = restaurants[index]
@@ -135,9 +136,10 @@ class HomeViewModel {
                                             imageURL: restaurant.imageURL,
                                             rating: restaurant.rating,
                                             onlineDelivery: restaurant.onlineDelivery,
-                                            favorite: restaurant.favorite,
+                                            favorite: true,
                                             location: restaurant.location,
-                                            establishment: restaurant.establishment)
+                                            establishment: restaurant.establishment,
+                                            cuisines: restaurant.cuisines)
             try realm.write {
                 realm.create(Restaurant.self, value: tempRestaurant, update: .all)
             }
@@ -147,7 +149,7 @@ class HomeViewModel {
         }
     }
 
-    func unfavorite(index: Int, completion: @escaping APICompletion) {
+    func unfavoriteItem(index: Int, completion: @escaping APICompletion) {
         do {
             let realm = try Realm()
             let restaurant = restaurants[index]

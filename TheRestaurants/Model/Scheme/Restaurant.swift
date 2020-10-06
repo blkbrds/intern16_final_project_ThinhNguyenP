@@ -43,7 +43,8 @@ import RealmSwift
         onlineDelivery: Int,
         favorite: Bool,
         location: Location?,
-        establishment: String?
+        establishment: String?,
+        cuisines: String?
     ) {
         self.id = id
         self.name = name
@@ -53,6 +54,7 @@ import RealmSwift
         self.favorite = favorite
         self.location = location
         self.establishment = establishment
+        self.cuisines = cuisines
     }
 
     override static func primaryKey() -> String? {

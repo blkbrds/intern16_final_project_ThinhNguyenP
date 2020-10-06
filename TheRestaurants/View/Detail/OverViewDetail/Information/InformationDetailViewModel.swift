@@ -9,6 +9,7 @@
 import Foundation
 
 class InformationDetailViewModel {
+
     var restaurant: Restaurant
 
     var openingTime: String {
