@@ -20,7 +20,6 @@ import RealmSwift
     dynamic var favorite: Bool = false
     dynamic var location: Location?
     dynamic var establishment: String?
-    dynamic var review: Int?
 
     var cuisines: String?
     var votes: Int?
@@ -28,6 +27,7 @@ import RealmSwift
     var phoneNumber: String?
     var url: String?
     var highlights: [String]?
+    var review: Int?
 
     required init() { }
 
