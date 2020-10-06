@@ -30,7 +30,7 @@ class HomeViewController: BaseViewController {
         self.navigationItem.rightBarButtonItem = button
     }
 
-    @objc func changeLocationButtonTouchUpInside() {
+    @objc private func changeLocationButtonTouchUpInside() {
         let vc = SearchCityPopUpViewController()
         vc.delegate = self
         tabBarController?.present(vc, animated: true)

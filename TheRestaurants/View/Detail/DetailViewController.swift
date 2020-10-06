@@ -37,7 +37,7 @@ class DetailViewController: UIViewController {
         configLineViewWithAnimation(selectedButtonTag: sender.tag)
     }
 
-    func setUpPageView() {
+    private func setUpPageView() {
         guard let restaurant = viewModel?.usedRestaurant else { return }
         overviewViewController = OverviewViewController()
         overviewViewController?.delegate = self
@@ -86,20 +86,20 @@ class DetailViewController: UIViewController {
         }
     }
 
-    func updateHeaderViewInViewController(isFavorite: Bool) {
+    private func updateHeaderViewInViewController(isFavorite: Bool) {
         overviewViewController?.updateHeaderView(isFavorite: isFavorite)
         reviewViewController?.updateHeaderView(isFavorite: isFavorite)
         menuViewController?.updateHeaderView(isFavorite: isFavorite)
     }
 
-    func handleViewControllerAction(action: OverviewViewController.Action) {
+    private func handleViewControllerAction(action: OverviewViewController.Action) {
         guard let viewModel = viewModel else { return }
         switch action {
         case .back:
             navigationController?.popViewController(animated: true)
         case .favorite(let isFavorite):
             if isFavorite {
-                viewModel.unFavorite { [weak self](result) in
+                viewModel.unFavoriteItem { [weak self](result) in
                     guard let this = self else { return }
                     switch result {
                     case.success:
@@ -109,7 +109,7 @@ class DetailViewController: UIViewController {
                     }
                 }
             } else {
-                viewModel.addFavorite {[weak self] (result) in
+                viewModel.addFavoriteItem {[weak self] (result) in
                     guard let this = self else { return }
                     switch result {
                     case.success:

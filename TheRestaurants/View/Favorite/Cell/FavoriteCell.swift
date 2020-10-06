@@ -35,7 +35,7 @@ final class FavoriteCell: UITableViewCell {
         }
     }
 
-    func setupView() {
+    private func setupView() {
         guard let viewModel = viewModel else { return }
         deliveryImage.layer.cornerRadius = 3
         ratingImage.layer.cornerRadius = 3

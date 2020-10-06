@@ -9,6 +9,7 @@
 import Foundation
 
 class HeaderDetailViewModel {
+
     var restaurant: Restaurant
     var cuisine: String {
         guard let cuisine = restaurant.cuisines else { return "" }

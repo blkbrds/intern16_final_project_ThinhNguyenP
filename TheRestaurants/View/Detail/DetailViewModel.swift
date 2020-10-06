@@ -27,17 +27,9 @@ class DetailViewModel {
                                          location: restaurant.location,
                                          establishment: restaurant.establishment,
                                          cuisines: restaurant.cuisines)
-//        self.usedRestaurant = Restaurant(id: restaurant.id,
-//                                         name: restaurant.name,
-//                                         imageURL: restaurant.imageURL,
-//                                         rating: restaurant.rating,
-//                                         onlineDelivery: restaurant.onlineDelivery,
-//                                         favorite: restaurant.favorite,
-//                                         location: restaurant.location,
-//                                         establishment: restaurant.establishment)
     }
 
-    func addFavorite(completion: @escaping APICompletion) {
+    func addFavoriteItem(completion: @escaping APICompletion) {
         do {
             let realm = try Realm()
             let tempRestaurant = Restaurant(id: usedRestaurant.id,
@@ -58,7 +50,7 @@ class DetailViewModel {
         }
     }
 
-    func unFavorite(completion: @escaping APICompletion) {
+    func unFavoriteItem(completion: @escaping APICompletion) {
         do {
             let realm = try Realm()
             let result = realm.objects(Restaurant.self).filter("id = '\(restaurant.id ?? "")'")

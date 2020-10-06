@@ -87,7 +87,7 @@ class FavoriteViewModel {
         }
     }
 
-    func didSelectRowAt(indexPath: IndexPath) -> DetailViewModel {
+    func viewModelForDetail(indexPath: IndexPath) -> DetailViewModel {
         let restaurant = restautants[indexPath.row]
         let viewModel = DetailViewModel(restaurant: restaurant)
         return viewModel

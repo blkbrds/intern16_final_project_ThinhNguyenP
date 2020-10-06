@@ -9,6 +9,7 @@
 import UIKit
 
 protocol HeaderDetailViewDelegate: class {
+
     func view(_ view: HeaderDetailView, needPerforms action: HeaderDetailView.Action)
 }
 class HeaderDetailView: UIView {
@@ -48,11 +49,11 @@ class HeaderDetailView: UIView {
         containerView.fillToSuperview()
     }
 
-    @IBAction func favoriteButtonTouchUpInside(_ sender: UIButton) {
+    @IBAction private func favoriteButtonTouchUpInside(_ sender: UIButton) {
         delegate?.view(self, needPerforms: .favorite(isFavorite: favoriteButton.isSelected))
     }
 
-    func updateView() {
+    private func updateView() {
         guard let viewModel = viewModel else { return }
         nameRestaurantLabel.text = viewModel.restaurant.name
         cuisineLabel.text = viewModel.cuisine
@@ -61,7 +62,7 @@ class HeaderDetailView: UIView {
         favoriteButton.isSelected = viewModel.restaurant.favorite
     }
 
-    @IBAction func backButtonTouchUpInside(_ sender: Any) {
+    @IBAction private func backButtonTouchUpInside(_ sender: Any) {
         delegate?.view(self, needPerforms: .back)
     }
 }

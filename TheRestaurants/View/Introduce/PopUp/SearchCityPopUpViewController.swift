@@ -7,9 +7,9 @@
 //
 
 import UIKit
-import Contacts
 
 protocol SearchCityPopUpViewControllerDelegate: class {
+
     func view(_ view: SearchCityPopUpViewController, needPerform action: SearchCityPopUpViewController.Action)
 }
 class SearchCityPopUpViewController: UIViewController {

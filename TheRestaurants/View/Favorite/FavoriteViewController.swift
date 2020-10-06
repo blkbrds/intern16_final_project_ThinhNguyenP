@@ -45,7 +45,7 @@ class FavoriteViewController: BaseViewController {
         emptyView.isHidden = !viewModel.isEmpty
     }
 
-    func fetchRealmData() {
+    private func fetchRealmData() {
         viewModel.fetchRealmData { [weak self] (result) in
             guard let this = self else { return }
             switch result {
@@ -58,7 +58,7 @@ class FavoriteViewController: BaseViewController {
         }
     }
 
-    @objc func deleteAllFavoriteButtonTouchUpInside() {
+    @objc private func deleteAllFavoriteButtonTouchUpInside() {
         let alert = UIAlertController(title: "DELETE ALL", message: "Do you want to delete all favorite ??", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (result) in
             self.viewModel.deleteAllItem { [weak self] (result) in
@@ -90,7 +90,7 @@ extension FavoriteViewController: UITableViewDataSource, UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let viewController = DetailViewController()
-        viewController.viewModel = viewModel.didSelectRowAt(indexPath: indexPath)
+        viewController.viewModel = viewModel.viewModelForDetail(indexPath: indexPath)
         viewController.hidesBottomBarWhenPushed = true
         navigationController?.pushViewController(viewController, animated: true)
     }

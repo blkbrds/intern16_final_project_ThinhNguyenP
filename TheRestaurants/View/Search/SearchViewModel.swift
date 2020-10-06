@@ -10,6 +10,7 @@ import Foundation
 import RealmSwift
 
 protocol SearchViewModelDelegate: class {
+
     func syncFavorite(viewModel: SearchViewModel, needPerforms action: SearchViewModel.Action)
 }
 enum Search {

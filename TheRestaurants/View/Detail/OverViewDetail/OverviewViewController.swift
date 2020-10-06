@@ -40,7 +40,7 @@ class OverviewViewController: UIViewController {
         headerView.viewModel = HeaderDetailViewModel(restaurant: viewModel.restaurant)
     }
 
-    func getRestaurantDetail() {
+    private func getRestaurantDetail() {
         Indicator.start()
         viewModel.getRestaurantDetail { [weak self] (result) in
             Indicator.stop()
