@@ -99,7 +99,7 @@ class DetailViewController: UIViewController {
             navigationController?.popViewController(animated: true)
         case .favorite(let isFavorite):
             if isFavorite {
-                viewModel.unFavoriteItem { [weak self](result) in
+                viewModel.unfavoriteItem { [weak self](result) in
                     guard let this = self else { return }
                     switch result {
                     case.success:

@@ -50,7 +50,7 @@ class DetailViewModel {
         }
     }
 
-    func unFavoriteItem(completion: @escaping APICompletion) {
+    func unfavoriteItem(completion: @escaping APICompletion) {
         do {
             let realm = try Realm()
             let result = realm.objects(Restaurant.self).filter("id = '\(restaurant.id ?? "")'")

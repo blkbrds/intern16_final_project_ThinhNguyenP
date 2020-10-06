@@ -46,7 +46,7 @@ class OverviewViewModel {
         }
     }
 
-    func unFavorite(completion: @escaping APICompletion) {
+    func unfavorite(completion: @escaping APICompletion) {
         do {
             let realm = try Realm()
             let result = realm.objects(Restaurant.self).filter("id = '\(restaurant.id ?? "")'")

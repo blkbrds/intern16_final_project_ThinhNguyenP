@@ -138,7 +138,7 @@ extension HomeViewController: HomeCellDelegate {
         switch action {
         case .favorite(let isFavorite):
             if isFavorite {
-                viewModel.unfavorite(index: indexPath.row) { [weak self] result in
+                viewModel.unfavoriteItem(index: indexPath.row) { [weak self] result in
                     guard let this = self else { return }
                     switch result {
                     case .success:
@@ -148,7 +148,7 @@ extension HomeViewController: HomeCellDelegate {
                     }
                 }
             } else {
-                viewModel.addFavorite(index: indexPath.row) { [weak self] result in
+                viewModel.addFavoriteItem(index: indexPath.row) { [weak self] result in
                     guard let this = self else { return }
                     switch result {
                     case .success:

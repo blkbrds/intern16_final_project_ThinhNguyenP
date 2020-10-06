@@ -127,7 +127,7 @@ class HomeViewModel {
         }
     }
 
-    func addFavorite(index: Int, completion: @escaping APICompletion) {
+    func addFavoriteItem(index: Int, completion: @escaping APICompletion) {
         do {
             let realm = try Realm()
             let restaurant = restaurants[index]
@@ -149,7 +149,7 @@ class HomeViewModel {
         }
     }
 
-    func unfavorite(index: Int, completion: @escaping APICompletion) {
+    func unfavoriteItem(index: Int, completion: @escaping APICompletion) {
         do {
             let realm = try Realm()
             let restaurant = restaurants[index]
