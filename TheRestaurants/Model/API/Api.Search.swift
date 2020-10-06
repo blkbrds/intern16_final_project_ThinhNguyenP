@@ -22,12 +22,12 @@ extension Api.Search {
     }
     struct SearchRestaurant {
         var entityType: String = ""
-        var city: String = ""
+        var q: String = ""
         func toJSON() -> [String: Any] {
             return [
-                "q": entityType,
+                "q": q,
                 "entity_id": Session.cityId as Any,
-                "entity_type": city
+                "entity_type": entityType
             ]
         }
     }

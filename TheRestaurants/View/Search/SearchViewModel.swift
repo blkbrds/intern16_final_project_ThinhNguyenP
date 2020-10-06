@@ -42,7 +42,7 @@ class SearchViewModel {
     }
 
     func getResult(keywork: String, completion: @escaping APICompletion) {
-        let param = Api.Search.SearchRestaurant(entityType: keywork, city: "city")
+        let param = Api.Search.SearchRestaurant(entityType: "city", q: keywork)
         Api.Search.searchRestaurants(param: param) { [weak self ](result) in
             guard let this = self else { return }
             switch result {

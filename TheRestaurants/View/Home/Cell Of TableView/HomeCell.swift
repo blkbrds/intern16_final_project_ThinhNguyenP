@@ -100,6 +100,7 @@ class HomeCell: UITableViewCell {
     }
 
     @IBAction func favoriteButtonTouchUpInside(_ sender: Any) {
+        favoriteButton.isSelected = !favoriteButton.isSelected
         delegate?.cell(self, needPerform: .favorite(isFavorite: favoriteButton.isSelected))
     }
 }
