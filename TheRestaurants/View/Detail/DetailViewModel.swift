@@ -26,7 +26,8 @@ class DetailViewModel {
                                          favorite: restaurant.favorite,
                                          location: restaurant.location,
                                          establishment: restaurant.establishment,
-                                         cuisines: restaurant.cuisines)
+                                         cuisines: restaurant.cuisines,
+                                         review: restaurant.review)
     }
 
     func addFavoriteItem(completion: @escaping APICompletion) {
@@ -40,7 +41,8 @@ class DetailViewModel {
                                             favorite: true,
                                             location: usedRestaurant.location,
                                             establishment: usedRestaurant.establishment,
-                                            cuisines: restaurant.cuisines)
+                                            cuisines: restaurant.cuisines,
+                                            review: restaurant.review)
             try realm.write {
                 realm.create(Restaurant.self, value: tempRestaurant, update: .all)
             }
@@ -64,7 +66,8 @@ class DetailViewModel {
                                         favorite: true,
                                         location: usedRestaurant.location,
                                         establishment: usedRestaurant.establishment,
-                                        cuisines: restaurant.cuisines)
+                                        cuisines: restaurant.cuisines,
+                                        review: restaurant.review)
             }
             completion(.success)
         } catch {

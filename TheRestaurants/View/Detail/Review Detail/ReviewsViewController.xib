@@ -20,7 +20,7 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="QDr-cj-V5I">
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" alwaysBounceVertical="YES" contentInsetAdjustmentBehavior="never" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="QDr-cj-V5I">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                     <view key="tableHeaderView" autoresizesSubviews="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" id="9BQ-cg-uOZ">
@@ -28,33 +28,33 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bnD-R5-WMZ" customClass="HeaderDetailView" customModule="TheRestaurants" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="-20" width="414" height="166"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="166"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="166" id="MjC-sc-KTh"/>
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="61u-AU-doh">
-                                <rect key="frame" x="15" y="167" width="33" height="16"/>
+                                <rect key="frame" x="15" y="187" width="33" height="16"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_reviewdetail_star" translatesAutoresizingMaskIntoConstraints="NO" id="gng-aU-v0O">
-                                <rect key="frame" x="53" y="169" width="12" height="12"/>
+                                <rect key="frame" x="53" y="189" width="12" height="12"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="12" id="dtc-CZ-Dzr"/>
                                     <constraint firstAttribute="height" constant="12" id="rp2-UI-CxE"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tvX-S9-M8D">
-                                <rect key="frame" x="70" y="167" width="33" height="16"/>
+                                <rect key="frame" x="70" y="187" width="33" height="16"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J06-43-MRB">
-                                <rect key="frame" x="263" y="160" width="136" height="29"/>
+                                <rect key="frame" x="263" y="180" width="136" height="29"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="29" id="AAS-r0-ZHD"/>
                                     <constraint firstAttribute="width" constant="136" id="xb0-YY-4CG"/>
@@ -68,7 +68,7 @@
                             <constraint firstAttribute="trailing" secondItem="J06-43-MRB" secondAttribute="trailing" constant="15" id="H2P-Hk-PxU"/>
                             <constraint firstItem="gng-aU-v0O" firstAttribute="centerY" secondItem="61u-AU-doh" secondAttribute="centerY" id="Hc1-2W-bZg"/>
                             <constraint firstItem="bnD-R5-WMZ" firstAttribute="leading" secondItem="9BQ-cg-uOZ" secondAttribute="leading" id="IRY-33-XjY"/>
-                            <constraint firstItem="bnD-R5-WMZ" firstAttribute="top" secondItem="9BQ-cg-uOZ" secondAttribute="top" constant="-20" id="RIb-tp-Mp0"/>
+                            <constraint firstItem="bnD-R5-WMZ" firstAttribute="top" secondItem="9BQ-cg-uOZ" secondAttribute="top" id="RIb-tp-Mp0"/>
                             <constraint firstItem="tvX-S9-M8D" firstAttribute="leading" secondItem="gng-aU-v0O" secondAttribute="trailing" constant="5" id="WaN-PE-L6a"/>
                             <constraint firstItem="61u-AU-doh" firstAttribute="leading" secondItem="9BQ-cg-uOZ" secondAttribute="leading" constant="15" id="Ytz-aD-4bv"/>
                             <constraint firstItem="tvX-S9-M8D" firstAttribute="centerY" secondItem="61u-AU-doh" secondAttribute="centerY" id="ZWu-Db-OHS"/>

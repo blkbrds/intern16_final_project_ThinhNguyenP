@@ -139,7 +139,8 @@ class HomeViewModel {
                                             favorite: true,
                                             location: restaurant.location,
                                             establishment: restaurant.establishment,
-                                            cuisines: restaurant.cuisines)
+                                            cuisines: restaurant.cuisines,
+                                            review: restaurant.review)
             try realm.write {
                 realm.create(Restaurant.self, value: tempRestaurant, update: .all)
             }
