@@ -28,7 +28,6 @@ class FavoriteViewController: BaseViewController {
         tableView.register(nib, forCellReuseIdentifier: "cell")
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.rowHeight = 121
     }
 
     private func setUpNavigation() {
