@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HistorySearchCell: UITableViewCell {
+final class HistorySearchCell: UITableViewCell {
 
     @IBOutlet private weak var searchKeyLabel: UILabel!
 

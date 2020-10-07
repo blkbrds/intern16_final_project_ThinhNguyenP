@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ReviewCell: UITableViewCell {
+final class ReviewCell: UITableViewCell {
 
     @IBOutlet private weak var lineView: UIView!
     @IBOutlet private weak var userImage: UIImageView!
@@ -24,7 +24,7 @@ class ReviewCell: UITableViewCell {
         }
     }
 
-    func setUpView() {
+    private func setUpView() {
         guard let viewModel = viewModel else { return }
         userImage.setImage(url: viewModel.review.user.imageUrl)
         userImage.layer.cornerRadius = userImage.bounds.width / 2

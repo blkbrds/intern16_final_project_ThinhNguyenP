@@ -14,7 +14,7 @@ protocol FavoriteViewModelDelegate: class {
     func syncFavorite(viewModel: FavoriteViewModel, needPerforms action: FavoriteViewModel.Action)
 }
 
-class FavoriteViewModel {
+final class FavoriteViewModel {
 
     enum Action {
         case reloadData

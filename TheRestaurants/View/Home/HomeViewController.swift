@@ -9,8 +9,7 @@
 import UIKit
 import RealmSwift
 
-
-class HomeViewController: BaseViewController {
+final class HomeViewController: BaseViewController {
 
     @IBOutlet private weak var tableView: UITableView!
     var viewModel = HomeViewModel()
@@ -47,7 +46,7 @@ class HomeViewController: BaseViewController {
         tableView.delegate = self
     }
 
-    func loadCollection() {
+    private func loadCollection() {
         Indicator.start()
         viewModel.loadCollection { [weak self](result) in
             Indicator.stop()
@@ -61,7 +60,7 @@ class HomeViewController: BaseViewController {
         }
     }
 
-    func loadCell(isLoadMore: Bool = false) {
+    private func loadCell(isLoadMore: Bool = false) {
         Indicator.start()
         viewModel.loadCell(isLoadMore: isLoadMore) { [weak self] (result) in
             Indicator.stop()

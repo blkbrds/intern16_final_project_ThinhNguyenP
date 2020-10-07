@@ -9,7 +9,7 @@
 import UIKit
 import MapKit
 
-class DetailViewController: UIViewController {
+final class DetailViewController: UIViewController {
 
     @IBOutlet private weak var contentView: UIView!
     @IBOutlet private weak var tabButtonsView: UIView!

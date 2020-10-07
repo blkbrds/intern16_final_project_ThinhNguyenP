@@ -10,7 +10,7 @@ import UIKit
 
 class IntroduceViewController: BaseViewController {
 
-    @IBAction func chooseCityButtonTouchUpInside(_ sender: Any) {
+    @IBAction private func chooseCityButtonTouchUpInside(_ sender: Any) {
         let vc = SearchCityPopUpViewController()
         vc.delegate = self
         present(vc, animated: true)

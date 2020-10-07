@@ -8,7 +8,7 @@
 
 import Foundation
 
-class HeaderDetailViewModel {
+final class HeaderDetailViewModel {
 
     var restaurant: Restaurant
     var cuisine: String {

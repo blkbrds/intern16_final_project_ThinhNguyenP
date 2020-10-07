@@ -99,7 +99,7 @@ class HomeCell: UITableViewCell {
         return -1
     }
 
-    @IBAction func favoriteButtonTouchUpInside(_ sender: Any) {
+    @IBAction private func favoriteButtonTouchUpInside(_ sender: Any) {
         delegate?.cell(self, needPerform: .favorite(isFavorite: favoriteButton.isSelected))
     }
 }

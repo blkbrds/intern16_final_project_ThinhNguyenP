@@ -9,7 +9,7 @@
 import Foundation
 import ObjectMapper
 
-class User: Mappable {
+final class User: Mappable {
 
     required convenience init?(map: Map) {
         self.init()

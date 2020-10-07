@@ -12,7 +12,7 @@ protocol ReviewsViewControllerDelegate: class {
 
     func view(_ viewController: ReviewsViewController, needPerform action: OverviewViewController.Action)
 }
-class ReviewsViewController: UIViewController {
+final class ReviewsViewController: UIViewController {
 
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private weak var ratingLabel: UILabel!
@@ -39,7 +39,7 @@ class ReviewsViewController: UIViewController {
         tableView.dataSource = self
     }
 
-    func loadReview() {
+    private func loadReview() {
         Indicator.start()
         viewModel.loadReview { [weak self](result) in
             Indicator.stop()

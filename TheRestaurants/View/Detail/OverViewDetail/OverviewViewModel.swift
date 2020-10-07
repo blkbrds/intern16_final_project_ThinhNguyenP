@@ -9,7 +9,7 @@
 import Foundation
 import RealmSwift
 
-class OverviewViewModel {
+final class OverviewViewModel {
 
     var restaurant: Restaurant
     var isFavorite: Bool

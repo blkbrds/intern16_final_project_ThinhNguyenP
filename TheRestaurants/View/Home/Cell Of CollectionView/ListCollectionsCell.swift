@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ListCollectionsCell: UITableViewCell {
+final class ListCollectionsCell: UITableViewCell {
 
     @IBOutlet weak var trendingCollectionViewCell: UICollectionView!
 

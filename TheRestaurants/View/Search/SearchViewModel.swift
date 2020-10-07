@@ -18,7 +18,7 @@ enum Search {
     case history
 }
 
-class SearchViewModel {
+final class SearchViewModel {
 
     enum Action {
         case reloadData

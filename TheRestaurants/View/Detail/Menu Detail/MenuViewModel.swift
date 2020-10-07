@@ -8,7 +8,7 @@
 
 import Foundation
 
-class MenuViewModel {
+final class MenuViewModel {
 
     var restaurant: Restaurant
     init(restaurant: Restaurant = Restaurant()) {

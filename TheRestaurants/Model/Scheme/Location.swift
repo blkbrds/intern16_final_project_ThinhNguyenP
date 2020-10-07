@@ -9,7 +9,7 @@
 import Foundation
 import ObjectMapper
 import RealmSwift
-class Location: Object, Mappable {
+final class Location: Object, Mappable {
 
     var latitude: Double?
     var longitude: Double?

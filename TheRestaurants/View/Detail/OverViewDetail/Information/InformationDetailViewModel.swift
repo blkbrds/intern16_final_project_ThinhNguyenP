@@ -8,10 +8,9 @@
 
 import Foundation
 
-class InformationDetailViewModel {
+final class InformationDetailViewModel {
 
     var restaurant: Restaurant
-
     var openingTime: String {
         guard let timing = restaurant.timings else { return "" }
         let timingArr = timing.split(separator: ",")

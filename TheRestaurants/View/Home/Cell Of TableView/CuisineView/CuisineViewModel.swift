@@ -8,7 +8,7 @@
 
 import Foundation
 
-class CuisineViewModel {
+final class CuisineViewModel {
 
     var cuisine: String
     var isTitle: Bool

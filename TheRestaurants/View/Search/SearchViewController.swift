@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SearchViewController: BaseViewController {
+final class SearchViewController: BaseViewController {
 
     @IBOutlet private weak var searchHistoryTableView: UITableView!
     @IBOutlet private weak var resultTableView: UITableView!
@@ -36,7 +36,7 @@ class SearchViewController: BaseViewController {
         }
     }
 
-    func configTableView() {
+    private func configTableView() {
         let searchResult = UINib(nibName: "HomeCell", bundle: .main)
         resultTableView.register(searchResult, forCellReuseIdentifier: "searchcell")
         let historySearch = UINib(nibName: "HistorySearchCell", bundle: .main)
@@ -47,7 +47,7 @@ class SearchViewController: BaseViewController {
         resultTableView.delegate = self
     }
 
-    func searchRestaurants(keyword: String) {
+    private func searchRestaurants(keyword: String) {
         searchHistoryTableView.isHidden = true
         resultTableView.isHidden = false
         Indicator.start()
@@ -63,7 +63,7 @@ class SearchViewController: BaseViewController {
         }
     }
 
-    func setUpSearchBar() {
+    private func setUpSearchBar() {
         let searchBar = UISearchBar(frame: CGRect(x: 0, y: 0, width: view.bounds.width - 35, height: 0))
         if let textfield = searchBar.value(forKey: "searchField") as? UITextField {
             textfield.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
@@ -79,7 +79,7 @@ class SearchViewController: BaseViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: searchBar)
     }
 
-    func fetchSearchHistoryData() {
+    private func fetchSearchHistoryData() {
         viewModel.fetchSearchHistoryData { [weak self ](result) in
             guard let this = self else { return }
             switch result {

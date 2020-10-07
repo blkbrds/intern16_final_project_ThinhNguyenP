@@ -8,7 +8,7 @@
 
 import ObjectMapper
 
-class City: Mappable {
+final class City: Mappable {
 
     var countryName: String = ""
     var cityName: String = ""

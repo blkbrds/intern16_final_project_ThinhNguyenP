@@ -9,7 +9,7 @@
 import Foundation
 import RealmSwift
 
-class DetailViewModel {
+final class DetailViewModel {
 
     enum Action {
         case reloadData

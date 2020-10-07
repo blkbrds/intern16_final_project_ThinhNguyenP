@@ -9,7 +9,7 @@
 import Foundation
 import RealmSwift
 
-class FavoriteCellModel {
+final class FavoriteCellModel {
 
     let restaurant: Restaurant
     init(restaurant: Restaurant) {

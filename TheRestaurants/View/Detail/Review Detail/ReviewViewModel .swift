@@ -9,7 +9,7 @@
 import Foundation
 import RealmSwift
 
-class ReviewViewModel {
+final class ReviewViewModel {
 
     var reviews: [Review] = []
     var restaurant: Restaurant

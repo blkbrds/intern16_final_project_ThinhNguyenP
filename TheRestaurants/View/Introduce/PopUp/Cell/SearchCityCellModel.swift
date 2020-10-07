@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class SearchCityCellModel {
+final class SearchCityCellModel {
 
     var city: City
 
