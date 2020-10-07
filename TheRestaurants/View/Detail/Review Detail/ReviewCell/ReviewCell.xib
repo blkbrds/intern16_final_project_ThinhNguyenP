@@ -139,6 +139,7 @@
             <connections>
                 <outlet property="commentLabel" destination="PoR-Zy-88T" id="dqM-xL-QNM"/>
                 <outlet property="likeLabel" destination="rea-x6-45U" id="iEN-QL-VLS"/>
+                <outlet property="lineView" destination="zJg-OU-fgT" id="Rnc-Jc-b2c"/>
                 <outlet property="nameUserReview" destination="LP3-SU-pEa" id="wfu-r8-HpT"/>
                 <outlet property="reviewTextLabel" destination="RaK-FM-ARb" id="Kqh-nE-u7w"/>
                 <outlet property="timeReviewLabel" destination="bR8-Ud-zbY" id="eX8-gS-3f6"/>

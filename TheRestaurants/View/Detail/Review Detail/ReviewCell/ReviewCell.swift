@@ -10,6 +10,7 @@ import UIKit
 
 class ReviewCell: UITableViewCell {
 
+    @IBOutlet private weak var lineView: UIView!
     @IBOutlet private weak var userImage: UIImageView!
     @IBOutlet private weak var nameUserReview: UILabel!
     @IBOutlet private weak var likeLabel: UILabel!
@@ -32,6 +33,9 @@ class ReviewCell: UITableViewCell {
         commentLabel.text = "\(viewModel.review.commentCount ?? 0)"
         timeReviewLabel.text = viewModel.review.reviewTime
         reviewTextLabel.text = viewModel.review.reviewText
+        if reviewTextLabel.text == "" {
+            lineView.isHidden = true
+        }
         stars.forEach { (starImg) in
             if starImg.tag > viewModel.review.rating ?? 0 {
                 starImg.image = #imageLiteral(resourceName: "ic_ratingstar_detail.png")

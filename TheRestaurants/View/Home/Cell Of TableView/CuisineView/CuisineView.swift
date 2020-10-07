@@ -10,7 +10,7 @@ import UIKit
 
 class CuisineView: UIView {
 
-    @IBOutlet var containerView: UIView!
+    @IBOutlet private weak var containerView: UIView!
     @IBOutlet private weak var cuisineView: UIView!
     @IBOutlet private weak var cuisineLabel: UILabel!
 
