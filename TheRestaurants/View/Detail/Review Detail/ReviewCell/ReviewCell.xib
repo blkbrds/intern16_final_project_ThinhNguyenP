@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -62,7 +61,7 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="09/07/2020" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bR8-Ud-zbY">
-                        <rect key="frame" x="454" y="34" width="67" height="14.5"/>
+                        <rect key="frame" x="454" y="48" width="67" height="14.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" red="0.52549019610000003" green="0.52549019610000003" blue="0.52549019610000003" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -75,22 +74,22 @@
                         </constraints>
                     </view>
                     <stackView opaque="NO" contentMode="scaleToFill" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="EIq-a6-mcG">
-                        <rect key="frame" x="439" y="15" width="82" height="14"/>
+                        <rect key="frame" x="439" y="15" width="82" height="28"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_starreview_detail" translatesAutoresizingMaskIntoConstraints="NO" id="B4a-OX-wN7">
-                                <rect key="frame" x="0.0" y="0.0" width="14" height="14"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="ic_starreview_detail" translatesAutoresizingMaskIntoConstraints="NO" id="B4a-OX-wN7">
+                                <rect key="frame" x="0.0" y="0.0" width="0.0" height="28"/>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="2" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_starreview_detail" translatesAutoresizingMaskIntoConstraints="NO" id="piT-9j-Z25">
-                                <rect key="frame" x="17" y="0.0" width="14" height="14"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="2" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="ic_starreview_detail" translatesAutoresizingMaskIntoConstraints="NO" id="piT-9j-Z25">
+                                <rect key="frame" x="3" y="0.0" width="0.0" height="28"/>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="3" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_starreview_detail" translatesAutoresizingMaskIntoConstraints="NO" id="7Mm-ZH-tUO">
-                                <rect key="frame" x="34" y="0.0" width="14" height="14"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="3" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="ic_starreview_detail" translatesAutoresizingMaskIntoConstraints="NO" id="7Mm-ZH-tUO">
+                                <rect key="frame" x="6" y="0.0" width="14" height="28"/>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="4" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_starreview_detail" translatesAutoresizingMaskIntoConstraints="NO" id="fpF-XX-E5z">
-                                <rect key="frame" x="51" y="0.0" width="14" height="14"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="4" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="ic_starreview_detail" translatesAutoresizingMaskIntoConstraints="NO" id="fpF-XX-E5z">
+                                <rect key="frame" x="23" y="0.0" width="28" height="28"/>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="5" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_starreview_detail" translatesAutoresizingMaskIntoConstraints="NO" id="cLF-eO-tsb">
-                                <rect key="frame" x="68" y="0.0" width="14" height="14"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="5" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="ic_starreview_detail" translatesAutoresizingMaskIntoConstraints="NO" id="cLF-eO-tsb">
+                                <rect key="frame" x="54" y="0.0" width="28" height="28"/>
                             </imageView>
                         </subviews>
                         <constraints>
@@ -140,10 +139,10 @@
                 <outlet property="commentLabel" destination="PoR-Zy-88T" id="dqM-xL-QNM"/>
                 <outlet property="likeLabel" destination="rea-x6-45U" id="iEN-QL-VLS"/>
                 <outlet property="lineView" destination="zJg-OU-fgT" id="Rnc-Jc-b2c"/>
-                <outlet property="nameUserReview" destination="LP3-SU-pEa" id="wfu-r8-HpT"/>
                 <outlet property="reviewTextLabel" destination="RaK-FM-ARb" id="Kqh-nE-u7w"/>
                 <outlet property="timeReviewLabel" destination="bR8-Ud-zbY" id="eX8-gS-3f6"/>
-                <outlet property="userImage" destination="8i2-CV-iiT" id="8bk-K2-5Qm"/>
+                <outlet property="userImageView" destination="8i2-CV-iiT" id="8bk-K2-5Qm"/>
+                <outlet property="usernameLabel" destination="LP3-SU-pEa" id="wfu-r8-HpT"/>
                 <outletCollection property="stars" destination="B4a-OX-wN7" collectionClass="NSMutableArray" id="pu4-ox-9Qa"/>
                 <outletCollection property="stars" destination="piT-9j-Z25" collectionClass="NSMutableArray" id="UUF-Bo-leW"/>
                 <outletCollection property="stars" destination="7Mm-ZH-tUO" collectionClass="NSMutableArray" id="sRo-pD-gyz"/>
