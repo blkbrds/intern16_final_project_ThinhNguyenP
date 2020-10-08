@@ -13,6 +13,10 @@ final class OverviewViewModel {
 
     var restaurant: Restaurant
     var isFavorite: Bool
+    var hightlights: [String] {
+        guard let highlights = restaurant.highlights else { return [] }
+        return highlights
+    }
     init(restaurant: Restaurant = Restaurant()) {
         self.restaurant = restaurant
         isFavorite = restaurant.favorite

@@ -51,7 +51,7 @@ final class OverviewViewController: UIViewController {
                 this.headerView.delegate = self
                 this.informationView.viewModel = InformationDetailViewModel(restaurant: this.viewModel.restaurant)
                 this.mapDetailView.viewModel = MapDetailViewModel(restaurant: this.viewModel.restaurant)
-                this.otherInformationView.viewModel = OtherInformationViewModel(highlights: this.viewModel.restaurant.highlights ?? [])
+                this.otherInformationView.viewModel = OtherInformationViewModel(highlights: this.viewModel.hightlights)
             case .failure(let error):
                 this.alert(error: error)
             }
