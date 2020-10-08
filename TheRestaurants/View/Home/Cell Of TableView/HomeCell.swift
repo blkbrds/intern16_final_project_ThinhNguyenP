@@ -67,7 +67,7 @@ class HomeCell: UITableViewCell {
     private func configStackViewPerRow(arr: [String], startIndex: Int, widthLimit: CGFloat) -> Int {
         let stackView = UIStackView()
         stackView.spacing = Config.stackViewInRowSpacing
-        stackView.distribution = .fillProportionally
+        stackView.distribution = .fill
         stackView.alignment = .leading
         var widthPerRow: CGFloat = 0.0
         var nextCuisineViewWidth: CGFloat = 0.0
