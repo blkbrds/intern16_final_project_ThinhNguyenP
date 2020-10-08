@@ -33,18 +33,9 @@ final class DetailViewModel {
     func addFavoriteItem(completion: @escaping APICompletion) {
         do {
             let realm = try Realm()
-            let tempRestaurant = Restaurant(id: usedRestaurant.id,
-                                            name: usedRestaurant.name,
-                                            imageURL: usedRestaurant.imageURL,
-                                            rating: usedRestaurant.rating,
-                                            onlineDelivery: usedRestaurant.onlineDelivery,
-                                            favorite: true,
-                                            location: usedRestaurant.location,
-                                            establishment: usedRestaurant.establishment,
-                                            cuisines: restaurant.cuisines,
-                                            review: restaurant.review)
             try realm.write {
-                realm.create(Restaurant.self, value: tempRestaurant, update: .all)
+                restaurant.favorite = true
+                realm.create(Restaurant.self, value: restaurant, update: .all)
             }
             completion(.success)
         } catch {
@@ -63,7 +54,7 @@ final class DetailViewModel {
                                         imageURL: usedRestaurant.imageURL,
                                         rating: usedRestaurant.rating,
                                         onlineDelivery: usedRestaurant.onlineDelivery,
-                                        favorite: true,
+                                        favorite: false,
                                         location: usedRestaurant.location,
                                         establishment: usedRestaurant.establishment,
                                         cuisines: restaurant.cuisines,
