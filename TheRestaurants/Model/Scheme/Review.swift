@@ -9,7 +9,7 @@
 import Foundation
 import ObjectMapper
 
-class Review: Mappable {
+final class Review: Mappable {
 
     var rating: Int?
     var reviewsCount: Int?

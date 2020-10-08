@@ -8,9 +8,9 @@
 
 import UIKit
 
-class CuisineView: UIView {
+final class CuisineView: UIView {
 
-    @IBOutlet var containerView: UIView!
+    @IBOutlet private weak var containerView: UIView!
     @IBOutlet private weak var cuisineView: UIView!
     @IBOutlet private weak var cuisineLabel: UILabel!
 
@@ -30,7 +30,7 @@ class CuisineView: UIView {
         xibSetup()
     }
 
-    func xibSetup() {
+    private func xibSetup() {
         let nib = UINib(nibName: "CuisineView", bundle: .main)
         nib.instantiate(withOwner: self, options: nil)
         addSubview(containerView)
@@ -38,7 +38,7 @@ class CuisineView: UIView {
         setupView()
     }
 
-    func setupView() {
+    private func setupView() {
         cuisineView.layer.cornerRadius = 3
         cuisineView.layer.borderWidth = 1
         cuisineView.layer.borderColor = #colorLiteral(red: 0.007843137255, green: 0.5333333333, blue: 0.8196078431, alpha: 1)

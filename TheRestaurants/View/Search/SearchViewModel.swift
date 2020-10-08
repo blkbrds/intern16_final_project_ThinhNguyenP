@@ -18,7 +18,7 @@ enum Search {
     case history
 }
 
-class SearchViewModel {
+final class SearchViewModel {
 
     enum Action {
         case reloadData
@@ -118,18 +118,9 @@ class SearchViewModel {
         do {
             let realm = try Realm()
             let restaurant = results[index]
-            let tempRestaurant = Restaurant(id: restaurant.id,
-                                            name: restaurant.name,
-                                            imageURL: restaurant.imageURL,
-                                            rating: restaurant.rating,
-                                            onlineDelivery: restaurant.onlineDelivery,
-                                            favorite: restaurant.favorite,
-                                            location: restaurant.location,
-                                            establishment: restaurant.establishment,
-                                            cuisines: restaurant.cuisines,
-                                            review: restaurant.review)
             try realm.write {
-                realm.create(Restaurant.self, value: tempRestaurant, update: .all)
+                restaurant.favorite = true
+                realm.create(Restaurant.self, value: restaurant, update: .all)
             }
             completion(.success)
         } catch {

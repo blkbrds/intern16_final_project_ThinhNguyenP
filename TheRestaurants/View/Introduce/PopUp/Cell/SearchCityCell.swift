@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SearchCityCell: UITableViewCell {
+final class SearchCityCell: UITableViewCell {
 
     @IBOutlet private weak var flagImageView: UIImageView!
     @IBOutlet private weak var cityNameLabel: UILabel!

@@ -12,7 +12,7 @@ protocol HeaderDetailViewDelegate: class {
 
     func view(_ view: HeaderDetailView, needPerforms action: HeaderDetailView.Action)
 }
-class HeaderDetailView: UIView {
+final class HeaderDetailView: UIView {
 
     enum Action {
         case back
@@ -42,7 +42,7 @@ class HeaderDetailView: UIView {
         xibSetup()
     }
 
-    func xibSetup() {
+    private func xibSetup() {
         let nib = UINib(nibName: "HeaderDetailView", bundle: .main)
         nib.instantiate(withOwner: self, options: nil)
         addSubview(containerView)

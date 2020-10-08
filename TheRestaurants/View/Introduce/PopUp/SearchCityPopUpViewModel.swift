@@ -8,7 +8,7 @@
 
 import Foundation
 
-class SearchCityPopUpViewModel {
+final class SearchCityPopUpViewModel {
 
     var dataCities: [City] = []
     var dataRestaurant: [Restaurant] = []

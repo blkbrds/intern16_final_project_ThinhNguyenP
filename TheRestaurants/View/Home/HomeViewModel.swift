@@ -14,7 +14,7 @@ protocol HomeViewModelDelegate: class {
     func syncFavorite(viewModel: HomeViewModel, needPerform action: HomeViewModel.Action)
 }
 
-class HomeViewModel {
+final class HomeViewModel {
 
     enum Cell {
         case collectionView
@@ -131,18 +131,9 @@ class HomeViewModel {
         do {
             let realm = try Realm()
             let restaurant = restaurants[index]
-            let tempRestaurant = Restaurant(id: restaurant.id,
-                                            name: restaurant.name,
-                                            imageURL: restaurant.imageURL,
-                                            rating: restaurant.rating,
-                                            onlineDelivery: restaurant.onlineDelivery,
-                                            favorite: true,
-                                            location: restaurant.location,
-                                            establishment: restaurant.establishment,
-                                            cuisines: restaurant.cuisines,
-                                            review: restaurant.review)
             try realm.write {
-                realm.create(Restaurant.self, value: tempRestaurant, update: .all)
+                restaurant.favorite = true
+                realm.create(Restaurant.self, value: restaurant, update: .all)
             }
             completion(.success)
         } catch {

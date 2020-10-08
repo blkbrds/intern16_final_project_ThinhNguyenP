@@ -8,9 +8,9 @@
 
 import UIKit
 
-class InformationDetailView: UIView {
+final class InformationDetailView: UIView {
 
-    @IBOutlet private var containerView: UIView!
+    @IBOutlet private weak var containerView: UIView!
     @IBOutlet private weak var openingTimeLabel: UILabel!
     @IBOutlet private weak var phoneNumberLabel: UILabel!
     @IBOutlet private weak var websiteLabel: UILabel!
@@ -31,7 +31,7 @@ class InformationDetailView: UIView {
         xibSetup()
     }
 
-    func xibSetup() {
+    private func xibSetup() {
         let nib = UINib(nibName: "InformationDetailView", bundle: .main)
         nib.instantiate(withOwner: self, options: nil)
         addSubview(containerView)

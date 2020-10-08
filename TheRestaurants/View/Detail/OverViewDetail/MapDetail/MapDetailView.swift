@@ -9,7 +9,7 @@
 import UIKit
 import MapKit
 
-class MapDetailView: UIView {
+final class MapDetailView: UIView {
 
     @IBOutlet private var containerView: UIView!
     @IBOutlet private weak var ratingLabel: UILabel!
@@ -35,7 +35,7 @@ class MapDetailView: UIView {
         xibSetup()
     }
 
-    func xibSetup() {
+    private func xibSetup() {
         let nib = UINib(nibName: "MapDetailView", bundle: .main)
         nib.instantiate(withOwner: self, options: nil)
         addSubview(containerView)

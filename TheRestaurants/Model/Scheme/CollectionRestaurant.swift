@@ -9,7 +9,7 @@
 import Foundation
 import ObjectMapper
 
-class Collection: Mappable {
+final class Collection: Mappable {
 
     var countPlaces: Int?
     var title: String?

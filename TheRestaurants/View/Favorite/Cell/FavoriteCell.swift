@@ -49,7 +49,7 @@ final class FavoriteCell: UITableViewCell {
         restaurantImage.setImage(url: urlImage, placeholderImage: #imageLiteral(resourceName: "ic-home-no-image"))
     }
 
-    @IBAction func deleteFavoriteButtonTouchUpInside(_ sender: Any) {
+    @IBAction private func deleteFavoriteButtonTouchUpInside(_ sender: Any) {
         delegate?.cell(self, needPerforms: .delete)
     }
 }

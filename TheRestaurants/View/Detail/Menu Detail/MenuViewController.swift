@@ -11,7 +11,7 @@ protocol MenuViewControllerDelegate: class {
 
     func viewController(_ viewController: MenuViewController, needPerform action: OverviewViewController.Action)
 }
-class MenuViewController: UIViewController {
+final class MenuViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)

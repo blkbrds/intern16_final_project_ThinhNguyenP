@@ -10,17 +10,27 @@ import Foundation
 import RealmSwift
 
 protocol FavoriteViewModelDelegate: class {
-     func syncFavorite(viewModel: FavoriteViewModel, needPerforms action: FavoriteViewModel.Action)
+
+    func syncFavorite(viewModel: FavoriteViewModel, needPerforms action: FavoriteViewModel.Action)
 }
 
-class FavoriteViewModel {
+final class FavoriteViewModel {
 
     enum Action {
         case reloadData
         case fail(Error)
     }
 
-    var restautants: [Restaurant] = []
+    var restautants: [Restaurant] = [] {
+        didSet {
+            restautants = restautants.sorted(by: { (first, second) -> Bool in
+                guard let firstRestaurant = first.name, let secondRestaurant = second.name else {
+                    return false
+                }
+                return firstRestaurant < secondRestaurant
+            })
+        }
+    }
     var isEmpty: Bool {
         return restautants.isEmpty
     }

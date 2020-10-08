@@ -8,7 +8,7 @@
 
 import Foundation
 
-class ListCollectionsCellModel {
+final class ListCollectionsCellModel {
 
     var collections: [Collection]
     init (collections: [Collection] = [] ) {

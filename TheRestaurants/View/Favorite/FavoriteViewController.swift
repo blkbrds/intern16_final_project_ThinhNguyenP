@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FavoriteViewController: BaseViewController {
+final class FavoriteViewController: BaseViewController {
 
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private weak var emptyView: UIView!
