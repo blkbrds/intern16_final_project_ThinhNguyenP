@@ -33,11 +33,7 @@ final class ReviewCell: UITableViewCell {
         commentLabel.text = "\(viewModel.review.commentCount ?? 0)"
         timeReviewLabel.text = viewModel.review.reviewTime
         reviewTextLabel.text = viewModel.review.reviewText
-        if reviewTextLabel.text == "" {
-            lineView.isHidden = true
-        } else {
-             lineView.isHidden = false
-        }
+        lineView.isHidden = reviewTextLabel.text == ""
         stars.forEach { (starImg) in
             if starImg.tag > viewModel.review.rating ?? 0 {
                 starImg.image = #imageLiteral(resourceName: "ic_ratingstar_detail.png")
