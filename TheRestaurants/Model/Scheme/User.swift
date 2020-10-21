@@ -22,4 +22,6 @@ final class User: Mappable {
         name <- map["name"]
         imageUrl <- map["profile_image"]
     }
+    
+    var id: 
 }
